@@ -1,0 +1,28 @@
+{
+  "packageVersion": "1.4.4",
+  "upstream": "https://github.com/RapidAI/RapidOCR",
+  "modelOrigin": "PaddleOCR PP-OCR ONNX conversion, bundled by installed RapidOCR distribution",
+  "models": [
+    {
+      "filename": "models/ch_PP-OCRv4_det_infer.onnx",
+      "sha256": "d2a7720d45a54257208b1e13e36a8479894cb74155a5efe29462512d42f49da9",
+      "bytes": 4745517
+    },
+    {
+      "filename": "models/ch_PP-OCRv4_rec_infer.onnx",
+      "sha256": "48fc40f24f6d2a207a2b1091d3437eb3cc3eb6b676dc3ef9c37384005483683b",
+      "bytes": 10857958
+    },
+    {
+      "filename": "models/ch_ppocr_mobile_v2.0_cls_infer.onnx",
+      "sha256": "e47acedf663230f8863ff1ab0e64dd2d82b838fceb5957146dab185a89d6215c",
+      "bytes": 585532
+    }
+  ],
+  "configuration": [
+    {
+      "filename": "config.yaml",
+      "contents": "Global:\n    text_score: 0.5\n    use_det: true\n    use_cls: true\n    use_rec: true\n    print_verbose: false\n    min_height: 30\n    width_height_ratio: 8\n    max_side_len: 2000\n    min_side_len: 30\n    return_word_box: false\n\n    intra_op_num_threads: &intra_nums -1\n    inter_op_num_threads: &inter_nums -1\n\nDet:\n    intra_op_num_threads: *intra_nums\n    inter_op_num_threads: *inter_nums\n\n    use_cuda: false\n    use_dml: false\n\n    model_path: models/ch_PP-OCRv4_det_infer.onnx\n\n    limit_side_len: 736\n    limit_type: min\n    std: [ 0.5, 0.5, 0.5 ]\n    mean: [ 0.5, 0.5, 0.5 ]\n\n    thresh: 0.3\n    box_thresh: 0.5\n    max_candidates: 1000\n    unclip_ratio: 1.6\n    use_dilation: true\n    score_mode: fast\n\nCls:\n    intra_op_num_threads: *intra_nums\n    inter_op_num_threads: *inter_nums\n\n    use_cuda: false\n    use_dml: false\n\n    model_path: models/ch_ppocr_mobile_v2.0_cls_infer.onnx\n\n    cls_image_shape: [3, 48, 192]\n    cls_batch_num: 6\n    cls_thresh: 0.9\n    label_list: ['0', '180']\n\nRec:\n    intra_op_num_threads: *intra_nums\n    inter_op_num_threads: *inter_nums\n\n    use_cuda: false\n    use_dml: false\n\n    model_path: models/ch_PP-OCRv4_rec_infer.onnx\n\n    rec_img_shape: [3, 48, 320]\n    rec_batch_num: 6\n"
+    }
+  ]
+}

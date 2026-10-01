@@ -1,0 +1,10 @@
+fastapi>=0.115,<1
+uvicorn>=0.30,<1
+SQLAlchemy>=2.0,<3
+python-multipart>=0.0.18
+rapidocr-onnxruntime>=1.4,<2
+pypdf>=5,<7
+Pillow>=10,<13
+httpx>=0.27,<1
+pytest>=8,<10
+reportlab>=4,<5

@@ -1,0 +1,260 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-01T10:20:53.021542+00:00",
+  "title": "Design System: 物生 Wusheng",
+  "extensions": {
+    "colorMeta": {
+      "green": {
+        "role": "primary",
+        "displayName": "自然绿"
+      },
+      "accent": {
+        "role": "primary",
+        "displayName": "明亮绿"
+      },
+      "green-soft": {
+        "role": "primary",
+        "displayName": "浅绿"
+      },
+      "canvas": {
+        "role": "neutral",
+        "displayName": "浅色画布"
+      },
+      "surface": {
+        "role": "neutral",
+        "displayName": "白色面板"
+      },
+      "text": {
+        "role": "neutral",
+        "displayName": "深色正文"
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "次级灰"
+      },
+      "line": {
+        "role": "neutral",
+        "displayName": "轻分隔线"
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "首页主标题",
+        "purpose": "首页品牌句的响应式大标题。"
+      },
+      "headline": {
+        "displayName": "页面标题",
+        "purpose": "工作页一级标题。"
+      },
+      "title": {
+        "displayName": "面板标题",
+        "purpose": "三级标题与内容区标题。"
+      },
+      "label": {
+        "displayName": "状态标签",
+        "purpose": "状态文字与紧凑标签。"
+      }
+    },
+    "shadows": [
+      {
+        "name": "card",
+        "value": "0 5px 22px rgba(27, 70, 43, 0.035)",
+        "purpose": "共享卡片轻阴影，对应 --shadow。"
+      },
+      {
+        "name": "button-primary",
+        "value": "0 4px 10px #118b5010",
+        "purpose": "主要按钮。"
+      },
+      {
+        "name": "search-results",
+        "value": "0 12px 35px #20352716",
+        "purpose": "全局搜索结果浮层。"
+      },
+      {
+        "name": "drawer",
+        "value": "-10px 0 50px #1634210d",
+        "purpose": "右侧抽屉边界。"
+      },
+      {
+        "name": "toast",
+        "value": "0 8px 25px #153e2820",
+        "purpose": "底部状态反馈。"
+      },
+      {
+        "name": "hero-demo",
+        "value": "0 16px 35px #3a5b3b17",
+        "purpose": "首页产品演示表面。"
+      }
+    ],
+    "motion": [
+      {
+        "name": "control-transition",
+        "value": "180ms",
+        "purpose": "按钮、导航、筛选的 CSS 状态过渡。"
+      },
+      {
+        "name": "route-enter",
+        "value": "220ms easeOut",
+        "purpose": "页面淡入并从 y=6px 进入，减弱动态时关闭初始运动。"
+      },
+      {
+        "name": "drawer-enter",
+        "value": "250ms easeOut",
+        "purpose": "抽屉从右进入。"
+      },
+      {
+        "name": "item-image-hover",
+        "value": "500ms",
+        "purpose": "物品图片缩放至 1.03。"
+      },
+      {
+        "name": "hero-plant-transition",
+        "value": "700ms",
+        "purpose": "首页植物随鼠标轻移；减弱动态时关闭。"
+      },
+      {
+        "name": "skeleton",
+        "value": "1.6s infinite",
+        "purpose": "骨架加载 shimmer。"
+      },
+      {
+        "name": "reduced-motion",
+        "value": "0.01ms",
+        "purpose": "CSS 过渡与动画缩短，重复动画只执行一次。"
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "wide",
+        "value": "1700px"
+      },
+      {
+        "name": "compact-desktop",
+        "value": "1400px"
+      },
+      {
+        "name": "narrow-desktop",
+        "value": "1150px"
+      },
+      {
+        "name": "statistics-flow",
+        "value": "1000px"
+      },
+      {
+        "name": "icon-navigation",
+        "value": "800px"
+      },
+      {
+        "name": "phone",
+        "value": "480px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "主要按钮",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "共享操作按钮的主要按钮变体。",
+      "html": "<button type=\"button\" class=\"ds-btn-primary\">保存物品</button>",
+      "css": ".ds-btn-primary{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:12px 20px;min-height:44px;border-radius:11px;font-size:14px;white-space:nowrap;font-weight:550;border:0;cursor:pointer;transition:background .18s,transform .18s;font-family:Inter,-apple-system,BlinkMacSystemFont,\"Segoe UI\",\"Microsoft YaHei\",sans-serif;background:var(--green,#118b50);color:white;box-shadow:0 4px 10px #118b5010;}.ds-btn-primary:hover{transform:translateY(-1px);background:#0a7743;}.ds-btn-primary:focus-visible{outline:2px solid var(--accent,#16a361);outline-offset:3px;}.ds-btn-primary:disabled{cursor:not-allowed;opacity:.5;}@media(prefers-reduced-motion:reduce){.ds-btn-primary{transition-duration:.01ms!important;}}"
+    },
+    {
+      "name": "次级按钮",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "共享操作按钮的次级按钮变体。",
+      "html": "<button type=\"button\" class=\"ds-btn-secondary\">取消</button>",
+      "css": ".ds-btn-secondary{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:12px 20px;min-height:44px;border-radius:11px;font-size:14px;white-space:nowrap;font-weight:550;border:0;cursor:pointer;transition:background .18s,transform .18s;font-family:Inter,-apple-system,BlinkMacSystemFont,\"Segoe UI\",\"Microsoft YaHei\",sans-serif;border:1px solid #dee6e1;background:white;color:#344054;}.ds-btn-secondary:hover{transform:translateY(-1px);}.ds-btn-secondary:focus-visible{outline:2px solid var(--accent,#16a361);outline-offset:3px;}.ds-btn-secondary:disabled{cursor:not-allowed;opacity:.5;}@media(prefers-reduced-motion:reduce){.ds-btn-secondary{transition-duration:.01ms!important;}}"
+    },
+    {
+      "name": "描边按钮",
+      "kind": "button",
+      "refersTo": "button-outline",
+      "description": "共享操作按钮的描边按钮变体。",
+      "html": "<button type=\"button\" class=\"ds-btn-outline\">查看记录</button>",
+      "css": ".ds-btn-outline{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:12px 20px;min-height:44px;border-radius:11px;font-size:14px;white-space:nowrap;font-weight:550;border:0;cursor:pointer;transition:background .18s,transform .18s;font-family:Inter,-apple-system,BlinkMacSystemFont,\"Segoe UI\",\"Microsoft YaHei\",sans-serif;border:1px solid #118b5070;color:var(--green,#118b50);background:#fcfefc;}.ds-btn-outline:hover{transform:translateY(-1px);}.ds-btn-outline:focus-visible{outline:2px solid var(--accent,#16a361);outline-offset:3px;}.ds-btn-outline:disabled{cursor:not-allowed;opacity:.5;}@media(prefers-reduced-motion:reduce){.ds-btn-outline{transition-duration:.01ms!important;}}"
+    },
+    {
+      "name": "柔和按钮",
+      "kind": "button",
+      "refersTo": "button-soft",
+      "description": "共享操作按钮的柔和按钮变体。",
+      "html": "<button type=\"button\" class=\"ds-btn-soft\">稍后提醒</button>",
+      "css": ".ds-btn-soft{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:12px 20px;min-height:44px;border-radius:11px;font-size:14px;white-space:nowrap;font-weight:550;border:0;cursor:pointer;transition:background .18s,transform .18s;font-family:Inter,-apple-system,BlinkMacSystemFont,\"Segoe UI\",\"Microsoft YaHei\",sans-serif;color:var(--green,#118b50);background:#ecf8f1;}.ds-btn-soft:hover{transform:translateY(-1px);}.ds-btn-soft:focus-visible{outline:2px solid var(--accent,#16a361);outline-offset:3px;}.ds-btn-soft:disabled{cursor:not-allowed;opacity:.5;}@media(prefers-reduced-motion:reduce){.ds-btn-soft{transition-duration:.01ms!important;}}"
+    },
+    {
+      "name": "文字字段",
+      "kind": "input",
+      "refersTo": "field",
+      "description": "带可访问名称的白色字段，绿色焦点边框。",
+      "html": "<input class=\"ds-field\" aria-label=\"物品名称\" placeholder=\"输入物品名称\" />",
+      "css": ".ds-field{font-family:Inter,-apple-system,BlinkMacSystemFont,\"Segoe UI\",\"Microsoft YaHei\",sans-serif;border:1px solid var(--line,#e7ece9);border-radius:9px;background:white;padding:10px 12px;color:#344054;min-width:0;caret-color:var(--green,#118b50);}.ds-field::placeholder{color:#75827b;}.ds-field:focus{border-color:var(--green,#118b50);}.ds-field:focus-visible{outline:2px solid var(--accent,#16a361);outline-offset:3px;}"
+    },
+    {
+      "name": "侧栏导航",
+      "kind": "nav",
+      "refersTo": "navigation",
+      "description": "图标加文字，浅绿选中状态与可见焦点。",
+      "html": "<nav class=\"ds-nav\" aria-label=\"导航示例\"><a class=\"ds-nav-item ds-current\" href=\"#items\" aria-current=\"page\"><svg width=\"21\" height=\"21\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z\"/><path d=\"m3.3 7 8.7 5 8.7-5M12 22V12M7.5 4.27l9 5.15\"/></svg><span>我的物品</span></a><a class=\"ds-nav-item\" href=\"#new\"><svg width=\"21\" height=\"21\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z\"/><path d=\"m3.3 7 8.7 5 8.7-5M12 22V12M7.5 4.27l9 5.15\"/></svg><span>添加物品</span></a></nav>",
+      "css": ".ds-nav{display:grid;gap:8px;width:198px;font-family:Inter,-apple-system,BlinkMacSystemFont,\"Segoe UI\",\"Microsoft YaHei\",sans-serif;}.ds-nav-item{height:52px;display:flex;align-items:center;gap:19px;padding:0 21px;border-radius:13px;color:#536078;text-decoration:none;transition:background .18s,color .18s;}.ds-nav-item:hover{background:#f5f9f6;color:var(--green,#118b50);}.ds-nav-item.ds-current{background:#ecf8f1;color:#087f46;font-weight:650;}.ds-nav-item:focus-visible{outline:2px solid var(--accent,#16a361);outline-offset:3px;}@media(prefers-reduced-motion:reduce){.ds-nav-item{transition-duration:.01ms!important;}}"
+    },
+    {
+      "name": "正常状态标签",
+      "kind": "chip",
+      "refersTo": "badge-green",
+      "description": "状态文字与浅绿底色一起传达含义。",
+      "html": "<span class=\"ds-badge\">正常使用</span>",
+      "css": ".ds-badge{display:inline-flex;border-radius:30px;font-family:Inter,-apple-system,BlinkMacSystemFont,\"Segoe UI\",\"Microsoft YaHei\",sans-serif;font-size:11px;padding:6px 12px;white-space:nowrap;font-weight:600;line-height:1.2;background:#ecf8f1;color:#09874b;}"
+    },
+    {
+      "name": "筛选胶囊",
+      "kind": "chip",
+      "refersTo": "filter",
+      "description": "未选中中性底色，当前筛选实心自然绿。",
+      "html": "<div class=\"ds-filters\"><button class=\"ds-filter ds-selected\" type=\"button\" aria-pressed=\"true\">全部</button><button class=\"ds-filter\" type=\"button\" aria-pressed=\"false\">保修中</button></div>",
+      "css": ".ds-filters{display:flex;gap:7px;flex-wrap:wrap;}.ds-filter{font-family:Inter,-apple-system,BlinkMacSystemFont,\"Segoe UI\",\"Microsoft YaHei\",sans-serif;padding:9px 23px;background:#eef2f1;border-radius:24px;font-size:13px;color:#48556c;border:0;cursor:pointer;transition:background .18s;}.ds-filter.ds-selected{color:white;background:var(--green,#118b50);font-weight:650;}.ds-filter:focus-visible{outline:2px solid var(--accent,#16a361);outline-offset:3px;}@media(prefers-reduced-motion:reduce){.ds-filter{transition-duration:.01ms!important;}}"
+    },
+    {
+      "name": "物品卡片",
+      "kind": "card",
+      "refersTo": "card",
+      "description": "白色轻阴影容器、照片占位与物品信息。",
+      "html": "<article class=\"ds-card\"><a class=\"ds-card-link\" href=\"#item\"><div class=\"ds-photo-empty\"><svg width=\"21\" height=\"21\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z\"/><path d=\"m3.3 7 8.7 5 8.7-5M12 22V12M7.5 4.27l9 5.15\"/></svg><span>尚未添加照片</span></div><div class=\"ds-item-copy\"><h3>我的物品</h3><p>品牌 · 型号</p><footer>已过保 · 继续好好使用</footer></div></a></article>",
+      "css": ".ds-card{font-family:Inter,-apple-system,BlinkMacSystemFont,\"Segoe UI\",\"Microsoft YaHei\",sans-serif;width:280px;background:#fff;border-radius:16px;overflow:hidden;box-shadow:var(--shadow,0 5px 22px rgba(27,70,43,.035));transition:transform .18s;}.ds-card:hover{transform:translateY(-3px);}.ds-card-link{display:block;color:#17202a;text-decoration:none;}.ds-card-link:focus-visible{outline:2px solid var(--accent,#16a361);outline-offset:3px;}.ds-photo-empty{aspect-ratio:1.65;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;background:#edf4ef;color:#60766a;font-size:12px;}.ds-photo-empty svg{width:36px;height:36px;}.ds-item-copy{padding:15px 17px 16px;}.ds-item-copy h3{margin:0;font-size:16px;font-weight:650;line-height:1.45;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}.ds-item-copy p{font-size:12px;margin:4px 0 15px;color:var(--muted,#667085);line-height:1.75;}.ds-item-copy footer{font-size:12px;color:#3a4b60;}@media(prefers-reduced-motion:reduce){.ds-card{transition-duration:.01ms!important;}}"
+    },
+    {
+      "name": "上传区域",
+      "kind": "custom",
+      "refersTo": "dropzone",
+      "description": "虚线边界、居中提示和上传动作；拖入时转绿。",
+      "html": "<section class=\"ds-dropzone\"><h3>上传物品相关图片</h3><p>拖放文件到这里，或选择图片</p><button class=\"ds-upload-button\" type=\"button\">选择图片</button></section>",
+      "css": ".ds-dropzone{font-family:Inter,-apple-system,BlinkMacSystemFont,\"Segoe UI\",\"Microsoft YaHei\",sans-serif;position:relative;border:1px dashed #c4d7cc;border-radius:12px;min-height:280px;display:flex;align-items:center;flex-direction:column;justify-content:center;padding:28px 14px;background:#fbfdfb;overflow:hidden;color:#17202a;}.ds-dropzone.ds-dragging{border-color:var(--green,#118b50);background:#e6f7ed;}.ds-dropzone h3{margin:0;font-size:16px;line-height:1.45;font-weight:650;}.ds-dropzone p{font-size:12px;color:var(--muted,#667085);line-height:1.75;margin:9px 0 18px;}.ds-upload-button{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:12px 20px;min-height:44px;border-radius:11px;font-size:14px;white-space:nowrap;font-weight:550;border:0;cursor:pointer;transition:background .18s,transform .18s;font-family:Inter,-apple-system,BlinkMacSystemFont,\"Segoe UI\",\"Microsoft YaHei\",sans-serif;border-radius:25px;min-width:155px;background:var(--green,#118b50);color:white;box-shadow:0 4px 10px #118b5010;}.ds-upload-button:hover{background:#0a7743;transform:translateY(-1px);}.ds-upload-button:focus-visible{outline:2px solid var(--accent,#16a361);outline-offset:3px;}@media(prefers-reduced-motion:reduce){.ds-upload-button{transition-duration:.01ms!important;}}"
+    }
+  ],
+  "narrative": {
+    "northStar": "让每一件物品，都被好好对待",
+    "overview": "自然、温暖、克制。白色内容面板与浅色画布承载家庭物品档案，自然绿标记行动和当前状态。植物照片、叶片标志与轻微绿色氛围出现在品牌区域，日常工作页面以内容和真实物品照片为中心。\n\n所有页面共享同一侧栏、工具栏、标题和卡片语言。桌面布局提供充分信息密度，窄屏通过重排与收起导航文字保留操作。以用户九张设计稿为视觉权威，最新文字约束确定无账户、头像、设置或商业模块。[九张稿逐页分析](docs/references/ui-analysis.md) 保留参考来源，本文记录当前实现。规范提取自 `frontend/src/styles.css`、`frontend/src/components/ui.tsx`、`frontend/src/components/AppShell.tsx` 与 `frontend/src/App.tsx`。",
+    "keyCharacteristics": [
+      "自然绿与白色为主要视觉语言。",
+      "系统中文字体与简洁无衬线文字。",
+      "统一八项导航、圆角面板与轻阴影。",
+      "物品照片、状态文字和来源证据共同传达信息。",
+      "可见键盘焦点，遵循减弱动态偏好。"
+    ],
+    "rules": [],
+    "dos": [
+      "Do 保持自然绿、白色面板和浅色画布的统一视觉语言。",
+      "Do 复用八项侧栏、工具栏和共享组件，遵守实际响应式重排。",
+      "Do 用状态文字、标签和来源证据共同表达信息。",
+      "Do 保留可见键盘焦点、表单标签和减弱动态支持。"
+    ],
+    "donts": [
+      "Don't 加入账户、头像、设置或商业推广模块。",
+      "Don't 将蓝色信息点扩展为蓝色大屏或替代自然绿主色。",
+      "Don't 以占位文字替代字段标签，或只以颜色传达状态。",
+      "Don't 采用无依据的准确率、统计数或来源装饰来制造可信感。"
+    ]
+  }
+}

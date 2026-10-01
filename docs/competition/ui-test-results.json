@@ -1,0 +1,13 @@
+{
+  "runDate": "2026-10-06",
+  "testRunner": "Playwright",
+  "result": "passed",
+  "expected": 14,
+  "skipped": 0,
+  "unexpected": 0,
+  "flaky": 0,
+  "durationMilliseconds": 83831,
+  "workerCount": 1,
+  "pageErrors": [],
+  "environment": "Windows, Node.js 24.15.0, Microsoft Edge; isolated synthetic SQLite data"
+}

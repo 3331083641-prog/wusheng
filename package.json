@@ -1,0 +1,7 @@
+{
+  "name":"wusheng-dev-tools","private":true,
+  "scripts":{"format":"prettier --write frontend/src frontend/tests frontend/*.ts frontend/*.js","format:check":"prettier --check frontend/src frontend/tests frontend/*.ts frontend/*.js"},
+  "devDependencies": {
+    "prettier": "^3.9.9"
+  }
+}

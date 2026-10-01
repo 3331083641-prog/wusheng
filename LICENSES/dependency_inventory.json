@@ -1,0 +1,3705 @@
+[
+  {
+    "ecosystem": "npm",
+    "name": "@babel/code-frame",
+    "version": "7.29.7",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/babel/babel.git",
+      "directory": "packages/babel-code-frame"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/babel_code-frame-7.29.7-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@babel/compat-data",
+    "version": "7.29.7",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/babel/babel.git",
+      "directory": "packages/babel-compat-data"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/babel_compat-data-7.29.7-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@babel/core",
+    "version": "7.29.7",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/babel/babel.git",
+      "directory": "packages/babel-core"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/babel_core-7.29.7-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@babel/generator",
+    "version": "7.29.8",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/babel/babel.git",
+      "directory": "packages/babel-generator"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/babel_generator-7.29.8-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@babel/helper-compilation-targets",
+    "version": "7.29.7",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/babel/babel.git",
+      "directory": "packages/babel-helper-compilation-targets"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/babel_helper-compilation-targets-7.29.7-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@babel/helper-globals",
+    "version": "7.29.7",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/babel/babel.git",
+      "directory": "packages/babel-helper-globals"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/babel_helper-globals-7.29.7-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@babel/helper-module-imports",
+    "version": "7.29.7",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/babel/babel.git",
+      "directory": "packages/babel-helper-module-imports"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/babel_helper-module-imports-7.29.7-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@babel/helper-module-transforms",
+    "version": "7.29.7",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/babel/babel.git",
+      "directory": "packages/babel-helper-module-transforms"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/babel_helper-module-transforms-7.29.7-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@babel/helper-plugin-utils",
+    "version": "7.29.7",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/babel/babel.git",
+      "directory": "packages/babel-helper-plugin-utils"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/babel_helper-plugin-utils-7.29.7-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@babel/helper-string-parser",
+    "version": "7.29.7",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/babel/babel.git",
+      "directory": "packages/babel-helper-string-parser"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/babel_helper-string-parser-7.29.7-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@babel/helper-validator-identifier",
+    "version": "7.29.7",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/babel/babel.git",
+      "directory": "packages/babel-helper-validator-identifier"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/babel_helper-validator-identifier-7.29.7-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@babel/helper-validator-option",
+    "version": "7.29.7",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/babel/babel.git",
+      "directory": "packages/babel-helper-validator-option"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/babel_helper-validator-option-7.29.7-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@babel/helpers",
+    "version": "7.29.7",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/babel/babel.git",
+      "directory": "packages/babel-helpers"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/babel_helpers-7.29.7-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@babel/parser",
+    "version": "7.29.9",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/babel/babel.git",
+      "directory": "packages/babel-parser"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/babel_parser-7.29.9-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@babel/plugin-transform-react-jsx-self",
+    "version": "7.29.7",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/babel/babel.git",
+      "directory": "packages/babel-plugin-transform-react-jsx-self"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/babel_plugin-transform-react-jsx-self-7.29.7-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@babel/plugin-transform-react-jsx-source",
+    "version": "7.29.7",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/babel/babel.git",
+      "directory": "packages/babel-plugin-transform-react-jsx-source"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/babel_plugin-transform-react-jsx-source-7.29.7-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@babel/template",
+    "version": "7.29.7",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/babel/babel.git",
+      "directory": "packages/babel-template"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/babel_template-7.29.7-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@babel/traverse",
+    "version": "7.29.8",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/babel/babel.git",
+      "directory": "packages/babel-traverse"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/babel_traverse-7.29.8-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@babel/types",
+    "version": "7.29.8",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/babel/babel.git",
+      "directory": "packages/babel-types"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/babel_types-7.29.8-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@esbuild/win32-x64",
+    "version": "0.28.2",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/evanw/esbuild.git"
+    },
+    "licenseFiles": []
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@eslint-community/eslint-utils",
+    "version": "4.10.1",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/eslint-community/eslint-utils"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/eslint-community_eslint-utils-4.10.1-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "eslint-visitor-keys",
+    "version": "3.4.3",
+    "license": "Apache-2.0",
+    "repository": "eslint/eslint-visitor-keys",
+    "licenseFiles": [
+      "LICENSES/dependencies/eslint-visitor-keys-3.4.3-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@eslint-community/regexpp",
+    "version": "4.12.2",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/eslint-community/regexpp"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/eslint-community_regexpp-4.12.2-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@eslint/config-array",
+    "version": "0.21.2",
+    "license": "Apache-2.0",
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/eslint/rewrite.git",
+      "directory": "packages/config-array"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/eslint_config-array-0.21.2-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@eslint/config-helpers",
+    "version": "0.4.2",
+    "license": "Apache-2.0",
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/eslint/rewrite.git",
+      "directory": "packages/config-helpers"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/eslint_config-helpers-0.4.2-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@eslint/core",
+    "version": "0.17.0",
+    "license": "Apache-2.0",
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/eslint/rewrite.git",
+      "directory": "packages/core"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/eslint_core-0.17.0-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@eslint/eslintrc",
+    "version": "3.3.7",
+    "license": "MIT",
+    "repository": "eslint/eslintrc",
+    "licenseFiles": [
+      "LICENSES/dependencies/eslint_eslintrc-3.3.7-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "globals",
+    "version": "14.0.0",
+    "license": "MIT",
+    "repository": "sindresorhus/globals",
+    "licenseFiles": [
+      "LICENSES/dependencies/globals-14.0.0-license"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@eslint/js",
+    "version": "9.39.5",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/eslint/eslint.git",
+      "directory": "packages/js"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/eslint_js-9.39.5-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@eslint/object-schema",
+    "version": "2.1.7",
+    "license": "Apache-2.0",
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/eslint/rewrite.git",
+      "directory": "packages/object-schema"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/eslint_object-schema-2.1.7-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@eslint/plugin-kit",
+    "version": "0.4.1",
+    "license": "Apache-2.0",
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/eslint/rewrite.git",
+      "directory": "packages/plugin-kit"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/eslint_plugin-kit-0.4.1-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@humanfs/core",
+    "version": "0.19.2",
+    "license": "Apache-2.0",
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/humanwhocodes/humanfs.git"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/humanfs_core-0.19.2-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@humanfs/node",
+    "version": "0.16.8",
+    "license": "Apache-2.0",
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/humanwhocodes/humanfs.git",
+      "directory": "packages/node"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/humanfs_node-0.16.8-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@humanfs/types",
+    "version": "0.15.0",
+    "license": "Apache-2.0",
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/humanwhocodes/humanfs.git"
+    },
+    "licenseFiles": []
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@humanwhocodes/module-importer",
+    "version": "1.0.1",
+    "license": "Apache-2.0",
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/humanwhocodes/module-importer.git"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/humanwhocodes_module-importer-1.0.1-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@humanwhocodes/retry",
+    "version": "0.4.3",
+    "license": "Apache-2.0",
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/humanwhocodes/retry.git"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/humanwhocodes_retry-0.4.3-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@jridgewell/gen-mapping",
+    "version": "0.3.13",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/jridgewell/sourcemaps.git",
+      "directory": "packages/gen-mapping"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/jridgewell_gen-mapping-0.3.13-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@jridgewell/remapping",
+    "version": "2.3.5",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/jridgewell/sourcemaps.git",
+      "directory": "packages/remapping"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/jridgewell_remapping-2.3.5-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@jridgewell/resolve-uri",
+    "version": "3.1.2",
+    "license": "MIT",
+    "repository": "https://github.com/jridgewell/resolve-uri",
+    "licenseFiles": [
+      "LICENSES/dependencies/jridgewell_resolve-uri-3.1.2-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@jridgewell/sourcemap-codec",
+    "version": "1.6.0",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/jridgewell/sourcemaps.git",
+      "directory": "packages/sourcemap-codec"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/jridgewell_sourcemap-codec-1.6.0-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@jridgewell/trace-mapping",
+    "version": "0.3.31",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/jridgewell/sourcemaps.git",
+      "directory": "packages/trace-mapping"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/jridgewell_trace-mapping-0.3.31-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@playwright/test",
+    "version": "1.63.0",
+    "license": "Apache-2.0",
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/microsoft/playwright.git"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/playwright_test-1.63.0-LICENSE",
+      "LICENSES/dependencies/playwright_test-1.63.0-NOTICE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@reduxjs/toolkit",
+    "version": "2.13.0",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/reduxjs/redux-toolkit.git"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/reduxjs_toolkit-2.13.0-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@rolldown/pluginutils",
+    "version": "1.0.0-rc.3",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/rolldown/rolldown.git",
+      "directory": "packages/pluginutils"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/rolldown_pluginutils-1.0.0-rc.3-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@rollup/rollup-win32-x64-gnu",
+    "version": "4.63.6",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/rollup/rollup.git"
+    },
+    "licenseFiles": []
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@rollup/rollup-win32-x64-msvc",
+    "version": "4.63.6",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/rollup/rollup.git"
+    },
+    "licenseFiles": []
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@standard-schema/spec",
+    "version": "1.1.0",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/standard-schema/standard-schema"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/standard-schema_spec-1.1.0-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@standard-schema/utils",
+    "version": "0.3.0",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/standard-schema/standard-schema"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/standard-schema_utils-0.3.0-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@types/babel__core",
+    "version": "7.20.5",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
+      "directory": "types/babel__core"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/types_babel__core-7.20.5-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@types/babel__generator",
+    "version": "7.27.0",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
+      "directory": "types/babel__generator"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/types_babel__generator-7.27.0-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@types/babel__template",
+    "version": "7.4.4",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
+      "directory": "types/babel__template"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/types_babel__template-7.4.4-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@types/babel__traverse",
+    "version": "7.28.0",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
+      "directory": "types/babel__traverse"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/types_babel__traverse-7.28.0-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@types/d3-array",
+    "version": "3.2.2",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
+      "directory": "types/d3-array"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/types_d3-array-3.2.2-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@types/d3-color",
+    "version": "3.1.3",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
+      "directory": "types/d3-color"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/types_d3-color-3.1.3-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@types/d3-ease",
+    "version": "3.0.2",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
+      "directory": "types/d3-ease"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/types_d3-ease-3.0.2-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@types/d3-interpolate",
+    "version": "3.0.4",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
+      "directory": "types/d3-interpolate"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/types_d3-interpolate-3.0.4-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@types/d3-path",
+    "version": "3.1.1",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
+      "directory": "types/d3-path"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/types_d3-path-3.1.1-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@types/d3-scale",
+    "version": "4.0.9",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
+      "directory": "types/d3-scale"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/types_d3-scale-4.0.9-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@types/d3-shape",
+    "version": "3.2.0",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
+      "directory": "types/d3-shape"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/types_d3-shape-3.2.0-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@types/d3-time",
+    "version": "3.0.4",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
+      "directory": "types/d3-time"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/types_d3-time-3.0.4-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@types/d3-timer",
+    "version": "3.0.2",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
+      "directory": "types/d3-timer"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/types_d3-timer-3.0.2-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@types/estree",
+    "version": "1.0.9",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
+      "directory": "types/estree"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/types_estree-1.0.9-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@types/json-schema",
+    "version": "7.0.15",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
+      "directory": "types/json-schema"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/types_json-schema-7.0.15-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@types/node",
+    "version": "26.6.3",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
+      "directory": "types/node"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/types_node-26.6.3-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@types/qrcode",
+    "version": "1.5.6",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
+      "directory": "types/qrcode"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/types_qrcode-1.5.6-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@types/react",
+    "version": "19.3.0",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
+      "directory": "types/react"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/types_react-19.3.0-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@types/react-dom",
+    "version": "19.3.0",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
+      "directory": "types/react-dom"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/types_react-dom-19.3.0-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@types/use-sync-external-store",
+    "version": "0.0.6",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
+      "directory": "types/use-sync-external-store"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/types_use-sync-external-store-0.0.6-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@typescript-eslint/eslint-plugin",
+    "version": "8.71.0",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/typescript-eslint/typescript-eslint.git",
+      "directory": "packages/eslint-plugin"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/typescript-eslint_eslint-plugin-8.71.0-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "ignore",
+    "version": "7.0.11",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/kaelzhang/node-ignore.git"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/ignore-7.0.11-LICENSE-MIT"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@typescript-eslint/parser",
+    "version": "8.71.0",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/typescript-eslint/typescript-eslint.git",
+      "directory": "packages/parser"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/typescript-eslint_parser-8.71.0-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@typescript-eslint/project-service",
+    "version": "8.71.0",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/typescript-eslint/typescript-eslint.git",
+      "directory": "packages/project-service"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/typescript-eslint_project-service-8.71.0-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@typescript-eslint/scope-manager",
+    "version": "8.71.0",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/typescript-eslint/typescript-eslint.git",
+      "directory": "packages/scope-manager"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/typescript-eslint_scope-manager-8.71.0-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@typescript-eslint/tsconfig-utils",
+    "version": "8.71.0",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/typescript-eslint/typescript-eslint.git",
+      "directory": "packages/tsconfig-utils"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/typescript-eslint_tsconfig-utils-8.71.0-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@typescript-eslint/type-utils",
+    "version": "8.71.0",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/typescript-eslint/typescript-eslint.git",
+      "directory": "packages/type-utils"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/typescript-eslint_type-utils-8.71.0-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@typescript-eslint/types",
+    "version": "8.71.0",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/typescript-eslint/typescript-eslint.git",
+      "directory": "packages/types"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/typescript-eslint_types-8.71.0-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@typescript-eslint/typescript-estree",
+    "version": "8.71.0",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/typescript-eslint/typescript-eslint.git",
+      "directory": "packages/typescript-estree"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/typescript-eslint_typescript-estree-8.71.0-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "balanced-match",
+    "version": "4.0.4",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "git://github.com/juliangruber/balanced-match.git"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/balanced-match-4.0.4-LICENSE.md"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "brace-expansion",
+    "version": "5.0.12",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/juliangruber/brace-expansion.git"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/brace-expansion-5.0.12-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "minimatch",
+    "version": "10.2.6",
+    "license": "BlueOak-1.0.0",
+    "repository": {
+      "type": "git",
+      "url": "git@github.com:isaacs/minimatch"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/minimatch-10.2.6-LICENSE.md"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "semver",
+    "version": "7.8.5",
+    "license": "ISC",
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/npm/node-semver.git"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/semver-7.8.5-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@typescript-eslint/utils",
+    "version": "8.71.0",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/typescript-eslint/typescript-eslint.git",
+      "directory": "packages/utils"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/typescript-eslint_utils-8.71.0-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@typescript-eslint/visitor-keys",
+    "version": "8.71.0",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/typescript-eslint/typescript-eslint.git",
+      "directory": "packages/visitor-keys"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/typescript-eslint_visitor-keys-8.71.0-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "eslint-visitor-keys",
+    "version": "5.0.1",
+    "license": "Apache-2.0",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/eslint/js.git",
+      "directory": "packages/eslint-visitor-keys"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/eslint-visitor-keys-5.0.1-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "@vitejs/plugin-react",
+    "version": "5.2.0",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/vitejs/vite-plugin-react.git",
+      "directory": "packages/plugin-react"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/vitejs_plugin-react-5.2.0-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "acorn",
+    "version": "8.18.0",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/acornjs/acorn.git"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/acorn-8.18.0-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "acorn-jsx",
+    "version": "5.3.2",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/acornjs/acorn-jsx"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/acorn-jsx-5.3.2-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "ajv",
+    "version": "6.15.0",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/ajv-validator/ajv.git"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/ajv-6.15.0-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "ansi-regex",
+    "version": "5.0.1",
+    "license": "MIT",
+    "repository": "chalk/ansi-regex",
+    "licenseFiles": [
+      "LICENSES/dependencies/ansi-regex-5.0.1-license"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "ansi-styles",
+    "version": "4.3.0",
+    "license": "MIT",
+    "repository": "chalk/ansi-styles",
+    "licenseFiles": [
+      "LICENSES/dependencies/ansi-styles-4.3.0-license"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "argparse",
+    "version": "2.0.1",
+    "license": "Python-2.0",
+    "repository": "nodeca/argparse",
+    "licenseFiles": [
+      "LICENSES/dependencies/argparse-2.0.1-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "balanced-match",
+    "version": "1.0.2",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "git://github.com/juliangruber/balanced-match.git"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/balanced-match-1.0.2-LICENSE.md"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "baseline-browser-mapping",
+    "version": "2.11.26",
+    "license": "Apache-2.0",
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/web-platform-dx/baseline-browser-mapping.git"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/baseline-browser-mapping-2.11.26-LICENSE.txt"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "brace-expansion",
+    "version": "1.1.21",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "git://github.com/juliangruber/brace-expansion.git"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/brace-expansion-1.1.21-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "browserslist",
+    "version": "4.29.3",
+    "license": "MIT",
+    "repository": "browserslist/browserslist",
+    "licenseFiles": [
+      "LICENSES/dependencies/browserslist-4.29.3-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "callsites",
+    "version": "3.1.0",
+    "license": "MIT",
+    "repository": "sindresorhus/callsites",
+    "licenseFiles": [
+      "LICENSES/dependencies/callsites-3.1.0-license"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "camelcase",
+    "version": "5.3.1",
+    "license": "MIT",
+    "repository": "sindresorhus/camelcase",
+    "licenseFiles": [
+      "LICENSES/dependencies/camelcase-5.3.1-license"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "caniuse-lite",
+    "version": "1.0.30001814",
+    "license": "CC-BY-4.0",
+    "repository": "browserslist/caniuse-lite",
+    "licenseFiles": [
+      "LICENSES/dependencies/caniuse-lite-1.0.30001814-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "chalk",
+    "version": "4.1.2",
+    "license": "MIT",
+    "repository": "chalk/chalk",
+    "licenseFiles": [
+      "LICENSES/dependencies/chalk-4.1.2-license"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "cliui",
+    "version": "6.0.0",
+    "license": "ISC",
+    "repository": {
+      "type": "git",
+      "url": "http://github.com/yargs/cliui.git"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/cliui-6.0.0-LICENSE.txt"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "clsx",
+    "version": "2.1.1",
+    "license": "MIT",
+    "repository": "lukeed/clsx",
+    "licenseFiles": [
+      "LICENSES/dependencies/clsx-2.1.1-license"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "color-convert",
+    "version": "2.0.1",
+    "license": "MIT",
+    "repository": "Qix-/color-convert",
+    "licenseFiles": [
+      "LICENSES/dependencies/color-convert-2.0.1-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "color-name",
+    "version": "1.1.4",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "git@github.com:colorjs/color-name.git"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/color-name-1.1.4-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "concat-map",
+    "version": "0.0.1",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "git://github.com/substack/node-concat-map.git"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/concat-map-0.0.1-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "convert-source-map",
+    "version": "2.0.0",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "git://github.com/thlorenz/convert-source-map.git"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/convert-source-map-2.0.0-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "cookie",
+    "version": "1.1.1",
+    "license": "MIT",
+    "repository": "jshttp/cookie",
+    "licenseFiles": [
+      "LICENSES/dependencies/cookie-1.1.1-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "cross-spawn",
+    "version": "7.0.6",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "git@github.com:moxystudio/node-cross-spawn.git"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/cross-spawn-7.0.6-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "csstype",
+    "version": "3.2.3",
+    "license": "MIT",
+    "repository": "https://github.com/frenic/csstype",
+    "licenseFiles": [
+      "LICENSES/dependencies/csstype-3.2.3-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "d3-array",
+    "version": "3.2.4",
+    "license": "ISC",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/d3/d3-array.git"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/d3-array-3.2.4-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "d3-color",
+    "version": "3.1.0",
+    "license": "ISC",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/d3/d3-color.git"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/d3-color-3.1.0-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "d3-ease",
+    "version": "3.0.1",
+    "license": "BSD-3-Clause",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/d3/d3-ease.git"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/d3-ease-3.0.1-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "d3-format",
+    "version": "3.1.2",
+    "license": "ISC",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/d3/d3-format.git"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/d3-format-3.1.2-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "d3-interpolate",
+    "version": "3.0.1",
+    "license": "ISC",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/d3/d3-interpolate.git"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/d3-interpolate-3.0.1-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "d3-path",
+    "version": "3.1.0",
+    "license": "ISC",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/d3/d3-path.git"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/d3-path-3.1.0-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "d3-scale",
+    "version": "4.0.2",
+    "license": "ISC",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/d3/d3-scale.git"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/d3-scale-4.0.2-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "d3-shape",
+    "version": "3.2.0",
+    "license": "ISC",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/d3/d3-shape.git"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/d3-shape-3.2.0-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "d3-time",
+    "version": "3.1.0",
+    "license": "ISC",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/d3/d3-time.git"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/d3-time-3.1.0-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "d3-time-format",
+    "version": "4.1.0",
+    "license": "ISC",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/d3/d3-time-format.git"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/d3-time-format-4.1.0-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "d3-timer",
+    "version": "3.0.1",
+    "license": "ISC",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/d3/d3-timer.git"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/d3-timer-3.0.1-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "debug",
+    "version": "4.4.3",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "git://github.com/debug-js/debug.git"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/debug-4.4.3-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "decamelize",
+    "version": "1.2.0",
+    "license": "MIT",
+    "repository": "sindresorhus/decamelize",
+    "licenseFiles": [
+      "LICENSES/dependencies/decamelize-1.2.0-license"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "decimal.js-light",
+    "version": "2.5.1",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/MikeMcl/decimal.js-light.git"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/decimal.js-light-2.5.1-LICENCE.md"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "deep-is",
+    "version": "0.1.4",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "http://github.com/thlorenz/deep-is.git"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/deep-is-0.1.4-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "dijkstrajs",
+    "version": "1.0.3",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "git://github.com/tcort/dijkstrajs"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/dijkstrajs-1.0.3-LICENSE.md"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "electron-to-chromium",
+    "version": "1.5.443",
+    "license": "ISC",
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/Kilian/electron-to-chromium.git"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/electron-to-chromium-1.5.443-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "emoji-regex",
+    "version": "8.0.0",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/mathiasbynens/emoji-regex.git"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/emoji-regex-8.0.0-LICENSE-MIT.txt"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "es-toolkit",
+    "version": "1.52.0",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/toss/es-toolkit.git"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/es-toolkit-1.52.0-LICENSE",
+      "LICENSES/dependencies/es-toolkit-1.52.0-NOTICE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "esbuild",
+    "version": "0.28.2",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/evanw/esbuild.git"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/esbuild-0.28.2-LICENSE.md"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "escalade",
+    "version": "3.2.0",
+    "license": "MIT",
+    "repository": "lukeed/escalade",
+    "licenseFiles": [
+      "LICENSES/dependencies/escalade-3.2.0-license"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "escape-string-regexp",
+    "version": "4.0.0",
+    "license": "MIT",
+    "repository": "sindresorhus/escape-string-regexp",
+    "licenseFiles": [
+      "LICENSES/dependencies/escape-string-regexp-4.0.0-license"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "eslint",
+    "version": "9.39.5",
+    "license": "MIT",
+    "repository": "eslint/eslint",
+    "licenseFiles": [
+      "LICENSES/dependencies/eslint-9.39.5-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "eslint-plugin-react-hooks",
+    "version": "5.2.0",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/facebook/react.git",
+      "directory": "packages/eslint-plugin-react-hooks"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/eslint-plugin-react-hooks-5.2.0-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "eslint-scope",
+    "version": "8.4.0",
+    "license": "BSD-2-Clause",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/eslint/js.git",
+      "directory": "packages/eslint-scope"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/eslint-scope-8.4.0-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "eslint-visitor-keys",
+    "version": "4.2.1",
+    "license": "Apache-2.0",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/eslint/js.git",
+      "directory": "packages/eslint-visitor-keys"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/eslint-visitor-keys-4.2.1-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "espree",
+    "version": "10.4.0",
+    "license": "BSD-2-Clause",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/eslint/js.git",
+      "directory": "packages/espree"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/espree-10.4.0-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "esquery",
+    "version": "1.7.0",
+    "license": "BSD-3-Clause",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/estools/esquery.git"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/esquery-1.7.0-license.txt"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "esrecurse",
+    "version": "4.3.0",
+    "license": "BSD-2-Clause",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/estools/esrecurse.git"
+    },
+    "licenseFiles": []
+  },
+  {
+    "ecosystem": "npm",
+    "name": "estraverse",
+    "version": "5.3.0",
+    "license": "BSD-2-Clause",
+    "repository": {
+      "type": "git",
+      "url": "http://github.com/estools/estraverse.git"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/estraverse-5.3.0-LICENSE.BSD"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "esutils",
+    "version": "2.0.3",
+    "license": "BSD-2-Clause",
+    "repository": {
+      "type": "git",
+      "url": "http://github.com/estools/esutils.git"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/esutils-2.0.3-LICENSE.BSD"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "eventemitter3",
+    "version": "5.0.4",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "git://github.com/primus/eventemitter3.git"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/eventemitter3-5.0.4-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "fast-deep-equal",
+    "version": "3.1.3",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/epoberezkin/fast-deep-equal.git"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/fast-deep-equal-3.1.3-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "fast-json-stable-stringify",
+    "version": "2.1.0",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "git://github.com/epoberezkin/fast-json-stable-stringify.git"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/fast-json-stable-stringify-2.1.0-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "fast-levenshtein",
+    "version": "2.0.6",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/hiddentao/fast-levenshtein.git"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/fast-levenshtein-2.0.6-LICENSE.md"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "fdir",
+    "version": "6.5.0",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/thecodrr/fdir.git"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/fdir-6.5.0-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "file-entry-cache",
+    "version": "8.0.0",
+    "license": "MIT",
+    "repository": "jaredwray/file-entry-cache",
+    "licenseFiles": [
+      "LICENSES/dependencies/file-entry-cache-8.0.0-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "find-up",
+    "version": "5.0.0",
+    "license": "MIT",
+    "repository": "sindresorhus/find-up",
+    "licenseFiles": [
+      "LICENSES/dependencies/find-up-5.0.0-license"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "flat-cache",
+    "version": "4.0.1",
+    "license": "MIT",
+    "repository": "jaredwray/flat-cache",
+    "licenseFiles": [
+      "LICENSES/dependencies/flat-cache-4.0.1-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "flatted",
+    "version": "3.4.4",
+    "license": "ISC",
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/WebReflection/flatted.git"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/flatted-3.4.4-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "framer-motion",
+    "version": "12.43.0",
+    "license": "MIT",
+    "repository": "https://github.com/motiondivision/motion/",
+    "licenseFiles": [
+      "LICENSES/dependencies/framer-motion-12.43.0-LICENSE.md"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "gensync",
+    "version": "1.0.0-beta.2",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/loganfsmyth/gensync.git"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/gensync-1.0.0-beta.2-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "get-caller-file",
+    "version": "2.0.5",
+    "license": "ISC",
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/stefanpenner/get-caller-file.git"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/get-caller-file-2.0.5-LICENSE.md"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "glob-parent",
+    "version": "6.0.2",
+    "license": "ISC",
+    "repository": "gulpjs/glob-parent",
+    "licenseFiles": [
+      "LICENSES/dependencies/glob-parent-6.0.2-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "globals",
+    "version": "16.5.0",
+    "license": "MIT",
+    "repository": "sindresorhus/globals",
+    "licenseFiles": [
+      "LICENSES/dependencies/globals-16.5.0-license"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "has-flag",
+    "version": "4.0.0",
+    "license": "MIT",
+    "repository": "sindresorhus/has-flag",
+    "licenseFiles": [
+      "LICENSES/dependencies/has-flag-4.0.0-license"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "ignore",
+    "version": "5.3.2",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "git@github.com:kaelzhang/node-ignore.git"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/ignore-5.3.2-LICENSE-MIT"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "immer",
+    "version": "11.1.18",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/immerjs/immer.git"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/immer-11.1.18-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "import-fresh",
+    "version": "3.3.1",
+    "license": "MIT",
+    "repository": "sindresorhus/import-fresh",
+    "licenseFiles": [
+      "LICENSES/dependencies/import-fresh-3.3.1-license"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "imurmurhash",
+    "version": "0.1.4",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/jensyt/imurmurhash-js"
+    },
+    "licenseFiles": []
+  },
+  {
+    "ecosystem": "npm",
+    "name": "internmap",
+    "version": "2.0.3",
+    "license": "ISC",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/mbostock/internmap.git"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/internmap-2.0.3-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "is-extglob",
+    "version": "2.1.1",
+    "license": "MIT",
+    "repository": "jonschlinkert/is-extglob",
+    "licenseFiles": [
+      "LICENSES/dependencies/is-extglob-2.1.1-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "is-fullwidth-code-point",
+    "version": "3.0.0",
+    "license": "MIT",
+    "repository": "sindresorhus/is-fullwidth-code-point",
+    "licenseFiles": [
+      "LICENSES/dependencies/is-fullwidth-code-point-3.0.0-license"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "is-glob",
+    "version": "4.0.3",
+    "license": "MIT",
+    "repository": "micromatch/is-glob",
+    "licenseFiles": [
+      "LICENSES/dependencies/is-glob-4.0.3-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "isexe",
+    "version": "2.0.0",
+    "license": "ISC",
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/isaacs/isexe.git"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/isexe-2.0.0-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "js-tokens",
+    "version": "4.0.0",
+    "license": "MIT",
+    "repository": "lydell/js-tokens",
+    "licenseFiles": [
+      "LICENSES/dependencies/js-tokens-4.0.0-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "js-yaml",
+    "version": "4.3.2",
+    "license": "MIT",
+    "repository": "nodeca/js-yaml",
+    "licenseFiles": [
+      "LICENSES/dependencies/js-yaml-4.3.2-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "jsesc",
+    "version": "3.1.0",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/mathiasbynens/jsesc.git"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/jsesc-3.1.0-LICENSE-MIT.txt"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "json-buffer",
+    "version": "3.0.1",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "git://github.com/dominictarr/json-buffer.git"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/json-buffer-3.0.1-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "json-schema-traverse",
+    "version": "0.4.1",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/epoberezkin/json-schema-traverse.git"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/json-schema-traverse-0.4.1-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "json-stable-stringify-without-jsonify",
+    "version": "1.0.1",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "git://github.com/samn/json-stable-stringify.git"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/json-stable-stringify-without-jsonify-1.0.1-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "json5",
+    "version": "2.2.3",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/json5/json5.git"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/json5-2.2.3-LICENSE.md"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "keyv",
+    "version": "4.5.4",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/jaredwray/keyv.git"
+    },
+    "licenseFiles": []
+  },
+  {
+    "ecosystem": "npm",
+    "name": "levn",
+    "version": "0.4.1",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "git://github.com/gkz/levn.git"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/levn-0.4.1-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "locate-path",
+    "version": "6.0.0",
+    "license": "MIT",
+    "repository": "sindresorhus/locate-path",
+    "licenseFiles": [
+      "LICENSES/dependencies/locate-path-6.0.0-license"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "lodash.merge",
+    "version": "4.6.2",
+    "license": "MIT",
+    "repository": "lodash/lodash",
+    "licenseFiles": [
+      "LICENSES/dependencies/lodash.merge-4.6.2-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "lru-cache",
+    "version": "5.1.1",
+    "license": "ISC",
+    "repository": "git://github.com/isaacs/node-lru-cache.git",
+    "licenseFiles": [
+      "LICENSES/dependencies/lru-cache-5.1.1-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "lucide-react",
+    "version": "0.468.0",
+    "license": "ISC",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/lucide-icons/lucide.git",
+      "directory": "packages/lucide-react"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/lucide-react-0.468.0-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "minimatch",
+    "version": "3.1.5",
+    "license": "ISC",
+    "repository": {
+      "type": "git",
+      "url": "git://github.com/isaacs/minimatch.git"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/minimatch-3.1.5-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "motion-dom",
+    "version": "12.43.0",
+    "license": "MIT",
+    "repository": "https://github.com/motiondivision/motion",
+    "licenseFiles": [
+      "LICENSES/dependencies/motion-dom-12.43.0-LICENSE.md"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "motion-utils",
+    "version": "12.39.0",
+    "license": "MIT",
+    "repository": "https://github.com/motiondivision/motion",
+    "licenseFiles": [
+      "LICENSES/dependencies/motion-utils-12.39.0-LICENSE.md"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "ms",
+    "version": "2.1.3",
+    "license": "MIT",
+    "repository": "vercel/ms",
+    "licenseFiles": [
+      "LICENSES/dependencies/ms-2.1.3-license.md"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "nanoid",
+    "version": "3.3.19",
+    "license": "MIT",
+    "repository": "ai/nanoid",
+    "licenseFiles": [
+      "LICENSES/dependencies/nanoid-3.3.19-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "natural-compare",
+    "version": "1.4.0",
+    "license": "MIT",
+    "repository": "git://github.com/litejs/natural-compare-lite.git",
+    "licenseFiles": []
+  },
+  {
+    "ecosystem": "npm",
+    "name": "node-releases",
+    "version": "2.0.57",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/chicoxyzzy/node-releases.git"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/node-releases-2.0.57-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "optionator",
+    "version": "0.9.4",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "git://github.com/gkz/optionator.git"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/optionator-0.9.4-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "p-limit",
+    "version": "3.1.0",
+    "license": "MIT",
+    "repository": "sindresorhus/p-limit",
+    "licenseFiles": [
+      "LICENSES/dependencies/p-limit-3.1.0-license"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "p-locate",
+    "version": "5.0.0",
+    "license": "MIT",
+    "repository": "sindresorhus/p-locate",
+    "licenseFiles": [
+      "LICENSES/dependencies/p-locate-5.0.0-license"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "p-try",
+    "version": "2.2.0",
+    "license": "MIT",
+    "repository": "sindresorhus/p-try",
+    "licenseFiles": [
+      "LICENSES/dependencies/p-try-2.2.0-license"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "parent-module",
+    "version": "1.0.1",
+    "license": "MIT",
+    "repository": "sindresorhus/parent-module",
+    "licenseFiles": [
+      "LICENSES/dependencies/parent-module-1.0.1-license"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "path-exists",
+    "version": "4.0.0",
+    "license": "MIT",
+    "repository": "sindresorhus/path-exists",
+    "licenseFiles": [
+      "LICENSES/dependencies/path-exists-4.0.0-license"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "path-key",
+    "version": "3.1.1",
+    "license": "MIT",
+    "repository": "sindresorhus/path-key",
+    "licenseFiles": [
+      "LICENSES/dependencies/path-key-3.1.1-license"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "picocolors",
+    "version": "1.1.1",
+    "license": "ISC",
+    "repository": "alexeyraspopov/picocolors",
+    "licenseFiles": [
+      "LICENSES/dependencies/picocolors-1.1.1-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "picomatch",
+    "version": "4.0.7",
+    "license": "MIT",
+    "repository": "micromatch/picomatch",
+    "licenseFiles": [
+      "LICENSES/dependencies/picomatch-4.0.7-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "playwright",
+    "version": "1.63.0",
+    "license": "Apache-2.0",
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/microsoft/playwright.git"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/playwright-1.63.0-LICENSE",
+      "LICENSES/dependencies/playwright-1.63.0-NOTICE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "playwright-core",
+    "version": "1.63.0",
+    "license": "Apache-2.0",
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/microsoft/playwright.git"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/playwright-core-1.63.0-LICENSE",
+      "LICENSES/dependencies/playwright-core-1.63.0-NOTICE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "pngjs",
+    "version": "5.0.0",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "git://github.com/lukeapage/pngjs.git"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/pngjs-5.0.0-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "postcss",
+    "version": "8.5.28",
+    "license": "MIT",
+    "repository": "postcss/postcss",
+    "licenseFiles": [
+      "LICENSES/dependencies/postcss-8.5.28-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "prelude-ls",
+    "version": "1.2.1",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "git://github.com/gkz/prelude-ls.git"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/prelude-ls-1.2.1-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "punycode",
+    "version": "2.3.1",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/mathiasbynens/punycode.js.git"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/punycode-2.3.1-LICENSE-MIT.txt"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "qrcode",
+    "version": "1.5.4",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "git://github.com/soldair/node-qrcode.git"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/qrcode-1.5.4-license"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "react",
+    "version": "19.3.0",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/react/react.git",
+      "directory": "packages/react"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/react-19.3.0-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "react-dom",
+    "version": "19.3.0",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/react/react.git",
+      "directory": "packages/react-dom"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/react-dom-19.3.0-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "react-is",
+    "version": "19.3.0",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/react/react.git",
+      "directory": "packages/react-is"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/react-is-19.3.0-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "react-redux",
+    "version": "9.3.0",
+    "license": "MIT",
+    "repository": "github:reduxjs/react-redux",
+    "licenseFiles": [
+      "LICENSES/dependencies/react-redux-9.3.0-LICENSE.md"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "react-refresh",
+    "version": "0.18.0",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/facebook/react.git",
+      "directory": "packages/react"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/react-refresh-0.18.0-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "react-router",
+    "version": "7.18.4",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/remix-run/react-router",
+      "directory": "packages/react-router"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/react-router-7.18.4-LICENSE.md"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "react-router-dom",
+    "version": "7.18.4",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/remix-run/react-router",
+      "directory": "packages/react-router-dom"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/react-router-dom-7.18.4-LICENSE.md"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "recharts",
+    "version": "3.10.1",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/recharts/recharts.git"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/recharts-3.10.1-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "redux",
+    "version": "5.0.1",
+    "license": "MIT",
+    "repository": "github:reduxjs/redux",
+    "licenseFiles": [
+      "LICENSES/dependencies/redux-5.0.1-LICENSE.md"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "redux-thunk",
+    "version": "3.1.0",
+    "license": "MIT",
+    "repository": "github:reduxjs/redux-thunk",
+    "licenseFiles": [
+      "LICENSES/dependencies/redux-thunk-3.1.0-LICENSE.md"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "require-directory",
+    "version": "2.1.1",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "git://github.com/troygoode/node-require-directory.git"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/require-directory-2.1.1-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "require-main-filename",
+    "version": "2.0.0",
+    "license": "ISC",
+    "repository": {
+      "type": "git",
+      "url": "git+ssh://git@github.com/yargs/require-main-filename.git"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/require-main-filename-2.0.0-LICENSE.txt"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "reselect",
+    "version": "5.2.0",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/reduxjs/reselect.git"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/reselect-5.2.0-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "resolve-from",
+    "version": "4.0.0",
+    "license": "MIT",
+    "repository": "sindresorhus/resolve-from",
+    "licenseFiles": [
+      "LICENSES/dependencies/resolve-from-4.0.0-license"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "rollup",
+    "version": "4.63.6",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/rollup/rollup.git"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/rollup-4.63.6-LICENSE.md"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "scheduler",
+    "version": "0.28.0",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/react/react.git",
+      "directory": "packages/scheduler"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/scheduler-0.28.0-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "semver",
+    "version": "6.3.1",
+    "license": "ISC",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/npm/node-semver.git"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/semver-6.3.1-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "set-blocking",
+    "version": "2.0.0",
+    "license": "ISC",
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/yargs/set-blocking.git"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/set-blocking-2.0.0-LICENSE.txt"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "set-cookie-parser",
+    "version": "2.7.2",
+    "license": "MIT",
+    "repository": "nfriedly/set-cookie-parser",
+    "licenseFiles": [
+      "LICENSES/dependencies/set-cookie-parser-2.7.2-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "shebang-command",
+    "version": "2.0.0",
+    "license": "MIT",
+    "repository": "kevva/shebang-command",
+    "licenseFiles": [
+      "LICENSES/dependencies/shebang-command-2.0.0-license"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "shebang-regex",
+    "version": "3.0.0",
+    "license": "MIT",
+    "repository": "sindresorhus/shebang-regex",
+    "licenseFiles": [
+      "LICENSES/dependencies/shebang-regex-3.0.0-license"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "source-map-js",
+    "version": "1.2.2",
+    "license": "BSD-3-Clause",
+    "repository": "7rulnik/source-map-js",
+    "licenseFiles": [
+      "LICENSES/dependencies/source-map-js-1.2.2-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "string-width",
+    "version": "4.2.3",
+    "license": "MIT",
+    "repository": "sindresorhus/string-width",
+    "licenseFiles": [
+      "LICENSES/dependencies/string-width-4.2.3-license"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "strip-ansi",
+    "version": "6.0.1",
+    "license": "MIT",
+    "repository": "chalk/strip-ansi",
+    "licenseFiles": [
+      "LICENSES/dependencies/strip-ansi-6.0.1-license"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "strip-json-comments",
+    "version": "3.1.1",
+    "license": "MIT",
+    "repository": "sindresorhus/strip-json-comments",
+    "licenseFiles": [
+      "LICENSES/dependencies/strip-json-comments-3.1.1-license"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "supports-color",
+    "version": "7.2.0",
+    "license": "MIT",
+    "repository": "chalk/supports-color",
+    "licenseFiles": [
+      "LICENSES/dependencies/supports-color-7.2.0-license"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "tiny-invariant",
+    "version": "1.3.3",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/alexreardon/tiny-invariant.git"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/tiny-invariant-1.3.3-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "tinyglobby",
+    "version": "0.2.17",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/SuperchupuDev/tinyglobby.git"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/tinyglobby-0.2.17-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "ts-api-utils",
+    "version": "2.5.0",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/JoshuaKGoldberg/ts-api-utils"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/ts-api-utils-2.5.0-LICENSE.md"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "tslib",
+    "version": "2.8.1",
+    "license": "0BSD",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/Microsoft/tslib.git"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/tslib-2.8.1-LICENSE.txt"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "type-check",
+    "version": "0.4.0",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "git://github.com/gkz/type-check.git"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/type-check-0.4.0-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "typescript",
+    "version": "5.9.3",
+    "license": "Apache-2.0",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/microsoft/TypeScript.git"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/typescript-5.9.3-LICENSE.txt"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "typescript-eslint",
+    "version": "8.71.0",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/typescript-eslint/typescript-eslint.git",
+      "directory": "packages/typescript-eslint"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/typescript-eslint-8.71.0-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "undici-types",
+    "version": "8.9.0",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/nodejs/undici.git"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/undici-types-8.9.0-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "update-browserslist-db",
+    "version": "1.3.3",
+    "license": "MIT",
+    "repository": "browserslist/update-db",
+    "licenseFiles": [
+      "LICENSES/dependencies/update-browserslist-db-1.3.3-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "uri-js",
+    "version": "4.4.1",
+    "license": "BSD-2-Clause",
+    "repository": {
+      "type": "git",
+      "url": "http://github.com/garycourt/uri-js"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/uri-js-4.4.1-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "use-sync-external-store",
+    "version": "1.7.0",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/react/react.git",
+      "directory": "packages/use-sync-external-store"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/use-sync-external-store-1.7.0-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "victory-vendor",
+    "version": "37.3.6",
+    "license": "MIT AND ISC",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/FormidableLabs/victory"
+    },
+    "licenseFiles": []
+  },
+  {
+    "ecosystem": "npm",
+    "name": "vite",
+    "version": "7.3.6",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/vitejs/vite.git",
+      "directory": "packages/vite"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/vite-7.3.6-LICENSE.md"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "which",
+    "version": "2.0.2",
+    "license": "ISC",
+    "repository": {
+      "type": "git",
+      "url": "git://github.com/isaacs/node-which.git"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/which-2.0.2-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "which-module",
+    "version": "2.0.1",
+    "license": "ISC",
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/nexdrew/which-module.git"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/which-module-2.0.1-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "word-wrap",
+    "version": "1.2.5",
+    "license": "MIT",
+    "repository": "jonschlinkert/word-wrap",
+    "licenseFiles": [
+      "LICENSES/dependencies/word-wrap-1.2.5-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "wrap-ansi",
+    "version": "6.2.0",
+    "license": "MIT",
+    "repository": "chalk/wrap-ansi",
+    "licenseFiles": [
+      "LICENSES/dependencies/wrap-ansi-6.2.0-license"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "y18n",
+    "version": "4.0.3",
+    "license": "ISC",
+    "repository": {
+      "type": "git",
+      "url": "git@github.com:yargs/y18n.git"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/y18n-4.0.3-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "yallist",
+    "version": "3.1.1",
+    "license": "ISC",
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/isaacs/yallist.git"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/yallist-3.1.1-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "yargs",
+    "version": "15.4.1",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/yargs/yargs.git"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/yargs-15.4.1-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "yargs-parser",
+    "version": "18.1.3",
+    "license": "ISC",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/yargs/yargs-parser.git"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/yargs-parser-18.1.3-LICENSE.txt"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "find-up",
+    "version": "4.1.0",
+    "license": "MIT",
+    "repository": "sindresorhus/find-up",
+    "licenseFiles": [
+      "LICENSES/dependencies/find-up-4.1.0-license"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "locate-path",
+    "version": "5.0.0",
+    "license": "MIT",
+    "repository": "sindresorhus/locate-path",
+    "licenseFiles": [
+      "LICENSES/dependencies/locate-path-5.0.0-license"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "p-limit",
+    "version": "2.3.0",
+    "license": "MIT",
+    "repository": "sindresorhus/p-limit",
+    "licenseFiles": [
+      "LICENSES/dependencies/p-limit-2.3.0-license"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "p-locate",
+    "version": "4.1.0",
+    "license": "MIT",
+    "repository": "sindresorhus/p-locate",
+    "licenseFiles": [
+      "LICENSES/dependencies/p-locate-4.1.0-license"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "yocto-queue",
+    "version": "0.1.0",
+    "license": "MIT",
+    "repository": "sindresorhus/yocto-queue",
+    "licenseFiles": [
+      "LICENSES/dependencies/yocto-queue-0.1.0-license"
+    ]
+  },
+  {
+    "ecosystem": "npm",
+    "name": "zustand",
+    "version": "5.0.15",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/pmndrs/zustand.git"
+    },
+    "licenseFiles": [
+      "LICENSES/dependencies/zustand-5.0.15-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "python",
+    "name": "annotated-doc",
+    "version": "0.0.5",
+    "license": "MIT",
+    "projectUrls": [
+      "Homepage, https://github.com/fastapi/annotated-doc",
+      "Documentation, https://github.com/fastapi/annotated-doc",
+      "Repository, https://github.com/fastapi/annotated-doc",
+      "Issues, https://github.com/fastapi/annotated-doc/issues",
+      "Changelog, https://github.com/fastapi/annotated-doc/release-notes.md"
+    ],
+    "licenseFiles": [
+      "LICENSES/dependencies/annotated-doc-0.0.5-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "python",
+    "name": "annotated-types",
+    "version": "0.8.0",
+    "license": "MIT",
+    "projectUrls": [
+      "Homepage, https://github.com/annotated-types/annotated-types",
+      "Source, https://github.com/annotated-types/annotated-types",
+      "Changelog, https://github.com/annotated-types/annotated-types/releases"
+    ],
+    "licenseFiles": [
+      "LICENSES/dependencies/annotated-types-0.8.0-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "python",
+    "name": "anyio",
+    "version": "4.15.1",
+    "license": "MIT",
+    "projectUrls": [
+      "Documentation, https://anyio.readthedocs.io/en/latest/",
+      "Changelog, https://anyio.readthedocs.io/en/stable/versionhistory.html",
+      "Source code, https://github.com/agronholm/anyio",
+      "Issue tracker, https://github.com/agronholm/anyio/issues"
+    ],
+    "licenseFiles": [
+      "LICENSES/dependencies/anyio-4.15.1-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "python",
+    "name": "certifi",
+    "version": "2026.7.22",
+    "license": "MPL-2.0",
+    "projectUrls": [
+      "Source, https://github.com/certifi/python-certifi"
+    ],
+    "licenseFiles": [
+      "LICENSES/dependencies/certifi-2026.7.22-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "python",
+    "name": "charset-normalizer",
+    "version": "3.4.7",
+    "license": "MIT",
+    "projectUrls": [
+      "Changelog, https://github.com/jawah/charset_normalizer/blob/master/CHANGELOG.md",
+      "Documentation, https://charset-normalizer.readthedocs.io/",
+      "Code, https://github.com/jawah/charset_normalizer",
+      "Issue tracker, https://github.com/jawah/charset_normalizer/issues"
+    ],
+    "licenseFiles": [
+      "LICENSES/dependencies/charset-normalizer-3.4.7-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "python",
+    "name": "click",
+    "version": "8.5.0",
+    "license": "BSD-3-Clause",
+    "projectUrls": [
+      "Changes, https://click.palletsprojects.com/page/changes/",
+      "Chat, https://discord.gg/pallets",
+      "Documentation, https://click.palletsprojects.com/",
+      "Donate, https://palletsprojects.com/donate",
+      "Source, https://github.com/pallets/click/"
+    ],
+    "licenseFiles": [
+      "LICENSES/dependencies/click-8.5.0-LICENSE.txt"
+    ]
+  },
+  {
+    "ecosystem": "python",
+    "name": "colorama",
+    "version": "0.4.6",
+    "license": "License :: OSI Approved :: BSD License",
+    "projectUrls": [
+      "Homepage, https://github.com/tartley/colorama"
+    ],
+    "licenseFiles": [
+      "LICENSES/dependencies/colorama-0.4.6-LICENSE.txt"
+    ]
+  },
+  {
+    "ecosystem": "python",
+    "name": "fastapi",
+    "version": "0.141.1",
+    "license": "MIT",
+    "projectUrls": [
+      "Homepage, https://github.com/fastapi/fastapi",
+      "Documentation, https://fastapi.tiangolo.com/",
+      "Repository, https://github.com/fastapi/fastapi",
+      "Issues, https://github.com/fastapi/fastapi/issues",
+      "Changelog, https://fastapi.tiangolo.com/release-notes/"
+    ],
+    "licenseFiles": [
+      "LICENSES/dependencies/fastapi-0.141.1-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "python",
+    "name": "flatbuffers",
+    "version": "25.12.19",
+    "license": "Apache 2.0",
+    "projectUrls": [
+      "Documentation, https://google.github.io/flatbuffers/",
+      "Source, https://github.com/google/flatbuffers"
+    ],
+    "licenseFiles": []
+  },
+  {
+    "ecosystem": "python",
+    "name": "greenlet",
+    "version": "3.5.6",
+    "license": "MIT AND PSF-2.0",
+    "projectUrls": [
+      "Homepage, https://greenlet.readthedocs.io",
+      "Documentation, https://greenlet.readthedocs.io",
+      "Repository, https://github.com/python-greenlet/greenlet",
+      "Issues, https://github.com/python-greenlet/greenlet/issues",
+      "Changelog, https://greenlet.readthedocs.io/en/latest/changes.html"
+    ],
+    "licenseFiles": [
+      "LICENSES/dependencies/greenlet-3.5.6-LICENSE",
+      "LICENSES/dependencies/greenlet-3.5.6-LICENSE.PSF"
+    ]
+  },
+  {
+    "ecosystem": "python",
+    "name": "h11",
+    "version": "0.16.0",
+    "license": "MIT",
+    "projectUrls": [],
+    "licenseFiles": [
+      "LICENSES/dependencies/h11-0.16.0-LICENSE.txt"
+    ]
+  },
+  {
+    "ecosystem": "python",
+    "name": "httpcore",
+    "version": "1.0.9",
+    "license": "BSD-3-Clause",
+    "projectUrls": [
+      "Documentation, https://www.encode.io/httpcore",
+      "Homepage, https://www.encode.io/httpcore/",
+      "Source, https://github.com/encode/httpcore"
+    ],
+    "licenseFiles": [
+      "LICENSES/dependencies/httpcore-1.0.9-LICENSE.md"
+    ]
+  },
+  {
+    "ecosystem": "python",
+    "name": "httpx",
+    "version": "0.28.1",
+    "license": "BSD-3-Clause",
+    "projectUrls": [
+      "Changelog, https://github.com/encode/httpx/blob/master/CHANGELOG.md",
+      "Documentation, https://www.python-httpx.org",
+      "Homepage, https://github.com/encode/httpx",
+      "Source, https://github.com/encode/httpx"
+    ],
+    "licenseFiles": [
+      "LICENSES/dependencies/httpx-0.28.1-LICENSE.md"
+    ]
+  },
+  {
+    "ecosystem": "python",
+    "name": "idna",
+    "version": "3.20",
+    "license": "BSD-3-Clause",
+    "projectUrls": [
+      "Changelog, https://github.com/kjd/idna/blob/master/HISTORY.md",
+      "Issue tracker, https://github.com/kjd/idna/issues",
+      "Source, https://github.com/kjd/idna"
+    ],
+    "licenseFiles": [
+      "LICENSES/dependencies/idna-3.20-LICENSE.md"
+    ]
+  },
+  {
+    "ecosystem": "python",
+    "name": "iniconfig",
+    "version": "2.3.0",
+    "license": "MIT",
+    "projectUrls": [
+      "Homepage, https://github.com/pytest-dev/iniconfig"
+    ],
+    "licenseFiles": [
+      "LICENSES/dependencies/iniconfig-2.3.0-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "python",
+    "name": "numpy",
+    "version": "2.4.4",
+    "license": "BSD-3-Clause AND 0BSD AND MIT AND Zlib AND CC0-1.0",
+    "projectUrls": [
+      "homepage, https://numpy.org",
+      "documentation, https://numpy.org/doc/",
+      "source, https://github.com/numpy/numpy",
+      "download, https://pypi.org/project/numpy/#files",
+      "tracker, https://github.com/numpy/numpy/issues",
+      "release notes, https://numpy.org/doc/stable/release"
+    ],
+    "licenseFiles": [
+      "LICENSES/dependencies/numpy-2.4.4-LICENSE.txt",
+      "LICENSES/dependencies/numpy-2.4.4-LICENSE.txt",
+      "LICENSES/dependencies/numpy-2.4.4-COPYING",
+      "LICENSES/dependencies/numpy-2.4.4-LICENSE",
+      "LICENSES/dependencies/numpy-2.4.4-LICENSE.md",
+      "LICENSES/dependencies/numpy-2.4.4-LICENSE",
+      "LICENSES/dependencies/numpy-2.4.4-LICENSE.md",
+      "LICENSES/dependencies/numpy-2.4.4-LICENSE.txt",
+      "LICENSES/dependencies/numpy-2.4.4-LICENSE",
+      "LICENSES/dependencies/numpy-2.4.4-LICENSE.md",
+      "LICENSES/dependencies/numpy-2.4.4-LICENSE.md",
+      "LICENSES/dependencies/numpy-2.4.4-LICENSE.md",
+      "LICENSES/dependencies/numpy-2.4.4-LICENSE.md",
+      "LICENSES/dependencies/numpy-2.4.4-LICENSE.md",
+      "LICENSES/dependencies/numpy-2.4.4-LICENSE.md",
+      "LICENSES/dependencies/numpy-2.4.4-LICENSE.md"
+    ]
+  },
+  {
+    "ecosystem": "python",
+    "name": "onnxruntime",
+    "version": "1.28.0",
+    "license": "MIT License",
+    "projectUrls": [],
+    "licenseFiles": []
+  },
+  {
+    "ecosystem": "python",
+    "name": "opencv-python",
+    "version": "5.0.0.93",
+    "license": "Apache 2.0",
+    "projectUrls": [],
+    "licenseFiles": [
+      "LICENSES/dependencies/opencv-python-5.0.0.93-LICENSE-3RD-PARTY.txt",
+      "LICENSES/dependencies/opencv-python-5.0.0.93-LICENSE.txt"
+    ]
+  },
+  {
+    "ecosystem": "python",
+    "name": "packaging",
+    "version": "26.2",
+    "license": "Apache-2.0 OR BSD-2-Clause",
+    "projectUrls": [
+      "Documentation, https://packaging.pypa.io/",
+      "Source, https://github.com/pypa/packaging"
+    ],
+    "licenseFiles": [
+      "LICENSES/dependencies/packaging-26.2-LICENSE",
+      "LICENSES/dependencies/packaging-26.2-LICENSE.APACHE",
+      "LICENSES/dependencies/packaging-26.2-LICENSE.BSD"
+    ]
+  },
+  {
+    "ecosystem": "python",
+    "name": "pillow",
+    "version": "12.2.0",
+    "license": "MIT-CMU",
+    "projectUrls": [
+      "Release notes, https://pillow.readthedocs.io/en/stable/releasenotes/index.html",
+      "Changelog, https://github.com/python-pillow/Pillow/releases",
+      "Documentation, https://pillow.readthedocs.io",
+      "Funding, https://tidelift.com/subscription/pkg/pypi-pillow?utm_source=pypi-pillow&utm_medium=pypi",
+      "Homepage, https://python-pillow.github.io",
+      "Mastodon, https://fosstodon.org/@pillow",
+      "Source, https://github.com/python-pillow/Pillow"
+    ],
+    "licenseFiles": [
+      "LICENSES/dependencies/pillow-12.2.0-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "python",
+    "name": "pluggy",
+    "version": "1.6.0",
+    "license": "MIT",
+    "projectUrls": [],
+    "licenseFiles": [
+      "LICENSES/dependencies/pluggy-1.6.0-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "python",
+    "name": "protobuf",
+    "version": "7.35.1",
+    "license": "3-Clause BSD License",
+    "projectUrls": [],
+    "licenseFiles": [
+      "LICENSES/dependencies/protobuf-7.35.1-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "python",
+    "name": "pyclipper",
+    "version": "1.4.0",
+    "license": "MIT",
+    "projectUrls": [],
+    "licenseFiles": [
+      "LICENSES/dependencies/pyclipper-1.4.0-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "python",
+    "name": "pydantic",
+    "version": "2.13.5",
+    "license": "MIT",
+    "projectUrls": [
+      "Homepage, https://github.com/pydantic/pydantic",
+      "Documentation, https://docs.pydantic.dev",
+      "Funding, https://github.com/sponsors/samuelcolvin",
+      "Source, https://github.com/pydantic/pydantic",
+      "Changelog, https://docs.pydantic.dev/latest/changelog/"
+    ],
+    "licenseFiles": [
+      "LICENSES/dependencies/pydantic-2.13.5-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "python",
+    "name": "pydantic_core",
+    "version": "2.46.5",
+    "license": "MIT",
+    "projectUrls": [
+      "Funding, https://github.com/sponsors/samuelcolvin",
+      "Homepage, https://github.com/pydantic",
+      "Source, https://github.com/pydantic/pydantic/tree/main/pydantic-core"
+    ],
+    "licenseFiles": [
+      "LICENSES/dependencies/pydantic_core-2.46.5-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "python",
+    "name": "Pygments",
+    "version": "2.21.0",
+    "license": "BSD-2-Clause",
+    "projectUrls": [
+      "Homepage, https://pygments.org",
+      "Documentation, https://pygments.org/docs",
+      "Source, https://github.com/pygments/pygments",
+      "Bug Tracker, https://github.com/pygments/pygments/issues",
+      "Changelog, https://github.com/pygments/pygments/blob/master/CHANGES"
+    ],
+    "licenseFiles": [
+      "LICENSES/dependencies/Pygments-2.21.0-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "python",
+    "name": "pypdf",
+    "version": "6.9.2",
+    "license": "BSD-3-Clause",
+    "projectUrls": [
+      "Bug Reports, https://github.com/py-pdf/pypdf/issues",
+      "Changelog, https://pypdf.readthedocs.io/en/latest/meta/CHANGELOG.html",
+      "Documentation, https://pypdf.readthedocs.io/en/latest/",
+      "Source, https://github.com/py-pdf/pypdf"
+    ],
+    "licenseFiles": [
+      "LICENSES/dependencies/pypdf-6.9.2-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "python",
+    "name": "pytest",
+    "version": "9.1.1",
+    "license": "MIT",
+    "projectUrls": [
+      "Changelog, https://docs.pytest.org/en/stable/changelog.html",
+      "Contact, https://docs.pytest.org/en/stable/contact.html",
+      "Funding, https://docs.pytest.org/en/stable/sponsor.html",
+      "Homepage, https://docs.pytest.org/en/latest/",
+      "Source, https://github.com/pytest-dev/pytest",
+      "Tracker, https://github.com/pytest-dev/pytest/issues"
+    ],
+    "licenseFiles": [
+      "LICENSES/dependencies/pytest-9.1.1-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "python",
+    "name": "python-multipart",
+    "version": "0.0.32",
+    "license": "Apache-2.0",
+    "projectUrls": [
+      "Homepage, https://github.com/Kludex/python-multipart",
+      "Documentation, https://kludex.github.io/python-multipart/",
+      "Changelog, https://github.com/Kludex/python-multipart/blob/master/CHANGELOG.md",
+      "Source, https://github.com/Kludex/python-multipart"
+    ],
+    "licenseFiles": [
+      "LICENSES/dependencies/python-multipart-0.0.32-LICENSE.txt"
+    ]
+  },
+  {
+    "ecosystem": "python",
+    "name": "PyYAML",
+    "version": "6.0.3",
+    "license": "MIT",
+    "projectUrls": [
+      "Bug Tracker, https://github.com/yaml/pyyaml/issues",
+      "CI, https://github.com/yaml/pyyaml/actions",
+      "Documentation, https://pyyaml.org/wiki/PyYAMLDocumentation",
+      "Mailing lists, http://lists.sourceforge.net/lists/listinfo/yaml-core",
+      "Source Code, https://github.com/yaml/pyyaml"
+    ],
+    "licenseFiles": [
+      "LICENSES/dependencies/PyYAML-6.0.3-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "python",
+    "name": "rapidocr-onnxruntime",
+    "version": "1.4.4",
+    "license": "Apache-2.0",
+    "projectUrls": [
+      "Documentation, https://rapidai.github.io/RapidOCRDocs",
+      "Changelog, https://github.com/RapidAI/RapidOCR/releases"
+    ],
+    "licenseFiles": []
+  },
+  {
+    "ecosystem": "python",
+    "name": "reportlab",
+    "version": "4.4.10",
+    "license": "BSD license (see license.txt for details), Copyright (c) 2000-2025, ReportLab Inc.",
+    "projectUrls": [],
+    "licenseFiles": [
+      "LICENSES/dependencies/reportlab-4.4.10-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "python",
+    "name": "shapely",
+    "version": "2.1.2",
+    "license": "BSD 3-Clause",
+    "projectUrls": [
+      "Documentation, https://shapely.readthedocs.io/",
+      "Repository, https://github.com/shapely/shapely"
+    ],
+    "licenseFiles": [
+      "LICENSES/dependencies/shapely-2.1.2-LICENSE.txt",
+      "LICENSES/dependencies/shapely-2.1.2-LICENSE_GEOS",
+      "LICENSES/dependencies/shapely-2.1.2-LICENSE_win32"
+    ]
+  },
+  {
+    "ecosystem": "python",
+    "name": "six",
+    "version": "1.17.0",
+    "license": "MIT",
+    "projectUrls": [],
+    "licenseFiles": [
+      "LICENSES/dependencies/six-1.17.0-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "python",
+    "name": "SQLAlchemy",
+    "version": "2.1.1",
+    "license": "MIT",
+    "projectUrls": [
+      "Homepage, https://www.sqlalchemy.org",
+      "Documentation, https://docs.sqlalchemy.org",
+      "Changelog, https://docs.sqlalchemy.org/latest/changelog/index.html",
+      "Source Code, https://github.com/sqlalchemy/sqlalchemy",
+      "Issue Tracker, https://github.com/sqlalchemy/sqlalchemy/issues",
+      "Discussions, https://github.com/sqlalchemy/sqlalchemy/discussions"
+    ],
+    "licenseFiles": [
+      "LICENSES/dependencies/SQLAlchemy-2.1.1-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "python",
+    "name": "starlette",
+    "version": "1.7.0",
+    "license": "BSD-3-Clause",
+    "projectUrls": [
+      "Homepage, https://github.com/Kludex/starlette",
+      "Documentation, https://starlette.dev/",
+      "Changelog, https://starlette.dev/release-notes/",
+      "Funding, https://github.com/sponsors/Kludex",
+      "Source, https://github.com/Kludex/starlette"
+    ],
+    "licenseFiles": [
+      "LICENSES/dependencies/starlette-1.7.0-LICENSE.md"
+    ]
+  },
+  {
+    "ecosystem": "python",
+    "name": "tqdm",
+    "version": "4.70.0",
+    "license": "MPL-2.0 AND MIT",
+    "projectUrls": [
+      "homepage, https://tqdm.github.io",
+      "repository, https://github.com/tqdm/tqdm",
+      "changelog, https://tqdm.github.io/releases",
+      "wiki, https://github.com/tqdm/tqdm/wiki"
+    ],
+    "licenseFiles": [
+      "LICENSES/dependencies/tqdm-4.70.0-LICENCE"
+    ]
+  },
+  {
+    "ecosystem": "python",
+    "name": "typing-inspection",
+    "version": "0.4.4",
+    "license": "MIT",
+    "projectUrls": [
+      "Homepage, https://github.com/pydantic/typing-inspection",
+      "Documentation, https://pydantic.github.io/typing-inspection/dev/",
+      "Source, https://github.com/pydantic/typing-inspection",
+      "Changelog, https://github.com/pydantic/typing-inspection/blob/main/HISTORY.md"
+    ],
+    "licenseFiles": [
+      "LICENSES/dependencies/typing-inspection-0.4.4-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "python",
+    "name": "typing_extensions",
+    "version": "4.16.0",
+    "license": "PSF-2.0",
+    "projectUrls": [
+      "Bug Tracker, https://github.com/python/typing_extensions/issues",
+      "Changes, https://github.com/python/typing_extensions/blob/main/CHANGELOG.md",
+      "Documentation, https://typing-extensions.readthedocs.io/",
+      "Home, https://github.com/python/typing_extensions",
+      "Q & A, https://github.com/python/typing/discussions",
+      "Repository, https://github.com/python/typing_extensions"
+    ],
+    "licenseFiles": [
+      "LICENSES/dependencies/typing_extensions-4.16.0-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "python",
+    "name": "uvicorn",
+    "version": "0.54.0",
+    "license": "BSD-3-Clause",
+    "projectUrls": [
+      "Changelog, https://uvicorn.dev/release-notes",
+      "Funding, https://github.com/sponsors/Kludex",
+      "Homepage, https://uvicorn.dev/",
+      "Source, https://github.com/Kludex/uvicorn"
+    ],
+    "licenseFiles": [
+      "LICENSES/dependencies/uvicorn-0.54.0-LICENSE.md"
+    ]
+  }
+]

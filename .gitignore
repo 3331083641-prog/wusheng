@@ -1,0 +1,17 @@
+node_modules/
+.venv/
+venv/
+__pycache__/
+.pytest_cache/
+.cache/
+dist/
+backend/.env
+.env
+data/*.db*
+data/uploads/*
+!data/uploads/.gitkeep
+backups/
+test-results/
+playwright-report/
+logs/
+frontend/tsconfig.tsbuildinfo
