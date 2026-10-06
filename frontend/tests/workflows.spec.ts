@@ -126,7 +126,7 @@ test("档案编辑、QR PNG、JSON 导出、PDF 与维护真实保存", async ({
     await page.getByRole("button", { name: "说明书", exact: true }).click();
     await page
       .getByLabel("上传说明书 PDF")
-      .setInputFiles(path.join(root, "data/uploads/demo-care-guide.pdf"));
+      .setInputFiles(path.join(root, "frontend/tests/fixtures/demo-care-guide.pdf"));
     await expect(page.locator(".document-card")).toHaveCount(1);
     await page.getByRole("button", { name: "维护记录", exact: true }).click();
     await page.getByRole("button", { name: "记录维护", exact: true }).click();

@@ -8,8 +8,8 @@
 2. JPG/JPEG、PNG、WebP；前后端均校验格式、扩展名、MIME、真实图片内容。单张 ≤10MB，最大 2000 万像素。HEIC 暂不支持。
 3. multiple，最多 10 张，可多次补选。超过数量或大小会提示并保留已上传图片。
 4. 支持 dragenter/dragover/dragleave/drop，拖入反馈沿用现有淡绿样式。
-5. Draft 图片真实目录：`data/uploads/drafts/<draftId>\`。`POST /api/drafts` 创建 UUID 会话，`POST /api/drafts/{draftId}/images` 接收多个 files 和 type，原文件按 UUID+原格式后缀保存。预览立即出现文件名、类型、大小和上传状态，Object URL 只用于临时显示，删除与卸载时释放。
-6. 确认建档通过 `POST /api/items`，携带 draftSessionId 及可选 recognitionSessionId。一笔事务创建 Item、迁移原图到 `data/images/items/<itemId>\`、创建 ItemImage、计算日期、生成事件和提醒，再跳转详情。草稿图片目录清空；会话留 sealed 标记防止重复建档。不需要假 Item ID。纯照片无文字仍保留原图，可以手动补充并保存；手动模式可以不带图片。
+5. Draft 图片真实目录：`data/uploads/drafts/<draftId>/`（相对于本地数据根目录）。`POST /api/drafts` 创建 UUID 会话，`POST /api/drafts/{draftId}/images` 接收多个 files 和 type，原文件按 UUID+原格式后缀保存。预览立即出现文件名、类型、大小和上传状态，Object URL 只用于临时显示，删除与卸载时释放。
+6. 确认建档通过 `POST /api/items`，携带 draftSessionId 及可选 recognitionSessionId。一笔事务创建 Item、迁移原图到 `data/images/items/<itemId>/`、创建 ItemImage、计算日期、生成事件和提醒，再跳转详情。草稿图片目录清空；会话留 sealed 标记防止重复建档。不需要假 Item ID。纯照片无文字仍保留原图，可以手动补充并保存；手动模式可以不带图片。
 7. ItemImage：`id / itemId / originalFilename / storedFilename / filePath / mimeType / fileSize / type / sha256 / source / createdAt`。文件原字节保存，不转 JPG、不缩小、不二次压缩。API 返回 `/api/images/{id}`；内部相对磁盘路径不返回给前端。
 8. 已保存图片刷新与实际前后端重启后仍存在。未保存草稿本轮不提供刷新恢复入口；离开添加页面会尝试清理，浏览器强关遗留草稿超过 24 小时后在下次启动或新建草稿时清理。
 
@@ -31,7 +31,7 @@
 ## 9—16：PDF
 
 9. 上传：`POST /api/items/{itemId}/documents/manual`，multipart 的 file 字段。列表：`GET /api/items/{itemId}/documents`。保留原先 `/items/{id}/documents` 上传兼容接口。
-10. 本地目录：`data/documents/manuals/<itemId>\`，磁盘使用 UUID.pdf。先确认 Item 存在，仅接收 .pdf + application/pdf，最大 50MB，并验证真实 PDF 可读取。文件名按 basename 清理，不作为磁盘路径；拒绝无效/加密文件。旧说明书通过增量迁移补充元数据和管理目录；演示 PDF 原位置继续作为自动化测试 fixture。
+10. 本地目录：`data/documents/manuals/<itemId>/`，磁盘使用 UUID.pdf。先确认 Item 存在，仅接收 .pdf + application/pdf，最大 50MB，并验证真实 PDF 可读取。文件名按 basename 清理，不作为磁盘路径；拒绝无效/加密文件。旧说明书通过增量迁移补充元数据和管理目录；自动化测试使用仓库内 `frontend/tests/fixtures/demo-care-guide.pdf` 合成 fixture，与用户运行数据分离。
 11. Document：`id / itemId / type / originalFilename / storedFilename / filePath / mimeType / fileSize / sha256 / pageCount / extractedText / uploadedAt / updatedAt`；保留 filename 字段兼容旧档案。type=manual；API 的 filePath 为 `/api/documents/{id}/file`。同一 Item 可有多份同名说明书，每份 UUID 各自独立。
 12. 查看：该文件接口返回 inline application/pdf，在新页用浏览器原生 PDF Viewer 打开。
 13. 下载：`GET /api/documents/{id}/file?download=true` 返回 attachment，Content-Disposition 使用 originalFilename，保存原文件字节。

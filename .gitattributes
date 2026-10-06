@@ -2,4 +2,5 @@
 *.ps1 text eol=crlf
 *.png -text
 *.jpg -text
+*.pdf binary
 LICENSES/** -text
