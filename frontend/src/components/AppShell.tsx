@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 import { NavLink, Link, useLocation } from "react-router-dom";
 import { Logo } from "./ui";
+import ProductImage from "./ProductImage";
 import { useStore } from "../store";
 const navigation = [
   ["/", "首页", Home],
@@ -48,7 +49,6 @@ export function Sidebar() {
         ))}
       </nav>
       <div className="sidebar-note">
-        <Leaf size={25} />
         <p>
           让每一件物品
           <br />
@@ -108,7 +108,7 @@ export function UtilityBar() {
             {results.length ? (
               results.map((i) => (
                 <Link key={i.id} to={`/items/${i.id}`}>
-                  <img src={i.coverImage} alt="" />
+                  <ProductImage item={i} alt="" priority />
                   <div>
                     <b>{i.name}</b>
                     <small>

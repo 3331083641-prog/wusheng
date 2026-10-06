@@ -1,0 +1,74 @@
+[
+  {
+    "consumableId": "purifier-filter",
+    "name": "空气净化器滤芯",
+    "itemId": "purifier",
+    "sourceFilename": "ChatGPT 图像 2026年10月1日 20_40_29-1.png",
+    "assetPath": "/assets/consumables/air-purifier-filter-cylinder.png",
+    "width": 1448,
+    "height": 1086,
+    "bytes": 934719,
+    "sha256": "4871232157907E9130B2FB6EEE2681AC9D82080C4C6FD85C1ACD92C45267DEC6",
+    "provenance": "User-supplied PNG copied byte-for-byte; no compression, cropping, recoloring or redraw"
+  },
+  {
+    "consumableId": "detergent",
+    "name": "洗衣液",
+    "itemId": "washer",
+    "sourceFilename": "ChatGPT 图像 2026年10月1日 20_40_32-2.png",
+    "assetPath": "/assets/consumables/laundry-detergent-blue.png",
+    "width": 1448,
+    "height": 1086,
+    "bytes": 1013704,
+    "sha256": "6F9989789D1FE360048C2C03EB39C8B2109C6EB77EB321436D4E34D7A13F8F51",
+    "provenance": "User-supplied PNG copied byte-for-byte; no compression, cropping, recoloring or redraw"
+  },
+  {
+    "consumableId": "ink-cartridge",
+    "name": "打印机墨盒",
+    "itemId": "printer",
+    "sourceFilename": "ChatGPT 图像 2026年10月1日 20_40_34-3.png",
+    "assetPath": "/assets/consumables/printer-ink-cartridges-cmy.png",
+    "width": 1448,
+    "height": 1086,
+    "bytes": 1188659,
+    "sha256": "E44F290D89B3BD9B0AD9F023CA29496A5E56872109E06C43F07D558ADF515CDB",
+    "provenance": "User-supplied PNG copied byte-for-byte; no compression, cropping, recoloring or redraw"
+  },
+  {
+    "consumableId": "capsules",
+    "name": "咖啡胶囊",
+    "itemId": "coffee",
+    "sourceFilename": "ChatGPT 图像 2026年10月1日 20_40_38-4.png",
+    "assetPath": "/assets/consumables/coffee-capsules-metallic.png",
+    "width": 1448,
+    "height": 1086,
+    "bytes": 1089745,
+    "sha256": "65F3A97EC970D49BD17765517C97C56B37DE51DC369DDA755607012AF8321085",
+    "provenance": "User-supplied PNG copied byte-for-byte; no compression, cropping, recoloring or redraw"
+  },
+  {
+    "consumableId": "brushhead",
+    "name": "电动牙刷刷头",
+    "itemId": "toothbrush",
+    "sourceFilename": "ChatGPT 图像 2026年10月1日 20_40_40-5.png",
+    "assetPath": "/assets/consumables/toothbrush-heads-dual.png",
+    "width": 1448,
+    "height": 1086,
+    "bytes": 873526,
+    "sha256": "D6C740C6C23B49ED0F139B00FC19639D6BB6B3AEAA226795785DE0ED5B0F9923",
+    "provenance": "User-supplied PNG copied byte-for-byte; no compression, cropping, recoloring or redraw"
+  },
+  {
+    "consumableId": "robot-filter",
+    "name": "扫地机器人滤网",
+    "itemId": "robot",
+    "sourceFilename": "ChatGPT 图像 2026年10月1日 20_40_43-6.png",
+    "assetPath": "/assets/consumables/robot-vacuum-filter-rect.png",
+    "width": 1448,
+    "height": 1086,
+    "bytes": 1023064,
+    "sha256": "728355FD47E6F39052747B2BAFAB3BCCD7B03E945B34FE56EE1FD79965D9C0CB",
+    "provenance": "User-supplied PNG copied byte-for-byte; no compression, cropping, recoloring or redraw"
+  }
+]

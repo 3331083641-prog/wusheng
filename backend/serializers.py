@@ -11,6 +11,11 @@ def cents(value):
 
 def row(entity):
     values={column.name:getattr(entity,column.name) for column in entity.__table__.columns}
+    if isinstance(entity, m.Document):
+        values['filePath']=f'/api/documents/{entity.id}/file'
+        values['originalFilename']=entity.originalFilename or entity.filename
+    elif isinstance(entity, m.ItemImage) and not entity.filePath.startswith('/assets/'):
+        values['filePath']=f'/api/images/{entity.id}'
     for key in ['purchasePrice','cost']:
         if key in values:
             values[key]=values[key]/100

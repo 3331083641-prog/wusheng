@@ -16,10 +16,17 @@
 | FastAPI | Python Web 框架 | 0.141.1 | [fastapi.tiangolo.com](https://fastapi.tiangolo.com/) | MIT | 本地 REST API | 路由、校验与领域逻辑由项目编写 | 许可文本已登记 |
 | Uvicorn | ASGI 服务器 | 0.54.0 | [uvicorn.org](https://www.uvicorn.org/) | BSD-3-Clause | 本地运行 FastAPI | 仅使用服务器能力 | 许可文本已登记 |
 | SQLAlchemy / SQLite | ORM / 数据库 | 2.1.1 / Python 标准库 | [sqlalchemy.org](https://www.sqlalchemy.org/) / [sqlite.org](https://www.sqlite.org/) | MIT / Public Domain | 本地关系数据存储 | Schema、查询和事务由项目编写；SQLite 随 Python 使用 | 许可文本已登记 |
+| Pydantic / python-multipart | 数据校验 / 表单解析 | 2.13.5 / 0.0.32 | [pydantic.dev](https://docs.pydantic.dev/) / [python-multipart](https://github.com/Kludex/python-multipart) | MIT / Apache-2.0 | API Schema、multipart 图片和 PDF 上传 | 输入 Schema 与大小/格式校验由项目编写 | 许可文本已登记 |
+| httpx | HTTP 客户端 | 0.28.1 | [python-httpx.org](https://www.python-httpx.org/) | BSD-3-Clause | 可选 Ollama / OpenAI-compatible Provider 适配器 | 默认助手不调用网络；适配器未在本版本接入真实服务 | 许可文本已登记 |
+| ReportLab / pytest | PDF 生成 / 测试工具 | 4.4.10 / 9.1.1 | [reportlab.com](https://www.reportlab.com/) / [pytest.org](https://pytest.org/) | BSD / MIT | 本地合成 Demo 护理 PDF、后端测试 | Demo 文档和测试断言由项目编写 | 许可文本已登记 |
 | RapidOCR ONNX Runtime | OCR 引擎及推理运行时 | rapidocr-onnxruntime 1.4.4 / onnxruntime 1.28.0 | [RapidOCR](https://github.com/RapidAI/RapidOCR) / [ONNX Runtime](https://github.com/microsoft/onnxruntime) | Apache-2.0 / MIT | 在本机从图片识别中文文字 | 采用发布包内模型，不自行训练 OCR；字段解析、来源关联和候选融合由项目实现 | RapidOCR、PaddleOCR 模型许可与哈希已登记 |
 | pypdf | PDF 解析 | 6.9.2 | [github.com/py-pdf/pypdf](https://github.com/py-pdf/pypdf) | BSD-3-Clause | 提取本地 PDF 文本和页数 | 本地文档存储与上下文构建由项目实现 | 许可文本已登记 |
 | Pillow | 图片读取与校验 | 12.2.0 | [python-pillow.org](https://python-pillow.org/) | MIT-CMU | 验证和读取本地图片 | 不用于降低正式产品图质量 | 许可文本已登记 |
 | Playwright | 浏览器自动化（开发依赖） | 1.63.0 | [playwright.dev](https://playwright.dev/) | Apache-2.0 | UI 工作流验证 | 测试用例和断言由项目编写 | 许可文本已登记 |
+| certifi | Python 传递依赖 | 2026.7.22 | [python-certifi](https://github.com/certifi/python-certifi) | MPL-2.0 | httpx 使用的本地 TLS 根证书包 | 间接依赖；未修改上游文件，许可原文随依赖清单保存 | MPL 原文已登记，源码仍从上游包安装 |
+| caniuse-lite | npm 传递依赖数据 | 1.0.30001814 | [caniuse-lite](https://github.com/browserslist/caniuse-lite) | CC-BY-4.0 | 构建工具查询浏览器兼容性数据 | 间接构建依赖；未修改数据文件 | 署名许可原文已登记 |
+| minimatch | npm 传递依赖 | 10.2.6（另有 ISC 许可版本） | [minimatch](https://github.com/isaacs/minimatch) | BlueOak-1.0.0 / ISC | ESLint 等开发工具的路径匹配 | 间接开发依赖；未修改上游代码 | 两类许可原文已登记 |
+| tqdm / typing_extensions / OpenCV Python | Python 传递依赖 | 4.70.0 / 4.16.0 / 5.0.0.93 | [tqdm](https://github.com/tqdm/tqdm) / [typing_extensions](https://github.com/python/typing_extensions) / [opencv-python](https://github.com/opencv/opencv-python) | MPL-2.0 或 MIT / PSF-2.0 / Apache-2.0 | RapidOCR 或其依赖的运行组件 | 间接依赖；本项目未复制或修改其源代码 | 元数据和许可文本已登记 |
 | Warden | 产品逻辑参考 | `63d6032777c64a953d6432c62fb97cc96ed31548` | [Surge77/warden](https://github.com/Surge77/warden) | MIT（上游） | 仅作票据、保修和退换窗口产品思路参考 | **仅作为产品功能与交互思路参考，未直接复制源代码。** | 上游 MIT 原文保留；无代码复用 |
 | HomeInventory | 产品逻辑参考 | `66e9dc6a338fc6287600c1ed28b3f5cea8780da8` | [asdteke/HomeInventory](https://github.com/asdteke/HomeInventory) | MIT（上游） | 仅作家庭物品、维护、库存和二维码流程思路参考 | **仅作为产品功能与交互思路参考，未直接复制源代码。** | 上游 MIT 原文保留；无代码复用 |
 | HomeAsset | 产品逻辑参考 | `5955a2f58f3b41ca1e828c3aa27fd2aec5f05260` | [pmitchell-dev/HomeAsset](https://github.com/pmitchell-dev/HomeAsset) | 上游快照中未找到 LICENSE，许可未确认 | 仅参考本地无账号架构 | 未复制源码、数据库或资源；不纳入运行依赖 | 仅参考；无再分发 |
@@ -33,7 +40,7 @@
 
 ## 项目源码许可
 
-仓库根目录的 MIT License 只适用于本项目原创源码与文档。第三方依赖、OCR 模型、由用户提供的图像、商标和产品名称继续受各自权利及许可约束。项目没有发现直接复制的 GPL/AGPL 源码；锁定依赖及许可证明细保存在 `LICENSES/`。这是一份工程级许可清单，不替代各权利人的法律意见。
+仓库根目录的 MIT License 只适用于本项目原创源码与文档。第三方依赖、OCR 模型、由用户提供的图像、商标和产品名称继续受各自权利及许可约束。项目没有发现直接复制的 GPL/AGPL 源码；若干传递依赖使用 MPL、CC-BY、PSF 和 BlueOak 许可，均作为独立依赖按其原许可分发，未合并到项目自有代码许可中。锁定依赖及许可证明细保存在 `LICENSES/`。这是一份工程级许可清单，不替代各权利人的法律意见。
 
 ## 图片来源与 Demo 资料
 

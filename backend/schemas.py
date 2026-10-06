@@ -23,7 +23,18 @@ class ItemInput(Input):
     location: str = Field(default='', max_length=250)
     status: Literal['正常使用','淘汰','转卖','回收'] = '正常使用'
     recognitionSessionId: str | None = None
-    images: list[dict] = Field(default_factory=list, max_length=8)
+    draftSessionId: str | None = None
+    images: list[dict] = Field(default_factory=list, max_length=10)
+
+
+    @field_validator('draftSessionId')
+    @classmethod
+    def draft_id(cls, value):
+        if value is not None:
+            import uuid
+            try: uuid.UUID(value)
+            except ValueError: raise ValueError('Draft ID 无效')
+        return value
 
     @field_validator('purchaseDate')
     @classmethod

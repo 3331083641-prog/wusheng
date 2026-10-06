@@ -14,14 +14,14 @@ export default defineConfig({
     },
   },
   server: {
-    port: 5173,
+    port: Number(process.env.WUSHENG_VITE_PORT || 5173),
     strictPort: true,
     proxy: {
       "/api": {
-        target: "http://127.0.0.1:8000",
+        target: process.env.WUSHENG_API_TARGET || "http://127.0.0.1:8000",
         rewrite: (p) => p.replace(/^\/api/, ""),
       },
-      "/uploads": "http://127.0.0.1:8000",
+      "/uploads": process.env.WUSHENG_API_TARGET || "http://127.0.0.1:8000",
     },
   },
 });

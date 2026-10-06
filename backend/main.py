@@ -1,46 +1,52 @@
 from contextlib import asynccontextmanager
 from datetime import date, timedelta
-from pathlib import Path
-from io import BytesIO
-import warnings
 from fastapi import FastAPI, Depends, HTTPException, UploadFile, File, Form
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
-from PIL import Image, UnidentifiedImageError
-from pypdf import PdfReader
 from sqlalchemy import select, delete, update
 from sqlalchemy.orm import Session
 from sqlalchemy.exc import SQLAlchemyError
-from .database import Base, engine, get_db, UPLOADS, uid, timestamp
+from .database import Base, engine, get_db, UPLOADS, uid, timestamp, migrate_schema
 from . import models as m, schemas as s
 from .clock import today
 from .serializers import row, item_data, reminder_data, cents
 from .lifecycle import sync_item, sync_all, consumable_data, event, next_maintenance
 from .context import ContextBuilder, lifecycle_suggestions
 from .providers import EvidenceProvider
-from .recognition import provider, parse_lines, fuse_candidates
 from .statistics import statistics
 from .seed import seed
+from .attachments import router as attachments_router, bind_draft, open_draft, cleanup_drafts, upgrade_legacy_documents
+from .storage import file_transaction, prune_empty
 
 
 @asynccontextmanager
 async def lifespan(_):
     Base.metadata.create_all(engine)
+    migrate_schema(engine)
     with Session(engine) as db:
         seed(db)
         db.commit()
+        upgrade_legacy_documents(db)
+        cleanup_drafts(db)
     yield
 
 
 app=FastAPI(title='物生 Wusheng Lifecycle API',version='0.1.0',lifespan=lifespan)
 app.add_middleware(CORSMiddleware,allow_origins=['http://127.0.0.1:5173','http://localhost:5173'],allow_methods=['GET','POST','PUT','PATCH','DELETE'],allow_headers=['Content-Type'])
 app.mount('/uploads',StaticFiles(directory=UPLOADS),name='uploads')
+app.include_router(attachments_router)
+app.include_router(attachments_router, prefix='/api', include_in_schema=False)
 
 
 @app.exception_handler(SQLAlchemyError)
 async def database_error(_,__):
     return JSONResponse(status_code=500,content={'detail':'数据库写入失败，操作已回滚。请稍后重试。'})
+
+
+@app.exception_handler(OSError)
+async def filesystem_error(_,__):
+    return JSONResponse(status_code=500,content={'detail':'无法读写本地附件，请检查磁盘空间或文件是否被其他程序占用。'})
 
 
 def get_or_404(db,model,ident):
@@ -81,7 +87,7 @@ def detail(ident:str,db:Session=Depends(get_db)):
 
 
 def set_item_fields(item,payload):
-    values=payload.model_dump(exclude={'recognitionSessionId','images'})
+    values=payload.model_dump(exclude={'recognitionSessionId','draftSessionId','images'})
     values['purchaseDate']=payload.purchaseDate.isoformat()
     values['purchasePrice']=cents(payload.purchasePrice)
     # Status is reconciled from records; retired/transferred states are explicit.
@@ -92,24 +98,32 @@ def set_item_fields(item,payload):
 @app.post('/items',status_code=201)
 def create_item(payload:s.ItemInput,db:Session=Depends(get_db)):
     session=None
+    draft_id=payload.draftSessionId
     if payload.recognitionSessionId:
         session=get_or_404(db,m.RecognitionSession,payload.recognitionSessionId)
         if session.itemId:raise HTTPException(409,'这个识别会话已建立档案，请勿重复保存')
+        if draft_id and session.draftId != draft_id:raise HTTPException(422,'识别结果与当前草稿不一致，请重新识别')
+        draft_id=draft_id or session.draftId
     elif payload.images:
-        raise HTTPException(422,'图片必须来自有效的本地识别会话')
-    item=m.Item(id=uid(),coverImage='/assets/no-photo.svg')
-    set_item_fields(item,payload)
-    db.add(item)
-    db.flush()
-    if session:
-        session.itemId=item.id
-        # Trust stored session image paths, never paths supplied by the browser.
-        for image in session.images:
-            db.add(m.ItemImage(itemId=item.id,filePath=image['filePath'],type=image['type'],source='local-ocr'))
-        product=next((i for i in session.images if i['type']=='product'),None)
-        if product:item.coverImage=product['filePath']
-    sync_item(db,item)
-    return item_data(db,item)
+        raise HTTPException(422,'图片必须来自有效的本地草稿或识别会话')
+    if draft_id:open_draft(db,draft_id)
+    with file_transaction(db) as files:
+        item=m.Item(id=uid(),coverImage='/assets/no-photo.svg')
+        set_item_fields(item,payload)
+        db.add(item)
+        db.flush()
+        if draft_id:
+            bind_draft(db,item,draft_id,files)
+        elif session:
+            session.itemId=item.id
+            for image in session.images:
+                db.add(m.ItemImage(itemId=item.id,filePath=image['filePath'],type=image['type'],source='local-ocr'))
+            product=next((i for i in session.images if i['type']=='product'),None)
+            if product:item.coverImage=product['filePath']
+        sync_item(db,item)
+        output=item_data(db,item)
+    if draft_id:prune_empty(f'uploads/drafts/{draft_id}')
+    return output
 
 
 @app.put('/items/{ident}')
@@ -122,10 +136,23 @@ def edit_item(ident:str,payload:s.ItemInput,db:Session=Depends(get_db)):
 
 @app.delete('/items/{ident}')
 def delete_item(ident:str,db:Session=Depends(get_db)):
-    get_or_404(db,m.Item,ident)
-    # Uploaded files remain available for manual recovery; no recursive deletion.
-    db.execute(delete(m.Item).where(m.Item.id==ident))
-    return {'deleted':ident,'note':'数据库关联已删除；本地附件保留以便恢复'}
+    item=get_or_404(db,m.Item,ident)
+    with file_transaction(db) as files:
+        attachments=list(db.scalars(select(m.ItemImage).where(m.ItemImage.itemId==ident)))+list(db.scalars(select(m.Document).where(m.Document.itemId==ident)))
+        paths={a.filePath for a in attachments if not a.filePath.startswith('/assets/')}
+        for path in paths:
+            # Never delete a legacy shared file still belonging to another item.
+            others=db.scalar(select(m.ItemImage.id).where(m.ItemImage.filePath==path,m.ItemImage.itemId!=ident)) or db.scalar(select(m.Document.id).where(m.Document.filePath==path,m.Document.itemId!=ident))
+            if not others:files.remove(path)
+        sessions=list(db.scalars(select(m.RecognitionSession).where(m.RecognitionSession.itemId==ident)))
+        for session in sessions:
+            db.execute(delete(m.RecognitionResult).where(m.RecognitionResult.sessionId==session.id))
+            db.delete(session)
+        db.execute(delete(m.DraftSession).where(m.DraftSession.itemId==ident))
+        db.delete(item)
+    prune_empty(f'images/items/{ident}')
+    prune_empty(f'documents/manuals/{ident}')
+    return {'deleted':ident}
 
 
 @app.post('/items/{ident}/maintenance',status_code=201)
@@ -219,71 +246,20 @@ def restock(ident:str,payload:s.StockInput,db:Session=Depends(get_db)):
     return consumable_data(db,c)
 
 
-@app.post('/items/{ident}/documents',status_code=201)
-def upload_document(ident:str,file:UploadFile=File(...),db:Session=Depends(get_db)):
-    get_or_404(db,m.Item,ident)
-    contents=file.file.read(20*1024*1024+1)
-    if len(contents)>20*1024*1024:raise HTTPException(413,'PDF 不超过 20MB')
-    if not contents.startswith(b'%PDF-'):raise HTTPException(415,'请上传有效 PDF 文件')
-    try:
-        reader=PdfReader(BytesIO(contents))
-        if reader.is_encrypted:raise ValueError('encrypted')
-        if len(reader.pages)>200:raise ValueError('too many pages')
-        pages=[(i+1,page.extract_text() or '') for i,page in enumerate(reader.pages)]
-        text='\n'.join(f'[第 {i} 页]\n'+content for i,content in pages if content.strip())[:500000]
-    except Exception:raise HTTPException(422,'无法解析 PDF：请使用未加密且不超过 200 页的文件')
-    ident_file=uid()+'.pdf'
-    (UPLOADS/ident_file).write_bytes(contents)
-    document=m.Document(itemId=ident,filename=Path(file.filename or '说明书.pdf').name,filePath='/uploads/'+ident_file,extractedText=text)
-    db.add(document)
-    db.flush()
-    return row(document)
-
-
 @app.post('/recognize')
 def recognize(files:list[UploadFile]=File(...),types:list[str]=Form(...),db:Session=Depends(get_db)):
-    if not 1<=len(files)<=8 or len(types)!=len(files):raise HTTPException(422,'请上传 1–8 张图片，并选择每张图片类型')
-    images=[]
-    candidates=[]
-    saved=[]
-    messages=[]
+    # Compatibility for existing clients: use the same persistent draft pipeline.
+    from .attachments import create_draft, upload_images, recognize_draft, discard_draft
+    if not 1<=len(files)<=10 or len(types)!=len(files):raise HTTPException(422,'请上传 1–10 张图片并选择类型')
+    draft=create_draft(db)
+    db.commit()
     try:
-        for file,kind in zip(files,types):
-            if kind not in ['product','receipt','package','manual']:raise HTTPException(422,'图片类型无效')
-            contents=file.file.read(10*1024*1024+1)
-            if len(contents)>10*1024*1024:raise HTTPException(413,'单张图片不超过 10MB')
-            try:
-                with warnings.catch_warnings():
-                    warnings.simplefilter('error',Image.DecompressionBombWarning)
-                    image=Image.open(BytesIO(contents))
-                    if image.format not in ['PNG','JPEG','WEBP']:raise ValueError()
-                    if image.width*image.height>20_000_000:raise ValueError()
-                    image.load()
-                    converted=image.convert('RGB')
-                    converted.thumbnail((2400,2400))
-            except (UnidentifiedImageError,ValueError,OSError,Image.DecompressionBombError,Image.DecompressionBombWarning):raise HTTPException(415,'图片格式无效或超过 2000 万像素，请使用 JPG、PNG、WebP')
-            filename=uid()+'.jpg'
-            converted.save(UPLOADS/filename,quality=95)
-            saved.append(UPLOADS/filename)
-            source='/uploads/'+filename
-            lines=provider.read(filename)
-            found=parse_lines(lines,source)
-            candidates.extend(found)
-            images.append({'filePath':source,'type':kind})
-            if not found:messages.append(f'{Path(file.filename or "图片").name}：未找到足够文字字段。请人工补充；纯照片视觉识别尚未启用。')
-        session=m.RecognitionSession(id=uid(),images=images)
-        db.add(session)
-        db.flush()
-        for candidate in candidates:db.add(m.RecognitionResult(sessionId=session.id,**candidate))
-        fields=fuse_candidates(candidates)
-        if any(c['confidence']<.8 for c in fields.values()):messages.append('存在低置信度或多图冲突字段，请核对后保存。')
-        return {'sessionId':session.id,'candidates':candidates,'fields':fields,'images':images,'mode':'RapidOCR 本地中文 OCR + 字段融合规则','warnings':messages}
-    except HTTPException:
-        for path in saved:path.unlink(missing_ok=True)
-        raise
+        for file,kind in zip(files,types):upload_images(draft['id'],[file],kind,db)
+        return recognize_draft(draft['id'],db)
     except Exception:
-        for path in saved:path.unlink(missing_ok=True)
-        raise HTTPException(503,'本地 OCR 暂时不可用，请检查依赖或改用手动录入')
+        db.rollback()
+        discard_draft(db,db.get(m.DraftSession,draft['id']))
+        raise
 
 
 @app.post('/generate')

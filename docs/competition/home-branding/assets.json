@@ -1,0 +1,20 @@
+{
+  "logoSource": "绿色生态叶环标志.png",
+  "logoMaster": "/assets/branding/wusheng-eco-ring-logo-master.png",
+  "logo": "/assets/branding/wusheng-eco-ring-logo.png",
+  "logoCrop": [
+    193,
+    187,
+    1070,
+    1064
+  ],
+  "logoSize": [
+    877,
+    877
+  ],
+  "logoProcessing": "Source-pixel crop; near-white neutral backing made transparent; green RGB preserved; no resampling",
+  "plantSource": "极简薄荷绿植物背景.png",
+  "plant": "/assets/branding/sidebar-natural-leaf-bg.png",
+  "plantSourceSha256": "63e5e0be79e17ac1f11a1197792b7d320ea7f60032d3cb798646985f265fc0fb",
+  "plantStoredSha256": "63e5e0be79e17ac1f11a1197792b7d320ea7f60032d3cb798646985f265fc0fb"
+}

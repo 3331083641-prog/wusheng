@@ -11,5 +11,8 @@ source=root/'data/wusheng.db'
 if source.exists():
     with sqlite3.connect(source) as current,sqlite3.connect(target/'wusheng.db') as destination:
         current.backup(destination)
-shutil.copytree(root/'data/uploads',target/'uploads',dirs_exist_ok=True)
+for folder in ['uploads', 'images', 'documents']:
+    source_folder=root/'data'/folder
+    if source_folder.exists():
+        shutil.copytree(source_folder,target/folder,dirs_exist_ok=True)
 print('Backup saved:',target)

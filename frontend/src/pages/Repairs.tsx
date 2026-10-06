@@ -5,6 +5,7 @@ import { api, json } from "../api";
 import { useStore } from "../store";
 import { Drawer, EmptyState, PageHeader, StatCard, StatusBadge } from "../components/ui";
 import type { Repair } from "../types";
+import ProductImage from "../components/ProductImage";
 const statuses = ["待预约", "诊断中", "维修中", "已完成"];
 export function RepairDrawer({ record, onClose }: { record: Repair; onClose: () => void }) {
   const { data, refresh, notify } = useStore();
@@ -14,7 +15,7 @@ export function RepairDrawer({ record, onClose }: { record: Repair; onClose: () 
   return (
     <Drawer title={item.name} onClose={onClose}>
       <div className="repair-drawer-hero">
-        <img src={item.coverImage} alt="" />
+        <ProductImage item={item} alt="" priority />
         <div>
           <h3>{item.model}</h3>
           <StatusBadge>{record.status}</StatusBadge>
@@ -218,7 +219,7 @@ export default function Repairs() {
                 <tr key={r.id} onClick={() => setSelected(r.id)}>
                   <td>
                     <div className="table-item">
-                      <img src={item.coverImage} alt="" />
+                      <ProductImage item={item} alt="" />
                       <section>
                         <b>{item.name}</b>
                         <small>

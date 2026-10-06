@@ -62,6 +62,13 @@ export interface Document {
   filePath: string;
   extractedText: string;
   uploadedAt: string;
+  originalFilename: string;
+  storedFilename: string;
+  mimeType: string;
+  fileSize: number;
+  sha256: string;
+  pageCount: number | null;
+  updatedAt: string;
 }
 export interface ItemImage {
   id: string;
@@ -69,6 +76,24 @@ export interface ItemImage {
   filePath: string;
   type: string;
   source: string;
+  originalFilename: string;
+  storedFilename: string;
+  mimeType: string;
+  fileSize: number;
+  sha256: string;
+  createdAt: string;
+}
+export interface DraftImage {
+  id: string;
+  draftId: string;
+  originalFilename: string;
+  storedFilename: string;
+  filePath: string;
+  mimeType: string;
+  fileSize: number;
+  type: string;
+  sha256: string;
+  createdAt: string;
 }
 export interface Consumption {
   id: string;
@@ -99,6 +124,8 @@ export interface Consumable {
   records: Consumption[];
   restocks: Restock[];
   method: string;
+  createdAt: string;
+  updatedAt: string;
 }
 export interface Reminder {
   id: string;

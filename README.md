@@ -2,7 +2,7 @@
 
 **AI 驱动的家庭物品全生命周期智能管理平台**
 
-参赛方向：2026 第八届全球校园人工智能算法精英大赛 AIC「AI+开源」算法主题赛 · 开源赋能的 AI 应用创新 / 日常生活。团队名称：物生智联。
+参赛方向：2026 第八届全球校园人工智能算法精英大赛 AIC「AI+开源」算法主题赛 · 开源赋能的 AI 应用创新 / 日常生活。团队名称：物生智联。方向与开源资源披露要求参照[组委会赛事通知](https://www.aicomp.cn/notice/notice-3/4890.html)；技术报告及具体提交规则以官网通知附件为准。
 
 物生把家庭物品从购买、退换、使用、维护、保修、维修、耗材补给到淘汰的过程放进一份连续档案。库存软件回答“家里有什么”；物生关注“一件物品进入生活后发生了什么，以及接下来要照顾什么”。
 
@@ -140,10 +140,11 @@ cd wusheng
 cd .\frontend
 npm run build
 npm run lint
-npm test
+cd ..
+powershell -ExecutionPolicy Bypass -File .\scripts\test_ui.ps1
 ```
 
-`npm test` 运行 Playwright UI 工作流，需要本机 Microsoft Edge 和正在运行的前后端服务（默认端口分别是 5173、8000）。浏览器测试使用单独创建和清理的测试物品；不要把私人数据库路径传给 `WUSHENG_DATA_DIR`。Python 测试使用隔离的 SQLite 临时数据库。详细限制与验证记录见[测试报告](docs/competition/test_results.md)。
+`scripts/test_ui.ps1` 使用隔离 SQLite Demo 数据，在空闲测试端口启动后端和前端，验证 `/health`、`/generate` 后运行 Playwright，并在测试通过后只清理本次生成的测试目录；失败时保留隔离数据和日志供排查。需要本机 Microsoft Edge。也可在手动启动默认前后端服务后于 `frontend/` 执行 `npm test`。Python 测试使用隔离的 SQLite 临时数据库。详细限制与验证记录见[测试报告](docs/competition/test_results.md)。
 
 ## 隐私与本地数据
 
@@ -160,4 +161,4 @@ npm test
 - [发布整理记录](docs/RELEASE_CLEANUP.md)
 - [参赛创新边界](docs/competition/innovation.md)
 
-项目可作为代码与演示成果链接供评审查看；参赛报名、材料提交和主办方规则核验由参赛团队另行完成。
+仓库披露第三方依赖、模型和素材来源，并说明 AI 辅助开发和团队自主实现边界。报名状态、成员权属确认与正式材料提交由参赛团队完成；本项目不宣称获奖或已有上游贡献被接纳。

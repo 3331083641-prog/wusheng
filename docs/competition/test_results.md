@@ -1,5 +1,28 @@
 # 验证结果
 
+## 最新发布验收：2026-10-06
+
+图片草稿/建档、PDF 上传与查看/下载/删除、六种耗材关联跳转已接通，保持既有视觉与业务数据。
+
+|检查|结果|证据|
+|---|---|---|
+|TypeScript/Vite build|通过，2652 modules；最大独立 chunk 约415KB|npm run build|
+|ESLint|通过|npm run lint|
+|后端单元与集成|50 passed，24.98 秒|backend/tests/test_attachments.py + 既有 engine/workflows|
+|浏览器流程|14 passed，83.8 秒|ui-test-results.json、frontend/tests/local-files.spec.ts|
+|Demo 初始化|隔离数据库首次启动生成10件合成物品；/health、/generate 均成功|scripts/test_ui.ps1，临时数据目录|
+|发布目录保护|原始 data/ 与 backups/ 未触碰；浏览器测试使用项目 tmp/ 下专用数据库|git status 与隔离测试配置|
+|真实服务重启|2 张原图、1 份 PDF 刷新及重启后可读，SHA256 一致|local-files/restart-verification.json|
+|说明书 AI 引用|本地文本按当前 Item 隔离，返回说明书来源|后端测试与重启检查|
+|删除/失败回滚|记录与文件同步；Item 级联；写入/提交错误恢复原文件|test_attachments.py|
+|格式与大小|图片 JPG/JPEG/PNG/WebP≤10MB，PDF≤50MB，拒绝伪造内容|后端与浏览器错误流程|
+|耗材关联|6 组 Drawer 字段与跳转、Item Tab 同源通过|local-files.spec.ts|
+|当前数据|10 Items、6 Consumables、3 Repairs 保留|临时验证档案删除后 snapshot|
+
+具体接口、元数据、修改文件与自动化验证边界见 [本地上传与关联验收](local_file_workflows.md)。浏览器自动化验证原生 filechooser 事件，未人工目视桌面 Windows 文件窗口。此次隔离运行的14组流程均通过，正常路径无新增页面错误；负例返回预期 HTTP 校验错误。Node 显示环境颜色变量警告，Python 测试有一条已有的 Starlette/httpx 弃用警告，均不影响检查结果。
+
+## 初期验收记录（2026-10-01，保留历史）
+
 日期：2026-10-01，Windows / Python 3.12.4 / Node 24.15.0 / Microsoft Edge。
 
 ## 实际运行结果
@@ -41,6 +64,6 @@
 3. 无文字照片视觉识别、扫描PDF OCR、向量RAG、在线生成模型、后台系统提醒尚未启用。
 4. 外部和Ollama provider 仅有可替换适配器，未连接真实模型验证。
 5. QR默认本机回环地址，手机需另配可访问的局域网地址。
-6. 示例照片低分辨率且授权单独处理；暂无打印机照片，显示明确空状态；不是高精度像素级复刻。
+6. 此初期记录之后，10 件物品与 6 种耗材已升级为用户提供的 1448×1086 PNG；来源与授权单独登记，见 hd_image_upgrade.md / consumable_image_upgrade.md。
 7. pytest有1条Starlette/httpx测试适配弃用警告，不影响26项通过。当前无需更改系统依赖。
 8. 抽屉与图表为真实组件；统计缺少历史的月份显示0，不能为让图漂亮编造记录。

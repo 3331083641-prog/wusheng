@@ -34,6 +34,12 @@ class ItemImage(Base):
     filePath = Column(String, nullable=False)
     type = Column(String, default='product')
     source = Column(String, default='upload')
+    originalFilename = Column(String, default='')
+    storedFilename = Column(String, default='')
+    mimeType = Column(String, default='')
+    fileSize = Column(Integer, default=0)
+    sha256 = Column(String, default='')
+    createdAt = Column(String, default=timestamp)
 
 
 class Document(Base):
@@ -45,6 +51,13 @@ class Document(Base):
     filePath = Column(String, nullable=False)
     extractedText = Column(Text, default='')
     uploadedAt = Column(String, default=timestamp)
+    originalFilename = Column(String, default='')
+    storedFilename = Column(String, default='')
+    mimeType = Column(String, default='application/pdf')
+    fileSize = Column(Integer, default=0)
+    sha256 = Column(String, default='')
+    pageCount = Column(Integer, nullable=True)
+    updatedAt = Column(String, default=timestamp)
 
 
 class LifecycleEvent(Base):
@@ -96,6 +109,8 @@ class Consumable(Base):
     warningStock = Column(Float, default=1)
     leadDays = Column(Integer, default=7)
     coverImage = Column(String, default='/assets/filter.jpg')
+    createdAt = Column(String, default=timestamp)
+    updatedAt = Column(String, default=timestamp, onupdate=timestamp)
 
 
 class ConsumptionRecord(Base):
@@ -146,3 +161,26 @@ class RecognitionSession(Base):
     images = Column(JSON, default=list)
     createdAt = Column(String, default=timestamp)
     itemId = Column(String, ForeignKey('items.id', ondelete='SET NULL'), nullable=True)
+    draftId = Column(String, nullable=True)
+
+
+class DraftSession(Base):
+    __tablename__ = 'draft_sessions'
+    id = Column(String, primary_key=True, default=uid)
+    createdAt = Column(String, default=timestamp)
+    updatedAt = Column(String, default=timestamp)
+    itemId = Column(String, ForeignKey('items.id', ondelete='SET NULL'), nullable=True)
+
+
+class DraftImage(Base):
+    __tablename__ = 'draft_images'
+    id = Column(String, primary_key=True, default=uid)
+    draftId = Column(String, ForeignKey('draft_sessions.id', ondelete='CASCADE'), nullable=False, index=True)
+    originalFilename = Column(String, nullable=False)
+    storedFilename = Column(String, nullable=False)
+    filePath = Column(String, nullable=False)
+    mimeType = Column(String, nullable=False)
+    fileSize = Column(Integer, nullable=False)
+    type = Column(String, default='product')
+    sha256 = Column(String, nullable=False)
+    createdAt = Column(String, default=timestamp)

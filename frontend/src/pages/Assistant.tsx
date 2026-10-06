@@ -4,6 +4,7 @@ import { BookOpen, Box, Calendar, ShieldCheck, Sparkles, Wrench } from "lucide-r
 import { PageHeader, StatusBadge } from "../components/ui";
 import AIChat from "../components/AIChat";
 import { useStore } from "../store";
+import ProductImage from "../components/ProductImage";
 export default function Assistant() {
   const data = useStore((s) => s.data)!;
   const [params, setParams] = useSearchParams();
@@ -62,7 +63,7 @@ export default function Assistant() {
             ))}
           </select>
           <Link className="context-item" to={`/items/${item.id}`}>
-            <img src={item.coverImage} alt={item.name} />
+            <ProductImage item={item} priority />
             <h3>{item.name}</h3>
             <p>{item.model}</p>
           </Link>

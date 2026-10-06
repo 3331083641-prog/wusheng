@@ -15,6 +15,8 @@ import {
 } from "lucide-react";
 import { useStore } from "../store";
 import { CountUp, ItemCard, StatCard } from "../components/ui";
+import ProductImage from "../components/ProductImage";
+import { ITEM_ASSETS } from "../assets/itemAssets";
 export default function Home() {
   const data = useStore((s) => s.data)!;
   const [slide, setSlide] = useState(0);
@@ -77,22 +79,8 @@ export default function Home() {
               查看功能
             </a>
           </div>
-          <div className="hero-trust">
-            <span>
-              <Leaf /> 免费开源
-            </span>
-            <span>
-              <ShieldCheck /> 数据本地安全
-            </span>
-            <span>
-              <Heart /> 为更美好的生活
-            </span>
-          </div>
         </div>
         <div className="hero-demo-wrap">
-          <div className="demo-caption">
-            <span className="live-dot" /> 真实档案 · 动态演示
-          </div>
           <motion.div
             className="hero-demo"
             animate={reduce ? {} : { y: [0, -5, 0] }}
@@ -137,7 +125,7 @@ export default function Home() {
                 </div>
                 <div className="demo-items">
                   {data.items.slice(0, 3).map((item) => (
-                    <ItemCard key={item.id} item={item} />
+                    <ItemCard key={item.id} item={item} priority />
                   ))}
                 </div>
                 <AnimatePresence mode="wait">
@@ -184,7 +172,6 @@ export default function Home() {
       <section className="home-section">
         <header>
           <h2>生活里的物品，值得被记住</h2>
-          <p>从一副耳机，到一整个家</p>
         </header>
         <div className="scene-grid">
           {[
@@ -197,7 +184,7 @@ export default function Home() {
               className="scene"
               to={category === "耗材" ? "/consumables" : `/items?category=${category}`}
             >
-              <img src={`/assets/${img}.jpg`} alt="" />
+              <ProductImage src={ITEM_ASSETS[img].src} alt="" />
               <div>
                 <h3>{title}</h3>
                 <p>{desc}</p>
@@ -236,10 +223,6 @@ export default function Home() {
           })}
         </div>
       </section>
-      <footer className="home-footer">
-        让每一件物品，都被好好对待。
-        <span>本地优先 · 免费开放 · 示例档案已标注 Demo</span>
-      </footer>
     </div>
   );
 }

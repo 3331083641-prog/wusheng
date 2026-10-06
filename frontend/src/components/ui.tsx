@@ -1,15 +1,20 @@
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
-import { ArrowRight, Check, ChevronRight, Leaf, Package, X, type LucideIcon } from "lucide-react";
+import { ArrowRight, Check, ChevronRight, Package, X, type LucideIcon } from "lucide-react";
 import { Link } from "react-router-dom";
 import type { Item, Event } from "../types";
+import ProductImage from "./ProductImage";
 
 export function Logo() {
   return (
     <Link className="logo" to="/" aria-label="物生首页">
       <span className="logo-symbol">
-        <Leaf size={27} />
-        <Leaf size={18} />
+        <img
+          src="/assets/branding/wusheng-eco-ring-logo.png"
+          alt=""
+          width={36}
+          height={36}
+        />
       </span>
       <b>物生</b>
       <span>Wusheng</span>
@@ -117,7 +122,15 @@ export function StatusBadge({ children, tone }: { children: ReactNode; tone?: st
     </span>
   );
 }
-export function ItemCard({ item, list = false }: { item: Item; list?: boolean }) {
+export function ItemCard({
+  item,
+  list = false,
+  priority = false,
+}: {
+  item: Item;
+  list?: boolean;
+  priority?: boolean;
+}) {
   return (
     <motion.article
       layout
@@ -128,7 +141,7 @@ export function ItemCard({ item, list = false }: { item: Item; list?: boolean })
       <Link to={`/items/${item.id}`}>
         <div className="item-picture">
           {item.coverImage ? (
-            <img src={item.coverImage} alt={item.name} loading="lazy" />
+            <ProductImage item={item} priority={priority} />
           ) : (
             <div className="photo-empty">
               <Package size={36} />

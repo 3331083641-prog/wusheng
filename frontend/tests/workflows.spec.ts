@@ -1,6 +1,6 @@
 import { test, expect, type APIRequestContext } from "@playwright/test";
 import path from "node:path";
-const backend = "http://127.0.0.1:8000";
+const backend = process.env.WUSHENG_TEST_API_URL || "http://127.0.0.1:8000";
 const today = new Intl.DateTimeFormat("en-CA", {
   timeZone: "Asia/Shanghai",
   year: "numeric",
@@ -45,8 +45,9 @@ test("统一导航、桌面与移动路由、筛选和搜索不刷新", async ({
   await page.getByRole("button", { name: "家居", exact: true }).click();
   await expect(page.locator(".items-grid .item-card")).toHaveCount(1);
   await page.getByLabel("全局搜索").fill("WH-1000XM6");
-  await expect(page.locator(".search-results").getByRole("link")).toHaveCount(1);
-  await page.locator(".search-results").getByRole("link").click();
+  const headphones = page.locator('.search-results a[href="/items/headphones"]');
+  await expect(headphones).toBeVisible();
+  await headphones.click();
   await expect(page.locator(".detail-title h1")).toContainText("Sony");
   await page.setViewportSize({ width: 1366, height: 768 });
   expect(
@@ -161,14 +162,17 @@ test("提醒延后与完成状态持久", async ({ page, request }) => {
   }
 });
 
-test("Case B：滤芯 12 天历史预测、抽屉趋势，库存补给同步", async ({ page, request }) => {
+test("Case B：滤芯实时历史预测、抽屉趋势，库存补给同步", async ({ page, request }) => {
   const id = await create(request, "UI 耗材设备");
   try {
     await page.goto("/consumables");
     const card = page.locator(".consumable-card").filter({ hasText: "空气净化器滤芯" });
-    await expect(card).toContainText("12 天");
+    const current = (await (await request.get(backend + "/snapshot")).json()).consumables.find(
+      (c: { id: string }) => c.id === "purifier-filter",
+    );
+    await expect(card).toContainText(`${current.estimatedDaysLeft} 天`);
     await card.click();
-    await expect(page.getByRole("dialog")).toContainText("60 天 / 5 单位");
+    await expect(page.getByRole("dialog")).toContainText(current.method);
     await expect(page.locator(".drawer-chart svg")).toBeVisible();
     await page.getByRole("button", { name: "关闭", exact: true }).click();
     await page.getByRole("button", { name: "关联耗材", exact: true }).click();

@@ -110,8 +110,8 @@ export default function Items() {
       )}
       <motion.div layout className={`items-grid ${list ? "list-view" : ""}`}>
         <AnimatePresence>
-          {items.map((item) => (
-            <ItemCard key={item.id} item={item} list={list} />
+          {items.map((item, index) => (
+            <ItemCard key={item.id} item={item} list={list} priority={index < 3} />
           ))}
         </AnimatePresence>
       </motion.div>

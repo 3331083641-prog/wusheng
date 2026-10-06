@@ -6,6 +6,7 @@ import { api, json } from "../api";
 import { useStore } from "../store";
 import { EmptyState, PageHeader, StatCard, StatusBadge } from "../components/ui";
 import type { Reminder } from "../types";
+import ProductImage from "../components/ProductImage";
 const kinds = [
   ["全部", Bell, "green"],
   ["保修到期", ShieldCheck, "orange"],
@@ -29,7 +30,7 @@ export function ReminderRow({
       exit={{ opacity: 0, scale: 0.97, height: 0, marginBottom: 0 }}
       transition={{ duration: 0.22 }}
     >
-      <img src={item?.coverImage} alt="" />
+      <ProductImage item={item} alt="" />
       <div className="reminder-item">
         <b>{item?.name || "物品"}</b>
         <small>

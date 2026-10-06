@@ -1,4 +1,5 @@
 import { useCallback, useState } from "react";
+import { Link } from "react-router-dom";
 import {
   Area,
   AreaChart,
@@ -13,6 +14,7 @@ import { api, json } from "../api";
 import { useStore } from "../store";
 import { Drawer, EmptyState, PageHeader, StatCard, StatusBadge } from "../components/ui";
 import type { Consumable } from "../types";
+import ConsumableImage from "../components/ConsumableImage";
 export function ConsumableCard({
   consumable,
   onClick,
@@ -23,7 +25,7 @@ export function ConsumableCard({
   const item = useStore((s) => s.data?.items.find((i) => i.id === consumable.itemId));
   return (
     <button className="consumable-card" onClick={onClick}>
-      <img src={consumable.coverImage} alt={consumable.name} />
+      <ConsumableImage consumable={consumable} />
       <section>
         <header>
           <h3>{consumable.name}</h3>
@@ -202,20 +204,37 @@ export default function Consumables() {
           {current && (
             <>
               <div className="consumable-drawer-hero">
-                <img src={current.coverImage} alt="" />
+                <ConsumableImage consumable={current} priority />
                 <section>
                   <StatusBadge>{current.status}</StatusBadge>
-                  <h3>{data!.items.find((i) => i.id === current.itemId)?.name}</h3>
                   <p>
-                    当前库存{" "}
+                    <span className="attachment-field-label">耗材名称</span>
+                    <b>{current.name}</b>
+                  </p>
+                  <p>
+                    <span className="attachment-field-label">关联物品</span>
+                    <Link onClick={close} to={`/items/${current.itemId}`}>
+                      {data!.items.find((i) => i.id === current.itemId)?.name || "关联物品不存在"}
+                    </Link>
+                  </p>
+                  <p>
+                    <span className="attachment-field-label">当前库存</span>
                     <b>
                       {current.currentStock} {current.unit}
                     </b>
                   </p>
                   <p>
-                    预计可用 <b>{current.estimatedDaysLeft ?? "未知"} 天</b>
+                    <span className="attachment-field-label">预计可用</span>
+                    <b>
+                      {current.estimatedDaysLeft === null
+                        ? "数据不足"
+                        : `${current.estimatedDaysLeft} 天`}
+                    </b>
                   </p>
-                  <p>建议购买 {current.suggestedPurchaseDate || "数据不足"}</p>
+                  <p>
+                    <span className="attachment-field-label">建议购买</span>
+                    <b>{current.suggestedPurchaseDate || "数据不足"}</b>
+                  </p>
                 </section>
               </div>
               <section className="drawer-section">

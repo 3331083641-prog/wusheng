@@ -1,0 +1,449 @@
+{
+  "result": [
+    {
+      "width": 1440,
+      "height": 900,
+      "sidebar": "232px",
+      "hero": 458.734375,
+      "featureCards": [
+        {
+          "w": 184.65625,
+          "h": 89
+        },
+        {
+          "w": 184.671875,
+          "h": 89
+        },
+        {
+          "w": 184.671875,
+          "h": 89
+        },
+        {
+          "w": 184.65625,
+          "h": 89
+        },
+        {
+          "w": 184.671875,
+          "h": 89
+        },
+        {
+          "w": 184.671875,
+          "h": 89
+        }
+      ],
+      "sceneCount": 3,
+      "stepsCount": 4,
+      "navCount": 8,
+      "removedNodes": 0,
+      "removedText": [],
+      "localNote": "本地优先 · 免费开放",
+      "logo": {
+        "rect": {
+          "x": 29,
+          "y": 21,
+          "width": 36,
+          "height": 36,
+          "top": 21,
+          "right": 65,
+          "bottom": 57,
+          "left": 29
+        },
+        "parent": {
+          "x": 29,
+          "y": 21,
+          "width": 36,
+          "height": 36,
+          "top": 21,
+          "right": 65,
+          "bottom": 57,
+          "left": 29
+        },
+        "complete": true,
+        "naturalWidth": 877,
+        "naturalHeight": 877,
+        "fit": "contain"
+      },
+      "promo": {
+        "rect": {
+          "x": 20,
+          "y": 672,
+          "width": 191,
+          "height": 169,
+          "top": 672,
+          "right": 211,
+          "bottom": 841,
+          "left": 20
+        },
+        "background": "linear-gradient(rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.12)), url(\"http://127.0.0.1:5173/assets/branding/sidebar-natural-leaf-bg.png\")",
+        "title": {
+          "x": 39,
+          "y": 694,
+          "width": 153,
+          "height": 54,
+          "top": 694,
+          "right": 192,
+          "bottom": 748,
+          "left": 39
+        },
+        "subtitle": {
+          "x": 39,
+          "y": 758,
+          "width": 153,
+          "height": 15,
+          "top": 758,
+          "right": 192,
+          "bottom": 773,
+          "left": 39
+        },
+        "arrow": {
+          "x": 39,
+          "y": 788,
+          "width": 31,
+          "height": 31,
+          "top": 788,
+          "right": 70,
+          "bottom": 819,
+          "left": 39
+        },
+        "text": "让每一件物品\n都被好好对待\n\n陪伴，比拥有更长久。\n→"
+      },
+      "pageOverflow": false,
+      "brokenImages": []
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "sidebar": "232px",
+      "hero": 583.546875,
+      "featureCards": [
+        {
+          "w": 256.65625,
+          "h": 92.296875
+        },
+        {
+          "w": 256.671875,
+          "h": 92.296875
+        },
+        {
+          "w": 256.65625,
+          "h": 92.296875
+        },
+        {
+          "w": 256.671875,
+          "h": 92.296875
+        },
+        {
+          "w": 256.671875,
+          "h": 92.296875
+        },
+        {
+          "w": 256.65625,
+          "h": 92.296875
+        }
+      ],
+      "sceneCount": 3,
+      "stepsCount": 4,
+      "navCount": 8,
+      "removedNodes": 0,
+      "removedText": [],
+      "localNote": "本地优先 · 免费开放",
+      "logo": {
+        "rect": {
+          "x": 29,
+          "y": 21,
+          "width": 36,
+          "height": 36,
+          "top": 21,
+          "right": 65,
+          "bottom": 57,
+          "left": 29
+        },
+        "parent": {
+          "x": 29,
+          "y": 21,
+          "width": 36,
+          "height": 36,
+          "top": 21,
+          "right": 65,
+          "bottom": 57,
+          "left": 29
+        },
+        "complete": true,
+        "naturalWidth": 877,
+        "naturalHeight": 877,
+        "fit": "contain"
+      },
+      "promo": {
+        "rect": {
+          "x": 20,
+          "y": 852,
+          "width": 191,
+          "height": 169,
+          "top": 852,
+          "right": 211,
+          "bottom": 1021,
+          "left": 20
+        },
+        "background": "linear-gradient(rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.12)), url(\"http://127.0.0.1:5173/assets/branding/sidebar-natural-leaf-bg.png\")",
+        "title": {
+          "x": 39,
+          "y": 874,
+          "width": 153,
+          "height": 54,
+          "top": 874,
+          "right": 192,
+          "bottom": 928,
+          "left": 39
+        },
+        "subtitle": {
+          "x": 39,
+          "y": 938,
+          "width": 153,
+          "height": 15,
+          "top": 938,
+          "right": 192,
+          "bottom": 953,
+          "left": 39
+        },
+        "arrow": {
+          "x": 39,
+          "y": 968,
+          "width": 31,
+          "height": 31,
+          "top": 968,
+          "right": 70,
+          "bottom": 999,
+          "left": 39
+        },
+        "text": "让每一件物品\n都被好好对待\n\n陪伴，比拥有更长久。\n→"
+      },
+      "pageOverflow": false,
+      "brokenImages": []
+    },
+    {
+      "width": 1366,
+      "height": 768,
+      "sidebar": "232px",
+      "hero": 456.546875,
+      "featureCards": [
+        {
+          "w": 175.65625,
+          "h": 89
+        },
+        {
+          "w": 175.671875,
+          "h": 89
+        },
+        {
+          "w": 175.671875,
+          "h": 89
+        },
+        {
+          "w": 175.65625,
+          "h": 89
+        },
+        {
+          "w": 175.671875,
+          "h": 89
+        },
+        {
+          "w": 175.671875,
+          "h": 89
+        }
+      ],
+      "sceneCount": 3,
+      "stepsCount": 4,
+      "navCount": 8,
+      "removedNodes": 0,
+      "removedText": [],
+      "localNote": "本地优先 · 免费开放",
+      "logo": {
+        "rect": {
+          "x": 29,
+          "y": 10.5,
+          "width": 36,
+          "height": 36,
+          "top": 10.5,
+          "right": 65,
+          "bottom": 46.5,
+          "left": 29
+        },
+        "parent": {
+          "x": 29,
+          "y": 10.5,
+          "width": 36,
+          "height": 36,
+          "top": 10.5,
+          "right": 65,
+          "bottom": 46.5,
+          "left": 29
+        },
+        "complete": true,
+        "naturalWidth": 877,
+        "naturalHeight": 877,
+        "fit": "contain"
+      },
+      "promo": {
+        "rect": {
+          "x": 20,
+          "y": 557,
+          "width": 191,
+          "height": 152,
+          "top": 557,
+          "right": 211,
+          "bottom": 709,
+          "left": 20
+        },
+        "background": "linear-gradient(rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.12)), url(\"http://127.0.0.1:5173/assets/branding/sidebar-natural-leaf-bg.png\")",
+        "title": {
+          "x": 39,
+          "y": 579,
+          "width": 153,
+          "height": 54,
+          "top": 579,
+          "right": 192,
+          "bottom": 633,
+          "left": 39
+        },
+        "subtitle": {
+          "x": 39,
+          "y": 643,
+          "width": 153,
+          "height": 15,
+          "top": 643,
+          "right": 192,
+          "bottom": 658,
+          "left": 39
+        },
+        "arrow": {
+          "x": 39,
+          "y": 673,
+          "width": 31,
+          "height": 31,
+          "top": 673,
+          "right": 70,
+          "bottom": 704,
+          "left": 39
+        },
+        "text": "让每一件物品\n都被好好对待\n\n陪伴，比拥有更长久。\n→"
+      },
+      "pageOverflow": false,
+      "brokenImages": []
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "sidebar": "70px",
+      "hero": 654.125,
+      "featureCards": [
+        {
+          "w": 284,
+          "h": 89
+        },
+        {
+          "w": 284,
+          "h": 89
+        },
+        {
+          "w": 284,
+          "h": 89
+        },
+        {
+          "w": 284,
+          "h": 89
+        },
+        {
+          "w": 284,
+          "h": 89
+        },
+        {
+          "w": 284,
+          "h": 89
+        }
+      ],
+      "sceneCount": 3,
+      "stepsCount": 4,
+      "navCount": 8,
+      "removedNodes": 0,
+      "removedText": [],
+      "localNote": "本地优先 · 免费开放",
+      "logo": {
+        "rect": {
+          "x": 17,
+          "y": 21,
+          "width": 36,
+          "height": 36,
+          "top": 21,
+          "right": 53,
+          "bottom": 57,
+          "left": 17
+        },
+        "parent": {
+          "x": 17,
+          "y": 21,
+          "width": 36,
+          "height": 36,
+          "top": 21,
+          "right": 53,
+          "bottom": 57,
+          "left": 17
+        },
+        "complete": true,
+        "naturalWidth": 877,
+        "naturalHeight": 877,
+        "fit": "contain"
+      },
+      "promo": {
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        },
+        "background": "linear-gradient(rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.12)), url(\"http://127.0.0.1:5173/assets/branding/sidebar-natural-leaf-bg.png\")",
+        "title": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        },
+        "subtitle": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        },
+        "arrow": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        },
+        "text": "让每一件物品都被好好对待陪伴，比拥有更长久。→"
+      },
+      "pageOverflow": false,
+      "brokenImages": []
+    }
+  ],
+  "errors": [],
+  "failedRequests": [],
+  "featureCardGeometryUnchanged": true,
+  "sidebarWidthsUnchanged": true,
+  "viewFeaturesAndSidebarArrowPassed": true
+}

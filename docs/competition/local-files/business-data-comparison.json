@@ -1,0 +1,8 @@
+{
+  "items": true,
+  "consumables": true,
+  "maintenance_records": true,
+  "repair_records": true,
+  "consumption_records": true,
+  "restock_records": true
+}

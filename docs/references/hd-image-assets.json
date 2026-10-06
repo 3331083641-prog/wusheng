@@ -1,0 +1,112 @@
+[
+  {
+    "itemId": "laptop",
+    "itemName": "MacBook Air M2",
+    "sourceFilename": "ChatGPT 图像 2026年10月1日 18_42_48-1.png",
+    "assetPath": "/assets/items/macbook-air-m2.png",
+    "width": 1448,
+    "height": 1086,
+    "bytes": 1476755,
+    "sha256": "0E040B7803022A71F0D381F61066272F2B6246952067325C3074A18CD940120F",
+    "provenance": "User-supplied HD PNG, copied byte-for-byte without processing"
+  },
+  {
+    "itemId": "headphones",
+    "itemName": "Sony WH-1000XM6",
+    "sourceFilename": "ChatGPT 图像 2026年10月1日 18_42_51-2.png",
+    "assetPath": "/assets/items/sony-wh1000xm6.png",
+    "width": 1448,
+    "height": 1086,
+    "bytes": 1520921,
+    "sha256": "F00645348DE92A633096476F144B98E126B05E3A13A14EB892C1CB62FF6C0161",
+    "provenance": "User-supplied HD PNG, copied byte-for-byte without processing"
+  },
+  {
+    "itemId": "washer",
+    "itemName": "海尔滚筒洗衣机",
+    "sourceFilename": "ChatGPT 图像 2026年10月1日 18_42_54-3.png",
+    "assetPath": "/assets/items/haier-washer.png",
+    "width": 1448,
+    "height": 1086,
+    "bytes": 1835401,
+    "sha256": "BF3862A07FA642EE0A43780D27F7829E01A895BBCE25A9F1B92EB0E8D458293D",
+    "provenance": "User-supplied HD PNG, copied byte-for-byte without processing"
+  },
+  {
+    "itemId": "ac",
+    "itemName": "美的空调",
+    "sourceFilename": "ChatGPT 图像 2026年10月1日 18_42_57-4.png",
+    "assetPath": "/assets/items/midea-air-conditioner.png",
+    "width": 1448,
+    "height": 1086,
+    "bytes": 1529288,
+    "sha256": "47FBA6DE0C55461C96E9E2614C28C1E01661D8AC6EF28001CF00A913EB025DD6",
+    "provenance": "User-supplied HD PNG, copied byte-for-byte without processing"
+  },
+  {
+    "itemId": "robot",
+    "itemName": "小米扫地机器人",
+    "sourceFilename": "ChatGPT 图像 2026年10月1日 18_43_00-5.png",
+    "assetPath": "/assets/items/xiaomi-robot-vacuum.png",
+    "width": 1448,
+    "height": 1086,
+    "bytes": 1431480,
+    "sha256": "5406E6702223D3EDF0EECD11114A4CF3F35EF355494631A83911AD1C12C0F6E6",
+    "provenance": "User-supplied HD PNG, copied byte-for-byte without processing"
+  },
+  {
+    "itemId": "coffee",
+    "itemName": "德龙咖啡机",
+    "sourceFilename": "ChatGPT 图像 2026年10月1日 18_43_03-6.png",
+    "assetPath": "/assets/items/delonghi-coffee-machine.png",
+    "width": 1448,
+    "height": 1086,
+    "bytes": 1707299,
+    "sha256": "D78DEF129DC8A87ABEFDA662FEE7FF223779CDF945CFBB957BAA9A29A2F224BE",
+    "provenance": "User-supplied HD PNG, copied byte-for-byte without processing"
+  },
+  {
+    "itemId": "toothbrush",
+    "itemName": "飞利浦电动牙刷",
+    "sourceFilename": "ChatGPT 图像 2026年10月1日 18_43_06-7.png",
+    "assetPath": "/assets/items/philips-electric-toothbrush.png",
+    "width": 1448,
+    "height": 1086,
+    "bytes": 1442405,
+    "sha256": "530172774D43D5EC1F07BBD982DA83492A8C3DB6EC7697A24D9866C4847A858C",
+    "provenance": "User-supplied HD PNG, copied byte-for-byte without processing"
+  },
+  {
+    "itemId": "suitcase",
+    "itemName": "行李箱",
+    "sourceFilename": "ChatGPT 图像 2026年10月1日 18_43_10-8.png",
+    "assetPath": "/assets/items/rimowa-suitcase.png",
+    "width": 1448,
+    "height": 1086,
+    "bytes": 1484164,
+    "sha256": "881BE4AB71C03D761A3FF1E9A475EB09083BCDAC4168D98B20403E6DF1974EA4",
+    "provenance": "User-supplied HD PNG, copied byte-for-byte without processing"
+  },
+  {
+    "itemId": "purifier",
+    "itemName": "空气净化器",
+    "sourceFilename": "ChatGPT 图像 2026年10月1日 18_43_12-9.png",
+    "assetPath": "/assets/items/xiaomi-air-purifier.png",
+    "width": 1448,
+    "height": 1086,
+    "bytes": 2054733,
+    "sha256": "BDF05FF43A9FC39DFD82306C63B6BAA4E653E6D61223E0CD05D9590366F42937",
+    "provenance": "User-supplied HD PNG, copied byte-for-byte without processing"
+  },
+  {
+    "itemId": "printer",
+    "itemName": "惠普打印机",
+    "sourceFilename": "ChatGPT 图像 2026年10月1日 18_43_15-10.png",
+    "assetPath": "/assets/items/hp-printer.png",
+    "width": 1448,
+    "height": 1086,
+    "bytes": 1433387,
+    "sha256": "827F6E8D715DC61F308DAF62BC788C7E6619226D61A0D7CD69EBD120DA7569BF",
+    "provenance": "User-supplied HD PNG, copied byte-for-byte without processing"
+  }
+]

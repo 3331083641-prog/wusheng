@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import {
@@ -24,6 +24,9 @@ import {
 import DocumentCard from "../components/DocumentCard";
 import RecognitionPanel, { type ItemForm } from "../components/RecognitionPanel";
 import type { Detail } from "../types";
+import ProductImage from "../components/ProductImage";
+import ConsumableImage from "../components/ConsumableImage";
+import { resolveProductAsset } from "../assets/itemAssets";
 export default function ItemDetail() {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -35,12 +38,18 @@ export default function ItemDetail() {
   const [qr, setQr] = useState("");
   const [form, setForm] = useState<ItemForm>({});
   const [busy, setBusy] = useState(false);
+  const pdfInput = useRef<HTMLInputElement>(null);
   const { refresh, notify } = useStore();
   const load = useCallback(async () => {
     try {
       const d = await api<Detail>(`/items/${id}`);
       setDetail(d);
-      setImage(d.images.find((i) => i.type === "product")?.filePath || d.item.coverImage);
+      setImage(
+        resolveProductAsset(
+          d.item,
+          d.images.find((i) => i.type === "product")?.filePath || d.item.coverImage,
+        ).src,
+      );
     } catch (e) {
       setError((e as Error).message);
     }
@@ -111,9 +120,21 @@ export default function ItemDetail() {
     setDrawer("编辑信息");
   };
   const upload = async (file: File) => {
+    if (busy) return;
+    if (!file.name.toLowerCase().endsWith(".pdf") || file.type !== "application/pdf") {
+      setError("请上传 .pdf 格式的 PDF 文件");
+      return;
+    }
+    if (file.size > 50 * 1024 * 1024) {
+      setError("PDF 不超过 50MB");
+      return;
+    }
     const body = new FormData();
     body.append("file", file);
-    await act(() => api(`/items/${id}/documents`, { method: "POST", body }), "说明书已保存在本机");
+    await act(
+      () => api(`/items/${id}/documents/manual`, { method: "POST", body }),
+      "说明书已保存在本机",
+    );
   };
   return (
     <main className="page detail-page">
@@ -122,10 +143,16 @@ export default function ItemDetail() {
         <span>›</span>物品详情
         {item.isDemo && <span className="demo-label">合成 Demo</span>}
       </div>
+      {error && !drawer && (
+        <p role="alert" className="form-error">
+          {error}
+        </p>
+      )}
       <div className="detail-hero">
         <div className="gallery">
           <div className="thumbnails">
             {[item.coverImage, ...detail.images.map((i) => i.filePath)]
+              .map((src) => resolveProductAsset(item, src).src)
               .filter((v, i, a) => v && a.indexOf(v) === i)
               .map((src) => (
                 <button
@@ -133,21 +160,22 @@ export default function ItemDetail() {
                   onClick={() => setImage(src)}
                   className={src === image ? "active" : ""}
                 >
-                  <img src={src} alt="切换物品图片" />
+                  <ProductImage item={item} src={src} alt="切换物品图片" />
                 </button>
               ))}
           </div>
           <div className="main-image">
             <AnimatePresence mode="wait">
-              <motion.img
+              <motion.div
                 key={image}
-                src={image}
-                alt={item.name}
+                className="main-image-crossfade"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.18 }}
-              />
+              >
+                <ProductImage item={item} src={image} fit="contain" priority />
+              </motion.div>
             </AnimatePresence>
           </div>
         </div>
@@ -190,13 +218,17 @@ export default function ItemDetail() {
           <button
             className="button secondary"
             onClick={async () => {
-              setQr(
-                await QRCode.toDataURL(`${location.origin}/items/${id}`, {
-                  width: 360,
-                  margin: 2,
-                }),
-              );
-              setDrawer("一物一码");
+              try {
+                setQr(
+                  await QRCode.toDataURL(`${location.origin}/items/${id}`, {
+                    width: 360,
+                    margin: 2,
+                  }),
+                );
+                setDrawer("一物一码");
+              } catch {
+                setError("二维码生成失败，请重试");
+              }
             }}
           >
             <QrCode size={18} />
@@ -267,29 +299,44 @@ export default function ItemDetail() {
               <>
                 <div className="section-toolbar">
                   <p>本地 PDF 资料；扫描件若无文本层会明确提示。</p>
-                  <label className="button primary">
+                  <button
+                    type="button"
+                    className="button primary"
+                    disabled={busy}
+                    onClick={() => pdfInput.current?.click()}
+                  >
                     <Plus size={18} />
-                    上传 PDF
-                    <input
-                      className="visually-hidden"
-                      type="file"
-                      accept="application/pdf"
-                      disabled={busy}
-                      aria-label="上传说明书 PDF"
-                      onChange={(e) => {
-                        const f = e.target.files?.[0];
-                        if (f) void upload(f);
-                        e.target.value = "";
-                      }}
-                    />
-                  </label>
+                    {busy ? "上传中…" : detail.documents.length ? "继续上传 PDF" : "上传 PDF"}
+                  </button>
+                  <input
+                    ref={pdfInput}
+                    className="visually-hidden"
+                    type="file"
+                    accept=".pdf,application/pdf"
+                    disabled={busy}
+                    aria-label="上传说明书 PDF"
+                    onChange={(e) => {
+                      const f = e.target.files?.[0];
+                      if (f) void upload(f);
+                      e.target.value = "";
+                    }}
+                  />
                 </div>
                 {detail.documents.map((d) => (
-                  <DocumentCard key={d.id} document={d} />
+                  <DocumentCard
+                    key={d.id}
+                    document={d}
+                    onDelete={() =>
+                      act(
+                        () => api(`/documents/${d.id}`, { method: "DELETE" }),
+                        "说明书及本地文件已删除",
+                      )
+                    }
+                  />
                 ))}
                 {!detail.documents.length && (
                   <EmptyState
-                    title="还没有说明书"
+                    title="本地 PDF 资料尚未添加"
                     description="上传 PDF 后，可直接查看并在 AI 助手中引用。"
                   />
                 )}
@@ -356,7 +403,7 @@ export default function ItemDetail() {
               <>
                 {detail.consumables.map((c) => (
                   <article className="record-row" key={c.id}>
-                    <img className="record-image" src={c.coverImage} alt="" />
+                    <ConsumableImage className="record-image" consumable={c} />
                     <div>
                       <h3>{c.name}</h3>
                       <p>
@@ -392,11 +439,6 @@ export default function ItemDetail() {
           </motion.div>
         </AnimatePresence>
       </section>
-      {error && (
-        <p className="form-error" role="alert">
-          {error}
-        </p>
-      )}
       {drawer && (
         <Drawer title={drawer} onClose={close}>
           {drawer === "一物一码" && (
@@ -445,7 +487,7 @@ export default function ItemDetail() {
           )}
           {drawer === "删除档案" && (
             <div>
-              <p>确认删除「{item.name}」及其关联记录？本地上传附件保留以便恢复。</p>
+              <p>确认删除「{item.name}」及其关联记录？已上传图片和 PDF 文件也将一并删除。</p>
               <button
                 className="button primary"
                 disabled={busy}
@@ -454,7 +496,7 @@ export default function ItemDetail() {
                   try {
                     await api(`/items/${id}`, { method: "DELETE" });
                     await refresh();
-                    notify("档案已删除，附件仍保留在本地");
+                    notify("档案、关联记录和本地附件已删除");
                     navigate("/items");
                   } catch (e) {
                     setError((e as Error).message);

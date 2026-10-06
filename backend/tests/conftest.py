@@ -7,6 +7,13 @@ from backend import main
 
 @pytest.fixture
 def client(tmp_path,monkeypatch):
+    from backend import database, seed, recognition
+    data = tmp_path / 'data'
+    uploads = data / 'uploads'
+    uploads.mkdir(parents=True)
+    monkeypatch.setattr(database, 'DATA', data)
+    for module in [database, main, seed, recognition]:
+        monkeypatch.setattr(module, 'UPLOADS', uploads)
     engine=make_engine(f'sqlite:///{tmp_path / "test.db"}')
     monkeypatch.setattr(main,'engine',engine)
     Base.metadata.create_all(engine)

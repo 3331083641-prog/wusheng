@@ -3,6 +3,7 @@ import re
 from datetime import date
 from typing import Protocol
 import threading
+from pathlib import Path
 from .database import UPLOADS
 
 
@@ -20,7 +21,7 @@ class RapidOCRProvider:
             if self._engine is None:
                 from rapidocr_onnxruntime import RapidOCR
                 self._engine=RapidOCR(intra_op_num_threads=2,inter_op_num_threads=2)
-            result,_=self._engine(str(UPLOADS/path))
+            result,_=self._engine(str(path if Path(path).is_absolute() else UPLOADS/path))
         return [(line[1],float(line[2])) for line in (result or [])]
 
 
