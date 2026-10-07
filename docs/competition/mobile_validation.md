@@ -2,7 +2,7 @@
 
 状态：**Awaiting physical-device verification**。Codex 的 LAN HTTP、二维码 PNG 解码及浏览器只读测试不等于真实手机测试。本表只允许用户实测后填写结果。
 
-1. 电脑运行 `powershell -ExecutionPolicy Bypass -File .\scripts\start_lan.ps1`。
+1. 电脑运行 `powershell -ExecutionPolicy Bypass -File .\scripts\start.ps1`（已默认支持安全 LAN 分享，无需另开模式）。
 2. 手机与电脑连接同一 Wi-Fi；避免启用访客网络隔离。
 3. 手机访问脚本输出的 `http://<LAN-IP>:8000`。电脑管理页面使用 `http://127.0.0.1:8000`。
 4. 电脑打开物品详情，检查“分享内容预览”，选择默认 **7 天** 并生成二维码。

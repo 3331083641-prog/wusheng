@@ -19,6 +19,7 @@
 | Item-specific AI Context | 当前物品的档案、说明书、维护、维修、耗材证据；默认规则，可选本机模型 |
 | 一物一码 | LAN 只读分享、有效期、内容预览、撤销与令牌轮换；管理功能限电脑本机 |
 | 凭证与售后 | 本体/小票/发票/铭牌等资料，字段依据、售后证据 ZIP、中文摘要 PDF、SHA256 |
+| 档案导出 | 可阅读/打印的物品档案 PDF、机器可读 JSON 原始数据；售后 ZIP 独立保留 |
 | 数据与提醒 | 统一数据统计、ICS、主动授权浏览器通知、本地完整备份与校验恢复 |
 
 第三方 OCR、模型、框架能力不是本项目原创。Warden/HomeInventory 仅作为产品与交互思路参考，未直接复制源码。详见 [创新说明](docs/competition/innovation.md)、[开源融合](OPEN_SOURCE_USAGE.md)和[第三方清单](THIRD_PARTY.md)。
@@ -64,7 +65,9 @@ powershell -ExecutionPolicy Bypass -File .\scripts\setup.ps1
 powershell -ExecutionPolicy Bypass -File .\scripts\start.ps1
 ```
 
-打开 [首页](http://127.0.0.1:5173)，[API 文档](http://127.0.0.1:8000/docs)。启动脚本先验证 `/health` → `/generate` → 前端，再打开浏览器；只管理自己启动的进程。首次启动自动生成 **10 件物品、6 种耗材、3 条维修**及合成护理 PDF；已有数据库不会重置。数据不是真实用户资料或厂家手册。
+打开 [首页](http://127.0.0.1:8000)，[API 文档](http://127.0.0.1:8000/docs)。普通 `start.ps1` 检查依赖、构建前端，由 FastAPI 在单端口 8000 托管生产界面；验证 `/health` → `/generate` → 前端后打开浏览器，同时支持安全局域网只读分享。只管理自己启动的进程，不修改防火墙。首次启动自动生成 **10 件物品、6 种耗材、3 条维修**及合成护理 PDF；已有数据库不会重置。数据不是真实用户资料或厂家手册。
+
+开发者需要 Vite HMR 时运行 `scripts/start_dev.ps1`（前端 127.0.0.1:5173、后端 127.0.0.1:8000）。高级参数与退出方式见 [运行细节](docs/competition/runtime_guide.md)。
 
 ## AI 边界
 
@@ -82,11 +85,7 @@ $env:WUSHENG_OLLAMA_MODEL = '<本机已安装的模型名称>'
 
 ## 一物一码与手机验证
 
-```powershell
-powershell -ExecutionPolicy Bypass -File .\scripts\start_lan.ps1
-```
-
-FastAPI 单端口托管生产前端。脚本输出 LAN IP、电脑管理地址与手机地址，不修改系统网络或防火墙。管理限回环，手机通过随机 Token 查看只读档案。
+普通 `scripts/start.ps1` 已默认支持，不需要另开 LAN 模式。`start_lan.ps1` 仅转调普通启动，作为兼容入口。脚本输出 LAN IP、电脑管理地址与手机地址，不修改系统网络或防火墙。管理限回环，手机通过随机 Token 查看只读档案。没有 LAN 地址时本机管理仍可用；连接 Wi-Fi 后在二维码 Drawer 重新检测，多网卡可选择地址。
 
 新码默认 **7 天**，可选 24 小时/30 天/长期。生成前预览分享范围：名称/品牌/型号/维护默认显示，保修/生命周期/耗材可选择；购买日期、说明书文件名默认关闭。序列号、价格、渠道、票据、维修备注和说明书正文不分享。旧码到期、撤销或重新生成后不可访问；旧数据库的长期码保持兼容。
 
@@ -113,6 +112,12 @@ powershell -ExecutionPolicy Bypass -File .\scripts\test_ui.ps1
 ```
 
 测试使用隔离 SQLite，不污染用户 data。Linux CI 验证 pytest/lint/build/文档链接；Windows CI 另测 PowerShell 语法、FastAPI 健康和 Demo。最终结果见 [test_results.md](docs/competition/test_results.md) 和 [发布验收](docs/competition/release_v2_acceptance.md)。
+
+冻结后的小范围可用性修正见 [v1.0.1 验收](docs/competition/release_v101_acceptance.md)；原 `v1.0-aic2026` Tag 保持不变。
+
+## 三种导出
+
+物品详情的「导出档案」生成含图片、基本信息、生命周期、提醒、维护、维修、耗材和附件目录的中文 **PDF**，用于阅读/打印。「导出原始数据 JSON」保留结构化档案，供程序处理。**售后证据包 ZIP** 用于整理售后材料，仍独立提供。档案 PDF 不自动嵌入票据和说明书全文，不写入磁盘路径。
 
 ## 隐私、Local First 与备份
 

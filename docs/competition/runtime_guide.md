@@ -4,7 +4,13 @@
 
 `setup.ps1` 显式使用 `https://pypi.org/simple`，避免继承机器上失效的 pip 镜像配置。需要自己的可信 HTTPS 镜像时，可传 `-PythonIndexUrl https://镜像地址/simple`；不关闭 TLS 校验。
 
-## 分开运行
+## 普通启动与开发启动
+
+`start.ps1` 先构建生产前端，然后以 `0.0.0.0:8000`、单进程、禁用代理请求头启动 FastAPI；电脑管理使用 `127.0.0.1:8000`。仅随机令牌只读档案和必要静态资源允许 LAN GET，所有远程管理 API 和写操作拒绝。按启动窗口的 Enter 停止本次服务。
+
+`-NoBrowser` 不打开浏览器、保留后台服务，并输出本次服务 PID；`-Smoke` 完成检查后停止本次服务；`-Port 8001` 可调整单端口；`-Python` 可指定已安装依赖的 Python。均不会停止其他服务或修改防火墙。
+
+开发 HMR 使用 `powershell -ExecutionPolicy Bypass -File .\scripts\start_dev.ps1`。也可以分开启动：
 
 ```powershell
 py -3.12 -m venv .venv
@@ -17,7 +23,7 @@ cd frontend
 npm run dev
 ```
 
-默认前端 5173、后端 8000。启动脚本检测端口冲突，不终止不属于脚本的服务。测试脚本使用 5175/8002 和 tmp 内随机隔离目录。用户 data 不作为测试输入。
+仅开发模式使用前端 5173、后端 8000。普通启动只使用 8000。启动脚本检测端口冲突，不终止不属于脚本的服务。测试脚本使用 5175/8002 和 tmp 内随机隔离目录。用户 data 不作为测试输入。
 
 ## 模型与上下文
 
@@ -33,6 +39,6 @@ PDF 文本层使用 pypdf。扫描识别用 pypdfium2 + RapidOCR，用户触发�
 
 ## LAN 与 PWA
 
-start_lan.ps1 构建前端，由 FastAPI 单端口托管，默认 8000，可传 -Port 8001。只读分享需同一局域网和运行中的服务，管理 API 限回环；不修改防火墙或安装 Windows Service。
+start.ps1 默认提供安全 LAN 只读分享，start_lan.ps1 仅作为兼容转调入口。默认 8000，可传 -Port 8001。只读分享需同一局域网和运行中的服务，管理 API 限回环；不修改防火墙或安装 Windows Service。网络检测成功但无 LAN 地址时不影响本机管理；连接 Wi-Fi 后在 Drawer 点击重新检测。
 
 PWA 只缓存静态 JS/CSS，不缓存用户档案/API/PDF。localhost 安全上下文可用，LAN HTTP 通常不能安装。浏览器通知由用户授权且需要浏览器开启；离线/关闭后请依赖导出的 ICS 和系统日历。
