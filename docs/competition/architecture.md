@@ -14,7 +14,7 @@ flowchart LR
   Context -.明确启用后.-> Providers[Ollama / OpenAI-compatible 适配器]
 ```
 
-物品、事件、图片、文档、维护、维修、耗材、消耗、补货、提醒、识别结果和会话分表关联。Schema 字段清单见 phase0.md，实际模型见 backend/models.py；自然日统一 Asia/Shanghai，时间戳 UTC，金额整数分。
+物品、事件、图片、文档、维护、维修、耗材、消耗、补货、提醒、识别结果和会话分表关联。字段以 [当前模型](../../backend/models.py) 为准；自然日统一 Asia/Shanghai，时间戳 UTC，金额整数分。
 
 写操作用 SQLAlchemy Session 事务；异常回滚。库存扣减带条件更新，防止扣成负数。完成和延后提醒不被日常 snapshot 协调覆盖，来源日期改变才重新计划。维修顺序限制待预约→诊断中→维修中→完成，保留进度历史、报修与完成事件。
 
@@ -27,3 +27,9 @@ OCR 图片格式、大小和像素数校验；建档最多10张、单张10MB，P
 无需外部 AI。/generate 通过 ProviderFactory 默认使用本地证据规则，可选择用户已安装的本机 Ollama / OpenAI-compatible 服务，限定 HTTP 回环地址并检索当前物品的有限相关证据。未配置、模型不存在或调用失败时自动回退，/health 返回 configuredProvider、activeProvider、fallbackReason。没有开放外部云端模型或自动下载模型。
 
 扫描 PDF 使用 pypdfium2 渲染并复用 RapidOCR，用户显式触发，状态与文本写回 Document。分享模式由 FastAPI 托管构建后的前端，私人网络地址动态检测；令牌只读投影不开放管理 API。凭证中心保留 OCR 候选与人工修改依据；售后 ZIP 包含原图、摘要 PDF 和 SHA256 清单。完整备份与恢复在单进程档案操作门控下执行，校验路径/版本/SQLite/哈希，保存恢复前备份并支持失败回滚。
+
+ShareLink 通过 expiresAt（UTC）与 options 存储分享有效期和隐私范围。新分享默认 7 天，支持 24 小时 / 30 天 / 长期；旧分享通过无损增列保留 null 到期时间。未知、过期、撤销的 Token 返回同一 404；图片端点也检查有效期。公共投影不暴露 itemId、序列号、价格、渠道、票据或说明书全文；生命周期只发布类别和日期，避免用户自填标题带出隐私。修改范围需撤销或旋转令牌。
+
+备份 schemaVersion 升至 3，仍接受 V2 schemaVersion=2。在隔离候选数据库完成增列与完整性检查之后才恢复到本机，失败不触碰业务表。有效期迁移不重算旧购买、库存或 PDF 记录。
+
+QA Benchmark 使用固定日期的独立 SQLite、实际 ContextBuilder 与 ProviderFactory。未知问题和危险维修先执行证据/安全守卫；生成服务只收到当前物品有界上下文。指标与逐题原始结果见 [Benchmark 汇总](benchmark_summary.md)。

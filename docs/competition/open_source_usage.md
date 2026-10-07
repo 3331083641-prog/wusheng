@@ -1,5 +1,7 @@
 # 比赛开源融合
 
+历史索引，现行资料统一见 [根目录开源融合说明](../../OPEN_SOURCE_USAGE.md) 和 [第三方清单](../../THIRD_PARTY.md)。
+
 详见根目录 THIRD_PARTY.md 与 OPEN_SOURCE_USAGE.md。固定研究 commit、原始许可、依赖版本和模型 SHA256 均保留。
 
 Warden / HomeInventory 是功能与工程参考；无源码直接复制。HomeAsset 未发现许可证文本，不复用。真实开源运行能力为 RapidOCR/ONNX Runtime、React、FastAPI/SQLAlchemy、PDF/QR/图表库。

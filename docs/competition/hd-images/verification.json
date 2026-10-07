@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-10-07T04:33:40.000Z",
+  "checkedAt": "2026-10-07T09:22:22.541Z",
   "assets": [
     {
       "itemId": "laptop",
@@ -127,6 +127,12 @@
       "route": "/items (list)",
       "images": [
         {
+          "src": "/assets/items/macbook-air-m2.png",
+          "width": 1448,
+          "height": 1086,
+          "fit": "cover"
+        },
+        {
           "src": "/assets/items/sony-wh1000xm6.png",
           "width": 1448,
           "height": 1086,
@@ -176,12 +182,6 @@
         },
         {
           "src": "/assets/items/hp-printer.png",
-          "width": 1448,
-          "height": 1086,
-          "fit": "cover"
-        },
-        {
-          "src": "/assets/items/macbook-air-m2.png",
           "width": 1448,
           "height": 1086,
           "fit": "cover"
@@ -362,6 +362,12 @@
       "route": "/",
       "images": [
         {
+          "src": "/assets/items/macbook-air-m2.png",
+          "width": 1448,
+          "height": 1086,
+          "fit": "cover"
+        },
+        {
           "src": "/assets/items/sony-wh1000xm6.png",
           "width": 1448,
           "height": 1086,
@@ -369,12 +375,6 @@
         },
         {
           "src": "/assets/items/haier-washer.png",
-          "width": 1448,
-          "height": 1086,
-          "fit": "cover"
-        },
-        {
-          "src": "/assets/items/midea-air-conditioner.png",
           "width": 1448,
           "height": 1086,
           "fit": "cover"
@@ -705,6 +705,12 @@
           "fit": "cover"
         },
         {
+          "src": "/assets/items/macbook-air-m2.png",
+          "width": 1448,
+          "height": 1086,
+          "fit": "cover"
+        },
+        {
           "src": "/assets/items/sony-wh1000xm6.png",
           "width": 1448,
           "height": 1086,
@@ -754,12 +760,6 @@
         },
         {
           "src": "/assets/items/hp-printer.png",
-          "width": 1448,
-          "height": 1086,
-          "fit": "cover"
-        },
-        {
-          "src": "/assets/items/macbook-air-m2.png",
           "width": 1448,
           "height": 1086,
           "fit": "cover"

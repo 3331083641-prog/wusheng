@@ -1,5 +1,7 @@
 # 第三方清单索引
 
+历史索引，现行完整清单由 [THIRD_PARTY.md](../../THIRD_PARTY.md) 和 [LICENSES](../../LICENSES/) 维护。
+
 |类别|文件|说明|
 |---|---|---|
 |参考仓库|../../THIRD_PARTY.md|项目、URL、commit、License、参考边界|

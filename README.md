@@ -4,156 +4,73 @@
 
 **AI 驱动的家庭物品全生命周期智能管理平台**
 
-参赛方向：2026 第八届全球校园人工智能算法精英大赛 AIC「AI+开源」算法主题赛 · 开源赋能的 AI 应用创新 / 日常生活。团队名称：物生智联。方向与开源资源披露要求参照[组委会赛事通知](https://www.aicomp.cn/notice/notice-3/4890.html)；技术报告及具体提交规则以官网通知附件为准。
+2026 全球校园人工智能算法精英大赛 AIC「AI+开源」算法主题赛 · 日常生活场景。团队：物生智联。
 
-物生把家庭物品从购买、退换、使用、维护、保修、维修、耗材补给到淘汰的过程放进一份连续档案。库存软件回答“家里有什么”；物生关注“一件物品进入生活后发生了什么，以及接下来要照顾什么”。
+票据丢失、保修忘记、说明书难找、耗材忘换、维护遗漏、维修记录散乱——物生将购买、退换、使用、维护、保修、维修、耗材与淘汰连成一份可追溯档案。库存软件记录“有什么”，物生关注“一件物品进入生活之后发生了什么、接下来要照顾什么”。
 
-## 要解决的问题
+## 核心功能与自主边界
 
-购买凭证容易丢，保修期限容易忘，说明书散落，耗材更换和维护常被遗漏，维修记录难以和物品对应。物生使用本地档案、生命周期规则、OCR 辅助建档和设备耗材关系，把这些零散信息重新连起来。
+| 能力 | 实际实现 |
+|---|---|
+| 多图辅助建档 | 本地 RapidOCR、图片类型、字段候选融合、来源追溯、人工确认；无文字照片可手填 |
+| Item Lifecycle Engine | 自主实现自然月期限、生命周期事件、保修/退换/维护提醒及维修进度 |
+| Device–Consumable | 耗材通过数据库关系绑定物品，库存、消耗与补货历史共同驱动趋势估算 |
+| PDF 本地知识 | 保存/查看/下载/删除说明书，文本提取、用户触发扫描件 OCR，按当前 Item 检索 |
+| Item-specific AI Context | 当前物品的档案、说明书、维护、维修、耗材证据；默认规则，可选本机模型 |
+| 一物一码 | LAN 只读分享、有效期、内容预览、撤销与令牌轮换；管理功能限电脑本机 |
+| 凭证与售后 | 本体/小票/发票/铭牌等资料，字段依据、售后证据 ZIP、中文摘要 PDF、SHA256 |
+| 数据与提醒 | 统一数据统计、ICS、主动授权浏览器通知、本地完整备份与校验恢复 |
 
-## 核心功能
-
-- 多张物品照片、小票、铭牌及包装图片辅助建档；本地 OCR 提供可编辑的字段候选和来源信息。
-- 生命周期档案、退换与保修期限、维护提醒、维修进度和费用记录。
-- 凭证中心、建档后资料补充、字段级来源追溯及人工修改标记。
-- PDF 说明书保存、查看、下载、删除；文本提取与用户触发的扫描件本地 OCR。
-- 售后证据 ZIP、中文 PDF 摘要、附件 SHA256 manifest。
-- 设备与耗材关联、库存记录、历史消耗趋势和补给日期估算。
-- 面向单件物品的助手上下文，可读取本地说明书、维修、维护及耗材记录。
-- 随机令牌保护的局域网只读二维码、撤销与重生成，支持 JSON 档案导出。
-- 维护编辑/删除、耗材消耗与补货撤销、维修资料纠正。
-- ICS 日历导出、主动授权的浏览器通知、完整本地备份与校验恢复。
-- Local First：数据库、照片、票据和 PDF 默认保存在运行本机；没有账号、会员或云同步。
-
-## 自主实现与创新边界
-
-1. **Item Lifecycle Engine**：把购买、退换、使用、维护、保修、维修与淘汰连成可追溯事件，并同步计算期限和提醒。
-2. **Device–Consumable 关系模型**：耗材通过 `relatedItemId` 绑定设备，详情页和耗材管理共同读取这一关系。
-3. **消耗趋势估算**：结合库存和历史消耗观察窗口估算可用天数与建议采购日；没有足够历史时不伪造预测。
-4. **多模态辅助建档**：本地 OCR 处理图片文字、按图片类型关联候选字段并融合冲突，候选始终由用户确认。
-5. **本地说明书上下文**：从 PDF 文本提取与当前物品相关的段落，交给 Item-specific ContextBuilder 和本地证据助手。
-6. **Local First 架构**：SQLite 与附件文件共同保存在本机，通过本地 API 管理；默认不调用外部模型或服务。
-7. **Field-level Evidence Provenance**：逐字段保留候选、来源图、OCR 原文、启发式置信度与人工修改状态。
-8. **售后证据与只读分享**：可核验附件哈希、汇总凭证及维修维护记录，用可撤销令牌分享精简档案。
-
-规则、边界和技术细节见[创新说明](docs/competition/innovation.md)与[架构说明](docs/competition/architecture.md)。Warden 和 HomeInventory 仅用于产品功能与交互思路参考，未直接复制源代码；本项目没有把第三方库能力宣称为自研算法。完整使用清单见 [THIRD_PARTY.md](THIRD_PARTY.md)。
+第三方 OCR、模型、框架能力不是本项目原创。Warden/HomeInventory 仅作为产品与交互思路参考，未直接复制源码。详见 [创新说明](docs/competition/innovation.md)、[开源融合](OPEN_SOURCE_USAGE.md)和[第三方清单](THIRD_PARTY.md)。
 
 ## 页面截图
-
-以下截图来自 1440 像素宽的本地运行界面。
 
 | 首页 | 我的物品 |
 |---|---|
 | ![首页](docs/references/home-1440.png) | ![我的物品](docs/references/items-1440.png) |
 
-| 添加物品 | 物品详情 |
+| 建档 | 物品详情 |
 |---|---|
-| ![添加物品](docs/references/add-1440.png) | ![物品详情](docs/references/detail-1440.png) |
+| ![建档](docs/references/add-1440.png) | ![物品详情](docs/references/detail-1440.png) |
 
-| 耗材管理 | AI 助手 |
+| 耗材 | AI 助手 |
 |---|---|
-| ![耗材管理](docs/references/consumables-1440.png) | ![AI 助手](docs/references/assistant-1440.png) |
+| ![耗材](docs/references/consumables-1440.png) | ![AI 助手](docs/references/assistant-1440.png) |
 
-## 技术架构
+## 架构与目录
 
-| 层 | 技术 |
-|---|---|
-| 前端 | React 19、TypeScript、Vite、React Router、Zustand、Framer Motion、Lucide、Recharts、qrcode |
-| 后端 | Python 3.12、FastAPI、Uvicorn、SQLAlchemy、SQLite |
-| 识别与文件 | RapidOCR ONNX Runtime、pypdf、pypdfium2/PDFium、Pillow、ReportLab |
-| AI | 默认本地证据规则；可选回环 Ollama / OpenAI-compatible，检索当前物品证据并保留来源，失败回退 |
-| 存储 | SQLite 和 `data/` 本地文件目录；没有外部云存储 |
-
-## 项目结构
+React 19 / TypeScript / Vite → FastAPI / SQLAlchemy → SQLite + 本机图片/PDF。RapidOCR ONNX 执行 OCR；pypdf / pypdfium2 提取或渲染 PDF；EvidenceProvider 默认提供本地证据问答，可显式连接回环 Ollama/OpenAI-compatible。服务按单进程运行。[架构与迁移](docs/competition/architecture.md)。
 
 ```text
-frontend/                 React/Vite 前端、正式图片资源、UI 测试
-backend/                  FastAPI、SQLite Schema、生命周期和识别逻辑、pytest
-data/                     本机运行数据；数据库和用户上传内容不进入 Git
-docs/competition/         架构、创新边界、演示脚本与验收记录
-docs/references/          README 截图、合成 Demo 凭证和素材登记
-scripts/                  Windows 安装/启动、备份及资源校验工具
-LICENSE                   项目自主源码和文档的 MIT 许可
-LICENSES/                 第三方库、OCR 模型与参考项目的许可记录
-THIRD_PARTY.md            第三方资源、版本、许可及自主开发边界
-AI_USAGE.md               生成式 AI 和 Agent 辅助使用披露
+.github/workflows/        Linux 完整 CI + Windows smoke
+frontend/                 页面、正式图片、Playwright 测试
+backend/                  Schema、迁移、生命周期、OCR/AI、pytest
+docs/competition/         最终验收、Benchmark、实机步骤、演示脚本
+docs/benchmark/           合成 OCR、授权中文框架、58 题 QA 与原始结果
+docs/references/          页面截图与素材来源
+scripts/                  Windows setup/start、校验、Benchmark、备份
+data/                     本机运行数据，不进入 Git
+LICENSES/                 依赖、模型与参考资源的许可原文
 ```
 
 ## 快速开始（Windows）
 
-需要 Windows 10/11、Python 3.12、Node.js 20 或更新的 LTS 版本、npm。首次安装需要网络；安装后可以在本机离线运行，RapidOCR 模型随 Python 依赖安装。默认服务只监听 `127.0.0.1`。
-
-克隆并安装锁定依赖：
+需要 Windows 10/11、Python **3.12**、Node **22 LTS**、npm；浏览器测试使用 Microsoft Edge。首次安装需联网；OCR 模型随锁定 Python 依赖安装，之后基本管理与 OCR 可在本机离线使用。
 
 ```powershell
 git clone https://github.com/3331083641-prog/wusheng.git
 cd wusheng
 powershell -ExecutionPolicy Bypass -File .\scripts\setup.ps1
-```
-
-启动并自动检查后端健康状态、档案问答、前端服务，再打开浏览器：
-
-```powershell
 powershell -ExecutionPolicy Bypass -File .\scripts\start.ps1
 ```
 
-访问 [物生首页](http://127.0.0.1:5173)，API 文档位于 [本机 OpenAPI](http://127.0.0.1:8000/docs)。脚本只停止自己启动的进程；若相同端口已有其他程序，脚本会报告并退出，不会终止其他程序。
+打开 [首页](http://127.0.0.1:5173)，[API 文档](http://127.0.0.1:8000/docs)。启动脚本先验证 `/health` → `/generate` → 前端，再打开浏览器；只管理自己启动的进程。首次启动自动生成 **10 件物品、6 种耗材、3 条维修**及合成护理 PDF；已有数据库不会重置。数据不是真实用户资料或厂家手册。
 
-也可分开运行服务：
+## AI 边界
 
-```powershell
-cd wusheng
-py -3.12 -m venv .venv
-.\.venv\Scripts\python.exe -m pip install -r .\backend\requirements-lock.txt
-cd .\frontend
-npm ci
-```
+默认 `evidence`，不需要账号、密钥或模型。OCR 只提取图片文字，候选均可修改；分值是启发式分数，不是识别准确率。PDF 文本层提取后可引用；扫描件 OCR 需主动触发，最多 50 页，失败保留原文件。
 
-终端一（后端）：
-
-```powershell
-cd wusheng
-.\.venv\Scripts\python.exe -m uvicorn backend.main:app --host 127.0.0.1 --port 8000
-```
-
-终端二（前端）：
-
-```powershell
-cd wusheng\frontend
-npm run dev
-```
-
-首次启动会在 `data/` 创建本地 SQLite 数据库、生成 10 件合成 Demo 档案，并生成标明为 Demo 的示例护理 PDF。之后启动不会覆盖现有档案。仓库不包含数据库或真实上传文件。
-
-## AI 与识别的实际边界
-
-多图建档使用本地 RapidOCR 中文 ONNX，再经过字段规则解析、候选融合和用户确认；没有文字的图片仍可保存并手动填写。字段置信度是启发式分值，不代表基准数据集上的识别准确率。当前版本不包含纯图像视觉品牌识别。
-
-物品助手默认读取当前 Item、维护、维修、耗材和说明书可提取文字，回答来源是本地档案证据。没有本地说明书或可用证据时会明确提示。可选本机模型已接入 `/generate`，使用有界关键词检索与证据约束 Prompt；协议、隔离和回退有模拟服务测试。本次未安装大型模型，不能把模拟测试当作实际模型质量验证；基本功能不依赖 AI API。
-
-PDF 文本层由 pypdf 提取；扫描件使用 pypdfium2 + RapidOCR，最多 50 页，失败仍保留原文件。耗材预测显示数据质量与经验预测区间；该区间不是统计置信区间或厂家寿命保证。
-
-## 一物一码与局域网分享
-
-默认本机模式不生成声称手机可用的二维码。明确开启分享：
-
-```powershell
-powershell -ExecutionPolicy Bypass -File .\scripts\start_lan.ps1
-# 默认端口被占用时可指定 -Port 8001
-```
-
-脚本构建前端，由 FastAPI 单端口托管 SPA，监听本机所有 IPv4 网络接口，不修改防火墙。电脑使用脚本显示的回环地址管理，手机通过 `/share/<token>` 查看只读档案。管理 API 限回环访问；分享隐藏完整序列号、内部路径、凭证和 PDF 正文。多网卡时可在 Drawer 选择地址。
-
-同一物品保持有效随机令牌，重新生成或撤销后旧令牌立即失效。服务关闭后不可访问；IP 改变后需重新下载二维码。手机实机步骤：电脑运行脚本 → 手机同一 Wi-Fi → 手机先打开脚本显示的 LAN 地址 → 电脑打开物品生成二维码 → 手机扫码。失败时核对私人网络防火墙、同一 Wi-Fi、访客网络隔离和网卡地址。自动化验证不等于手机实机验证。
-
-## 可追溯建档与凭证中心
-
-资料类型包括物品照片、小票、发票、包装盒、铭牌、保修卡、说明书照片和其他资料。建档后仍可添加、分类、查看与删除。识别依据逐字段显示候选、当前值、来源图、OCR 原文及分值；人工修改明确标注，删除来源图片后仍标明来源已删除。
-
-## 可选本地模型
-
-在启动服务前设置环境变量；不自动下载模型：
+如已有本机 Ollama 模型，在启动前设置：
 
 ```powershell
 $env:WUSHENG_AI_PROVIDER = 'ollama'
@@ -161,61 +78,60 @@ $env:WUSHENG_OLLAMA_URL = 'http://127.0.0.1:11434'
 $env:WUSHENG_OLLAMA_MODEL = '<本机已安装的模型名称>'
 ```
 
-默认 `evidence`。另支持 `openai-compatible`，配置 `WUSHENG_AI_BASE_URL`、`WUSHENG_AI_MODEL`、`WUSHENG_AI_API_KEY`，只允许回环本机服务。不会自动发送档案到外部服务。模型缺失、不可访问或调用失败会回退；`/health` 返回 configuredProvider、activeProvider、fallbackReason。无相关证据或涉及危险维修时使用规则边界回答，不让模型猜测。来源代表输入证据，不能保证生成答案无幻觉，用户仍需核对。
+不自动下载模型，只允许本机回环服务；模型缺失或调用失败回退。无依据和危险维修走规则边界。来源列表表示提供给模型的输入证据，生成文字仍需核对。本机已有 Qwen3-VL 已执行 58 题合成文本 QA，未启用视觉输入，也未上传权重。[运行细节](docs/competition/runtime_guide.md)。
 
-## 扫描说明书、售后证据包与备份
-
-扫描 PDF 先保存，再点击“本地识别文本”；状态为 needs_ocr、ocr_processing、ocr_ready、ocr_failed，文本 PDF 为 text_ready。OCR 有页数和像素上限，原文件保留。
-
-售后 ZIP 包含中文 PDF 摘要、档案 JSON、维护维修资料、原始图片及哈希清单，说明书可选。材料来自用户档案，售后政策以厂家/商家为准；不包含绝对磁盘路径。
-
-统计页可导出数据库及数据库引用的附件。恢复检查 ZIP 路径、大小、Schema、SQLite 完整性与 SHA256，自动在 `data/backups/` 保存恢复前备份；失败回滚。备份上限 300MB，售后附件上限 250MB。恢复不会主动删除旧附件，保留旧文件以便从恢复前备份找回。请只恢复可信的本人备份。服务按单进程协调档案操作，不支持多 worker。
-
-## 提醒、手机与 PWA
-
-提醒中心支持单条/全部待处理提醒 ICS 导出；用户主动点击才请求通知权限。关闭浏览器后不能通知，请使用系统日历。手机“拍照添加”请求后置相机，普通选择图片仍支持相册，实际行为依浏览器而定。
-
-生产模式提供 manifest 和 Service Worker，仅缓存静态 JS/CSS，不缓存档案 API 或用户附件。安装需要支持 PWA 的浏览器和安全上下文：localhost 可用，普通 LAN HTTP 通常不能安装。HTTPS 部署、真实手机安装测试未完成；PWA 不把数据库移到手机，不提供离线数据库管理。
-
-## OCR 基准与 Known Limitations
-
-运行 `python scripts/benchmark_ocr.py` 可生成 3 张合成英文标签图片并执行真实 OCR，结果见[基准报告](docs/competition/ocr_benchmark.md)。15 个字段的冒烟基准不能推断真实家庭收据准确率。无文字视觉识别、中文/复杂票据大样本评测、LLM 大样本质量评测和手机实机验证均未完成。OCR、期限、耗材估算和生成回答仍需用户核对。
-
-## Demo 数据与图片
-
-已用本机原先安装的 `qwen3-vl:4b-instruct-q4_K_M` 完成两次真实 `/generate` 验证：保修日期查询与说明书清洁建议均返回对应来源，见[实际模型验证](docs/competition/local_model_validation.json)。仅测试文本证据问答，没有启用该模型的视觉输入，也未将权重放入仓库。可配置已有模型后运行 `python scripts/verify_local_model.py` 复核。
-
-种子数据由 `backend/seed.py` 生成，内容为合成示例；演示凭证和护理 PDF 同样是合成资料，不是真实发票或品牌官方手册。数据库已有用户数据时不会自动重置。
-
-项目使用的物品图、耗材图、Logo 和植物素材由用户提供，并说明为 ChatGPT 生成；图片与源代码分别处理许可。产品展示图为本地静态 PNG，业务上传照片和 PDF 只保存在运行本机。详情见 [图片来源登记](docs/references/hd-image-assets.json)、[耗材图片登记](docs/references/consumable-image-assets.json) 和 [THIRD_PARTY.md](THIRD_PARTY.md)。
-
-## 检查与测试
+## 一物一码与手机验证
 
 ```powershell
-cd wusheng
-.\.venv\Scripts\python.exe -m pytest backend/tests -q
-cd .\frontend
-npm run build
-npm run lint
-cd ..
-powershell -ExecutionPolicy Bypass -File .\scripts\test_ui.ps1
+powershell -ExecutionPolicy Bypass -File .\scripts\start_lan.ps1
 ```
 
-`scripts/test_ui.ps1` 使用隔离 SQLite Demo 数据，在空闲测试端口启动后端和前端，验证 `/health`、`/generate` 后运行 Playwright，并在测试通过后只清理本次生成的测试目录；失败时保留隔离数据和日志供排查。需要本机 Microsoft Edge。也可在手动启动默认前后端服务后于 `frontend/` 执行 `npm test`。Python 测试使用隔离的 SQLite 临时数据库。详细限制与验证记录见[测试报告](docs/competition/test_results.md)。
+FastAPI 单端口托管生产前端。脚本输出 LAN IP、电脑管理地址与手机地址，不修改系统网络或防火墙。管理限回环，手机通过随机 Token 查看只读档案。
 
-## 隐私与本地数据
+新码默认 **7 天**，可选 24 小时/30 天/长期。生成前预览分享范围：名称/品牌/型号/维护默认显示，保修/生命周期/耗材可选择；购买日期、说明书文件名默认关闭。序列号、价格、渠道、票据、维修备注和说明书正文不分享。旧码到期、撤销或重新生成后不可访问；旧数据库的长期码保持兼容。
 
-应用数据默认位于 `data/`：`wusheng.db`、`images/items/`、`documents/manuals/` 与 `uploads/drafts/`。运行时数据库、照片、票据、PDF、日志和备份均被 `.gitignore` 排除，不提交到公共仓库。用户自行备份数据库和附件；`python scripts/backup.py` 可创建本机备份。上传文件默认不会发送至外部云端或外部 AI Provider。
+**手机实机尚待用户验证**：同一 Wi-Fi，检查 Windows 私人网络、防火墙和访客隔离，按 [9 步手机测试](docs/competition/mobile_validation.md)执行。服务必须开启，IP 变化需重新下载二维码。
 
-如需将运行目录移到其他位置，可在启动服务前设置 `WUSHENG_DATA_DIR`；可通过 `WUSHENG_DB_URL` 指定 SQLite 数据库 URL。仓库提供 `.env.example` 作为配置说明，应用不会自动加载 `.env` 文件。
+## Benchmark 与测试
 
-## 开源与竞赛资料
+| 评测 | 范围与证据 |
+|---|---|
+| Synthetic OCR smoke | 3 张合成英文标签、15 字段；实际 OCR 结果见 [报告](docs/competition/ocr_benchmark.md) |
+| Authorized Chinese OCR | 30 张目标规模、六类资料、字段/类型分组指标框架；**等待授权脱敏样本**，无虚构结果 |
+| Item QA | 58 题固定日期合成档案；EvidenceProvider 与本机 Qwen 分别实跑；逐题来源、拒绝、事实与串物品检查 |
 
-- [项目源码许可](LICENSE)：MIT，仅涵盖本项目自主源码和文档，不自动覆盖第三方组件、模型、商标或用户提供的图像。
-- [第三方资源与许可清单](THIRD_PARTY.md)
-- [生成式 AI 与 Agent 使用披露](AI_USAGE.md)
-- [贡献与本地验证说明](CONTRIBUTING.md)
-- [发布整理记录](docs/RELEASE_CLEANUP.md)
-- [参赛创新边界](docs/competition/innovation.md)
+[Benchmark 汇总与指标限制](docs/competition/benchmark_summary.md)。这些结果不代表真实家庭票据准确率或通用模型质量。
 
-仓库披露第三方依赖、模型和素材来源，并说明 AI 辅助开发和团队自主实现边界。报名状态、成员权属确认与正式材料提交由参赛团队完成；本项目不宣称获奖或已有上游贡献被接纳。
+```powershell
+.\.venv\Scripts\python.exe -m pytest backend/tests -q
+npm --prefix frontend run lint
+npm --prefix frontend run build
+powershell -ExecutionPolicy Bypass -File .\scripts\test_ui.ps1
+.\.venv\Scripts\python.exe scripts/check_docs.py
+.\.venv\Scripts\python.exe scripts/benchmark_ocr.py
+.\.venv\Scripts\python.exe scripts/benchmark_qa.py --provider evidence
+```
+
+测试使用隔离 SQLite，不污染用户 data。Linux CI 验证 pytest/lint/build/文档链接；Windows CI 另测 PowerShell 语法、FastAPI 健康和 Demo。最终结果见 [test_results.md](docs/competition/test_results.md) 和 [发布验收](docs/competition/release_v2_acceptance.md)。
+
+## 隐私、Local First 与备份
+
+运行文件位于 `data/wusheng.db`、`data/images/items/`、`data/documents/manuals/`、`data/uploads/drafts/`。可用 `WUSHENG_DATA_DIR` 改变位置；`.env.example` 是配置说明，应用不自动加载 `.env`。照片、票据、PDF 默认留在本机。
+
+统计页可下载数据库与被引用附件的完整 ZIP，恢复校验路径、Schema、SQLite 和 SHA256，并保存恢复前备份。恢复兼容旧 V2 格式，失败回滚，旧附件不会自动清除。只恢复可信本人备份。用户数据、密钥、日志、依赖、模型、视频均被 Git 排除。正式生成式 UI 素材单独登记，不适用源码 MIT。
+
+## Known Limitations 与比赛冻结
+
+- 真实手机扫码/相机实测和授权中文复杂票据数据集仍待完成。
+- QA 是合成自动判据；Qwen 有 1 题未命中事实判据，需要人工语义复核。危险守卫不是完整维修安全专家。
+- 纯图片视觉识别未启用；OCR 无文字时手动录入。未下载新模型。
+- localhost 生产页有基础 PWA；普通 LAN HTTP 不保证可安装，没有离线数据库管理。
+- 浏览器关闭后不提供后台通知，使用 ICS/系统日历。
+- Windows 曾一次 Node worker 原生异常退出，完整重跑通过，根因未确认；不宣称彻底消除。
+
+本版本冻结功能主线；后续进入技术报告、演示视频和提交资料。比赛规则以[官方通知](https://www.aicomp.cn/notice/notice-3/4890.html)为准，不宣称已获奖或已完成报名。
+
+## 开源与披露
+
+[LICENSE](LICENSE)：自主源码和文档 MIT；第三方组件、模型、商标与用户图像保留各自权利。
+[THIRD_PARTY](THIRD_PARTY.md) · [OPEN_SOURCE_USAGE](OPEN_SOURCE_USAGE.md) · [AI_USAGE](AI_USAGE.md) · [CONTRIBUTING](CONTRIBUTING.md) · [清理记录](docs/RELEASE_CLEANUP.md)

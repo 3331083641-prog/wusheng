@@ -7,6 +7,10 @@
 3. HomeAsset 展示了 FastAPI + SQLite 无账号本地应用的可行性。因缺少当前完整 LICENSE，不复用代码。
 4. 真正复用的软件：React/Vite、Framer Motion、Recharts、Zustand、Lucide、qrcode、FastAPI、SQLAlchemy、RapidOCR/ONNX Runtime、pypdf、pypdfium2/PDFium、Pillow、ReportLab。详见第三方清单与锁文件。
 
-自研边界：Item Lifecycle Engine，Event Graph，多图字段融合，consumptionPrediction，ContextBuilder，EvidenceProvider，统一 API 与全部 UI。基础规则建议如实标注；可选本机生成模型已接通并有模拟服务与回退测试，已用本机已有 Qwen3-VL-4B-Instruct 实测两次证据问答，但未完成大样本质量评测。
+自研边界：Item Lifecycle Engine，Event Graph，多图字段融合，consumptionPrediction，ContextBuilder，EvidenceProvider，统一 API 与全部 UI。基础规则建议如实标注；本机 Qwen3-VL 文本证据问答已实跑 58 个合成用例，指标与限制见 [Benchmark 汇总](docs/competition/benchmark_summary.md)。不将第三方模型能力表述为自主训练成果。
 
 源码 MIT；依赖、模型和用户照片遵循各自许可。无需付费 API、会员、账号或密钥。
+
+## 调研溯源（合并早期 Phase 0）
+
+Warden `63d6032777c64a953d6432c62fb97cc96ed31548`：阅读 README、LICENSE、receipt-parser.ts、warranty.ts、schema.ts、item-reminders.ts，参考票据金额关键词、自然月期限和提醒协调。HomeInventory `66e9dc6a338fc6287600c1ed28b3f5cea8780da8`：阅读 README、LICENSE、database.js、maintenance.js、warrantyValidation.js，参考维护、附件与二维码产品关系。HomeAsset `5955a2f58f3b41ca1e828c3aa27fd2aec5f05260`：阅读 README、models.py、database.py、items.py；未找到完整 LICENSE，未复制或分发源码。研究快照不进入仓库。来源链接、许可原文及完整边界统一由根目录 THIRD_PARTY.md 登记。

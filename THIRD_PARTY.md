@@ -37,8 +37,12 @@
 
 ## 参考过但未最终使用
 
+V2.1 测试客户端针对 Starlette 现有兼容接口新增锁定 `httpx2 2.13.1` / `httpcore2 2.13.1`（BSD-3-Clause）与 `truststore 0.10.4`（MIT）。用于测试，不替换应用现有 httpx 调用；原文与完整元数据已进入 LICENSES/dependencies 和 dependency_inventory.json。依据：[Starlette TestClient 官方说明](https://www.starlette.io/testclient/)、[httpx2 包许可](https://pypi.org/project/httpx2/2.13.1/)。没有 GPL/AGPL 新运行依赖。
+
+Windows CI 沿用已有 checkout v4、setup-python v5、setup-node v4（MIT），新增 windows-latest Runner 和项目自编 PowerShell 健康/语法验证；没有引入第三方 Benchmark 库。QA 和中文 OCR 指标脚本使用 Python 标准库及已登记的 OCR/数据库组件。
+
 - Tesseract、独立 PaddleOCR Python 服务、PyMuPDF：未作为本项目运行时依赖。当前使用 RapidOCR 发布包中的 ONNX 模型、本地 ONNX Runtime 和 pypdf。
-- Ollama、OpenAI-compatible API：可选本机调用已接入，使用检索后的档案文本；不传原始图片/PDF，不默认启用。模拟协议与回退已测试；用本机已装 Qwen3-VL-4B-Instruct 实测两个问题，未做大样本质量评测。
+- Ollama、OpenAI-compatible API：可选本机调用已接入，使用检索后的档案文本；不传原始图片/PDF，不默认启用。模拟协议与回退已测试；本机已有 Qwen3-VL-4B-Instruct 运行 58 题合成证据 QA，边界见 [Benchmark 汇总](docs/competition/benchmark_summary.md)，不是大样本真实用户质量评测。
 - ICS、ZIP 与 PWA 使用项目代码和 Python 标准库，没有新增日历、ZIP 或 PWA 第三方库。
 - HomeAsset：只阅读了公开产品说明；由于检查到的上游快照没有许可证，未复制或分发其文件。
 

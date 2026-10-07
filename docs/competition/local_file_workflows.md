@@ -1,5 +1,7 @@
 # 本地上传与关联功能验收
 
+本文件保留早期接口与持久化证据；历史测试数量不代表 V2.1 状态。最终结果统一见 [test_results.md](test_results.md) 和 [release_v2_acceptance.md](release_v2_acceptance.md)。
+
 日期：2026-10-02。增量修复，沿用现有页面、导航、配色和卡片布局。所有上传只发送回环地址的本机 FastAPI；未调用外部模型或云存储。
 
 ## 1—8：图片上传

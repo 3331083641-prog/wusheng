@@ -72,6 +72,8 @@ try {
     if ($LASTEXITCODE -ne 0) { throw '高清物品图片验收失败。' }
     & node (Join-Path $ProjectRoot 'scripts\verify_consumable_images.mjs')
     if ($LASTEXITCODE -ne 0) { throw '高清耗材图片验收失败。' }
+    & $Python (Join-Path $ProjectRoot 'scripts\summarize_ui.py') (Join-Path $env:WUSHENG_PLAYWRIGHT_OUTPUT_DIR 'ui-test-results.json')
+    if ($LASTEXITCODE -ne 0) { throw 'UI 证据摘要生成失败。' }
     $Passed = $true
 } finally {
     if ($FrontendProcess -and -not $FrontendProcess.HasExited) { Stop-OwnedProcessTree -RootProcessId $FrontendProcess.Id }

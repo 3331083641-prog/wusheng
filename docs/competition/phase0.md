@@ -1,5 +1,7 @@
 # Phase 0 调研与实施计划
 
+此文件是早期历史计划，不作为 V2.1 功能或测试状态依据。调研溯源已合并到 [开源融合说明](../../OPEN_SOURCE_USAGE.md)；当前架构见 [architecture.md](architecture.md)，测试见 [test_results.md](test_results.md)，实际 Schema 以 [models.py](../../backend/models.py) 为准。
+
 检查日期：2026-10-01（Asia/Shanghai）。初始工作区无工程文件；无需覆盖已有工程。
 环境 Node v24.15.0 / npm 11.12.1 / Python 3.12.4 / Git 2.54.0。
 阅读全部九张用户设计稿，逐页分析见 DESIGN.md。用户已经授权技术选型与后续实施，不重复询问。
