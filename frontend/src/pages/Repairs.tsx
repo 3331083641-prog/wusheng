@@ -1,3 +1,4 @@
+import { RepairCorrection } from "../components/RecordTools";
 import { useCallback, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { Check, Clock, Plus, ShieldCheck, Sparkles, Wallet, Wrench } from "lucide-react";
@@ -121,6 +122,7 @@ export function RepairDrawer({ record, onClose }: { record: Repair; onClose: () 
           </p>
         )}
       </form>
+      <RepairCorrection record={record} reload={refresh} />
       <p className="data-footnote">维修凭证可在物品详情的资料页上传 PDF。</p>
     </Drawer>
   );

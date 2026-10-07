@@ -13,6 +13,7 @@ import Repairs from "./pages/Repairs";
 import Assistant from "./pages/Assistant";
 import Statistics from "./pages/Statistics";
 import { useStore } from "./store";
+import ShareItem from "./pages/ShareItem";
 class ErrorBoundary extends Component<{ children: ReactNode }, { failed: boolean }> {
   state = { failed: false };
   static getDerivedStateFromError() {
@@ -40,6 +41,9 @@ class ErrorBoundary extends Component<{ children: ReactNode }, { failed: boolean
   }
 }
 export default function App() {
+  return location.pathname.startsWith("/share/") ? <ShareItem /> : <ManagementApp />;
+}
+function ManagementApp() {
   const { data, loading, error, refresh, toast } = useStore();
   const location = useLocation();
   const navigate = useNavigate();

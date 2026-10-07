@@ -2,15 +2,20 @@ import { useState } from "react";
 import { BookOpen, Download, FileText, Trash2 } from "lucide-react";
 import type { Document } from "../types";
 import { Drawer } from "./ui";
+import { api } from "../api";
 export default function DocumentCard({
   document,
   onDelete,
+  onUpdate,
 }: {
   document: Document;
   onDelete: () => Promise<void>;
+  onUpdate?: () => Promise<void>;
 }) {
   const [confirm, setConfirm] = useState(false);
   const [deleting, setDeleting] = useState(false);
+  const [ocrBusy, setOCRBusy] = useState(false);
+  const [ocrError, setOCRError] = useState("");
   const name = document.originalFilename || document.filename;
   const remove = async () => {
     setDeleting(true);
@@ -34,8 +39,34 @@ export default function DocumentCard({
             {document.uploadedAt.slice(0, 10)} 上传
           </p>
           <p>
-            {document.extractedText ? "已提取文字，可供 AI 引用" : "扫描型 PDF / 暂无可提取文字"}
+            {document.textStatus === "ocr_processing"
+              ? "正在本地识别…"
+              : document.extractedText
+                ? "已提取文字，可供 AI 引用"
+                : "扫描型 PDF / 暂无可提取文字"}
           </p>
+          {document.ocrError && <p>{document.ocrError}</p>}
+          {!document.extractedText && (
+            <button
+              className="button secondary"
+              disabled={ocrBusy || document.textStatus === "ocr_processing"}
+              onClick={async () => {
+                setOCRBusy(true);
+                setOCRError("");
+                try {
+                  await api(`/documents/${document.id}/ocr`, { method: "POST" });
+                  await onUpdate?.();
+                } catch (e) {
+                  setOCRError((e as Error).message);
+                } finally {
+                  setOCRBusy(false);
+                }
+              }}
+            >
+              {ocrBusy ? "识别请求中…" : "本地识别文本"}
+            </button>
+          )}
+          {ocrError && <p role="alert">{ocrError}</p>}
         </div>
         <a
           className="icon-button"

@@ -115,10 +115,8 @@ test("档案编辑、QR PNG、JSON 导出、PDF 与维护真实保存", async ({
     await page.getByRole("button", { name: "保存修改" }).click();
     await expect(page.locator(".detail-title h1")).toHaveText("UI 已编辑档案");
     await page.getByRole("button", { name: "生成二维码" }).click();
-    await expect(page.getByRole("img", { name: "物品档案二维码" })).toBeVisible();
-    const download = page.waitForEvent("download");
-    await page.getByRole("link", { name: "下载 PNG" }).click();
-    expect((await download).suggestedFilename()).toContain(".png");
+    await expect(page.getByText("当前应用仅允许本机访问，手机扫码无法打开。")).toBeVisible();
+    await expect(page.getByRole("img", { name: "物品档案二维码" })).toHaveCount(0);
     await page.getByRole("button", { name: "关闭", exact: true }).click();
     const archive = page.waitForEvent("download");
     await page.getByRole("button", { name: "导出档案" }).click();

@@ -11,7 +11,9 @@ import {
   Sparkles,
   Wrench,
 } from "lucide-react";
-import QRCode from "qrcode";
+import { MaintenanceTools } from "../components/RecordTools";
+import EvidenceCenter from "../components/EvidenceCenter";
+import ShareQR from "../components/ShareQR";
 import { api, json } from "../api";
 import { useStore } from "../store";
 import {
@@ -35,8 +37,8 @@ export default function ItemDetail() {
   const [tab, setTab] = useState("基本信息");
   const [image, setImage] = useState("");
   const [drawer, setDrawer] = useState("");
-  const [qr, setQr] = useState("");
   const [form, setForm] = useState<ItemForm>({});
+  const [includeManuals, setIncludeManuals] = useState(false);
   const [busy, setBusy] = useState(false);
   const pdfInput = useRef<HTMLInputElement>(null);
   const { refresh, notify } = useStore();
@@ -57,6 +59,11 @@ export default function ItemDetail() {
   useEffect(() => {
     void load();
   }, [load]);
+  useEffect(() => {
+    if (!detail?.documents.some((d) => d.textStatus === "ocr_processing")) return;
+    const timer = setInterval(() => void load(), 2000);
+    return () => clearInterval(timer);
+  }, [detail, load]);
   const close = useCallback(() => setDrawer(""), []);
   const act = async (fn: () => Promise<unknown>, message: string) => {
     setBusy(true);
@@ -215,22 +222,7 @@ export default function ItemDetail() {
             <Edit size={18} />
             编辑信息
           </button>
-          <button
-            className="button secondary"
-            onClick={async () => {
-              try {
-                setQr(
-                  await QRCode.toDataURL(`${location.origin}/items/${id}`, {
-                    width: 360,
-                    margin: 2,
-                  }),
-                );
-                setDrawer("一物一码");
-              } catch {
-                setError("二维码生成失败，请重试");
-              }
-            }}
-          >
+          <button className="button secondary" onClick={() => setDrawer("一物一码")}>
             <QrCode size={18} />
             生成二维码
           </button>
@@ -238,6 +230,21 @@ export default function ItemDetail() {
             <Download size={18} />
             导出档案
           </button>
+          <a
+            className="button secondary"
+            href={`/api/items/${id}/evidence-pack?includeManuals=${includeManuals}`}
+            download
+          >
+            售后证据包
+          </a>
+          <label>
+            <input
+              type="checkbox"
+              checked={includeManuals}
+              onChange={(e) => setIncludeManuals(e.target.checked)}
+            />{" "}
+            包含说明书
+          </label>
           <small>
             记录在本机
             <br />
@@ -248,11 +255,13 @@ export default function ItemDetail() {
       <LifecycleTimeline events={detail.events} status={item.status} />
       <section className="panel detail-tabs">
         <div className="text-tabs">
-          {["基本信息", "说明书", "维护记录", "维修记录", "耗材", "AI 建议"].map((t) => (
-            <button className={tab === t ? "active" : ""} key={t} onClick={() => setTab(t)}>
-              {t}
-            </button>
-          ))}
+          {["基本信息", "凭证资料", "说明书", "维护记录", "维修记录", "耗材", "AI 建议"].map(
+            (t) => (
+              <button className={tab === t ? "active" : ""} key={t} onClick={() => setTab(t)}>
+                {t}
+              </button>
+            ),
+          )}
         </div>
         <AnimatePresence mode="wait">
           <motion.div
@@ -295,6 +304,15 @@ export default function ItemDetail() {
                 </section>
               </div>
             )}
+            {tab === "凭证资料" && (
+              <EvidenceCenter
+                itemId={id!}
+                images={detail.images}
+                reload={async () => {
+                  await Promise.all([load(), refresh()]);
+                }}
+              />
+            )}
             {tab === "说明书" && (
               <>
                 <div className="section-toolbar">
@@ -326,6 +344,7 @@ export default function ItemDetail() {
                   <DocumentCard
                     key={d.id}
                     document={d}
+                    onUpdate={load}
                     onDelete={() =>
                       act(
                         () => api(`/documents/${d.id}`, { method: "DELETE" }),
@@ -365,6 +384,13 @@ export default function ItemDetail() {
                       <small>下次 {m.nextDueDate}</small>
                     </span>
                     <b>¥ {m.cost}</b>
+                    <MaintenanceTools
+                      record={m}
+                      reload={async () => {
+                        await load();
+                        await refresh();
+                      }}
+                    />
                   </article>
                 ))}
                 {!detail.maintenance.length && <EmptyState />}
@@ -441,17 +467,7 @@ export default function ItemDetail() {
       </section>
       {drawer && (
         <Drawer title={drawer} onClose={close}>
-          {drawer === "一物一码" && (
-            <div className="qr-view">
-              <img src={qr} alt="物品档案二维码" />
-              <p>{item.name}</p>
-              <small>二维码保存当前本地地址；手机扫码需要同网络可访问的主机地址。</small>
-              <a className="button primary" href={qr} download={`物生-${id}.png`}>
-                <Download size={18} />
-                下载 PNG
-              </a>
-            </div>
-          )}
+          {drawer === "一物一码" && <ShareQR itemId={id!} />}
           {drawer === "编辑信息" && (
             <form
               onSubmit={(e) => {

@@ -1,3 +1,4 @@
+import NotificationOptIn from "../components/NotificationOptIn";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
@@ -68,6 +69,13 @@ export function ReminderRow({
         {reminder.priority}
       </StatusBadge>
       <div className="row-actions">
+        <a
+          className="button outline"
+          href={`/api/reminders/calendar.ics?reminderId=${reminder.id}`}
+          download
+        >
+          导出日历
+        </a>
         <Link className="button outline" to={`/items/${reminder.itemId}`}>
           查看
         </Link>
@@ -111,6 +119,12 @@ export default function Reminders() {
   return (
     <main className="page">
       <PageHeader title="提醒中心" description="及时掌握物品的重要节点，让生活更轻松、更安心。" />
+      <div className="section-toolbar">
+        <a className="button secondary" href="/api/reminders/calendar.ics" download>
+          导出全部提醒到日历
+        </a>
+        <NotificationOptIn reminders={data!.reminders} />
+      </div>
       <div className="stats-grid six">
         {kinds.map(([label, Icon, tone]) => (
           <StatCard
@@ -184,7 +198,8 @@ export default function Reminders() {
         />
       )}
       <p className="data-footnote">
-        按本机日期 {data!.today} 实时计算。此版本提供站内提醒，未运行时不会发送系统通知。
+        按本机日期 {data!.today}{" "}
+        实时计算。浏览器提醒仅在应用运行且获授权时有效；关闭应用后请使用导出的系统日历提醒。
       </p>
     </main>
   );

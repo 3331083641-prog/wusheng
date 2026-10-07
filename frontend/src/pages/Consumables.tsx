@@ -1,3 +1,4 @@
+import { ConsumableHistory } from "../components/RecordTools";
 import { useCallback, useState } from "react";
 import { Link } from "react-router-dom";
 import {
@@ -272,6 +273,20 @@ export default function Consumables() {
                     ? `观察期日均消耗 ${current.dailyRate.toFixed(3)} ${current.unit}。预计 ${current.estimatedDaysLeft} 天后耗尽，建议 ${current.suggestedPurchaseDate} 前补给。`
                     : "尚无足够历史，记录真实消耗后再预测。"}
                 </p>
+                <p>
+                  数据质量：
+                  {
+                    ({ low: "低", medium: "中", high: "高" } as Record<string, string>)[
+                      current.dataQuality || "low"
+                    ]
+                  }{" "}
+                  · {current.qualityExplanation}
+                </p>
+                {current.estimateRange && (
+                  <p>
+                    经验预测区间：{current.estimateRange.minDays}–{current.estimateRange.maxDays} 天
+                  </p>
+                )}
                 <small>{current.method}，不是厂家寿命保证；使用强度改变时请调整记录。</small>
               </section>
               <div className="text-tabs">
@@ -290,6 +305,7 @@ export default function Consumables() {
               </div>
             </>
           )}
+          {current && <ConsumableHistory consumable={current} reload={refresh} />}
           <form className="drawer-form" onSubmit={submit}>
             {adding ? (
               <>

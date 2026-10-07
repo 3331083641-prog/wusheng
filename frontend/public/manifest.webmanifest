@@ -1,0 +1,12 @@
+{
+  "id": "/",
+  "name": "物生 Wusheng",
+  "short_name": "物生",
+  "lang": "zh-CN",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0d9454",
+  "icons": [{"src":"/assets/branding/wusheng-eco-ring-logo.png","sizes":"any","type":"image/png","purpose":"any"}]
+}

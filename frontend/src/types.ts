@@ -55,6 +55,10 @@ export interface Repair {
   progress: { status: string; date: string }[];
 }
 export interface Document {
+  textStatus?: string;
+  textSource?: string;
+  ocrPageCount?: number;
+  ocrError?: string;
   id: string;
   itemId: string;
   type: string;
@@ -109,6 +113,9 @@ export interface Restock {
   cost: number;
 }
 export interface Consumable {
+  dataQuality?: string;
+  estimateRange?: { minDays: number; maxDays: number; label: string } | null;
+  qualityExplanation?: string;
   id: string;
   itemId: string;
   name: string;

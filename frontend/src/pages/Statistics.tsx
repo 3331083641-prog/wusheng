@@ -1,3 +1,4 @@
+import LocalData from "../components/LocalData";
 import {
   Area,
   AreaChart,
@@ -56,6 +57,7 @@ export default function Statistics() {
           suffix="元"
         />
       </div>
+      <LocalData />
       <div className="statistics-grid">
         <ChartCard title="物品分类分布" note={`共 ${stats.itemCount} 件`}>
           <div className="category-chart">

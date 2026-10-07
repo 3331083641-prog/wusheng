@@ -28,6 +28,7 @@ export default function ImageUploader({
   const choose = (type = "product") => {
     if (busy) return;
     kind.current = type;
+    ref.current?.removeAttribute("capture");
     ref.current?.click();
   };
   const [drag, setDrag] = useState(false);
@@ -106,6 +107,21 @@ export default function ImageUploader({
         >
           选择图片
         </button>
+        <button
+          type="button"
+          className="button secondary"
+          disabled={busy}
+          onClick={(e) => {
+            e.stopPropagation();
+            kind.current = "product";
+            if (ref.current) {
+              ref.current.setAttribute("capture", "environment");
+              ref.current.click();
+            }
+          }}
+        >
+          拍照添加
+        </button>
         <input
           ref={ref}
           className="visually-hidden"
@@ -117,6 +133,7 @@ export default function ImageUploader({
           onChange={(e) => {
             add(Array.from(e.target.files || []));
             e.target.value = "";
+            e.target.removeAttribute("capture");
           }}
           aria-label="上传物品图片"
         />

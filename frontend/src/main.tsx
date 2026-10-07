@@ -10,3 +10,9 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
     </BrowserRouter>
   </React.StrictMode>,
 );
+
+if (import.meta.env.PROD && "serviceWorker" in navigator && window.isSecureContext) {
+  navigator.serviceWorker
+    .register("/sw.js")
+    .catch(() => console.warn("物生安装支持未启用，管理功能仍可正常运行"));
+}

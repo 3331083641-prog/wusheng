@@ -13,6 +13,12 @@ export default function AIChat({ itemId, suggested }: { itemId: string; suggeste
   const [input, setInput] = useState("");
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
+  const [mode, setMode] = useState("本地档案规则");
+  useEffect(() => {
+    api<{ mode: string }>("/health")
+      .then((h) => setMode(h.mode))
+      .catch(() => setMode("本地档案规则"));
+  }, []);
   const bottom = useRef<HTMLDivElement>(null);
   const active = useRef(itemId);
   useEffect(() => {
@@ -43,6 +49,7 @@ export default function AIChat({ itemId, suggested }: { itemId: string; suggeste
     setError("");
     try {
       const answer = await api<Answer>("/generate", json("POST", { itemId: selected, question }));
+      setMode(answer.mode);
       if (active.current === selected)
         setMessages((m) => [
           ...m,
@@ -58,7 +65,7 @@ export default function AIChat({ itemId, suggested }: { itemId: string; suggeste
     <section className="chat panel">
       <div className="chat-mode">
         <span className="live-dot" />
-        基础规则回答 · 本地档案优先
+        {mode} · 本地档案优先
       </div>
       <div className="chat-messages" aria-live="polite">
         {!messages.length && (
