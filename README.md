@@ -1,5 +1,7 @@
 # 物生 Wusheng
 
+[![CI](https://github.com/3331083641-prog/wusheng/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/3331083641-prog/wusheng/actions/workflows/ci.yml)
+
 **AI 驱动的家庭物品全生命周期智能管理平台**
 
 参赛方向：2026 第八届全球校园人工智能算法精英大赛 AIC「AI+开源」算法主题赛 · 开源赋能的 AI 应用创新 / 日常生活。团队名称：物生智联。方向与开源资源披露要求参照[组委会赛事通知](https://www.aicomp.cn/notice/notice-3/4890.html)；技术报告及具体提交规则以官网通知附件为准。
