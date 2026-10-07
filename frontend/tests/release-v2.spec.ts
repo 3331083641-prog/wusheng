@@ -145,7 +145,7 @@ test("维护编辑删除与耗材消耗撤销真实同步", async ({ page, reque
   }
 });
 
-test("实际局域网服务、生产 SPA、只读 QR PNG 与撤销", async ({ page, request }) => {
+test("普通 start.ps1、生产 SPA、LAN QR 解码与远程管理隔离", async ({ page, request }) => {
   const port = await new Promise<number>((resolve) => {
     const server = net.createServer();
     server.listen(0, "127.0.0.1", () => {
@@ -159,31 +159,29 @@ test("实际局域网服务、生产 SPA、只读 QR PNG 与撤销", async ({ pa
     "lan-validation",
   );
   const child = spawn(
-    python,
+    "powershell.exe",
     [
-      "-m",
-      "uvicorn",
-      "backend.main:app",
-      "--host",
-      "0.0.0.0",
-      "--port",
+      "-NoProfile", "-ExecutionPolicy", "Bypass", "-File",
+      path.join(root, "scripts/start.ps1"), "-NoBrowser", "-Port",
       String(port),
-      "--no-proxy-headers",
+      "-Python", python,
     ],
     {
       cwd: root,
       env: {
         ...process.env,
         WUSHENG_DATA_DIR: data,
-        WUSHENG_SHARE_MODE: "lan",
-        WUSHENG_PORT: String(port),
       },
-      stdio: "ignore",
+      stdio: ["ignore", "pipe", "pipe"],
       windowsHide: true,
     },
   );
+  let output = "";
+  child.stdout?.on("data", (chunk) => { output += chunk.toString(); });
+  child.stderr?.on("data", (chunk) => { output += chunk.toString(); });
   const base = `http://127.0.0.1:${port}`;
   try {
+    await expect.poll(() => child.exitCode, { timeout: 60000, message: "Normal startup must complete successfully" }).toBe(0);
     await expect
       .poll(
         async () => {
@@ -197,10 +195,12 @@ test("实际局域网服务、生产 SPA、只读 QR PNG 与撤销", async ({ pa
       )
       .toBe(200);
     const info = await (await request.get(base + "/network/share-info")).json();
+    expect(info.mode).toBe("lan-ready");
     expect(info.reachable).toBeTruthy();
     await page.goto(base + "/items/headphones");
     await expect(page.locator(".detail-title h1")).toHaveText("Sony WH-1000XM6");
     await page.getByRole("button", { name: "生成二维码" }).click();
+    await expect(page.getByRole("status").filter({ hasText: "局域网分享已就绪" })).toBeVisible();
     await expect(page.getByLabel("分享有效期")).toHaveValue("7d");
     await expect(page.getByText("分享内容预览", { exact: true })).toBeVisible();
     await page.getByLabel("耗材状态", { exact: true }).uncheck();
@@ -217,6 +217,10 @@ test("实际局域网服务、生产 SPA、只读 QR PNG 与撤销", async ({ pa
     expect(shared.consumables).toHaveLength(0);
     expect(link.expiresAt).toBeTruthy();
     expect((await request.get(info.recommendedBaseUrl + "/api/snapshot")).status()).toBe(403);
+    for (const endpoint of ["items", "backup", "generate", "reminders", "documents", "repairs", "consumables", "drafts"]) {
+      expect((await request.get(info.recommendedBaseUrl + "/api/" + endpoint, { headers: { "X-Forwarded-For": "127.0.0.1" } })).status()).toBe(403);
+      expect((await request.post(info.recommendedBaseUrl + "/api/" + endpoint, { data: {} })).status()).toBe(403);
+    }
     const download = page.waitForEvent("download");
     await page.getByRole("link", { name: "下载 PNG" }).click();
     const png = await readFile((await (await download).path())!);
@@ -240,6 +244,8 @@ test("实际局域网服务、生产 SPA、只读 QR PNG 与撤销", async ({ pa
     await page.reload();
     await expect(page.getByRole("alert")).toContainText("已过期或已撤销");
   } finally {
+    const serverPid = output.match(/WUSHENG_SERVER_PID=(\d+)/)?.[1];
+    if (serverPid) process.kill(Number(serverPid));
     child.kill();
     await new Promise<void>((resolve) => {
       if (child.exitCode !== null) resolve();

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import QRCode from "qrcode";
 import { api } from "../api";
 import type { Detail } from "../types";
@@ -7,6 +7,7 @@ type Network = {
   reachable: boolean;
   recommendedBaseUrl: string;
   lanAddresses: string[];
+  port: number;
 };
 const optionLabels = {
   showPurchaseDate: "购买日期",
@@ -52,14 +53,35 @@ export default function ShareQR({ detail }: { detail: Detail }) {
       setBusy(false);
     }
   };
-  useEffect(() => {
-    api<Network>("/network/share-info")
-      .then(setNetwork)
-      .catch((e) => setError(e.message));
+  const detectNetwork = useCallback(async () => {
+    setBusy(true);
+    setError("");
+    try {
+      const info = await api<Network>("/network/share-info");
+      setNetwork(info);
+      setQR("");
+      setUrl("");
+      setExpiresAt(null);
+      setAddress((current) => info.lanAddresses.includes(current) ? current : info.lanAddresses[0] || "");
+    } catch (e) {
+      setNetwork(undefined);
+      setQR("");
+      setUrl("");
+      setError((e as Error).message);
+    } finally {
+      setBusy(false);
+    }
   }, []);
+  useEffect(() => { void detectNetwork(); }, [detectNetwork]);
   return (
     <div className="qr-view">
-      <p>{network?.mode === "lan" ? "局域网模式" : "本机模式"}</p>
+      <p className={network?.reachable ? "share-ready" : undefined} role="status">
+        {network?.reachable ? "● 局域网分享已就绪" : network ? "局域网分享尚未就绪" : "正在检测分享网络…"}
+      </p>
+      {network?.reachable && <p>http://{address}:{network.port}</p>}
+      <button className="button secondary" disabled={busy} onClick={() => void detectNetwork()}>
+        重新检测网络
+      </button>
       <>
         <label>
           分享有效期
@@ -114,10 +136,8 @@ export default function ShareQR({ detail }: { detail: Detail }) {
       </>
       {network && !network.reachable ? (
         <>
-          <p>当前应用仅允许本机访问，手机扫码无法打开。</p>
-          <p>
-            请运行 <code>scripts/start_lan.ps1</code> 后，使用本机地址打开管理界面。
-          </p>
+          <p>当前未检测到可用分享网络，请连接 Wi-Fi 后重新检测。</p>
+          {network.mode === "local" && <p>开发预览仅供本机使用，请从应用的普通启动入口打开。</p>}
         </>
       ) : (
         <>
@@ -126,6 +146,7 @@ export default function ShareQR({ detail }: { detail: Detail }) {
               分享网络地址
               <select
                 aria-label="分享网络地址"
+                disabled={busy}
                 value={address || network.lanAddresses[0]}
                 onChange={(e) => {
                   setAddress(e.target.value);
@@ -142,7 +163,7 @@ export default function ShareQR({ detail }: { detail: Detail }) {
           {!qr && (
             <button
               className="button primary"
-              disabled={!network || busy}
+              disabled={!network?.reachable || busy}
               onClick={() => void create()}
             >
               生成只读二维码
@@ -204,8 +225,8 @@ export default function ShareQR({ detail }: { detail: Detail }) {
           )}
           <small>
             仅可查看。同一 Wi-Fi、主机服务开启时可访问；IP
-            改变后需要重新下载二维码。如手机无法访问，请检查 Windows
-            私人网络、防火墙与访客网络隔离。本应用不会修改防火墙。
+            改变后需要重新下载二维码。如手机无法访问，请确认 Windows 防火墙允许 Python
+            在“私人网络”通信，并检查访客网络隔离。
           </small>
         </>
       )}

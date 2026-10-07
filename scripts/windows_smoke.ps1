@@ -1,7 +1,7 @@
 ﻿param([string]$Python = 'python', [int]$Port = 8019)
 $ErrorActionPreference = 'Stop'
 $ProjectRoot = Split-Path -Parent $PSScriptRoot
-foreach ($name in @('setup.ps1','start.ps1','start_lan.ps1','test_ui.ps1')) {
+foreach ($name in @('setup.ps1','start.ps1','start_dev.ps1','start_lan.ps1','test_ui.ps1')) {
     $tokens = $null; $parseErrors = $null
     [System.Management.Automation.Language.Parser]::ParseFile((Join-Path $PSScriptRoot $name), [ref]$tokens, [ref]$parseErrors) | Out-Null
     if ($parseErrors.Count) { throw "PowerShell syntax error: $name" }
@@ -25,3 +25,7 @@ try {
     if ($items.Count -ne 10) { throw 'Demo seed smoke failed' }
     Write-Host 'PowerShell syntax + FastAPI health + 10-item Demo: PASS'
 } finally { Stop-Process -Id $server.Id -ErrorAction SilentlyContinue }
+# Exercise the same production startup used by ordinary Windows users, then stop its own server.
+& (Join-Path $PSScriptRoot 'start.ps1') -NoBrowser -Smoke -Python $executable -Port $Port
+if ($LASTEXITCODE -ne 0) { throw 'Normal production startup smoke failed' }
+Write-Host 'Normal startup: single port + lan-ready + production SPA + generate: PASS'

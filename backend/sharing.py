@@ -1,4 +1,4 @@
-"""Opt-in LAN hosting. Remote clients get token-scoped read-only data only."""
+"""LAN-ready hosting. Remote clients get token-scoped read-only data only."""
 import ipaddress
 import os
 import secrets
@@ -89,12 +89,12 @@ def lan_addresses():
 
 
 def share_info():
-    mode = 'lan' if os.getenv('WUSHENG_SHARE_MODE') == 'lan' else 'local'
+    mode = 'lan-ready' if os.getenv('WUSHENG_SHARE_MODE') in ('lan', 'lan-ready') else 'local'
     port = int(os.getenv('WUSHENG_PORT', '8000'))
-    candidates = lan_addresses() if mode == 'lan' else []
+    candidates = lan_addresses() if mode == 'lan-ready' else []
     host = candidates[0] if candidates else '127.0.0.1'
     return {'mode': mode, 'host': host, 'port': port, 'lanAddresses': candidates,
-            'recommendedBaseUrl': f'http://{host}:{port}', 'reachable': mode == 'lan' and bool(candidates)}
+            'recommendedBaseUrl': f'http://{host}:{port}', 'reachable': mode == 'lan-ready' and bool(candidates)}
 
 
 @router.get('/network/share-info')
@@ -112,7 +112,7 @@ def current_link(db, item_id):
 def create_share(item_id: str, payload: ShareInput | None = None, regenerate: bool = False, address: str | None = None, db: Session = Depends(get_db)):
     info = share_info()
     if not info['reachable']:
-        raise HTTPException(409, '当前应用仅允许本机访问，手机扫码无法打开。请运行 scripts/start_lan.ps1')
+        raise HTTPException(409, '局域网分享尚未就绪，请连接同一 Wi-Fi 并重新检测网络；普通启动支持只读分享。')
     if address:
         if address not in info['lanAddresses']:raise HTTPException(422,'不是当前有效的局域网地址')
         info['recommendedBaseUrl'] = f'http://{address}:{info["port"]}'
