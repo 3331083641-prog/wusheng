@@ -6,12 +6,16 @@ $VenvRoot = Join-Path $ProjectRoot '.venv'
 $Python = Join-Path $VenvRoot 'Scripts\python.exe'
 
 if (-not (Test-Path -LiteralPath $Python)) {
-    if (Get-Command py.exe -ErrorAction SilentlyContinue) {
-        & py.exe -3.12 -m venv $VenvRoot
-    } elseif (Get-Command python.exe -ErrorAction SilentlyContinue) {
-        $DetectedPython = & python.exe -c "import sys; print(f'{sys.version_info.major}.{sys.version_info.minor}')"
-        if ($LASTEXITCODE -ne 0 -or $DetectedPython -ne '3.12') { throw '需要安装 Python 3.12，或通过 py -3.12 提供该版本。' }
+    $DetectedPython = ''
+    if (Get-Command python.exe -ErrorAction SilentlyContinue) {
+        $PreviousPreference = $ErrorActionPreference
+        $ErrorActionPreference = 'Continue'
+        try { $DetectedPython = & python.exe -c 'import sys; print(sys.version_info.major, sys.version_info.minor, sep=chr(46))' 2>$null } finally { $ErrorActionPreference = $PreviousPreference }
+    }
+    if ($DetectedPython -eq '3.12') {
         & python.exe -m venv $VenvRoot
+    } elseif (Get-Command py.exe -ErrorAction SilentlyContinue) {
+        & py.exe -3.12 -m venv $VenvRoot
     } else {
         throw '需要先安装 Python 3.12。'
     }

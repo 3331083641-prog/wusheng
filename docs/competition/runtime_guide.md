@@ -2,6 +2,10 @@
 
 主入口为 [README](../../README.md) 的 setup/start。以下是分开启动与高级配置，不要求比赛评委先阅读。
 
+Windows 双击 [启动物生.cmd](../../启动物生.cmd) 或 [start-wusheng.cmd](../../start-wusheng.cmd) 会调用 `scripts/launch.ps1`：检查 Python 3.12 和 Node.js（推荐 22 LTS，接受更新版本），缺少项目依赖时提示联网并执行 setup，随后调用普通 start。路径按脚本位置解析，支持中文、空格和任意工作目录；错误保留在窗口中，不请求管理员权限。
+
+自动化可用 `start-wusheng.cmd -CheckOnly` 校验入口路径/运行环境，或 `start-wusheng.cmd -NoBrowser -Smoke -Port 8019` 真正启动单端口服务并检查后停止。`-CheckOnly` 不安装依赖、不启动服务。双击启动不会设置或覆盖用户的 AI Provider 环境变量。
+
 `setup.ps1` 显式使用 `https://pypi.org/simple`，避免继承机器上失效的 pip 镜像配置。需要自己的可信 HTTPS 镜像时，可传 `-PythonIndexUrl https://镜像地址/simple`；不关闭 TLS 校验。
 
 ## 普通启动与开发启动

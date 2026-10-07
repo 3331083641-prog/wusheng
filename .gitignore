@@ -56,3 +56,10 @@ Thumbs.db
 
 # Local backups are user data and remain outside source control
 backups/
+
+# Optional local models are never distributed with the source
+*.gguf
+*.safetensors
+ollama/
+.ollama/
+model-cache/

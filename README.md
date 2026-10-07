@@ -8,7 +8,30 @@
 
 票据丢失、保修忘记、说明书难找、耗材忘换、维护遗漏、维修记录散乱——物生将购买、退换、使用、维护、保修、维修、耗材与淘汰连成一份可追溯档案。库存软件记录“有什么”，物生关注“一件物品进入生活之后发生了什么、接下来要照顾什么”。
 
+## 评委快速体验
+
+### 方法一：Windows 一键启动（推荐）
+
+1. Clone 本仓库：`git clone https://github.com/3331083641-prog/wusheng.git`，进入 `wusheng` 文件夹。
+2. 安装 **Python 3.12** 和 **Node.js 22 LTS**。
+3. 双击根目录 [启动物生.cmd](启动物生.cmd)；ASCII 等效入口为 [start-wusheng.cmd](start-wusheng.cmd)。首次运行会清楚提示并自动安装锁定依赖，需要联网。
+4. 浏览器自动打开 **http://127.0.0.1:8000**，新数据库生成 10 件合成 Demo 档案。首页轮播直接读取数据库，新增第 11 件会自动加入。
+
+无需管理员权限、API Key、Ollama 或 Qwen。默认 **EvidenceProvider（本地档案智能）**，可体验首页、OCR 建档、生命周期、保修/维护/维修、耗材、PDF/扫描件 OCR、一物一码、售后包和基础档案问答。模型权重不随仓库分发，也不会自动下载。已有数据库与用户附件不会重置。
+
+> **请勿直接双击 frontend/index.html。** 物生包含 React、FastAPI、SQLite、本地 OCR/附件与 AI Provider；`file://` 无法正常连接 API、数据库、路由、附件、AI 或二维码服务。
+
+### 方法二：PowerShell
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\scripts\setup.ps1
+powershell -ExecutionPolicy Bypass -File .\scripts\start.ps1
+```
+
+启动窗口保留服务状态与错误，按 Enter 停止本次服务；不修改防火墙。高级参数、开发 HMR 与可选模型配置见 [运行细节](docs/competition/runtime_guide.md)。
+
 ## 核心功能与自主边界
+
 
 | 能力 | 实际实现 |
 |---|---|
@@ -69,9 +92,13 @@ powershell -ExecutionPolicy Bypass -File .\scripts\start.ps1
 
 开发者需要 Vite HMR 时运行 `scripts/start_dev.ps1`（前端 127.0.0.1:5173、后端 127.0.0.1:8000）。高级参数与退出方式见 [运行细节](docs/competition/runtime_guide.md)。
 
-## AI 边界
+## 双层智能架构与 AI 边界
 
 默认 `evidence`，不需要账号、密钥或模型。OCR 只提取图片文字，候选均可修改；分值是启发式分数，不是识别准确率。PDF 文本层提取后可引用；扫描件 OCR 需主动触发，最多 50 页，失败保留原文件。
+
+第一层 **EvidenceProvider**：零模型依赖、可复现，基于当前物品证据生成规则回答。第二层 **Optional Local LLM**：用户已有本机模型时增强自然语言表达，仅连接回环服务，模型不可用时自动回退。AI 助手顶部读取真实 `/health` 状态，显示当前 Provider、实际模型名称或回退原因；每次回答底部标明「本地模型生成」或「本地档案规则」。
+
+### 可选本地模型
 
 如已有本机 Ollama 模型，在启动前设置：
 
@@ -79,7 +106,10 @@ powershell -ExecutionPolicy Bypass -File .\scripts\start.ps1
 $env:WUSHENG_AI_PROVIDER = 'ollama'
 $env:WUSHENG_OLLAMA_URL = 'http://127.0.0.1:11434'
 $env:WUSHENG_OLLAMA_MODEL = '<本机已安装的模型名称>'
+powershell -ExecutionPolicy Bypass -File .\scripts\start.ps1
 ```
+
+也可在已有对应系统环境变量的情况下双击「启动物生.cmd」。启动入口尊重现有环境变量，默认不会强制启用模型。本项目支持可选本地 Qwen/Ollama 增强，模型权重不随仓库分发，不要求安装 Qwen。
 
 不自动下载模型，只允许本机回环服务；模型缺失或调用失败回退。无依据和危险维修走规则边界。来源列表表示提供给模型的输入证据，生成文字仍需核对。本机已有 Qwen3-VL 已执行 58 题合成文本 QA，未启用视觉输入，也未上传权重。[运行细节](docs/competition/runtime_guide.md)。
 
@@ -116,6 +146,8 @@ powershell -ExecutionPolicy Bypass -File .\scripts\test_ui.ps1
 冻结后的小范围可用性修正见 [v1.0.1 验收](docs/competition/release_v101_acceptance.md)；原 `v1.0-aic2026` Tag 保持不变。
 
 ## 三种导出
+
+当前 main 的首页轮播、双击入口、Provider 状态与 115 项后端/34 项浏览器结果见 [本轮体验验收](docs/competition/showcase_acceptance.md)。既有 `v1.0-aic2026`、`v1.0.1-aic2026` 均保持原位置。
 
 物品详情的「导出档案」生成含图片、基本信息、生命周期、提醒、维护、维修、耗材和附件目录的中文 **PDF**，用于阅读/打印。「导出原始数据 JSON」保留结构化档案，供程序处理。**售后证据包 ZIP** 用于整理售后材料，仍独立提供。档案 PDF 不自动嵌入票据和说明书全文，不写入磁盘路径。
 
