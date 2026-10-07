@@ -17,7 +17,6 @@ export function Logo() {
         />
       </span>
       <b>物生</b>
-      <span>Wusheng</span>
     </Link>
   );
 }

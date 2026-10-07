@@ -157,17 +157,13 @@ dd {
 .logo {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 11px;
   height: 78px;
   padding: 0 29px;
   white-space: nowrap;
 }
 .logo b {
   font-size: 24px;
-}
-.logo > span:last-child {
-  font-size: 15px;
-  letter-spacing: -0.04em;
 }
 .logo-symbol {
   position: relative;
@@ -177,7 +173,7 @@ dd {
   height: 36px;
   align-items: center;
   justify-content: center;
-  margin-right: 3px;
+  margin-right: 0;
 }
 .logo-symbol img {
   display: block;
@@ -2024,6 +2020,9 @@ dd {
 .qr-view {
   text-align: center;
 }
+.qr-view .share-ready {
+  color: var(--green, #118b50);
+}
 .qr-view > img {
   width: 330px;
   object-fit: contain;
@@ -3065,8 +3064,7 @@ dd {
   .logo {
     padding: 0 17px;
   }
-  .logo > b,
-  .logo > span:last-child {
+  .logo > b {
     display: none;
   }
   .sidebar nav {
