@@ -106,7 +106,7 @@ test("Case A：真实本地 OCR，多图确认保存，自动提醒", async ({ p
   }
 });
 
-test("档案编辑、QR PNG、JSON 导出、PDF 与维护真实保存", async ({ page, request }) => {
+test("档案编辑、PDF/JSON 导出、说明书与维护真实保存", async ({ page, request }) => {
   const id = await create(request, "UI 档案测试");
   try {
     await page.goto("/items/" + id);
@@ -115,12 +115,15 @@ test("档案编辑、QR PNG、JSON 导出、PDF 与维护真实保存", async ({
     await page.getByRole("button", { name: "保存修改" }).click();
     await expect(page.locator(".detail-title h1")).toHaveText("UI 已编辑档案");
     await page.getByRole("button", { name: "生成二维码" }).click();
-    await expect(page.getByText("当前应用仅允许本机访问，手机扫码无法打开。")).toBeVisible();
+    await expect(page.getByText("当前未检测到可用分享网络，请连接 Wi-Fi 后重新检测。")).toBeVisible();
     await expect(page.getByRole("img", { name: "物品档案二维码" })).toHaveCount(0);
     await page.getByRole("button", { name: "关闭", exact: true }).click();
     const archive = page.waitForEvent("download");
     await page.getByRole("button", { name: "导出档案" }).click();
-    expect((await archive).suggestedFilename()).toContain(".json");
+    expect((await archive).suggestedFilename()).toMatch(/-物品档案\.pdf$/);
+    const raw = page.waitForEvent("download");
+    await page.getByRole("button", { name: "导出原始数据 JSON", exact: true }).click();
+    expect((await raw).suggestedFilename()).toMatch(/\.json$/);
     await page.getByRole("button", { name: "说明书", exact: true }).click();
     await page
       .getByLabel("上传说明书 PDF")

@@ -92,7 +92,7 @@ export default function ItemDetail() {
       </main>
     );
   const { item } = detail;
-  const exportArchive = () => {
+  const exportRawData = () => {
     const blob = new Blob([JSON.stringify(detail, null, 2)], {
       type: "application/json",
     });
@@ -103,6 +103,27 @@ export default function ItemDetail() {
     a.click();
     URL.revokeObjectURL(url);
     notify("档案已导出为 JSON，附件仍保存在本机");
+  };
+  const exportArchive = async () => {
+    setBusy(true);
+    setError("");
+    try {
+      const response = await fetch(`/api/items/${id}/export/pdf`);
+      if (!response.ok) {
+        const message = await response.json().catch(() => ({ detail: "档案 PDF 导出失败" }));
+        throw new Error(typeof message.detail === "string" ? message.detail : "档案 PDF 导出失败");
+      }
+      const blob = await response.blob();
+      const url = URL.createObjectURL(blob);
+      try {
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = `物生-${item.name}-物品档案.pdf`;
+        a.click();
+      } finally { URL.revokeObjectURL(url); }
+      notify("物品档案 PDF 已导出");
+    } catch (e) { setError((e as Error).message); }
+    finally { setBusy(false); }
   };
   const openEdit = () => {
     setForm({
@@ -226,9 +247,12 @@ export default function ItemDetail() {
             <QrCode size={18} />
             生成二维码
           </button>
-          <button className="button secondary" onClick={exportArchive}>
+          <button className="button secondary" disabled={busy} onClick={() => void exportArchive()}>
             <Download size={18} />
             导出档案
+          </button>
+          <button className="button secondary" onClick={exportRawData}>
+            导出原始数据 JSON
           </button>
           <a
             className="button secondary"
