@@ -68,6 +68,10 @@ try {
         npm.cmd test
         if ($LASTEXITCODE -ne 0) { throw "Playwright 测试失败，退出码 $LASTEXITCODE。" }
     } finally { Pop-Location }
+    & node (Join-Path $ProjectRoot 'scripts\verify_item_images.mjs')
+    if ($LASTEXITCODE -ne 0) { throw '高清物品图片验收失败。' }
+    & node (Join-Path $ProjectRoot 'scripts\verify_consumable_images.mjs')
+    if ($LASTEXITCODE -ne 0) { throw '高清耗材图片验收失败。' }
     $Passed = $true
 } finally {
     if ($FrontendProcess -and -not $FrontendProcess.HasExited) { Stop-OwnedProcessTree -RootProcessId $FrontendProcess.Id }
