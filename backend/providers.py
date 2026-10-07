@@ -7,6 +7,10 @@ import re
 import httpx
 
 
+def unsafe_question(question):
+    return any(w in question.lower() for w in ['拆机','拆开电源','高压','燃气','触电','冒烟','电气危险','带电','短接','绕过保护','disassemble','high voltage','gas leak','live wire','bypass safety'])
+
+
 class AIProvider(Protocol):
     def generate(self,question:str,context:dict) -> dict: ...
 
@@ -17,6 +21,10 @@ class EvidenceProvider:
         sources=[]
         answer='没有找到能够回答这个问题的记录。可以补充说明书、维护或维修记录后再询问。'
         manual_question=any(w in question for w in ['说明书','手册'])
+        if unsafe_question(question):
+            return {'answer':'涉及危险维修，建议停止自行操作并联系专业人员。当前记录无法提供安全的操作步骤。','sources':[],'mode':'基础规则回答（本地）'}
+        if any(w in question for w in ['另一件物品','其他物品','别的物品','其他设备','所有物品']):
+            return {'answer':'当前只读取这一件物品的档案，未找到其他物品的依据。请先切换物品。','sources':[],'mode':'基础规则回答（本地）'}
         if any(w in question for w in ['保修','在保']) and not manual_question:
             days=item['warrantyDaysLeft']
             answer=f"{item['name']}"+('尚未记录保修期限。' if days is None else f"仍在保修期内，截止 {item['warrantyEndDate']}，剩余 {days} 天。" if days>=0 else f"保修已于 {item['warrantyEndDate']} 结束，已过保 {-days} 天。")
@@ -37,27 +45,27 @@ class EvidenceProvider:
             groups=[(['电池','battery'],['电池','battery']),(['清洁','清洗','clean'],['清洁','清洗','clean']),(['保养','维护','maintenance'],['保养','维护','maintenance','care']),(['滤网','滤芯','filter'],['滤网','滤芯','filter']),(['更换','刷头','replace'],['更换','刷头','replace'])]
             keywords=next((terms for triggers,terms in groups if any(w in question.lower() for w in triggers)),[])
             if not keywords and any(w in question for w in ['查看说明书','查看手册']):keywords=['']
+            # A related paragraph is not evidence for an unrecorded numeric limit
+            # or material specification. Require explicit requested details.
+            specifics=[term for term in ['循环','次数','上限','成分','浓度','电压','功率','尺寸','防水','频率','容量'] if term in question]
             excerpts=[]
             for manual in manuals:
                 lines=[line.strip() for line in re.split(r'[\n。]',manual['extractedText']) if line.strip()]
-                relevant=[line for line in lines if any(w in line.lower() for w in keywords)]
+                relevant=[line for line in lines if any(w in line.lower() for w in keywords) and all(term in line for term in specifics)]
                 if relevant:
                     quote='\n'.join(relevant[:5])[:1200]
                     excerpts.append(f"依据已上传说明书《{manual['filename']}》：\n{quote}")
                     sources.append({'type':'说明书','title':manual['filename'],'quote':quote})
             if excerpts:answer='\n\n'.join(excerpts)
-            elif any(w in question for w in ['清洁','清洗','维护']) and context['maintenance']:
+            elif not manual_question and any(w in question for w in ['清洁','清洗','维护']) and context['maintenance']:
                 record=context['maintenance'][0]
                 answer=f"未找到说明书中的相关文字。已保存维护规则为每 {record['intervalDays']} 天进行“{record['type']}”；上次 {record['date']}，下次 {record['nextDueDate']}。这个周期由用户录入，并非厂家结论。"
                 sources=[{'type':'维护规则','title':f"维护记录 {record['id']}"}]
             elif manuals:answer='已保存说明书，但未找到与当前问题相关的可读文字。扫描 PDF 可能需要文本层；可到物品详情直接查看原文件。'
             else:answer='当前未找到该物品的本地说明书。请先上传说明书，或依据厂家建议保存维护周期。'
-        elif any(w in question for w in ['型号','序列号','购买']):
-            answer=f"{item['name']}，型号 {item['model'] or '未记录'}；购买日期 {item['purchaseDate']}；序列号 {item['serialNumber'] or '未记录'}。"
+        elif any(w in question for w in ['型号','序列号','购买','品牌','名称','类别']):
+            answer=f"{item['name']}；品牌 {item.get('brand') or '未记录'}；类别 {item.get('category') or '未记录'}；型号 {item['model'] or '未记录'}；购买日期 {item['purchaseDate']}；购买渠道 {item.get('purchaseChannel') or '未记录'}；购买价格 ¥{item.get('purchasePrice',0):.2f}；序列号 {item['serialNumber'] or '未记录'}。"
             sources=[{'type':'数据库','title':'当前物品档案'}]
-        if any(w in question for w in ['拆机','高压','燃气','触电','冒烟']):
-            answer='涉及拆机、高压、燃气或电气安全，建议停止自行操作并联系专业人员。当前记录无法给出专业维修结论。'
-            sources=[]
         return {'answer':answer,'sources':sources,'mode':'基础规则回答（本地）'}
 
 
