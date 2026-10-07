@@ -5,6 +5,14 @@ from backend.database import Base,make_engine,get_db
 from backend import main
 
 
+def pytest_configure(config):
+    # A clean clone has no ignored tmp/ directory yet. Keep Windows artifacts
+    # on the project drive, and also support a caller's absolute --basetemp.
+    if config.option.basetemp:
+        from pathlib import Path
+        Path(config.option.basetemp).parent.mkdir(parents=True, exist_ok=True)
+
+
 @pytest.fixture
 def client(tmp_path,monkeypatch):
     from backend import database, seed, recognition
