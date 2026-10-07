@@ -1,0 +1,36 @@
+{
+  "passed": true,
+  "model": "qwen3-vl:4b-instruct-q4_K_M",
+  "provider": "ollama",
+  "data": "synthetic seed only",
+  "checks": [
+    {
+      "question": "这副耳机的保修截止日期是什么？",
+      "elapsedSeconds": 10.36,
+      "answer": "保修截止日期是2028年1月7日。\n\n依据：证据中明确记录“warrantyEndDate”: \"2028-01-07\"，该字段直接对应保修截止日期，且未被其他记录覆盖或修改。",
+      "sources": [
+        {
+          "type": "数据库",
+          "title": "当前物品购买日期与保修期限"
+        }
+      ],
+      "mode": "本地模型 · qwen3-vl:4b-instruct-q4_K_M（生成内容需核对）"
+    },
+    {
+      "question": "已上传说明书如何建议清洁耳机？",
+      "elapsedSeconds": 2.27,
+      "answer": "依据证据中的“Demo 耳机护理说明（非官方）.pdf”文件内容，建议使用柔软干燥的布擦拭耳垫，每60天一次。此说明标注为“非官方”，且注明为“演示规则”，并非厂家官方维护指南。  \n**注意：不建议自行拆机或擅自操作**，若设备出现异常或需专业处理，请联系官方售后。  \n（依据：该文件明确说明“不要拆解设备”，并提示“如需帮助请联系专业服务”。）",
+      "sources": [
+        {
+          "type": "说明书",
+          "title": "Demo 耳机护理说明（非官方）.pdf",
+          "quote": "WUSHENG DEMO CARE GUIDE - NOT A MANUFACTURER MANUAL\nClean the ear pads using a soft, dry cloth every 60 days (demo rule).\nDo not disassemble the device. Contact professional service if needed."
+        }
+      ],
+      "mode": "本地模型 · qwen3-vl:4b-instruct-q4_K_M（生成内容需核对）"
+    }
+  ],
+  "scope": "Interface and evidence-source smoke test; not a model accuracy benchmark.",
+  "ollamaVersion": "0.35.1",
+  "modelDigest": "ee4b975b58c17ce268cd19d40db35d5edc64603035d2ffc1fee1968eb0947f7b"
+}

@@ -13,14 +13,16 @@
 | Lucide React | 图标库 | 0.468.0 | [lucide.dev](https://lucide.dev/) | ISC | 界面图标 | 按需使用图标组件 | 许可文本已登记 |
 | Recharts | 图表库 | 3.10.1 | [recharts.org](https://recharts.org/) | MIT | 统计图表渲染 | 指标定义与数据聚合由项目编写 | 许可文本已登记 |
 | node-qrcode | QR 生成库 | 1.5.4 | [github.com/soldair/node-qrcode](https://github.com/soldair/node-qrcode) | MIT | 生成物品档案二维码 | 二维码内容与下载流程由项目编写 | 许可文本已登记 |
+| Ollama / Qwen3-VL-4B-Instruct | 可选本机服务 / 生成模型 | 本机实测版本与模型 digest 见 local_model_validation.json；Ollama tag qwen3-vl:4b-instruct-q4_K_M | [Ollama](https://github.com/ollama/ollama) / [Qwen 官方模型卡](https://huggingface.co/Qwen/Qwen3-VL-4B-Instruct) | MIT / Apache-2.0 | 可选当前物品文本证据问答；本机已安装模型的两问题冒烟验证 | 不自研或训练模型，不启用视觉输入，不分发权重，不自动下载；检索、上下文限制、回退由项目实现 | 官方模型卡和本机模型许可核对；许可原文见 LICENSES/qwen3-vl-4b-instruct.txt |
 | FastAPI | Python Web 框架 | 0.141.1 | [fastapi.tiangolo.com](https://fastapi.tiangolo.com/) | MIT | 本地 REST API | 路由、校验与领域逻辑由项目编写 | 许可文本已登记 |
 | Uvicorn | ASGI 服务器 | 0.54.0 | [uvicorn.org](https://www.uvicorn.org/) | BSD-3-Clause | 本地运行 FastAPI | 仅使用服务器能力 | 许可文本已登记 |
 | SQLAlchemy / SQLite | ORM / 数据库 | 2.1.1 / Python 标准库 | [sqlalchemy.org](https://www.sqlalchemy.org/) / [sqlite.org](https://www.sqlite.org/) | MIT / Public Domain | 本地关系数据存储 | Schema、查询和事务由项目编写；SQLite 随 Python 使用 | 许可文本已登记 |
 | Pydantic / python-multipart | 数据校验 / 表单解析 | 2.13.5 / 0.0.32 | [pydantic.dev](https://docs.pydantic.dev/) / [python-multipart](https://github.com/Kludex/python-multipart) | MIT / Apache-2.0 | API Schema、multipart 图片和 PDF 上传 | 输入 Schema 与大小/格式校验由项目编写 | 许可文本已登记 |
-| httpx | HTTP 客户端 | 0.28.1 | [python-httpx.org](https://www.python-httpx.org/) | BSD-3-Clause | 可选 Ollama / OpenAI-compatible Provider 适配器 | 默认助手不调用网络；适配器未在本版本接入真实服务 | 许可文本已登记 |
+| httpx | HTTP 客户端 | 0.28.1 | [python-httpx.org](https://www.python-httpx.org/) | BSD-3-Clause | 可选 Ollama / OpenAI-compatible Provider 适配器 | 默认助手不调用网络；可选本机模型已接入并有模拟协议测试；使用本机已装 Qwen3-VL-4B-Instruct 实测两个问题；未做大样本质量评测 | 许可文本已登记 |
 | ReportLab / pytest | PDF 生成 / 测试工具 | 4.4.10 / 9.1.1 | [reportlab.com](https://www.reportlab.com/) / [pytest.org](https://pytest.org/) | BSD / MIT | 本地合成 Demo 护理 PDF、后端测试 | Demo 文档和测试断言由项目编写 | 许可文本已登记 |
 | RapidOCR ONNX Runtime | OCR 引擎及推理运行时 | rapidocr-onnxruntime 1.4.4 / onnxruntime 1.28.0 | [RapidOCR](https://github.com/RapidAI/RapidOCR) / [ONNX Runtime](https://github.com/microsoft/onnxruntime) | Apache-2.0 / MIT | 在本机从图片识别中文文字 | 采用发布包内模型，不自行训练 OCR；字段解析、来源关联和候选融合由项目实现 | RapidOCR、PaddleOCR 模型许可与哈希已登记 |
 | pypdf | PDF 解析 | 6.9.2 | [github.com/py-pdf/pypdf](https://github.com/py-pdf/pypdf) | BSD-3-Clause | 提取本地 PDF 文本和页数 | 本地文档存储与上下文构建由项目实现 | 许可文本已登记 |
+| pypdfium2 / PDFium | PDF 渲染 | 5.14.0 / wheel 构建 | [官方许可说明](https://pypdfium2-team.github.io/pypdfium2/readme.html#licensing) | Apache-2.0 或 BSD-3-Clause；PDFium 和内置组件另列 | 本地扫描 PDF 页渲染 | 调用 API，未复制渲染器源码 | Windows wheel 18 份声明已保留；ICU 的 GPL 配置脚本带 Autoconf 分发例外，未复制这些脚本；FreeType 采用随包 FTL |
 | Pillow | 图片读取与校验 | 12.2.0 | [python-pillow.org](https://python-pillow.org/) | MIT-CMU | 验证和读取本地图片 | 不用于降低正式产品图质量 | 许可文本已登记 |
 | Playwright | 浏览器自动化（开发依赖） | 1.63.0 | [playwright.dev](https://playwright.dev/) | Apache-2.0 | UI 工作流验证 | 测试用例和断言由项目编写 | 许可文本已登记 |
 | Prettier | 根目录格式化工具（开发依赖） | 3.9.9 | [prettier/prettier](https://github.com/prettier/prettier) | MIT；内置组件另含 Apache-2.0、BSD、ISC、BlueOak | 可选的 `format` / `format:check` 脚本 | 未复制或修改工具源码，不参与应用运行 | MIT 原文与完整内置组件第三方声明已保存 |
@@ -36,7 +38,8 @@
 ## 参考过但未最终使用
 
 - Tesseract、独立 PaddleOCR Python 服务、PyMuPDF：未作为本项目运行时依赖。当前使用 RapidOCR 发布包中的 ONNX 模型、本地 ONNX Runtime 和 pypdf。
-- Ollama、OpenAI-compatible API：项目留有显式适配接口，但没有默认启用，没有向这些服务发送用户图像、PDF 或档案，也没有在本版本中验证实际模型调用。
+- Ollama、OpenAI-compatible API：可选本机调用已接入，使用检索后的档案文本；不传原始图片/PDF，不默认启用。模拟协议与回退已测试；用本机已装 Qwen3-VL-4B-Instruct 实测两个问题，未做大样本质量评测。
+- ICS、ZIP 与 PWA 使用项目代码和 Python 标准库，没有新增日历、ZIP 或 PWA 第三方库。
 - HomeAsset：只阅读了公开产品说明；由于检查到的上游快照没有许可证，未复制或分发其文件。
 
 ## 项目源码许可

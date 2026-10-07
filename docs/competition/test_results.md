@@ -1,5 +1,24 @@
 # 验证结果
 
+## 本轮功能终版：2026-10-07
+
+| 检查 | 实际结果 | 证据 |
+|---|---|---|
+| 后端 | 71 passed，51.26 秒，1 条已有弃用警告 | backend/tests，根目录 pytest.ini |
+| 前端 lint / build | 通过；2658 modules，最大 chunk 约 415KB | ESLint、TypeScript、Vite |
+| 浏览器 | 19 passed，约 1.9 分钟 | 原 14 组及新增 release-v2.spec.ts 5 组 |
+| 高清物品图 | 10 张、6 种布局、21 路由、309 检查通过 | hd-images/verification.json |
+| 高清耗材图 | 6 张、3 种布局、20 路由、107 检查通过 | consumable-images/verification.json |
+| 实际 LAN 分享 | 独立生产服务、另一 HTTP 客户端访问 LAN IP、PNG 解码正确、只读及撤销通过 | release-v2.spec.ts |
+| 凭证与来源 | 后置上传/改分类/删除、OCR 原文与候选、人工修改、原生相机 filechooser 事件通过 | 浏览器与 test_release_v2.py |
+| 扫描 PDF | 实际 PDFium 渲染 + RapidOCR、状态及文本来源、助手引用通过；失败保留原件 | 后端与浏览器 |
+| 售后、日历与备份 | ZIP/PDF 与原件哈希、ICS、完整备份恢复、路径/哈希/版本拒绝、失败回滚通过 | 后端与浏览器 |
+| 纠错与预测 | 维护编辑/删除、消耗和补货撤销、负库存拒绝、维修不逆序、质量/区间通过 | 后端与浏览器 |
+| 本地模型 | 本机已装 Qwen3-VL-4B-Instruct，真实两次 /generate 返回档案/说明书来源；无模型下载 | local_model_validation.json |
+| OCR Benchmark | 三张合成图，15 个字段中 14 个完全匹配；precision/recall/F1=0.9333 | ocr_benchmark.md、../benchmark/results.json |
+
+本轮无新增页面错误，负例 HTTP 返回为预期校验结果。测试使用合成数据库，不修改用户数据。实际模型仅验证接口与两次证据问答，不是大样本质量基准。手机相机、手机真实扫码和 HTTPS/PWA 安装尚需实机复核；只读移动页与二维码解码是浏览器自动化验证。默认档案规则继续可用；应用关闭后的提醒依赖导出的系统日历。下方初期限制是历史记录，扫描 OCR、模型接口及只读 LAN 分享已经由本轮实现取代。
+
 ## 最新发布验收：2026-10-06
 
 图片草稿/建档、PDF 上传与查看/下载/删除、六种耗材关联跳转已接通，保持既有视觉与业务数据。

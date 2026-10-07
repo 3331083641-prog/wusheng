@@ -20,8 +20,10 @@ flowchart LR
 
 React 所有页面读取 /snapshot；写完 refresh 同一数据源。详情 /items/{id} 同步关联记录；不独立 mock 统计。SSR 未使用，路由 SPA，侧栏持续存在。
 
-数据库 `data/wusheng.db`；附件保存在 `data/` 子目录。默认仅回环地址监听，无账户，适用于本机。生产打包发布部署和互联网服务不在当前范围。
+数据库 `data/wusheng.db`；附件保存在 `data/` 子目录。默认仅回环地址监听，无账户，适用于本机；显式开启 LAN 后由 FastAPI 单端口托管生产 SPA 和只读分享，互联网部署不在当前范围。
 
-OCR 图片格式、大小和像素数校验；最多8张、单张10MB，PDF最多20MB/200页，限制加密文件。模型加载失败返回可恢复错误。未完成 OCR 会话附件可能保留，暂未提供自动清理，以避免删除私人资料。
+OCR 图片格式、大小和像素数校验；建档最多10张、单张10MB，PDF最多50MB，拒绝加密文件。扫描 OCR 每份最多50页、渲染页最多800万像素；模型加载失败保留原 PDF 并标明失败。未保存草稿有到期清理，正式用户附件不会当作缓存删除。
 
-无需外部 AI。Ollama/OpenAI-compatible 提供替换接口，但当前 /generate 固定走本地证据规则。在线适配器要求显式 external_consent；未来 UI 接入前须补同意提示与验证。
+无需外部 AI。/generate 通过 ProviderFactory 默认使用本地证据规则，可选择用户已安装的本机 Ollama / OpenAI-compatible 服务，限定 HTTP 回环地址并检索当前物品的有限相关证据。未配置、模型不存在或调用失败时自动回退，/health 返回 configuredProvider、activeProvider、fallbackReason。没有开放外部云端模型或自动下载模型。
+
+扫描 PDF 使用 pypdfium2 渲染并复用 RapidOCR，用户显式触发，状态与文本写回 Document。分享模式由 FastAPI 托管构建后的前端，私人网络地址动态检测；令牌只读投影不开放管理 API。凭证中心保留 OCR 候选与人工修改依据；售后 ZIP 包含原图、摘要 PDF 和 SHA256 清单。完整备份与恢复在单进程档案操作门控下执行，校验路径/版本/SQLite/哈希，保存恢复前备份并支持失败回滚。

@@ -36,7 +36,7 @@
 12. 查看：该文件接口返回 inline application/pdf，在新页用浏览器原生 PDF Viewer 打开。
 13. 下载：`GET /api/documents/{id}/file?download=true` 返回 attachment，Content-Disposition 使用 originalFilename，保存原文件字节。
 14. 删除：用户二次确认后调用 `DELETE /api/documents/{id}`，记录及真实 PDF 同步删除，UI 刷新。文件先暂存删除状态，数据库提交失败时恢复原文件；上传/绑定失败同样回滚文件和记录。`DELETE /api/images/{id}` 同步删除图片。删除 Item 会级联清理图片、PDF、维护、维修、耗材、消耗/补货、提醒和生命周期记录，静态 Demo assets 不删除。删除提示已同步为实际行为。
-15. 使用已有开源 pypdf，提取文字附页号，保存页数和文本；扫描 PDF 或单页提取异常仍存档，可直接查看，显示“扫描型 PDF / 暂无可提取文字”。扫描 PDF 图片 OCR 暂未启用。
+15. 使用开源 pypdf 提取文本层；扫描件或单页提取异常仍存档，可查看并显示 needs_ocr。本轮新增用户显式触发的 PDFium + RapidOCR，记录处理中/完成/失败、页数与文本来源，原始 PDF 不因 OCR 失败删除。
 16. ContextBuilder 查询当前 Item 的 Document、维护、维修与耗材。规则助手对电池/清洁等问题匹配当前说明书片段，回答“依据已上传说明书”并列出来源；未上传说明书明确说明未找到，当前资料无相关文字明确未知。没有增加外部生成服务，也没有把关键词检索称为向量 RAG。
 
 前端通过 Vite `/api` 代理访问本地 API；后端附件路由同时提供带 `/api` 和不带前缀的地址，兼容已有客户端。所有页面不暴露 D 盘绝对路径。

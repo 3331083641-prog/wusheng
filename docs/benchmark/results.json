@@ -1,0 +1,93 @@
+{
+  "dataset": "3 synthetic English-label fixtures; not representative of real receipts",
+  "metrics": {
+    "exactMatchAccuracy": 0.9333333333333333,
+    "precision": 0.9333333333333333,
+    "recall": 0.9333333333333333,
+    "f1": 0.9333333333333333
+  },
+  "elapsedSeconds": 12.23,
+  "results": [
+    {
+      "case": "sony-clear",
+      "truth": {
+        "brand": "Sony",
+        "model": "WH-1000XM6",
+        "purchasePrice": "2999.00",
+        "purchaseDate": "2026-01-12",
+        "serialNumber": "DEMO1001"
+      },
+      "predicted": {
+        "brand": "Sony",
+        "model": "WH-1000XM6",
+        "purchasePrice": "2999.00",
+        "purchaseDate": "2026-01-12",
+        "serialNumber": "DEMO1001"
+      },
+      "exactMatches": 5,
+      "fields": 5,
+      "ocrLines": [
+        "WUSHENGSYNTHETICBENCHMARK-NOTAREALRECEIPT",
+        "Sony",
+        "Model:WH-1000XM6",
+        "Date:2026-01-12",
+        "Total:2999.00",
+        "S/N:DEMO1001"
+      ]
+    },
+    {
+      "case": "coffee-clear",
+      "truth": {
+        "brand": "DeLonghi",
+        "model": "EC685",
+        "purchasePrice": "1299.00",
+        "purchaseDate": "2026-02-20",
+        "serialNumber": "DEMO1002"
+      },
+      "predicted": {
+        "brand": "DeLonghi",
+        "model": "EC685",
+        "purchasePrice": "1299.00",
+        "purchaseDate": "2026-02-20",
+        "serialNumber": "DEMO1002"
+      },
+      "exactMatches": 5,
+      "fields": 5,
+      "ocrLines": [
+        "WUSHENGSYNTHETICBENCHMARK-NOTAREALRECEIPT",
+        "DeLonghi",
+        "Model:EC685",
+        "Date:2026-02-20",
+        "Total:1299.00",
+        "S/N:DEMO1002"
+      ]
+    },
+    {
+      "case": "printer-clear",
+      "truth": {
+        "brand": "HP",
+        "model": "DeskJet 2720",
+        "purchasePrice": "399.00",
+        "purchaseDate": "2026-03-01",
+        "serialNumber": "DEMO1003"
+      },
+      "predicted": {
+        "brand": "HP",
+        "model": "DeskJet2720",
+        "purchasePrice": "399.00",
+        "purchaseDate": "2026-03-01",
+        "serialNumber": "DEMO1003"
+      },
+      "exactMatches": 4,
+      "fields": 5,
+      "ocrLines": [
+        "WUSHENGSYNTHETICBENCHMARK-NOTAREALRECEIPT",
+        "HP",
+        "Model:DeskJet2720",
+        "Date:2026-03-01",
+        "Total:399.00",
+        "S/N:DEMO1003"
+      ]
+    }
+  ]
+}

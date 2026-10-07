@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-10-01T11:19:31.942Z",
+  "checkedAt": "2026-10-07T04:33:40.000Z",
   "assets": [
     {
       "itemId": "laptop",
@@ -127,12 +127,6 @@
       "route": "/items (list)",
       "images": [
         {
-          "src": "/assets/items/macbook-air-m2.png",
-          "width": 1448,
-          "height": 1086,
-          "fit": "cover"
-        },
-        {
           "src": "/assets/items/sony-wh1000xm6.png",
           "width": 1448,
           "height": 1086,
@@ -182,6 +176,12 @@
         },
         {
           "src": "/assets/items/hp-printer.png",
+          "width": 1448,
+          "height": 1086,
+          "fit": "cover"
+        },
+        {
+          "src": "/assets/items/macbook-air-m2.png",
           "width": 1448,
           "height": 1086,
           "fit": "cover"
@@ -362,12 +362,6 @@
       "route": "/",
       "images": [
         {
-          "src": "/assets/items/macbook-air-m2.png",
-          "width": 1448,
-          "height": 1086,
-          "fit": "cover"
-        },
-        {
           "src": "/assets/items/sony-wh1000xm6.png",
           "width": 1448,
           "height": 1086,
@@ -375,6 +369,12 @@
         },
         {
           "src": "/assets/items/haier-washer.png",
+          "width": 1448,
+          "height": 1086,
+          "fit": "cover"
+        },
+        {
+          "src": "/assets/items/midea-air-conditioner.png",
           "width": 1448,
           "height": 1086,
           "fit": "cover"
@@ -585,39 +585,39 @@
       "route": "/consumables",
       "images": [
         {
-          "src": "/assets/filter.jpg",
-          "width": 81,
-          "height": 112,
+          "src": "/assets/consumables/air-purifier-filter-cylinder.png",
+          "width": 1448,
+          "height": 1086,
           "fit": "contain"
         },
         {
-          "src": "/assets/detergent.jpg",
-          "width": 81,
-          "height": 112,
+          "src": "/assets/consumables/laundry-detergent-blue.png",
+          "width": 1448,
+          "height": 1086,
           "fit": "contain"
         },
         {
-          "src": "/assets/ink.jpg",
-          "width": 82,
-          "height": 112,
+          "src": "/assets/consumables/printer-ink-cartridges-cmy.png",
+          "width": 1448,
+          "height": 1086,
           "fit": "contain"
         },
         {
-          "src": "/assets/capsules.jpg",
-          "width": 78,
-          "height": 111,
+          "src": "/assets/consumables/coffee-capsules-metallic.png",
+          "width": 1448,
+          "height": 1086,
           "fit": "contain"
         },
         {
-          "src": "/assets/brushhead.jpg",
-          "width": 82,
-          "height": 111,
+          "src": "/assets/consumables/toothbrush-heads-dual.png",
+          "width": 1448,
+          "height": 1086,
           "fit": "contain"
         },
         {
-          "src": "/assets/filter.jpg",
-          "width": 81,
-          "height": 112,
+          "src": "/assets/consumables/robot-vacuum-filter-rect.png",
+          "width": 1448,
+          "height": 1086,
           "fit": "contain"
         }
       ]
@@ -705,12 +705,6 @@
           "fit": "cover"
         },
         {
-          "src": "/assets/items/macbook-air-m2.png",
-          "width": 1448,
-          "height": 1086,
-          "fit": "cover"
-        },
-        {
           "src": "/assets/items/sony-wh1000xm6.png",
           "width": 1448,
           "height": 1086,
@@ -760,6 +754,12 @@
         },
         {
           "src": "/assets/items/hp-printer.png",
+          "width": 1448,
+          "height": 1086,
+          "fit": "cover"
+        },
+        {
+          "src": "/assets/items/macbook-air-m2.png",
           "width": 1448,
           "height": 1086,
           "fit": "cover"
