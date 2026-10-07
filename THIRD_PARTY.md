@@ -1,6 +1,6 @@
 # 第三方资源、许可与自主开发边界
 
-核验日期：2026-10-06。依赖版本以 `frontend/package-lock.json` 和 `backend/requirements-lock.txt` 为准；传递依赖的版本及许可证元数据另见 [`LICENSES/dependency_inventory.json`](LICENSES/dependency_inventory.json)，第三方许可证原文收录在 [`LICENSES/`](LICENSES/)。
+核验日期：2026-10-07。依赖版本以根目录及 `frontend/package-lock.json`、`backend/requirements-lock.txt` 为准；传递依赖的版本及许可证元数据另见 [`LICENSES/dependency_inventory.json`](LICENSES/dependency_inventory.json)，第三方许可证原文收录在 [`LICENSES/`](LICENSES/)。
 
 | 资源 | 类型 | 版本 / Commit | 来源 | License | 实际用途 | 自主修改 / 开发边界 | 合规状态 |
 |---|---|---|---|---|---|---|---|
@@ -23,6 +23,7 @@
 | pypdf | PDF 解析 | 6.9.2 | [github.com/py-pdf/pypdf](https://github.com/py-pdf/pypdf) | BSD-3-Clause | 提取本地 PDF 文本和页数 | 本地文档存储与上下文构建由项目实现 | 许可文本已登记 |
 | Pillow | 图片读取与校验 | 12.2.0 | [python-pillow.org](https://python-pillow.org/) | MIT-CMU | 验证和读取本地图片 | 不用于降低正式产品图质量 | 许可文本已登记 |
 | Playwright | 浏览器自动化（开发依赖） | 1.63.0 | [playwright.dev](https://playwright.dev/) | Apache-2.0 | UI 工作流验证 | 测试用例和断言由项目编写 | 许可文本已登记 |
+| Prettier | 根目录格式化工具（开发依赖） | 3.9.9 | [prettier/prettier](https://github.com/prettier/prettier) | MIT；内置组件另含 Apache-2.0、BSD、ISC、BlueOak | 可选的 `format` / `format:check` 脚本 | 未复制或修改工具源码，不参与应用运行 | MIT 原文与完整内置组件第三方声明已保存 |
 | certifi | Python 传递依赖 | 2026.7.22 | [python-certifi](https://github.com/certifi/python-certifi) | MPL-2.0 | httpx 使用的本地 TLS 根证书包 | 间接依赖；未修改上游文件，许可原文随依赖清单保存 | MPL 原文已登记，源码仍从上游包安装 |
 | caniuse-lite | npm 传递依赖数据 | 1.0.30001814 | [caniuse-lite](https://github.com/browserslist/caniuse-lite) | CC-BY-4.0 | 构建工具查询浏览器兼容性数据 | 间接构建依赖；未修改数据文件 | 署名许可原文已登记 |
 | minimatch | npm 传递依赖 | 10.2.6（另有 ISC 许可版本） | [minimatch](https://github.com/isaacs/minimatch) | BlueOak-1.0.0 / ISC | ESLint 等开发工具的路径匹配 | 间接开发依赖；未修改上游代码 | 两类许可原文已登记 |
