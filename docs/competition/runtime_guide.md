@@ -2,11 +2,13 @@
 
 主入口为 [README](../../README.md) 的 setup/start。以下是分开启动与高级配置，不要求比赛评委先阅读。
 
+`setup.ps1` 显式使用 `https://pypi.org/simple`，避免继承机器上失效的 pip 镜像配置。需要自己的可信 HTTPS 镜像时，可传 `-PythonIndexUrl https://镜像地址/simple`；不关闭 TLS 校验。
+
 ## 分开运行
 
 ```powershell
 py -3.12 -m venv .venv
-.\.venv\Scripts\python.exe -m pip install -r backend/requirements-lock.txt
+.\.venv\Scripts\python.exe -m pip install --index-url https://pypi.org/simple -r backend/requirements-lock.txt
 npm --prefix frontend ci
 # 终端一
 .\.venv\Scripts\python.exe -m uvicorn backend.main:app --host 127.0.0.1 --port 8000

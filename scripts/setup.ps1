@@ -1,4 +1,6 @@
-﻿$ErrorActionPreference = 'Stop'
+﻿param([string]$PythonIndexUrl = 'https://pypi.org/simple')
+
+$ErrorActionPreference = 'Stop'
 $ProjectRoot = Split-Path -Parent $PSScriptRoot
 $VenvRoot = Join-Path $ProjectRoot '.venv'
 $Python = Join-Path $VenvRoot 'Scripts\python.exe'
@@ -16,9 +18,9 @@ if (-not (Test-Path -LiteralPath $Python)) {
     if ($LASTEXITCODE -ne 0) { throw '无法建立 Python 虚拟环境。' }
 }
 
-& $Python -m pip install --upgrade pip
+& $Python -m pip install --index-url $PythonIndexUrl --upgrade pip
 if ($LASTEXITCODE -ne 0) { throw '升级 pip 失败。' }
-& $Python -m pip install -r (Join-Path $ProjectRoot 'backend\requirements-lock.txt')
+& $Python -m pip install --index-url $PythonIndexUrl -r (Join-Path $ProjectRoot 'backend\requirements-lock.txt')
 if ($LASTEXITCODE -ne 0) { throw 'Python 依赖安装失败。' }
 
 Push-Location (Join-Path $ProjectRoot 'frontend')
