@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import { api } from "../api";
+import { resolveProductAsset } from "../assets/itemAssets";
 type Shared = {
   item: Record<string, string>;
   events: { date: string; title: string }[];
   consumables: { name: string; status: string }[];
   manuals: { name: string }[];
+  options: { showLifecycle: boolean; showConsumables: boolean; showManualNames: boolean };
 };
 export default function ShareItem() {
   const token = location.pathname.split("/").pop();
@@ -27,7 +29,11 @@ export default function ShareItem() {
         <p>正在读取档案…</p>
       ) : (
         <>
-          <img className="share-cover" src={data.item.coverImage} alt={data.item.name} />
+          <img
+            className="share-cover"
+            src={resolveProductAsset(undefined, data.item.coverImage).src}
+            alt={data.item.name}
+          />
           <h1>{data.item.name}</h1>
           <dl className="detail-facts">
             {Object.entries({
@@ -37,27 +43,28 @@ export default function ShareItem() {
               保修截止: data.item.warrantyEndDate,
               当前状态: data.item.status,
               下一次维护: data.item.nextMaintenance,
-              序列号: data.item.serialNumber,
-            }).map(([key, value]) => (
-              <div key={key}>
-                <dt>{key}</dt>
-                <dd>{value || "未记录"}</dd>
-              </div>
-            ))}
+            })
+              .filter(([, value]) => value !== undefined)
+              .map(([key, value]) => (
+                <div key={key}>
+                  <dt>{key}</dt>
+                  <dd>{value || "未记录"}</dd>
+                </div>
+              ))}
           </dl>
-          <h2>耗材状态</h2>
+          {data.options.showConsumables && <h2>耗材状态</h2>}
           {data.consumables.map((c) => (
             <p key={c.name}>
               {c.name} · {c.status}
             </p>
           ))}
-          <h2>生命周期</h2>
+          {data.options.showLifecycle && <h2>生命周期</h2>}
           {data.events.map((e, i) => (
             <p key={i}>
               {e.date} · {e.title}
             </p>
           ))}
-          <h2>说明书</h2>
+          {data.options.showManualNames && <h2>说明书文件名</h2>}
           {data.manuals.map((m, i) => (
             <p key={i}>{m.name}</p>
           ))}

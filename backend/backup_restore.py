@@ -18,7 +18,7 @@ from . import database,models as m
 from .database import get_db,timestamp
 from .storage import local_path
 
-router=APIRouter();SCHEMA_VERSION=2;MAX_BYTES=300*1024*1024
+router=APIRouter();SCHEMA_VERSION=3;MAX_BYTES=300*1024*1024
 _lock=threading.Lock()
 
 
@@ -62,7 +62,7 @@ def validate_backup(contents):
                 if path.is_absolute() or '..' in path.parts or '\\' in info.filename or ':' in info.filename or info.is_dir() or (info.external_attr >> 16)&0o170000==0o120000:raise ValueError('unsafe member')
                 if info.filename not in ('manifest.json','wusheng.db') and not info.filename.startswith(('images/items/','documents/manuals/','uploads/')):raise ValueError('unsupported member')
             manifest=json.loads(z.read('manifest.json'))
-            if manifest.get('version')!=1 or manifest.get('schemaVersion')!=SCHEMA_VERSION:raise ValueError('schema version')
+            if manifest.get('version')!=1 or manifest.get('schemaVersion') not in (2,SCHEMA_VERSION):raise ValueError('schema version')
             declared={f['filename']:f for f in manifest['files']}
             if set(declared)!=set(names)-{'manifest.json'} or len(declared)!=len(manifest['files']):raise ValueError('manifest mismatch')
             members={}
@@ -84,12 +84,20 @@ def validate_sqlite(path,members):
         if db.execute("SELECT name FROM sqlite_master WHERE type IN ('trigger','view')").fetchall():raise ValueError('unsupported database programs')
         for name,table in m.Base.metadata.tables.items():
             columns={r[1] for r in db.execute(f'PRAGMA table_info("{name}")')}
+            # Only these additive V2.1 fields may be absent in a validated V2 backup.
+            # The staged candidate is migrated; the user's live DB is not touched yet.
+            if name == 'share_links':
+                for field,kind in {'expiresAt':'TEXT','options':'JSON'}.items():
+                    if field not in columns:
+                        db.execute(f'ALTER TABLE share_links ADD COLUMN "{field}" {kind}')
+                        columns.add(field)
             if not {column.name for column in table.columns}.issubset(columns):raise ValueError('schema columns')
         for table in ('item_images','documents'):
             for (relative,) in db.execute(f'SELECT filePath FROM {table}'):
                 if relative.startswith('/assets/'):continue
                 safe='uploads/'+relative.removeprefix('/uploads/') if relative.startswith('/uploads/') else relative
                 if safe not in members:raise ValueError('attachment missing')
+        db.commit()
 
 
 def restore_database(engine,source_path):

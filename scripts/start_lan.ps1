@@ -20,8 +20,9 @@ try {
     if ($items.Count -gt 0) { $body = @{itemId=$items[0].id;question='保修到期了吗？'} | ConvertTo-Json; Invoke-RestMethod "$base/generate" -Method Post -ContentType 'application/json; charset=utf-8' -Body ([System.Text.Encoding]::UTF8.GetBytes($body)) | Out-Null }
     $info = Invoke-RestMethod "$base/network/share-info"
     Write-Host "本机管理地址：$base"
-    foreach ($address in $info.lanAddresses) { Write-Host "局域网只读分享地址：http://${address}:$Port" }
-    Write-Host '如手机无法访问，请允许 Python/物生通过当前私人网络防火墙；本脚本不修改防火墙。'
+    foreach ($address in $info.lanAddresses) { Write-Host "LAN IP：$address"; Write-Host "手机地址：http://${address}:$Port" }
+    if (-not $info.reachable) { Write-Warning '未检测到可用 LAN IP，请连接 Wi-Fi 或有线局域网。' }
+    Write-Host '手机与电脑须连接同一 Wi-Fi；检查 Windows 私人网络、防火墙和访客网络隔离。本脚本不修改系统设置。'
     Write-Host '管理功能限电脑本机；手机通过物品二维码查看只读档案。'
     if (-not $NoBrowser) { Start-Process $base; Read-Host '按 Enter 停止本次分享服务' | Out-Null }
 } finally { if (-not $NoBrowser -or -not $health) { Stop-Process -Id $server.Id -ErrorAction SilentlyContinue } }

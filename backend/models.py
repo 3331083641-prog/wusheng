@@ -73,6 +73,8 @@ class ShareLink(Base):
     updatedAt = Column(String, default=timestamp)
     revoked = Column(Boolean, default=False)
     lastUsedAt = Column(String, nullable=True)
+    expiresAt = Column(String, nullable=True)
+    options = Column(JSON, nullable=True)
 
 
 class LifecycleEvent(Base):

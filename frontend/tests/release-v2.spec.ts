@@ -201,6 +201,9 @@ test("实际局域网服务、生产 SPA、只读 QR PNG 与撤销", async ({ pa
     await page.goto(base + "/items/headphones");
     await expect(page.locator(".detail-title h1")).toHaveText("Sony WH-1000XM6");
     await page.getByRole("button", { name: "生成二维码" }).click();
+    await expect(page.getByLabel("分享有效期")).toHaveValue("7d");
+    await expect(page.getByText("分享内容预览", { exact: true })).toBeVisible();
+    await page.getByLabel("耗材状态", { exact: true }).uncheck();
     await page.getByRole("button", { name: "生成只读二维码" }).click();
     await expect(page.getByRole("img", { name: "物品档案二维码" })).toBeVisible();
     const link = await (await request.post(base + "/items/headphones/share")).json();
@@ -208,6 +211,11 @@ test("实际局域网服务、生产 SPA、只读 QR PNG 与撤销", async ({ pa
     expect(link.url).not.toContain("localhost");
     const readonly = await request.get(link.url.replace("/share/", "/api/share-data/"));
     expect(readonly.status()).toBe(200);
+    const shared = await readonly.json();
+    expect(shared.item).not.toHaveProperty("purchaseDate");
+    expect(shared.item).not.toHaveProperty("serialNumber");
+    expect(shared.consumables).toHaveLength(0);
+    expect(link.expiresAt).toBeTruthy();
     expect((await request.get(info.recommendedBaseUrl + "/api/snapshot")).status()).toBe(403);
     const download = page.waitForEvent("download");
     await page.getByRole("link", { name: "下载 PNG" }).click();
@@ -230,7 +238,7 @@ test("实际局域网服务、生产 SPA、只读 QR PNG 与撤销", async ({ pa
     await expect(page.getByRole("button")).toHaveCount(0);
     await request.delete(base + "/items/headphones/share");
     await page.reload();
-    await expect(page.getByRole("alert")).toContainText("失效");
+    await expect(page.getByRole("alert")).toContainText("已过期或已撤销");
   } finally {
     child.kill();
     await new Promise<void>((resolve) => {

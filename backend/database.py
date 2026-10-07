@@ -45,9 +45,12 @@ def migrate_schema(target_engine):
         'documents': {'originalFilename': "TEXT DEFAULT ''", 'storedFilename': "TEXT DEFAULT ''", 'mimeType': "TEXT DEFAULT 'application/pdf'", 'fileSize': 'INTEGER DEFAULT 0', 'sha256': "TEXT DEFAULT ''", 'pageCount': 'INTEGER', 'updatedAt': "TEXT DEFAULT ''", 'textStatus': "TEXT DEFAULT 'needs_ocr'", 'textSource': "TEXT DEFAULT 'none'", 'ocrPageCount': 'INTEGER DEFAULT 0', 'ocrError': "TEXT DEFAULT ''"},
         'consumables': {'createdAt': "TEXT DEFAULT ''", 'updatedAt': "TEXT DEFAULT ''"},
         'recognition_sessions': {'draftId': 'TEXT'},
+        'share_links': {'expiresAt': 'TEXT', 'options': 'JSON'},
     }
     with target_engine.begin() as connection:
         for table, fields in additions.items():
+            if not inspect(connection).has_table(table):
+                continue  # create_all creates new tables; old partial migration fixtures are valid.
             existing = {c['name'] for c in inspect(connection).get_columns(table)}
             for name, definition in fields.items():
                 if name not in existing:

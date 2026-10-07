@@ -6,6 +6,9 @@ import socket
 import subprocess
 import json
 import asyncio
+from datetime import datetime, timedelta, timezone
+from typing import Literal
+from pydantic import BaseModel, ConfigDict
 from pathlib import Path
 from urllib.parse import urlsplit
 from fastapi import APIRouter, Depends, HTTPException, Request
@@ -19,6 +22,30 @@ from .lifecycle import sync_item, consumable_data
 from .storage import local_path
 
 router = APIRouter()
+
+
+class ShareOptions(BaseModel):
+    model_config = ConfigDict(extra='forbid', strict=True)
+    showPurchaseDate: bool = False
+    showWarranty: bool = True
+    showLifecycle: bool = True
+    showConsumables: bool = True
+    showManualNames: bool = False
+
+
+class ShareInput(BaseModel):
+    model_config = ConfigDict(extra='forbid')
+    lifetime: Literal['24h', '7d', '30d', 'forever'] = '7d'
+    options: ShareOptions = ShareOptions()
+
+
+def expired(link):
+    if not link.expiresAt:
+        return False  # Additive migration preserves legacy permanent links.
+    try:
+        return datetime.fromisoformat(link.expiresAt) <= datetime.now(timezone.utc)
+    except (ValueError, TypeError):
+        return True
 
 
 class RuntimeTransactionGate:
@@ -82,7 +109,7 @@ def current_link(db, item_id):
 
 
 @router.post('/items/{item_id}/share')
-def create_share(item_id: str, regenerate: bool = False, address: str | None = None, db: Session = Depends(get_db)):
+def create_share(item_id: str, payload: ShareInput | None = None, regenerate: bool = False, address: str | None = None, db: Session = Depends(get_db)):
     info = share_info()
     if not info['reachable']:
         raise HTTPException(409, '当前应用仅允许本机访问，手机扫码无法打开。请运行 scripts/start_lan.ps1')
@@ -90,15 +117,24 @@ def create_share(item_id: str, regenerate: bool = False, address: str | None = N
         if address not in info['lanAddresses']:raise HTTPException(422,'不是当前有效的局域网地址')
         info['recommendedBaseUrl'] = f'http://{address}:{info["port"]}'
     link = current_link(db, item_id)
-    if link and regenerate:
+    if link and (regenerate or expired(link)):
         link.revoked = True
         link.updatedAt = timestamp()
         link = None
     if not link:
-        link = m.ShareLink(itemId=item_id, token=secrets.token_urlsafe(32))
+        settings = payload or ShareInput()
+        days = {'24h': 1, '7d': 7, '30d': 30}.get(settings.lifetime)
+        link = m.ShareLink(itemId=item_id, token=secrets.token_urlsafe(32),
+                           expiresAt=(datetime.now(timezone.utc)+timedelta(days=days)).isoformat() if days else None,
+                           options=settings.options.model_dump())
         db.add(link)
         db.flush()
-    return {'id': link.id, 'token': link.token, 'url': info['recommendedBaseUrl'] + '/share/' + link.token, 'network': info}
+    elif payload is not None:
+        # Explicit settings changes require rotation; never silently extend an old link.
+        raise HTTPException(409, '已有分享，请重新生成以应用有效期与隐私设置')
+    return {'id': link.id, 'token': link.token, 'expiresAt': link.expiresAt,
+            'options': ShareOptions(**(link.options or {})).model_dump(),
+            'url': info['recommendedBaseUrl'] + '/share/' + link.token, 'network': info}
 
 
 @router.delete('/items/{item_id}/share')
@@ -112,8 +148,8 @@ def revoke_share(item_id: str, db: Session = Depends(get_db)):
 
 def valid_link(db, token):
     link = db.scalar(select(m.ShareLink).where(m.ShareLink.token == token, m.ShareLink.revoked.is_(False)))
-    if not link or not db.get(m.Item, link.itemId):
-        raise HTTPException(404, '分享已失效或已撤销')
+    if not link or expired(link) or not db.get(m.Item, link.itemId):
+        raise HTTPException(404, '分享已过期或已撤销')
     link.lastUsedAt = timestamp()
     return link
 
@@ -124,20 +160,26 @@ def public_item(token: str, db: Session = Depends(get_db)):
     item = db.get(m.Item, link.itemId)
     sync_item(db, item)
     full = item_data(db, item)
-    allowed = ['name', 'brand', 'model', 'purchaseDate', 'warrantyEndDate', 'status', 'nextMaintenance']
+    options = ShareOptions(**(link.options or {}))
+    allowed = ['name', 'brand', 'model', 'status', 'nextMaintenance']
+    if options.showPurchaseDate: allowed += ['purchaseDate']
+    if options.showWarranty: allowed += ['warrantyEndDate', 'warrantyDaysLeft']
     info = {key: full[key] for key in allowed}
-    if item.serialNumber:
-        info['serialNumber'] = '****' + item.serialNumber[-4:]
     cover = item.coverImage
     if cover.startswith('/assets/'):
         info['coverImage'] = cover
     else:
         image = db.scalar(select(m.ItemImage).where(m.ItemImage.itemId == item.id, m.ItemImage.type == 'product'))
         info['coverImage'] = f'/api/share-data/{token}/images/{image.id}' if image else '/assets/no-photo.svg'
-    events = [{'type': e.type, 'date': e.date, 'title': e.title} for e in db.scalars(select(m.LifecycleEvent).where(m.LifecycleEvent.itemId == item.id).order_by(m.LifecycleEvent.date))]
-    consumables = [{'name': c.name, 'status': consumable_data(db, c)['status']} for c in db.scalars(select(m.Consumable).where(m.Consumable.itemId == item.id))]
-    manuals = [{'name': d.originalFilename or d.filename} for d in db.scalars(select(m.Document).where(m.Document.itemId == item.id))]
-    return {'item': info, 'events': events, 'consumables': consumables, 'manuals': manuals}
+    # User-authored titles may include serials, costs or repair notes. Publish only event types.
+    titles = {'purchase': '购买', 'use': '开始使用', 'return': '退换', 'warranty': '保修', 'maintenance': '维护', 'repair': '维修', 'repair_completed': '维修完成', 'retired': '淘汰'}
+    events = [{'type': e.type, 'date': e.date, 'title': titles.get(e.type, '生命周期事件')}
+              for e in db.scalars(select(m.LifecycleEvent).where(m.LifecycleEvent.itemId == item.id).order_by(m.LifecycleEvent.date))
+              if (e.type not in ('purchase','use') or options.showPurchaseDate) and (e.type != 'warranty' or options.showWarranty)] if options.showLifecycle else []
+    consumables = [{'name': c.name, 'status': consumable_data(db, c)['status']} for c in db.scalars(select(m.Consumable).where(m.Consumable.itemId == item.id))] if options.showConsumables else []
+    manuals = [{'name': d.originalFilename or d.filename} for d in db.scalars(select(m.Document).where(m.Document.itemId == item.id))] if options.showManualNames else []
+    return {'item': info, 'events': events, 'consumables': consumables, 'manuals': manuals,
+            'options': options.model_dump(), 'expiresAt': link.expiresAt}
 
 
 @router.get('/share-data/{token}/images/{image_id}')

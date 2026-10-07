@@ -467,7 +467,7 @@ export default function ItemDetail() {
       </section>
       {drawer && (
         <Drawer title={drawer} onClose={close}>
-          {drawer === "一物一码" && <ShareQR itemId={id!} />}
+          {drawer === "一物一码" && <ShareQR detail={detail} />}
           {drawer === "编辑信息" && (
             <form
               onSubmit={(e) => {
