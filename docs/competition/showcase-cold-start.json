@@ -1,0 +1,19 @@
+{
+  "testedCommit": "a4a884c71c6cd18946e898f933def510f93056ea",
+  "source": "fresh shallow GitHub HTTPS clone, main",
+  "pathCase": "Chinese characters and spaces; invoked from another working directory",
+  "entry": "启动物生.cmd -NoBrowser -Port 8021",
+  "dependenciesInitiallyAbsent": true,
+  "automaticSetup": "Python 3.12 virtual environment, locked pip requirements, npm ci",
+  "frontendBuild": "passed",
+  "health": "ok",
+  "databaseItemCount": 10,
+  "activeProvider": "evidence",
+  "allDatabaseItemsRendered": true,
+  "existingQrDrawerOpened": true,
+  "providerStatusRendered": true,
+  "browserPageErrors": [],
+  "browser": "Microsoft Edge, headless Playwright",
+  "networkNote": "Initial Git clone ended with a Schannel TLS disconnect; per-command HTTP/1.1 retry succeeded with certificate validation enabled.",
+  "limitations": "NoBrowser intentionally suppresses GUI launch; physical phone and real local-model quality are not asserted. No Ollama/LLM weights installed."
+}

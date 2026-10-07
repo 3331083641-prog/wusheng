@@ -23,6 +23,7 @@
 | lint / TypeScript / Vite build | 通过，使用原锁定依赖，无新增依赖 |
 | Windows smoke | PowerShell 解析、CMD 任意工作目录、中文与空格路径、隔离 Demo、单端口生产启动/health/generate/lan-ready 通过 |
 | CMD 实际启动 | 从仓库外调用 `start-wusheng.cmd -NoBrowser -Smoke -Port 8020`，成功启动并仅停止本次服务 |
+| GitHub 冷启动 | 在含中文/空格的新目录 Clone main，缺依赖时中文 CMD 自动安装并构建，独立 SQLite 生成 10 件；生产页全部档案/既有 QR 抽屉/真实 EvidenceProvider 状态通过，[摘要](showcase-cold-start.json) |
 | 物品图片 | 10 张、6 布局、21 路由、**309 检查通过**；[报告](hd-images/verification.json) |
 | 耗材图片 | 6 张、3 布局、20 路由、**107 检查通过**；[报告](consumable-images/verification.json) |
 | 安全基础扫描 | 当前工作树和 22 个既有可达 Commit 无真实凭据命中；无用户路径、运行数据库/附件/模型等禁止文件，无单文件超过 5 MiB |
@@ -30,6 +31,8 @@
 截图：[首页 1440](../references/home-1440.png)、[1920](../references/home-1920.png)、[1366](../references/home-1366.png)、[移动](../references/home-390.png)、[AI 助手](../references/assistant-1440.png)。首页与助手已实际目视检查。
 
 本机 Node 24 的前两次整组执行发生开发服务中断（25/33、30/33）；日志没有给出根因，保留在 Git 忽略的本地 tmp。之后顺序执行整组 33/33、增加占位测试后再次 34/34，通过但不声称根因已彻底解决。推荐 Node 22 LTS，CI 使用 Node 22；生产入口不依赖 Vite 开发服务器。
+
+冷克隆第一次因本机 Git Schannel TLS 连接中断失败；仅对重试命令指定 HTTP/1.1 后成功，未关闭证书校验。安装和实际生产界面验证随后完整通过。自动化使用 NoBrowser，不把程序化入口调用或 headless 浏览器验证写成人工双击/真实手机实测。
 
 Linux validate 与 Windows smoke 的最终状态以本轮提交对应的 [GitHub Actions](https://github.com/3331083641-prog/wusheng/actions/workflows/ci.yml) 为准，不能以旧 Tag 的绿色结果代替。没有修改或新建比赛 Tag。
 
