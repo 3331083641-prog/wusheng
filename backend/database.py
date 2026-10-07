@@ -42,7 +42,7 @@ def migrate_schema(target_engine):
     from sqlalchemy import inspect, text
     additions = {
         'item_images': {'originalFilename': "TEXT DEFAULT ''", 'storedFilename': "TEXT DEFAULT ''", 'mimeType': "TEXT DEFAULT ''", 'fileSize': 'INTEGER DEFAULT 0', 'sha256': "TEXT DEFAULT ''", 'createdAt': "TEXT DEFAULT ''"},
-        'documents': {'originalFilename': "TEXT DEFAULT ''", 'storedFilename': "TEXT DEFAULT ''", 'mimeType': "TEXT DEFAULT 'application/pdf'", 'fileSize': 'INTEGER DEFAULT 0', 'sha256': "TEXT DEFAULT ''", 'pageCount': 'INTEGER', 'updatedAt': "TEXT DEFAULT ''"},
+        'documents': {'originalFilename': "TEXT DEFAULT ''", 'storedFilename': "TEXT DEFAULT ''", 'mimeType': "TEXT DEFAULT 'application/pdf'", 'fileSize': 'INTEGER DEFAULT 0', 'sha256': "TEXT DEFAULT ''", 'pageCount': 'INTEGER', 'updatedAt': "TEXT DEFAULT ''", 'textStatus': "TEXT DEFAULT 'needs_ocr'", 'textSource': "TEXT DEFAULT 'none'", 'ocrPageCount': 'INTEGER DEFAULT 0', 'ocrError': "TEXT DEFAULT ''"},
         'consumables': {'createdAt': "TEXT DEFAULT ''", 'updatedAt': "TEXT DEFAULT ''"},
         'recognition_sessions': {'draftId': 'TEXT'},
     }
@@ -56,6 +56,9 @@ def migrate_schema(target_engine):
             for field in ['createdAt', 'updatedAt']:
                 if field in {c['name'] for c in inspect(connection).get_columns(table)}:
                     connection.execute(text(f'UPDATE {table} SET "{field}"=:now WHERE "{field}" IS NULL OR "{field}"=\'\''), {'now': timestamp()})
+        if 'extractedText' in {c['name'] for c in inspect(connection).get_columns('documents')}:
+            connection.execute(text("UPDATE documents SET textStatus='text_ready', textSource='pdf_text' WHERE length(trim(extractedText))>0 AND textSource='none'"))
+        # Type is stored as TEXT; extending the accepted enum preserves old rows.
 
 
 def get_db():

@@ -3130,6 +3130,16 @@
     ]
   },
   {
+    "ecosystem": "npm",
+    "name": "prettier",
+    "version": "3.9.9",
+    "license": "MIT",
+    "repository": "prettier/prettier",
+    "licenseFiles": [
+      "LICENSES/dependencies/prettier-3.9.9-LICENSE"
+    ]
+  },
+  {
     "ecosystem": "python",
     "name": "annotated-doc",
     "version": "0.0.5",
@@ -3356,6 +3366,7 @@
       "LICENSES/dependencies/numpy-2.4.4-LICENSE.txt",
       "LICENSES/dependencies/numpy-2.4.4-COPYING",
       "LICENSES/dependencies/numpy-2.4.4-LICENSE",
+      "LICENSES/dependencies/numpy-2.4.4-dragon4_LICENSE.txt",
       "LICENSES/dependencies/numpy-2.4.4-LICENSE.md",
       "LICENSES/dependencies/numpy-2.4.4-LICENSE",
       "LICENSES/dependencies/numpy-2.4.4-LICENSE.md",
@@ -3495,6 +3506,7 @@
       "Changelog, https://github.com/pygments/pygments/blob/master/CHANGES"
     ],
     "licenseFiles": [
+      "LICENSES/dependencies/Pygments-2.21.0-AUTHORS",
       "LICENSES/dependencies/Pygments-2.21.0-LICENSE"
     ]
   },
@@ -3511,6 +3523,38 @@
     ],
     "licenseFiles": [
       "LICENSES/dependencies/pypdf-6.9.2-LICENSE"
+    ]
+  },
+  {
+    "ecosystem": "python",
+    "name": "pypdfium2",
+    "version": "5.14.0",
+    "license": "BSD-3-Clause, Apache-2.0, dependency licenses",
+    "projectUrls": [
+      "Source, https://github.com/pypdfium2-team/pypdfium2",
+      "Tracker, https://github.com/pypdfium2-team/pypdfium2/issues",
+      "Documentation, https://pypdfium2.readthedocs.io",
+      "Changelog, https://pypdfium2.readthedocs.io/en/stable/changelog.html"
+    ],
+    "licenseFiles": [
+      "LICENSES/dependencies/pypdfium2-5.14.0-licenses_LICENSES_Apache-2.0.txt",
+      "LICENSES/dependencies/pypdfium2-5.14.0-licenses_LICENSES_BSD-3-Clause.txt",
+      "LICENSES/dependencies/pypdfium2-5.14.0-licenses_LICENSES_CC-BY-4.0.txt",
+      "LICENSES/dependencies/pypdfium2-5.14.0-licenses_data_windows_x64_BUILD_LICENSES_abseil.txt",
+      "LICENSES/dependencies/pypdfium2-5.14.0-licenses_data_windows_x64_BUILD_LICENSES_agg23.txt",
+      "LICENSES/dependencies/pypdfium2-5.14.0-licenses_data_windows_x64_BUILD_LICENSES_fast_float.txt",
+      "LICENSES/dependencies/pypdfium2-5.14.0-licenses_data_windows_x64_BUILD_LICENSES_freetype.txt",
+      "LICENSES/dependencies/pypdfium2-5.14.0-licenses_data_windows_x64_BUILD_LICENSES_icu.txt",
+      "LICENSES/dependencies/pypdfium2-5.14.0-licenses_data_windows_x64_BUILD_LICENSES_lcms.txt",
+      "LICENSES/dependencies/pypdfium2-5.14.0-licenses_data_windows_x64_BUILD_LICENSES_libjpeg_turbo.ijg",
+      "LICENSES/dependencies/pypdfium2-5.14.0-licenses_data_windows_x64_BUILD_LICENSES_libjpeg_turbo.md",
+      "LICENSES/dependencies/pypdfium2-5.14.0-licenses_data_windows_x64_BUILD_LICENSES_libopenjpeg.txt",
+      "LICENSES/dependencies/pypdfium2-5.14.0-licenses_data_windows_x64_BUILD_LICENSES_libpng.txt",
+      "LICENSES/dependencies/pypdfium2-5.14.0-licenses_data_windows_x64_BUILD_LICENSES_llvm-libc.txt",
+      "LICENSES/dependencies/pypdfium2-5.14.0-licenses_data_windows_x64_BUILD_LICENSES_pdfium-binaries.txt",
+      "LICENSES/dependencies/pypdfium2-5.14.0-licenses_data_windows_x64_BUILD_LICENSES_pdfium.txt",
+      "LICENSES/dependencies/pypdfium2-5.14.0-licenses_data_windows_x64_BUILD_LICENSES_simdutf.txt",
+      "LICENSES/dependencies/pypdfium2-5.14.0-licenses_data_windows_x64_BUILD_LICENSES_zlib.txt"
     ]
   },
   {
@@ -3621,6 +3665,7 @@
       "Discussions, https://github.com/sqlalchemy/sqlalchemy/discussions"
     ],
     "licenseFiles": [
+      "LICENSES/dependencies/SQLAlchemy-2.1.1-AUTHORS",
       "LICENSES/dependencies/SQLAlchemy-2.1.1-LICENSE"
     ]
   },
@@ -3700,17 +3745,6 @@
     ],
     "licenseFiles": [
       "LICENSES/dependencies/uvicorn-0.54.0-LICENSE.md"
-    ]
-  },
-  {
-    "ecosystem": "npm",
-    "name": "prettier",
-    "version": "3.9.9",
-    "license": "MIT",
-    "repository": "https://github.com/prettier/prettier",
-    "licenseFiles": [
-      "LICENSES/dependencies/prettier-3.9.9-LICENSE",
-      "LICENSES/dependencies/prettier-3.9.9-THIRD-PARTY-NOTICES.md"
     ]
   }
 ]

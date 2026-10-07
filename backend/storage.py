@@ -12,7 +12,7 @@ from .database import uid
 
 IMAGE_LIMIT = 10 * 1024 * 1024
 PDF_LIMIT = 50 * 1024 * 1024
-IMAGE_TYPES = {'product', 'receipt', 'label', 'manual_image'}
+IMAGE_TYPES = {'product', 'receipt', 'label', 'manual_image', 'invoice', 'package', 'warranty_card', 'other'}
 
 
 def original_name(name, fallback):
@@ -69,7 +69,8 @@ def validate_pdf(file):
             text_parts.append(f'[第 {number} 页]\n{content}')
         if sum(map(len, text_parts)) >= 500_000:
             break
-    return contents, {'originalFilename': name, 'storedFilename': uid() + '.pdf', 'mimeType': 'application/pdf', 'fileSize': len(contents), 'sha256': sha256(contents).hexdigest(), 'pageCount': count, 'extractedText': '\n'.join(text_parts)[:500_000]}
+    text = '\n'.join(text_parts)[:500_000]
+    return contents, {'originalFilename': name, 'storedFilename': uid() + '.pdf', 'mimeType': 'application/pdf', 'fileSize': len(contents), 'sha256': sha256(contents).hexdigest(), 'pageCount': count, 'extractedText': text, 'textStatus': 'text_ready' if text.strip() else 'needs_ocr', 'textSource': 'pdf_text' if text.strip() else 'none'}
 
 
 def local_path(relative):

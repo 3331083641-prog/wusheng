@@ -6,7 +6,7 @@ from .lifecycle import consumable_data
 
 class ContextBuilder:
     def build(self,db,item):
-        return {'item':item_data(db,item),'manuals':[row(r) for r in db.scalars(select(m.Document).where(m.Document.itemId==item.id))], 'maintenance':[row(r) for r in db.scalars(select(m.MaintenanceRecord).where(m.MaintenanceRecord.itemId==item.id).order_by(m.MaintenanceRecord.date.desc()))], 'repairs':[row(r) for r in db.scalars(select(m.RepairRecord).where(m.RepairRecord.itemId==item.id).order_by(m.RepairRecord.reportDate.desc()))], 'consumables':[consumable_data(db,r) for r in db.scalars(select(m.Consumable).where(m.Consumable.itemId==item.id))]}
+        return {'lifecycle': [{'date': e.date, 'title': e.title} for e in db.scalars(select(m.LifecycleEvent).where(m.LifecycleEvent.itemId==item.id).order_by(m.LifecycleEvent.date))], 'item':item_data(db,item),'manuals':[row(r) for r in db.scalars(select(m.Document).where(m.Document.itemId==item.id))], 'maintenance':[row(r) for r in db.scalars(select(m.MaintenanceRecord).where(m.MaintenanceRecord.itemId==item.id).order_by(m.MaintenanceRecord.date.desc()))], 'repairs':[row(r) for r in db.scalars(select(m.RepairRecord).where(m.RepairRecord.itemId==item.id).order_by(m.RepairRecord.reportDate.desc()))], 'consumables':[consumable_data(db,r) for r in db.scalars(select(m.Consumable).where(m.Consumable.itemId==item.id))]}
 
 
 def lifecycle_suggestions(context):

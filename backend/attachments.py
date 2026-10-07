@@ -268,6 +268,66 @@ def delete_image(image_id: str, db: Session = Depends(get_db)):
         if not image.filePath.startswith('/assets/'):
             files.remove(image.filePath)
         if item.coverImage == f'/api/images/{image_id}' or item.coverImage == image.filePath:
-            item.coverImage = '/assets/no-photo.svg'
+            next_image = db.scalar(select(m.ItemImage).where(m.ItemImage.itemId == item.id, m.ItemImage.id != image_id, m.ItemImage.type == 'product'))
+            item.coverImage = row(next_image)['filePath'] if next_image else '/assets/no-photo.svg'
         db.delete(image)
     return {'deleted': image_id}
+
+
+@router.post('/items/{item_id}/images', status_code=201)
+def append_images(item_id: str, files: list[UploadFile] = File(...), type: str = Form('product'), db: Session = Depends(get_db)):
+    item = require(db, m.Item, item_id)
+    if type not in IMAGE_TYPES or not 1 <= len(files) <= 10:
+        raise HTTPException(422, '请选择有效类型和 1–10 张图片')
+    output = []
+    with file_transaction(db) as transaction:
+        for upload in files:
+            contents, metadata = validate_image(upload)
+            relative = f'images/items/{item_id}/{metadata["storedFilename"]}'
+            transaction.write(relative, contents)
+            image = m.ItemImage(id=uid(), itemId=item_id, filePath=relative, type=type, source='local-upload', **metadata)
+            db.add(image)
+            db.flush()
+            if type == 'product' and item.coverImage == '/assets/no-photo.svg':
+                item.coverImage = f'/api/images/{image.id}'
+            output.append(row(image))
+    return output
+
+
+@router.patch('/images/{image_id}')
+def classify_image(image_id: str, payload: dict, db: Session = Depends(get_db)):
+    image = require(db, m.ItemImage, image_id)
+    kind = payload.get('type')
+    if kind not in IMAGE_TYPES or set(payload) != {'type'}:
+        raise HTTPException(422, '资料类型无效')
+    item = require(db, m.Item, image.itemId)
+    image.type = kind
+    if item.coverImage == f'/api/images/{image_id}' and kind != 'product':
+        next_image = db.scalar(select(m.ItemImage).where(m.ItemImage.itemId == item.id, m.ItemImage.id != image_id, m.ItemImage.type == 'product'))
+        item.coverImage = row(next_image)['filePath'] if next_image else '/assets/no-photo.svg'
+    elif kind == 'product' and item.coverImage == '/assets/no-photo.svg':
+        item.coverImage = row(image)['filePath']
+    return row(image)
+
+
+@router.get('/items/{item_id}/provenance')
+def provenance(item_id: str, db: Session = Depends(get_db)):
+    item = require(db, m.Item, item_id)
+    results = db.execute(select(m.RecognitionResult).join(m.RecognitionSession, m.RecognitionSession.id == m.RecognitionResult.sessionId).where(m.RecognitionSession.itemId == item_id)).scalars()
+    output = []
+    for candidate in results:
+        current = getattr(item, candidate.field, None)
+        if candidate.field == 'purchasePrice':
+            current = (current or 0) / 100
+        image_id = candidate.sourceImage.split('/')[-1]
+        image = db.get(m.ItemImage, image_id)
+        recognized = candidate.value
+        try:
+            equal = float(current) == float(recognized)
+        except (ValueError, TypeError):
+            equal = str(current) == recognized
+        output.append({'field': candidate.field, 'recognizedValue': recognized, 'currentValue': current,
+                       'confidence': candidate.confidence, 'sourceImage': f'/api/images/{image.id}' if image else None,
+                       'sourceType': image.type if image else '已删除来源图片', 'rawText': candidate.rawText,
+                       'manuallyEdited': not equal})
+    return output

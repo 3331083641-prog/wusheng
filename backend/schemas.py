@@ -77,6 +77,12 @@ class ConsumableInput(Input):
     leadDays: int = Field(default=7, ge=0, le=365)
 
 
+class RepairDetails(Input):
+    serviceType: Literal['官方售后','线下维修店','自行检查'] = '官方售后'
+    cost: float = Field(default=0, ge=0, le=10_000_000, allow_inf_nan=False)
+    description: str = Field(default='', max_length=1000)
+
+
 class StockInput(Input):
     date: date
     quantity: float = Field(gt=0, le=1_000_000, allow_inf_nan=False)

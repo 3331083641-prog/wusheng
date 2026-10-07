@@ -58,6 +58,21 @@ class Document(Base):
     sha256 = Column(String, default='')
     pageCount = Column(Integer, nullable=True)
     updatedAt = Column(String, default=timestamp)
+    textStatus = Column(String, default='needs_ocr')
+    textSource = Column(String, default='none')
+    ocrPageCount = Column(Integer, default=0)
+    ocrError = Column(Text, default='')
+
+
+class ShareLink(Base):
+    __tablename__ = 'share_links'
+    id = Column(String, primary_key=True, default=uid)
+    itemId = Column(String, ForeignKey('items.id', ondelete='CASCADE'), nullable=False, index=True)
+    token = Column(String, nullable=False, unique=True, index=True)
+    createdAt = Column(String, default=timestamp)
+    updatedAt = Column(String, default=timestamp)
+    revoked = Column(Boolean, default=False)
+    lastUsedAt = Column(String, nullable=True)
 
 
 class LifecycleEvent(Base):

@@ -13,11 +13,17 @@ from .clock import today
 from .serializers import row, item_data, reminder_data, cents
 from .lifecycle import sync_item, sync_all, consumable_data, event, next_maintenance
 from .context import ContextBuilder, lifecycle_suggestions
-from .providers import EvidenceProvider
+from .ai_engine import get_factory
 from .statistics import statistics
 from .seed import seed
 from .attachments import router as attachments_router, bind_draft, open_draft, cleanup_drafts, upgrade_legacy_documents
 from .storage import file_transaction, prune_empty
+from .calendar_export import router as calendar_router
+from .backup_restore import router as backup_router
+from .manual_ocr import router as ocr_router
+from .evidence_pack import router as pack_router
+from .corrections import router as correction_router
+from .sharing import router as sharing_router, install_hosting
 
 
 @asynccontextmanager
@@ -29,6 +35,9 @@ async def lifespan(_):
         db.commit()
         upgrade_legacy_documents(db)
         cleanup_drafts(db)
+        db.execute(update(m.Document).where(m.Document.textStatus == "ocr_processing").values(textStatus="ocr_failed",ocrError="上次识别中断，原文件保留，可重试"))
+        db.commit()
+    get_factory()
     yield
 
 
@@ -37,6 +46,12 @@ app.add_middleware(CORSMiddleware,allow_origins=['http://127.0.0.1:5173','http:/
 app.mount('/uploads',StaticFiles(directory=UPLOADS),name='uploads')
 app.include_router(attachments_router)
 app.include_router(attachments_router, prefix='/api', include_in_schema=False)
+app.include_router(sharing_router)
+app.include_router(ocr_router)
+app.include_router(pack_router)
+app.include_router(correction_router)
+app.include_router(calendar_router)
+app.include_router(backup_router)
 
 
 @app.exception_handler(SQLAlchemyError)
@@ -61,7 +76,7 @@ def not_future(day):
 
 @app.get('/health')
 def health():
-    return {'status':'ok','database':'SQLite','aiMode':'local-evidence','ocr':'RapidOCR ONNX（本地）','today':today().isoformat()}
+    return {'status':'ok','database':'SQLite','aiMode':'local-evidence','ocr':'RapidOCR ONNX（本地）','today':today().isoformat(), **get_factory().status()}
 
 
 @app.get('/snapshot')
@@ -267,7 +282,7 @@ def generate(payload:s.Question,db:Session=Depends(get_db)):
     item=get_or_404(db,m.Item,payload.itemId)
     sync_item(db,item)
     context=ContextBuilder().build(db,item)
-    return EvidenceProvider().generate(payload.question,context)
+    return get_factory().generate(payload.question,context)
 
 
 @app.get('/items/{ident}/event-graph')
@@ -276,3 +291,6 @@ def event_graph(ident:str,db:Session=Depends(get_db)):
     sync_item(db,item)
     events=[row(e) for e in db.scalars(select(m.LifecycleEvent).where(m.LifecycleEvent.itemId==ident).order_by(m.LifecycleEvent.date,m.LifecycleEvent.id))]
     return {'itemId':ident,'nodes':events,'edges':[{'from':a['id'],'to':b['id'],'relation':'chronological'} for a,b in zip(events,events[1:])]+[{'from':e['id'],'to':e['relatedId'],'relation':'evidence'} for e in events if e['source']=='user' and e['relatedId'] not in ['purchase','use','retired']]}
+
+
+install_hosting(app)
