@@ -1,0 +1,843 @@
+{
+  "checkedAt": "2026-10-07T10:03:20.097Z",
+  "assets": [
+    {
+      "itemId": "laptop",
+      "itemName": "MacBook Air M2",
+      "src": "/assets/items/macbook-air-m2.png",
+      "width": 1448,
+      "height": 1086
+    },
+    {
+      "itemId": "headphones",
+      "itemName": "Sony WH-1000XM6",
+      "src": "/assets/items/sony-wh1000xm6.png",
+      "width": 1448,
+      "height": 1086
+    },
+    {
+      "itemId": "washer",
+      "itemName": "海尔滚筒洗衣机",
+      "src": "/assets/items/haier-washer.png",
+      "width": 1448,
+      "height": 1086
+    },
+    {
+      "itemId": "ac",
+      "itemName": "美的空调",
+      "src": "/assets/items/midea-air-conditioner.png",
+      "width": 1448,
+      "height": 1086
+    },
+    {
+      "itemId": "robot",
+      "itemName": "小米扫地机器人",
+      "src": "/assets/items/xiaomi-robot-vacuum.png",
+      "width": 1448,
+      "height": 1086
+    },
+    {
+      "itemId": "coffee",
+      "itemName": "德龙咖啡机",
+      "src": "/assets/items/delonghi-coffee-machine.png",
+      "width": 1448,
+      "height": 1086
+    },
+    {
+      "itemId": "toothbrush",
+      "itemName": "飞利浦电动牙刷",
+      "src": "/assets/items/philips-electric-toothbrush.png",
+      "width": 1448,
+      "height": 1086
+    },
+    {
+      "itemId": "suitcase",
+      "itemName": "行李箱",
+      "src": "/assets/items/rimowa-suitcase.png",
+      "width": 1448,
+      "height": 1086
+    },
+    {
+      "itemId": "purifier",
+      "itemName": "空气净化器",
+      "src": "/assets/items/xiaomi-air-purifier.png",
+      "width": 1448,
+      "height": 1086
+    },
+    {
+      "itemId": "printer",
+      "itemName": "惠普打印机",
+      "src": "/assets/items/hp-printer.png",
+      "width": 1448,
+      "height": 1086
+    }
+  ],
+  "layout": [
+    {
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "deviceScaleFactor": 1,
+      "identical": "No local before-change baseline"
+    },
+    {
+      "viewport": {
+        "width": 2560,
+        "height": 1440
+      },
+      "deviceScaleFactor": 1,
+      "identical": "No local before-change baseline"
+    },
+    {
+      "viewport": {
+        "width": 1536,
+        "height": 864
+      },
+      "deviceScaleFactor": 1.25,
+      "identical": "No local before-change baseline"
+    },
+    {
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "deviceScaleFactor": 1,
+      "identical": "No local before-change baseline"
+    },
+    {
+      "viewport": {
+        "width": 2560,
+        "height": 1440
+      },
+      "deviceScaleFactor": 2,
+      "identical": "Extra resolution check (no baseline)"
+    },
+    {
+      "viewport": {
+        "width": 2048,
+        "height": 1152
+      },
+      "deviceScaleFactor": 1.25,
+      "identical": "Extra resolution check (no baseline)"
+    }
+  ],
+  "routes": [
+    {
+      "route": "/items (list)",
+      "images": [
+        {
+          "src": "/assets/items/macbook-air-m2.png",
+          "width": 1448,
+          "height": 1086,
+          "fit": "cover"
+        },
+        {
+          "src": "/assets/items/sony-wh1000xm6.png",
+          "width": 1448,
+          "height": 1086,
+          "fit": "cover"
+        },
+        {
+          "src": "/assets/items/haier-washer.png",
+          "width": 1448,
+          "height": 1086,
+          "fit": "cover"
+        },
+        {
+          "src": "/assets/items/midea-air-conditioner.png",
+          "width": 1448,
+          "height": 1086,
+          "fit": "cover"
+        },
+        {
+          "src": "/assets/items/xiaomi-robot-vacuum.png",
+          "width": 1448,
+          "height": 1086,
+          "fit": "cover"
+        },
+        {
+          "src": "/assets/items/delonghi-coffee-machine.png",
+          "width": 1448,
+          "height": 1086,
+          "fit": "cover"
+        },
+        {
+          "src": "/assets/items/philips-electric-toothbrush.png",
+          "width": 1448,
+          "height": 1086,
+          "fit": "cover"
+        },
+        {
+          "src": "/assets/items/rimowa-suitcase.png",
+          "width": 1448,
+          "height": 1086,
+          "fit": "cover"
+        },
+        {
+          "src": "/assets/items/xiaomi-air-purifier.png",
+          "width": 1448,
+          "height": 1086,
+          "fit": "cover"
+        },
+        {
+          "src": "/assets/items/hp-printer.png",
+          "width": 1448,
+          "height": 1086,
+          "fit": "cover"
+        }
+      ]
+    },
+    {
+      "route": "/items/laptop",
+      "images": [
+        {
+          "src": "/assets/items/macbook-air-m2.png",
+          "width": 1448,
+          "height": 1086,
+          "fit": "cover"
+        },
+        {
+          "src": "/assets/items/macbook-air-m2.png",
+          "width": 1448,
+          "height": 1086,
+          "fit": "contain"
+        }
+      ]
+    },
+    {
+      "route": "/items/headphones",
+      "images": [
+        {
+          "src": "/assets/items/sony-wh1000xm6.png",
+          "width": 1448,
+          "height": 1086,
+          "fit": "cover"
+        },
+        {
+          "src": "/assets/items/sony-wh1000xm6.png",
+          "width": 1448,
+          "height": 1086,
+          "fit": "contain"
+        }
+      ]
+    },
+    {
+      "route": "/items/washer",
+      "images": [
+        {
+          "src": "/assets/items/haier-washer.png",
+          "width": 1448,
+          "height": 1086,
+          "fit": "cover"
+        },
+        {
+          "src": "/assets/items/haier-washer.png",
+          "width": 1448,
+          "height": 1086,
+          "fit": "contain"
+        }
+      ]
+    },
+    {
+      "route": "/items/ac",
+      "images": [
+        {
+          "src": "/assets/items/midea-air-conditioner.png",
+          "width": 1448,
+          "height": 1086,
+          "fit": "cover"
+        },
+        {
+          "src": "/assets/items/midea-air-conditioner.png",
+          "width": 1448,
+          "height": 1086,
+          "fit": "contain"
+        }
+      ]
+    },
+    {
+      "route": "/items/robot",
+      "images": [
+        {
+          "src": "/assets/items/xiaomi-robot-vacuum.png",
+          "width": 1448,
+          "height": 1086,
+          "fit": "cover"
+        },
+        {
+          "src": "/assets/items/xiaomi-robot-vacuum.png",
+          "width": 1448,
+          "height": 1086,
+          "fit": "contain"
+        }
+      ]
+    },
+    {
+      "route": "/items/coffee",
+      "images": [
+        {
+          "src": "/assets/items/delonghi-coffee-machine.png",
+          "width": 1448,
+          "height": 1086,
+          "fit": "cover"
+        },
+        {
+          "src": "/assets/items/delonghi-coffee-machine.png",
+          "width": 1448,
+          "height": 1086,
+          "fit": "contain"
+        }
+      ]
+    },
+    {
+      "route": "/items/toothbrush",
+      "images": [
+        {
+          "src": "/assets/items/philips-electric-toothbrush.png",
+          "width": 1448,
+          "height": 1086,
+          "fit": "cover"
+        },
+        {
+          "src": "/assets/items/philips-electric-toothbrush.png",
+          "width": 1448,
+          "height": 1086,
+          "fit": "contain"
+        }
+      ]
+    },
+    {
+      "route": "/items/suitcase",
+      "images": [
+        {
+          "src": "/assets/items/rimowa-suitcase.png",
+          "width": 1448,
+          "height": 1086,
+          "fit": "cover"
+        },
+        {
+          "src": "/assets/items/rimowa-suitcase.png",
+          "width": 1448,
+          "height": 1086,
+          "fit": "contain"
+        }
+      ]
+    },
+    {
+      "route": "/items/purifier",
+      "images": [
+        {
+          "src": "/assets/items/xiaomi-air-purifier.png",
+          "width": 1448,
+          "height": 1086,
+          "fit": "cover"
+        },
+        {
+          "src": "/assets/items/xiaomi-air-purifier.png",
+          "width": 1448,
+          "height": 1086,
+          "fit": "contain"
+        }
+      ]
+    },
+    {
+      "route": "/items/printer",
+      "images": [
+        {
+          "src": "/assets/items/hp-printer.png",
+          "width": 1448,
+          "height": 1086,
+          "fit": "cover"
+        },
+        {
+          "src": "/assets/items/hp-printer.png",
+          "width": 1448,
+          "height": 1086,
+          "fit": "contain"
+        }
+      ]
+    },
+    {
+      "route": "/",
+      "images": [
+        {
+          "src": "/assets/items/macbook-air-m2.png",
+          "width": 1448,
+          "height": 1086,
+          "fit": "cover"
+        },
+        {
+          "src": "/assets/items/sony-wh1000xm6.png",
+          "width": 1448,
+          "height": 1086,
+          "fit": "cover"
+        },
+        {
+          "src": "/assets/items/haier-washer.png",
+          "width": 1448,
+          "height": 1086,
+          "fit": "cover"
+        },
+        {
+          "src": "/assets/items/haier-washer.png",
+          "width": 1448,
+          "height": 1086,
+          "fit": "cover"
+        },
+        {
+          "src": "/assets/items/macbook-air-m2.png",
+          "width": 1448,
+          "height": 1086,
+          "fit": "cover"
+        },
+        {
+          "src": "/assets/items/philips-electric-toothbrush.png",
+          "width": 1448,
+          "height": 1086,
+          "fit": "cover"
+        }
+      ]
+    },
+    {
+      "route": "/reminders",
+      "images": [
+        {
+          "src": "/assets/items/haier-washer.png",
+          "width": 1448,
+          "height": 1086,
+          "fit": "cover"
+        },
+        {
+          "src": "/assets/items/midea-air-conditioner.png",
+          "width": 1448,
+          "height": 1086,
+          "fit": "cover"
+        },
+        {
+          "src": "/assets/items/xiaomi-robot-vacuum.png",
+          "width": 1448,
+          "height": 1086,
+          "fit": "cover"
+        },
+        {
+          "src": "/assets/items/delonghi-coffee-machine.png",
+          "width": 1448,
+          "height": 1086,
+          "fit": "cover"
+        },
+        {
+          "src": "/assets/items/xiaomi-air-purifier.png",
+          "width": 1448,
+          "height": 1086,
+          "fit": "cover"
+        },
+        {
+          "src": "/assets/items/haier-washer.png",
+          "width": 1448,
+          "height": 1086,
+          "fit": "cover"
+        },
+        {
+          "src": "/assets/items/hp-printer.png",
+          "width": 1448,
+          "height": 1086,
+          "fit": "cover"
+        },
+        {
+          "src": "/assets/items/delonghi-coffee-machine.png",
+          "width": 1448,
+          "height": 1086,
+          "fit": "cover"
+        },
+        {
+          "src": "/assets/items/philips-electric-toothbrush.png",
+          "width": 1448,
+          "height": 1086,
+          "fit": "cover"
+        },
+        {
+          "src": "/assets/items/sony-wh1000xm6.png",
+          "width": 1448,
+          "height": 1086,
+          "fit": "cover"
+        },
+        {
+          "src": "/assets/items/delonghi-coffee-machine.png",
+          "width": 1448,
+          "height": 1086,
+          "fit": "cover"
+        },
+        {
+          "src": "/assets/items/hp-printer.png",
+          "width": 1448,
+          "height": 1086,
+          "fit": "cover"
+        },
+        {
+          "src": "/assets/items/xiaomi-robot-vacuum.png",
+          "width": 1448,
+          "height": 1086,
+          "fit": "cover"
+        },
+        {
+          "src": "/assets/items/macbook-air-m2.png",
+          "width": 1448,
+          "height": 1086,
+          "fit": "cover"
+        },
+        {
+          "src": "/assets/items/philips-electric-toothbrush.png",
+          "width": 1448,
+          "height": 1086,
+          "fit": "cover"
+        },
+        {
+          "src": "/assets/items/xiaomi-robot-vacuum.png",
+          "width": 1448,
+          "height": 1086,
+          "fit": "cover"
+        },
+        {
+          "src": "/assets/items/rimowa-suitcase.png",
+          "width": 1448,
+          "height": 1086,
+          "fit": "cover"
+        },
+        {
+          "src": "/assets/items/midea-air-conditioner.png",
+          "width": 1448,
+          "height": 1086,
+          "fit": "cover"
+        },
+        {
+          "src": "/assets/items/sony-wh1000xm6.png",
+          "width": 1448,
+          "height": 1086,
+          "fit": "cover"
+        }
+      ]
+    },
+    {
+      "route": "/repairs",
+      "images": [
+        {
+          "src": "/assets/items/haier-washer.png",
+          "width": 1448,
+          "height": 1086,
+          "fit": "cover"
+        },
+        {
+          "src": "/assets/items/delonghi-coffee-machine.png",
+          "width": 1448,
+          "height": 1086,
+          "fit": "cover"
+        },
+        {
+          "src": "/assets/items/sony-wh1000xm6.png",
+          "width": 1448,
+          "height": 1086,
+          "fit": "cover"
+        }
+      ]
+    },
+    {
+      "route": "/repairs drawer",
+      "images": [
+        {
+          "src": "/assets/items/haier-washer.png",
+          "width": 1448,
+          "height": 1086,
+          "fit": "cover"
+        },
+        {
+          "src": "/assets/items/delonghi-coffee-machine.png",
+          "width": 1448,
+          "height": 1086,
+          "fit": "cover"
+        },
+        {
+          "src": "/assets/items/sony-wh1000xm6.png",
+          "width": 1448,
+          "height": 1086,
+          "fit": "cover"
+        },
+        {
+          "src": "/assets/items/haier-washer.png",
+          "width": 1448,
+          "height": 1086,
+          "fit": "cover"
+        }
+      ]
+    },
+    {
+      "route": "/assistant?item=headphones",
+      "images": [
+        {
+          "src": "/assets/items/sony-wh1000xm6.png",
+          "width": 1448,
+          "height": 1086,
+          "fit": "cover"
+        }
+      ]
+    },
+    {
+      "route": "/consumables",
+      "images": [
+        {
+          "src": "/assets/consumables/air-purifier-filter-cylinder.png",
+          "width": 1448,
+          "height": 1086,
+          "fit": "contain"
+        },
+        {
+          "src": "/assets/consumables/laundry-detergent-blue.png",
+          "width": 1448,
+          "height": 1086,
+          "fit": "contain"
+        },
+        {
+          "src": "/assets/consumables/printer-ink-cartridges-cmy.png",
+          "width": 1448,
+          "height": 1086,
+          "fit": "contain"
+        },
+        {
+          "src": "/assets/consumables/coffee-capsules-metallic.png",
+          "width": 1448,
+          "height": 1086,
+          "fit": "contain"
+        },
+        {
+          "src": "/assets/consumables/toothbrush-heads-dual.png",
+          "width": 1448,
+          "height": 1086,
+          "fit": "contain"
+        },
+        {
+          "src": "/assets/consumables/robot-vacuum-filter-rect.png",
+          "width": 1448,
+          "height": 1086,
+          "fit": "contain"
+        }
+      ]
+    },
+    {
+      "route": "/statistics",
+      "images": []
+    },
+    {
+      "route": "/items/new",
+      "images": []
+    },
+    {
+      "route": "/items?uiDemo=1",
+      "images": [
+        {
+          "src": "/assets/items/macbook-air-m2.png",
+          "width": 1448,
+          "height": 1086,
+          "fit": "cover"
+        },
+        {
+          "src": "/assets/items/sony-wh1000xm6.png",
+          "width": 1448,
+          "height": 1086,
+          "fit": "cover"
+        },
+        {
+          "src": "/assets/items/haier-washer.png",
+          "width": 1448,
+          "height": 1086,
+          "fit": "cover"
+        },
+        {
+          "src": "/assets/items/midea-air-conditioner.png",
+          "width": 1448,
+          "height": 1086,
+          "fit": "cover"
+        },
+        {
+          "src": "/assets/items/xiaomi-robot-vacuum.png",
+          "width": 1448,
+          "height": 1086,
+          "fit": "cover"
+        },
+        {
+          "src": "/assets/items/delonghi-coffee-machine.png",
+          "width": 1448,
+          "height": 1086,
+          "fit": "cover"
+        },
+        {
+          "src": "/assets/items/philips-electric-toothbrush.png",
+          "width": 1448,
+          "height": 1086,
+          "fit": "cover"
+        },
+        {
+          "src": "/assets/items/rimowa-suitcase.png",
+          "width": 1448,
+          "height": 1086,
+          "fit": "cover"
+        },
+        {
+          "src": "/assets/items/xiaomi-air-purifier.png",
+          "width": 1448,
+          "height": 1086,
+          "fit": "cover"
+        },
+        {
+          "src": "/assets/items/hp-printer.png",
+          "width": 1448,
+          "height": 1086,
+          "fit": "cover"
+        }
+      ]
+    },
+    {
+      "route": "Global search Sony",
+      "images": [
+        {
+          "src": "/assets/items/sony-wh1000xm6.png",
+          "width": 1448,
+          "height": 1086,
+          "fit": "cover"
+        },
+        {
+          "src": "/assets/items/macbook-air-m2.png",
+          "width": 1448,
+          "height": 1086,
+          "fit": "cover"
+        },
+        {
+          "src": "/assets/items/sony-wh1000xm6.png",
+          "width": 1448,
+          "height": 1086,
+          "fit": "cover"
+        },
+        {
+          "src": "/assets/items/haier-washer.png",
+          "width": 1448,
+          "height": 1086,
+          "fit": "cover"
+        },
+        {
+          "src": "/assets/items/midea-air-conditioner.png",
+          "width": 1448,
+          "height": 1086,
+          "fit": "cover"
+        },
+        {
+          "src": "/assets/items/xiaomi-robot-vacuum.png",
+          "width": 1448,
+          "height": 1086,
+          "fit": "cover"
+        },
+        {
+          "src": "/assets/items/delonghi-coffee-machine.png",
+          "width": 1448,
+          "height": 1086,
+          "fit": "cover"
+        },
+        {
+          "src": "/assets/items/philips-electric-toothbrush.png",
+          "width": 1448,
+          "height": 1086,
+          "fit": "cover"
+        },
+        {
+          "src": "/assets/items/rimowa-suitcase.png",
+          "width": 1448,
+          "height": 1086,
+          "fit": "cover"
+        },
+        {
+          "src": "/assets/items/xiaomi-air-purifier.png",
+          "width": 1448,
+          "height": 1086,
+          "fit": "cover"
+        },
+        {
+          "src": "/assets/items/hp-printer.png",
+          "width": 1448,
+          "height": 1086,
+          "fit": "cover"
+        }
+      ]
+    }
+  ],
+  "checks": [
+    "Backend /health",
+    "Backend /generate",
+    "Frontend dev server",
+    "laptop: original PNG hash",
+    "laptop: served PNG",
+    "laptop: served original bytes",
+    "headphones: original PNG hash",
+    "headphones: served PNG",
+    "headphones: served original bytes",
+    "washer: original PNG hash",
+    "washer: served PNG",
+    "washer: served original bytes",
+    "ac: original PNG hash",
+    "ac: served PNG",
+    "ac: served original bytes",
+    "robot: original PNG hash",
+    "robot: served PNG",
+    "robot: served original bytes",
+    "coffee: original PNG hash",
+    "coffee: served PNG",
+    "coffee: served original bytes",
+    "toothbrush: original PNG hash",
+    "toothbrush: served PNG",
+    "toothbrush: served original bytes",
+    "suitcase: original PNG hash",
+    "suitcase: served PNG",
+    "suitcase: served original bytes",
+    "purifier: original PNG hash",
+    "purifier: served PNG",
+    "purifier: served original bytes",
+    "printer: original PNG hash",
+    "printer: served PNG",
+    "printer: served original bytes",
+    "Hover scale 1.03",
+    "Grid/list toggle preserves all ten cards",
+    "/items (list): no broken/legacy device images",
+    "2560/DPR 2: native image resolution covers physical card pixels",
+    "2560/DPR 2: full-resolution detail image",
+    "2048/DPR 1.25: native image resolution covers physical card pixels",
+    "2048/DPR 1.25: full-resolution detail image",
+    "/items/laptop: no broken/legacy device images",
+    "/items/headphones: no broken/legacy device images",
+    "/items/washer: no broken/legacy device images",
+    "/items/ac: no broken/legacy device images",
+    "/items/robot: no broken/legacy device images",
+    "/items/coffee: no broken/legacy device images",
+    "/items/toothbrush: no broken/legacy device images",
+    "/items/suitcase: no broken/legacy device images",
+    "/items/purifier: no broken/legacy device images",
+    "/items/printer: no broken/legacy device images",
+    "/: no broken/legacy device images",
+    "/reminders: no broken/legacy device images",
+    "/repairs: no broken/legacy device images",
+    "/repairs drawer: no broken/legacy device images",
+    "/assistant?item=headphones: no broken/legacy device images",
+    "/consumables: no broken/legacy device images",
+    "/statistics: no broken/legacy device images",
+    "/items/new: no broken/legacy device images",
+    "/items?uiDemo=1: no broken/legacy device images",
+    "Global search Sony: no broken/legacy device images",
+    "Delayed image shows skeleton",
+    "Skeleton present",
+    "Loading causes no card height change",
+    "250ms image fade-in",
+    "Failed photo uses Cube icon, no broken img",
+    "Failure warning identifies item and path",
+    "Reduced motion disables image zoom",
+    "User-uploaded custom photo preserved",
+    "Normal routes have zero asset 404s, image warnings or page errors"
+  ],
+  "passed": true,
+  "errors": []
+}

@@ -2,11 +2,11 @@
   "dataset": "58 fixed-date synthetic item QA cases; not real users or a general model accuracy score",
   "provider": "evidence",
   "model": null,
-  "executedAt": "2026-10-07T09:20:14.594795+00:00",
+  "executedAt": "2026-10-07T10:05:54.630064+00:00",
   "fixtureDate": "2026-10-07",
   "caseCount": 58,
   "modelResponses": 0,
-  "elapsedSeconds": 0.28,
+  "elapsedSeconds": 0.27,
   "metrics": {
     "evidenceHitRate": 1.0,
     "requiredFactHitRate": 1.0,
@@ -827,7 +827,7 @@
       "sources": [
         {
           "type": "维护规则",
-          "title": "维护记录 d3642b9a-4a13-43ec-8f38-a23820e1410b"
+          "title": "维护记录 c4cc289b-4a9b-4734-bee0-ef4d0c336918"
         }
       ],
       "mode": "本地档案规则",
@@ -856,7 +856,7 @@
       "sources": [
         {
           "type": "维护规则",
-          "title": "维护记录 d3642b9a-4a13-43ec-8f38-a23820e1410b"
+          "title": "维护记录 c4cc289b-4a9b-4734-bee0-ef4d0c336918"
         }
       ],
       "mode": "本地档案规则",
@@ -885,7 +885,7 @@
       "sources": [
         {
           "type": "维护规则",
-          "title": "维护记录 d3642b9a-4a13-43ec-8f38-a23820e1410b"
+          "title": "维护记录 c4cc289b-4a9b-4734-bee0-ef4d0c336918"
         }
       ],
       "mode": "本地档案规则",
@@ -914,7 +914,7 @@
       "sources": [
         {
           "type": "维护规则",
-          "title": "维护记录 d3642b9a-4a13-43ec-8f38-a23820e1410b"
+          "title": "维护记录 c4cc289b-4a9b-4734-bee0-ef4d0c336918"
         }
       ],
       "mode": "本地档案规则",
@@ -943,7 +943,7 @@
       "sources": [
         {
           "type": "维护规则",
-          "title": "维护记录 d3642b9a-4a13-43ec-8f38-a23820e1410b"
+          "title": "维护记录 c4cc289b-4a9b-4734-bee0-ef4d0c336918"
         }
       ],
       "mode": "本地档案规则",
@@ -972,7 +972,7 @@
       "sources": [
         {
           "type": "维护规则",
-          "title": "维护记录 d3642b9a-4a13-43ec-8f38-a23820e1410b"
+          "title": "维护记录 c4cc289b-4a9b-4734-bee0-ef4d0c336918"
         }
       ],
       "mode": "本地档案规则",
@@ -1001,7 +1001,7 @@
       "sources": [
         {
           "type": "数据库",
-          "title": "维修记录 79e48b52-fe09-4868-8cc2-bc82c76a8d69"
+          "title": "维修记录 247f76dc-a60c-4d50-8440-e34301d967bf"
         }
       ],
       "mode": "本地档案规则",
@@ -1030,7 +1030,7 @@
       "sources": [
         {
           "type": "数据库",
-          "title": "维修记录 79e48b52-fe09-4868-8cc2-bc82c76a8d69"
+          "title": "维修记录 247f76dc-a60c-4d50-8440-e34301d967bf"
         }
       ],
       "mode": "本地档案规则",
@@ -1059,7 +1059,7 @@
       "sources": [
         {
           "type": "数据库",
-          "title": "维修记录 79e48b52-fe09-4868-8cc2-bc82c76a8d69"
+          "title": "维修记录 247f76dc-a60c-4d50-8440-e34301d967bf"
         }
       ],
       "mode": "本地档案规则",
@@ -1088,7 +1088,7 @@
       "sources": [
         {
           "type": "数据库",
-          "title": "维修记录 79e48b52-fe09-4868-8cc2-bc82c76a8d69"
+          "title": "维修记录 247f76dc-a60c-4d50-8440-e34301d967bf"
         }
       ],
       "mode": "本地档案规则",
@@ -1117,7 +1117,7 @@
       "sources": [
         {
           "type": "数据库",
-          "title": "维修记录 79e48b52-fe09-4868-8cc2-bc82c76a8d69"
+          "title": "维修记录 247f76dc-a60c-4d50-8440-e34301d967bf"
         }
       ],
       "mode": "本地档案规则",
@@ -1146,7 +1146,7 @@
       "sources": [
         {
           "type": "数据库",
-          "title": "维修记录 79e48b52-fe09-4868-8cc2-bc82c76a8d69"
+          "title": "维修记录 247f76dc-a60c-4d50-8440-e34301d967bf"
         }
       ],
       "mode": "本地档案规则",

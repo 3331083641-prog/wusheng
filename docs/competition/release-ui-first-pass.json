@@ -1,0 +1,17 @@
+{
+  "scope": "First cold-clone browser run, with other browser restart validation running concurrently",
+  "stats": {
+    "startTime": "2026-10-07T09:54:47.340Z",
+    "duration": 185510.017,
+    "expected": 18,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  },
+  "passed": 18,
+  "failed": 1,
+  "failedCase": "截图证据：1440、1920、1366与移动首页",
+  "observedError": "Edge net::ERR_NO_BUFFER_SPACE followed by 90s missing hero timeout",
+  "rootCause": "Not established. The complete suite was rerun alone; see release-ui-results.json.",
+  "data": "isolated synthetic SQLite; no user data"
+}

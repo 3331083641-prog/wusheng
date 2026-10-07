@@ -21,7 +21,7 @@
 
 ## 实际清理类别
 
-- 根目录及frontend node_modules；重新npm ci之后再执行最终依赖/构建清理。
+- 首轮删除根目录及frontend node_modules；为验证重新npm ci。最终二次依赖/缓存批量删除被自动审批以“blocked by policy”拒绝，保留本地，不尝试绕过。
 - frontend/dist、.pytest_cache、Python __pycache__ / .pyc、旧Playwright output、tmp隔离测试、logs。
 - backups内27个与正式Git文件SHA256一致的源码/图片/.gitkeep副本；另外17个旧Python缓存，合计44个备份路径。
 - 未删任何正式Logo、植物、10张物品PNG、6张耗材PNG、Demo/Schema/Migration/测试/License。
@@ -35,10 +35,14 @@ phase0.md、open_source_usage.md、third_party_table.md三个历史文件的删�
 
 ## 用户数据、安全与许可
 
-data/保持本机、Git忽略；原数据库文件SHA256与盘点时一致，14张原业务表逐行一致。没有删除用户PDF、照片、小票或运行备份。所有新测试使用隔离WUSHENG_DATA_DIR。
+data/保持本机、Git忽略；31个原运行文件SHA256全部不变，原数据库14张原业务表逐行一致。没有删除用户PDF、照片、小票或运行备份。所有新测试使用隔离WUSHENG_DATA_DIR。
 
 工作树与全部可达Git文本blob基础扫描无真实Key、用户目录路径或禁止上传文件。新增httpx2/httpcore2/truststore为BSD/MIT，原文已登记；Actions沿用已有MIT资源。保留MIT自主源码许可及素材/模型独立边界。没有上传权重、视频、用户数据库或>10MB文件。
 
 ## 验证与最终大小
 
-后端88项、浏览器19组、lint/build、309物品图/107耗材图检查通过；合成OCR14/15，QA58题规则和已有本机Qwen分别实跑。文档链接0断链。Windows语法/健康验证通过。最终大小与冷克隆/CI/Tag在完成后补入。
+后端88项、浏览器19组、lint/build、本地309物品图/107耗材图检查通过；冷克隆同样88/19，物品图69项（不含本机历史backups基准）。合成OCR14/15，QA58题规则和已有本机Qwen分别实跑。文档链接0断链。Windows语法/健康和真实LAN启动通过。Linux/Windows CI结果见[测试报告](competition/test_results.md)，最终提交/Tag通过GitHub核验。
+
+本轮实测末次大小：**781,065,999 bytes**（约744.88 MiB，最终文档提交前统计），大于初始值。原因是验证重新安装依赖、生成隔离测试输出及增加Git证据历史，而最终二次清理被拒绝。不把初次释放289,445,509 bytes当成最终净减小。当前本地仍有.venv、node_modules、dist、tmp等已忽略生成文件；Git提交不含这些目录。
+
+实际删除仍为首轮16,884文件/289,445,509 bytes；44个备份文件中27个字节完全相同副本、17个Python缓存。正式运行素材删除0，历史文档删除0（审批拒绝），不确定F类187文件保留。仓库外赛前保护快照保留供恢复，不上传。无大规模源文件搬迁，不删除.git，不重写历史，不force-push。

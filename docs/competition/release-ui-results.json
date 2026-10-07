@@ -1,0 +1,206 @@
+{
+  "checkedAt": "2026-10-07T10:04:47.617976+00:00",
+  "data": "isolated synthetic SQLite and generated fixtures",
+  "browser": "Microsoft Edge (Playwright)",
+  "stats": {
+    "startTime": "2026-10-07T10:01:28.278Z",
+    "duration": 111444.454,
+    "expected": 19,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "tests": [
+    {
+      "title": "原生文件选择请求、四类入口、多图预览、拖拽及删除草稿",
+      "status": "expected",
+      "attempts": [
+        {
+          "status": "passed",
+          "durationMs": 2410
+        }
+      ]
+    },
+    {
+      "title": "无文字照片本地 OCR、人工确认保存、档案图片和提醒持久",
+      "status": "expected",
+      "attempts": [
+        {
+          "status": "passed",
+          "durationMs": 7514
+        }
+      ]
+    },
+    {
+      "title": "PDF 原生选择、上传、查看下载、刷新、AI 引用及确认删除",
+      "status": "expected",
+      "attempts": [
+        {
+          "status": "passed",
+          "durationMs": 3991
+        }
+      ]
+    },
+    {
+      "title": "六种耗材字段明确、关联链接和 Item 耗材 Tab 同源",
+      "status": "expected",
+      "attempts": [
+        {
+          "status": "passed",
+          "durationMs": 10780
+        }
+      ]
+    },
+    {
+      "title": "错误状态可见：图片类型与数量、PDF 类型与大小",
+      "status": "expected",
+      "attempts": [
+        {
+          "status": "passed",
+          "durationMs": 1823
+        }
+      ]
+    },
+    {
+      "title": "手动录入无需图片，也能创建真实档案",
+      "status": "expected",
+      "attempts": [
+        {
+          "status": "passed",
+          "durationMs": 1371
+        }
+      ]
+    },
+    {
+      "title": "字段来源追溯、人工修改及后置相机选择器",
+      "status": "expected",
+      "attempts": [
+        {
+          "status": "passed",
+          "durationMs": 6389
+        }
+      ]
+    },
+    {
+      "title": "凭证补充、分类、售后 ZIP、日历与完整备份真实下载",
+      "status": "expected",
+      "attempts": [
+        {
+          "status": "passed",
+          "durationMs": 4781
+        }
+      ]
+    },
+    {
+      "title": "扫描 PDF 本地 OCR 状态与说明书引用",
+      "status": "expected",
+      "attempts": [
+        {
+          "status": "passed",
+          "durationMs": 5081
+        }
+      ]
+    },
+    {
+      "title": "维护编辑删除与耗材消耗撤销真实同步",
+      "status": "expected",
+      "attempts": [
+        {
+          "status": "passed",
+          "durationMs": 3568
+        }
+      ]
+    },
+    {
+      "title": "实际局域网服务、生产 SPA、只读 QR PNG 与撤销",
+      "status": "expected",
+      "attempts": [
+        {
+          "status": "passed",
+          "durationMs": 8647
+        }
+      ]
+    },
+    {
+      "title": "统一导航、桌面与移动路由、筛选和搜索不刷新",
+      "status": "expected",
+      "attempts": [
+        {
+          "status": "passed",
+          "durationMs": 10412
+        }
+      ]
+    },
+    {
+      "title": "Case A：真实本地 OCR，多图确认保存，自动提醒",
+      "status": "expected",
+      "attempts": [
+        {
+          "status": "passed",
+          "durationMs": 5199
+        }
+      ]
+    },
+    {
+      "title": "档案编辑、QR PNG、JSON 导出、PDF 与维护真实保存",
+      "status": "expected",
+      "attempts": [
+        {
+          "status": "passed",
+          "durationMs": 3479
+        }
+      ]
+    },
+    {
+      "title": "提醒延后与完成状态持久",
+      "status": "expected",
+      "attempts": [
+        {
+          "status": "passed",
+          "durationMs": 2128
+        }
+      ]
+    },
+    {
+      "title": "Case B：滤芯实时历史预测、抽屉趋势，库存补给同步",
+      "status": "expected",
+      "attempts": [
+        {
+          "status": "passed",
+          "durationMs": 3106
+        }
+      ]
+    },
+    {
+      "title": "Case C：洗衣机报修至完成，生命周期与支出同步",
+      "status": "expected",
+      "attempts": [
+        {
+          "status": "passed",
+          "durationMs": 3724
+        }
+      ]
+    },
+    {
+      "title": "当前物品助手查询保修、引用说明书、缺少记录明确未知",
+      "status": "expected",
+      "attempts": [
+        {
+          "status": "passed",
+          "durationMs": 1410
+        }
+      ]
+    },
+    {
+      "title": "截图证据：1440、1920、1366与移动首页",
+      "status": "expected",
+      "attempts": [
+        {
+          "status": "passed",
+          "durationMs": 21160
+        }
+      ]
+    }
+  ],
+  "limitations": "Native filechooser events and LAN HTTP/QR decode verified; no physical phone test."
+}
