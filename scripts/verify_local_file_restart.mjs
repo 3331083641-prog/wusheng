@@ -13,6 +13,7 @@ const stateFile = process.env.WUSHENG_RESTART_STATE_FILE || path.join(tmpdir(), 
 const reportDir = path.join(root, "docs/competition/local-files");
 const base = process.env.WUSHENG_TEST_BASE_URL || "http://127.0.0.1:5173";
 const backend = process.env.WUSHENG_TEST_API_URL || "http://127.0.0.1:8000";
+const testDataRoot = process.env.WUSHENG_TEST_DATA_DIR || process.env.WUSHENG_DATA_DIR || path.join(root, "data");
 const hash = (bytes) => createHash("sha256").update(bytes).digest("hex");
 async function api(url, options) {
   const response = await fetch(backend + url, options);
@@ -66,7 +67,7 @@ try {
     await page.getByRole("button", { name: "说明书", exact: true }).click();
     const pdfChooser = page.waitForEvent("filechooser");
     await page.getByRole("button", { name: "上传 PDF", exact: true }).click();
-    await (await pdfChooser).setFiles(path.join(root, "data/uploads/demo-care-guide.pdf"));
+    await (await pdfChooser).setFiles(path.join(testDataRoot, "uploads/demo-care-guide.pdf"));
     await page.locator(".document-card").waitFor();
     const detail = await api("/items/" + id);
     assert.equal(detail.images.length, 2);
