@@ -195,3 +195,10 @@ export interface Snapshot {
   consumables: Consumable[];
   stats: Stats;
 }
+export interface ProviderHealth {
+  configuredProvider: string;
+  activeProvider: string;
+  fallbackReason: string | null;
+  mode: string;
+  model?: string | null;
+}

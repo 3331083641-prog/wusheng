@@ -19,6 +19,7 @@ export const useStore = create<State>((set) => ({
     try {
       const data = location.search.includes("uiDemo=1") ? demo : await api<Snapshot>("/snapshot");
       set({ data, loading: false, error: "" });
+      window.dispatchEvent(new CustomEvent("wusheng:items-changed"));
     } catch (e) {
       set({
         loading: false,

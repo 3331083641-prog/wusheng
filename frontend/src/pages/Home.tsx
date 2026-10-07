@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { useReducedMotion } from "framer-motion";
 import {
   ArrowRight,
   Bell,
@@ -8,25 +8,18 @@ import {
   Camera,
   FileText,
   Heart,
-  Leaf,
-  ShieldCheck,
   Sparkles,
   Wrench,
 } from "lucide-react";
 import { useStore } from "../store";
-import { CountUp, ItemCard, StatCard } from "../components/ui";
+import { CountUp } from "../components/ui";
 import ProductImage from "../components/ProductImage";
+import HomeItemShowcase from "../components/HomeItemShowcase";
 import { ITEM_ASSETS } from "../assets/itemAssets";
 export default function Home() {
   const data = useStore((s) => s.data)!;
-  const [slide, setSlide] = useState(0);
   const [mouse, setMouse] = useState({ x: 0, y: 0 });
   const reduce = useReducedMotion();
-  useEffect(() => {
-    if (reduce) return;
-    const t = setInterval(() => setSlide((v) => (v + 1) % 4), 4200);
-    return () => clearInterval(t);
-  }, [reduce]);
   const features = [
     ["拍照识别建档", "多图识别，少填一些", "/items/new", Camera, "green"],
     ["退换保修提醒", "重要时间，不再错过", "/reminders", Bell, "orange"],
@@ -35,12 +28,6 @@ export default function Home() {
     ["耗材补给预测", "从历史推算补给时间", "/consumables", Box, "purple"],
     ["物品专属助手", "带着档案，回答问题", "/assistant", Sparkles, "purple"],
   ] as const;
-  const slides = [
-    "每件物品，都有自己的故事",
-    "保修有期限，安心有提醒",
-    "一点点维护，陪伴更长久",
-    "耗材快用完，补给早一点",
-  ];
   return (
     <div className="home-page">
       <section
@@ -80,80 +67,7 @@ export default function Home() {
             </a>
           </div>
         </div>
-        <div className="hero-demo-wrap">
-          <motion.div
-            className="hero-demo"
-            animate={reduce ? {} : { y: [0, -5, 0] }}
-            transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
-          >
-            <div className="demo-chrome">
-              <span className="demo-brand">
-                <Leaf size={17} />
-                物生 <small>Wusheng</small>
-              </span>
-              <span>本地演示数据</span>
-              <Link to="/items/new">
-                <Plus /> 添加物品
-              </Link>
-            </div>
-            <div className="demo-inner">
-              <div className="demo-sidebar">
-                <HomeIcon />
-                首页
-                <PackageIcon />
-                物品
-                <Bell size={15} />
-                提醒
-                <Box size={15} />
-                耗材
-                <Sparkles size={15} />
-                助手
-              </div>
-              <div className="demo-content">
-                <div className="demo-stats">
-                  <StatCard label="全部物品" value={data.stats.itemCount} />
-                  <StatCard label="保修中" value={data.stats.warrantyCount} icon={ShieldCheck} />
-                  <StatCard
-                    label="待维护"
-                    value={data.stats.maintenanceDue}
-                    icon={Wrench}
-                    tone="orange"
-                  />
-                </div>
-                <div className="demo-tabs">
-                  <span>全部</span>家电 数码 家居
-                </div>
-                <div className="demo-items">
-                  {data.items.slice(0, 3).map((item) => (
-                    <ItemCard key={item.id} item={item} priority />
-                  ))}
-                </div>
-                <AnimatePresence mode="wait">
-                  <motion.div
-                    className={`demo-message state-${slide}`}
-                    key={slide}
-                    initial={{ opacity: 0, y: 5 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0 }}
-                  >
-                    <span className="live-dot" />
-                    {slides[slide]}
-                  </motion.div>
-                </AnimatePresence>
-              </div>
-            </div>
-          </motion.div>
-          <div className="demo-dots">
-            {slides.map((_, i) => (
-              <button
-                key={i}
-                className={i === slide ? "active" : ""}
-                aria-label={`展示第${i + 1}个状态`}
-                onClick={() => setSlide(i)}
-              />
-            ))}
-          </div>
-        </div>
+        <HomeItemShowcase />
       </section>
       <section id="features" className="feature-strip">
         {features.map(([title, text, to, Icon, tone]) => (
@@ -226,15 +140,6 @@ export default function Home() {
     </div>
   );
 }
-function Plus() {
-  return <span>＋</span>;
-}
 function ChevronArrow() {
   return <ArrowRight size={15} />;
-}
-function HomeIcon() {
-  return <Leaf size={15} />;
-}
-function PackageIcon() {
-  return <Box size={15} />;
 }

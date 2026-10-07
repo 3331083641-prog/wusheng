@@ -1,24 +1,32 @@
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { Leaf, Send, Sparkles } from "lucide-react";
 import { api, json } from "../api";
+import ProviderStatus from "./ProviderStatus";
+import type { ProviderHealth } from "../types";
 interface Answer {
   answer: string;
   sources: { type: string; title: string; quote?: string }[];
   mode: string;
+  modelInvoked: boolean;
 }
 export default function AIChat({ itemId, suggested }: { itemId: string; suggested: string }) {
   const [messages, setMessages] = useState<
-    { role: string; text: string; sources?: Answer["sources"] }[]
+    { role: string; text: string; sources?: Answer["sources"]; modelInvoked?: boolean }[]
   >([]);
   const [input, setInput] = useState("");
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
-  const [mode, setMode] = useState("本地档案规则");
-  useEffect(() => {
-    api<{ mode: string }>("/health")
-      .then((h) => setMode(h.mode))
-      .catch(() => setMode("本地档案规则"));
+  const [health, setHealth] = useState<ProviderHealth>();
+  const [healthError, setHealthError] = useState(false);
+  const checkHealth = useCallback(async () => {
+    try { setHealth(await api<ProviderHealth>("/health")); setHealthError(false); }
+    catch { setHealthError(true); }
   }, []);
+  useEffect(() => {
+    void checkHealth();
+    window.addEventListener("focus", checkHealth);
+    return () => window.removeEventListener("focus", checkHealth);
+  }, [checkHealth]);
   const bottom = useRef<HTMLDivElement>(null);
   const active = useRef(itemId);
   useEffect(() => {
@@ -49,11 +57,11 @@ export default function AIChat({ itemId, suggested }: { itemId: string; suggeste
     setError("");
     try {
       const answer = await api<Answer>("/generate", json("POST", { itemId: selected, question }));
-      setMode(answer.mode);
+      void checkHealth();
       if (active.current === selected)
         setMessages((m) => [
           ...m,
-          { role: "assistant", text: answer.answer, sources: answer.sources },
+          { role: "assistant", text: answer.answer, sources: answer.sources, modelInvoked: answer.modelInvoked },
         ]);
     } catch (e) {
       if (active.current === selected) setError((e as Error).message);
@@ -63,10 +71,7 @@ export default function AIChat({ itemId, suggested }: { itemId: string; suggeste
   };
   return (
     <section className="chat panel">
-      <div className="chat-mode">
-        <span className="live-dot" />
-        {mode} · 本地档案优先
-      </div>
+      <ProviderStatus health={health} error={healthError} retry={() => void checkHealth()} />
       <div className="chat-messages" aria-live="polite">
         {!messages.length && (
           <div className="chat-welcome">
@@ -99,6 +104,7 @@ export default function AIChat({ itemId, suggested }: { itemId: string; suggeste
                   ))}
                 </div>
               ) : null}
+              {m.role === "assistant" && <small className="answer-mode">本次回答：{m.modelInvoked ? "本地模型生成" : "本地档案规则"}</small>}
             </div>
           </div>
         ))}

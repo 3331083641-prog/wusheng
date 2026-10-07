@@ -60,7 +60,7 @@ class ProviderFactory:
             self.reason='本地模型未配置、未安装或不可访问，已回退到本地档案规则'
 
     def status(self):
-        return {'configuredProvider':self.configured,'activeProvider':self.active,'fallbackReason':self.reason,
+        return {'configuredProvider':self.configured,'activeProvider':self.active,'fallbackReason':self.reason,'model':self.model or None,
                 'mode':f'本地模型 · {self.model}' if self.active!='evidence' else '本地档案规则'}
 
     def generate(self,question,context):

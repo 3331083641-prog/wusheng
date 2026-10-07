@@ -23,6 +23,7 @@ from .backup_restore import router as backup_router
 from .manual_ocr import router as ocr_router
 from .evidence_pack import router as pack_router
 from .item_archive import router as archive_router
+from .home_showcase import router as showcase_router
 from .corrections import router as correction_router
 from .sharing import router as sharing_router, install_hosting
 
@@ -51,6 +52,7 @@ app.include_router(sharing_router)
 app.include_router(ocr_router)
 app.include_router(pack_router)
 app.include_router(archive_router)
+app.include_router(showcase_router)
 app.include_router(correction_router)
 app.include_router(calendar_router)
 app.include_router(backup_router)

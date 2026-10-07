@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from "react";
-import { Link, useParams, useNavigate } from "react-router-dom";
+import { Link, useParams, useNavigate, useSearchParams } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import {
   Download,
@@ -32,6 +32,7 @@ import { resolveProductAsset } from "../assets/itemAssets";
 export default function ItemDetail() {
   const { id } = useParams();
   const navigate = useNavigate();
+  const [params, setParams] = useSearchParams();
   const [detail, setDetail] = useState<Detail | null>(null);
   const [error, setError] = useState("");
   const [tab, setTab] = useState("基本信息");
@@ -59,6 +60,14 @@ export default function ItemDetail() {
   useEffect(() => {
     void load();
   }, [load]);
+  useEffect(() => {
+    if (detail && params.get("open") === "qr") {
+      setDrawer("一物一码");
+      const next = new URLSearchParams(params);
+      next.delete("open");
+      setParams(next, { replace: true });
+    }
+  }, [detail, params, setParams]);
   useEffect(() => {
     if (!detail?.documents.some((d) => d.textStatus === "ocr_processing")) return;
     const timer = setInterval(() => void load(), 2000);
