@@ -1,11 +1,11 @@
 {
-  "checkedAt": "2026-10-07T12:29:07.602762+00:00",
+  "checkedAt": "2026-10-07T15:56:56.541719+00:00",
   "data": "isolated synthetic SQLite and generated fixtures",
   "browser": "Microsoft Edge (Playwright)",
   "stats": {
-    "startTime": "2026-10-07T12:25:43.066Z",
-    "duration": 131391.99800000002,
-    "expected": 21,
+    "startTime": "2026-10-07T15:52:58.676Z",
+    "duration": 147504.536,
+    "expected": 34,
     "skipped": 0,
     "unexpected": 0,
     "flaky": 0
@@ -17,7 +17,7 @@
       "attempts": [
         {
           "status": "passed",
-          "durationMs": 2328
+          "durationMs": 2336
         }
       ]
     },
@@ -27,7 +27,7 @@
       "attempts": [
         {
           "status": "passed",
-          "durationMs": 7879
+          "durationMs": 8007
         }
       ]
     },
@@ -37,7 +37,7 @@
       "attempts": [
         {
           "status": "passed",
-          "durationMs": 4020
+          "durationMs": 4064
         }
       ]
     },
@@ -47,7 +47,7 @@
       "attempts": [
         {
           "status": "passed",
-          "durationMs": 11297
+          "durationMs": 9567
         }
       ]
     },
@@ -57,7 +57,7 @@
       "attempts": [
         {
           "status": "passed",
-          "durationMs": 1859
+          "durationMs": 1515
         }
       ]
     },
@@ -67,7 +67,7 @@
       "attempts": [
         {
           "status": "passed",
-          "durationMs": 1484
+          "durationMs": 1211
         }
       ]
     },
@@ -77,7 +77,7 @@
       "attempts": [
         {
           "status": "passed",
-          "durationMs": 6087
+          "durationMs": 3345
         }
       ]
     },
@@ -87,7 +87,7 @@
       "attempts": [
         {
           "status": "passed",
-          "durationMs": 5323
+          "durationMs": 3246
         }
       ]
     },
@@ -97,7 +97,7 @@
       "attempts": [
         {
           "status": "passed",
-          "durationMs": 5624
+          "durationMs": 3278
         }
       ]
     },
@@ -107,7 +107,7 @@
       "attempts": [
         {
           "status": "passed",
-          "durationMs": 3667
+          "durationMs": 2959
         }
       ]
     },
@@ -117,7 +117,137 @@
       "attempts": [
         {
           "status": "passed",
-          "durationMs": 21264
+          "durationMs": 22129
+        }
+      ]
+    },
+    {
+      "title": "首页真实档案可通过下一件、上一件、缩略图遍历全部数据库物品",
+      "status": "expected",
+      "attempts": [
+        {
+          "status": "passed",
+          "durationMs": 2714
+        }
+      ]
+    },
+    {
+      "title": "首页 0 件数据库档案：没有虚构槽位或 Demo 回退",
+      "status": "expected",
+      "attempts": [
+        {
+          "status": "passed",
+          "durationMs": 1328
+        }
+      ]
+    },
+    {
+      "title": "首页 1 件数据库档案：没有虚构槽位或 Demo 回退",
+      "status": "expected",
+      "attempts": [
+        {
+          "status": "passed",
+          "durationMs": 1272
+        }
+      ]
+    },
+    {
+      "title": "首页 2 件数据库档案：没有虚构槽位或 Demo 回退",
+      "status": "expected",
+      "attempts": [
+        {
+          "status": "passed",
+          "durationMs": 1395
+        }
+      ]
+    },
+    {
+      "title": "新增第 11 件、改名、换封面、删除通过统一失效事件同步首页",
+      "status": "expected",
+      "attempts": [
+        {
+          "status": "passed",
+          "durationMs": 2729
+        }
+      ]
+    },
+    {
+      "title": "首次 skeleton、接口错误与重试均不回退到写死档案",
+      "status": "expected",
+      "attempts": [
+        {
+          "status": "passed",
+          "durationMs": 2423
+        }
+      ]
+    },
+    {
+      "title": "首次加载占位与完成后的档案区域高度一致",
+      "status": "expected",
+      "attempts": [
+        {
+          "status": "passed",
+          "durationMs": 1397
+        }
+      ]
+    },
+    {
+      "title": "轮播 6 秒、交互暂停 10 秒、后台暂停与可见刷新",
+      "status": "expected",
+      "attempts": [
+        {
+          "status": "passed",
+          "durationMs": 1712
+        }
+      ]
+    },
+    {
+      "title": "主卡在桌面完整显示、移动无缩略槽，尊重 reduced motion",
+      "status": "expected",
+      "attempts": [
+        {
+          "status": "passed",
+          "durationMs": 3631
+        }
+      ]
+    },
+    {
+      "title": "真实 API 状态驱动 AI UI：本地档案智能",
+      "status": "expected",
+      "attempts": [
+        {
+          "status": "passed",
+          "durationMs": 935
+        }
+      ]
+    },
+    {
+      "title": "真实 API 状态驱动 AI UI：本地模型 · qwen-test",
+      "status": "expected",
+      "attempts": [
+        {
+          "status": "passed",
+          "durationMs": 981
+        }
+      ]
+    },
+    {
+      "title": "真实 API 状态驱动 AI UI：本地模型未连接",
+      "status": "expected",
+      "attempts": [
+        {
+          "status": "passed",
+          "durationMs": 1056
+        }
+      ]
+    },
+    {
+      "title": "每次回答标签依据 modelInvoked，独立于全局 Provider",
+      "status": "expected",
+      "attempts": [
+        {
+          "status": "passed",
+          "durationMs": 1078
         }
       ]
     },
@@ -127,7 +257,7 @@
       "attempts": [
         {
           "status": "passed",
-          "durationMs": 4171
+          "durationMs": 5133
         }
       ]
     },
@@ -137,7 +267,7 @@
       "attempts": [
         {
           "status": "passed",
-          "durationMs": 1629
+          "durationMs": 1451
         }
       ]
     },
@@ -147,7 +277,7 @@
       "attempts": [
         {
           "status": "passed",
-          "durationMs": 10282
+          "durationMs": 11057
         }
       ]
     },
@@ -157,7 +287,7 @@
       "attempts": [
         {
           "status": "passed",
-          "durationMs": 4534
+          "durationMs": 5231
         }
       ]
     },
@@ -167,7 +297,7 @@
       "attempts": [
         {
           "status": "passed",
-          "durationMs": 4224
+          "durationMs": 4850
         }
       ]
     },
@@ -177,7 +307,7 @@
       "attempts": [
         {
           "status": "passed",
-          "durationMs": 2192
+          "durationMs": 2212
         }
       ]
     },
@@ -187,7 +317,7 @@
       "attempts": [
         {
           "status": "passed",
-          "durationMs": 2954
+          "durationMs": 3075
         }
       ]
     },
@@ -197,7 +327,7 @@
       "attempts": [
         {
           "status": "passed",
-          "durationMs": 3675
+          "durationMs": 3915
         }
       ]
     },
@@ -207,7 +337,7 @@
       "attempts": [
         {
           "status": "passed",
-          "durationMs": 1870
+          "durationMs": 1544
         }
       ]
     },
@@ -217,7 +347,7 @@
       "attempts": [
         {
           "status": "passed",
-          "durationMs": 21295
+          "durationMs": 21131
         }
       ]
     }

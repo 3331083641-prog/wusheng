@@ -2,8 +2,10 @@
 
 ```mermaid
 flowchart LR
-  UI[React SPA 与统一侧栏] --> Proxy[Vite 同源代理]
-  Proxy --> API[FastAPI]
+  UI[React SPA 与统一侧栏] --> Hosting[单端口生产界面 / 8000]
+  Hosting --> API[FastAPI]
+  UI -.开发 HMR.-> Proxy[Vite 同源代理 / 5173]
+  Proxy --> API
   API --> DB[(SQLite / SQLAlchemy)]
   API --> Files[本地图片与 PDF]
   API --> Life[Item Lifecycle Engine]
@@ -18,9 +20,9 @@ flowchart LR
 
 写操作用 SQLAlchemy Session 事务；异常回滚。库存扣减带条件更新，防止扣成负数。完成和延后提醒不被日常 snapshot 协调覆盖，来源日期改变才重新计划。维修顺序限制待预约→诊断中→维修中→完成，保留进度历史、报修与完成事件。
 
-React 所有页面读取 /snapshot；写完 refresh 同一数据源。详情 /items/{id} 同步关联记录；不独立 mock 统计。SSR 未使用，路由 SPA，侧栏持续存在。
+React 通过 /snapshot 读取统一业务状态；写完 refresh 同一数据源。详情 /items/{id} 同步关联记录；不独立 mock 统计。首页 /home/showcase 是同一 SQLite 的精简投影，复用 sync_all、item_data、LifecycleEvent 与 consumable_data，不建立第二套 Demo 或在前端重算保修/消耗。首页读取全部物品的文字元数据，只渲染当前图与最多三个缩略图，预加载下一张；focus、visibility 和 Zustand refresh 发出的统一事件刷新投影。SSR 未使用，路由 SPA，侧栏持续存在。
 
-数据库 `data/wusheng.db`；附件保存在 `data/` 子目录。默认仅回环地址监听，无账户，适用于本机；显式开启 LAN 后由 FastAPI 单端口托管生产 SPA 和只读分享，互联网部署不在当前范围。
+数据库 `data/wusheng.db`；附件保存在 `data/` 子目录。普通 start.ps1 监听 0.0.0.0，由 FastAPI 单端口托管生产 SPA 和只读分享；管理 API 限回环，LAN 只允许令牌投影及必要静态资源。开发 start_dev.ps1 的后端仅监听回环。无账户，互联网部署不在当前范围。
 
 OCR 图片格式、大小和像素数校验；建档最多10张、单张10MB，PDF最多50MB，拒绝加密文件。扫描 OCR 每份最多50页、渲染页最多800万像素；模型加载失败保留原 PDF 并标明失败。未保存草稿有到期清理，正式用户附件不会当作缓存删除。
 
