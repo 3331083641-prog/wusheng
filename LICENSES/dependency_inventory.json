@@ -3309,6 +3309,20 @@
   },
   {
     "ecosystem": "python",
+    "name": "httpcore2",
+    "version": "2.13.1",
+    "license": "BSD-3-Clause",
+    "projectUrls": [
+      "Changelog, https://github.com/pydantic/httpx2/blob/main/src/httpcore2/CHANGELOG.md",
+      "Homepage, https://github.com/pydantic/httpx2",
+      "Source, https://github.com/pydantic/httpx2/blob/main/src/httpcore2"
+    ],
+    "licenseFiles": [
+      "LICENSES/dependencies/httpcore2-2.13.1-LICENSE.md"
+    ]
+  },
+  {
+    "ecosystem": "python",
     "name": "httpx",
     "version": "0.28.1",
     "license": "BSD-3-Clause",
@@ -3320,6 +3334,20 @@
     ],
     "licenseFiles": [
       "LICENSES/dependencies/httpx-0.28.1-LICENSE.md"
+    ]
+  },
+  {
+    "ecosystem": "python",
+    "name": "httpx2",
+    "version": "2.13.1",
+    "license": "BSD-3-Clause",
+    "projectUrls": [
+      "Changelog, https://github.com/pydantic/httpx2/blob/main/src/httpx2/CHANGELOG.md",
+      "Homepage, https://github.com/pydantic/httpx2",
+      "Source, https://github.com/pydantic/httpx2"
+    ],
+    "licenseFiles": [
+      "LICENSES/dependencies/httpx2-2.13.1-LICENSE.md"
     ]
   },
   {
@@ -3698,6 +3726,19 @@
     ],
     "licenseFiles": [
       "LICENSES/dependencies/tqdm-4.70.0-LICENCE"
+    ]
+  },
+  {
+    "ecosystem": "python",
+    "name": "truststore",
+    "version": "0.10.4",
+    "license": "MIT",
+    "projectUrls": [
+      "Documentation, https://truststore.readthedocs.io",
+      "Source, https://github.com/sethmlarson/truststore"
+    ],
+    "licenseFiles": [
+      "LICENSES/dependencies/truststore-0.10.4-LICENSE"
     ]
   },
   {

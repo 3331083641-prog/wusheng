@@ -33,7 +33,7 @@ for base,location,info in packages:
             licenses.append(str(target.relative_to(ROOT)).replace('\\','/'))
     records.append({'ecosystem':'npm','name':name,'version':version,'license':info.get('license',spec.get('license','See upstream')),'repository':spec.get('repository'),'licenseFiles':licenses})
 
-python_names=['fastapi','starlette','uvicorn','SQLAlchemy','python-multipart','rapidocr-onnxruntime','onnxruntime','pypdf','pypdfium2','Pillow','httpx','pytest','reportlab','numpy','opencv-python','pyclipper','shapely','PyYAML','pydantic','anyio','greenlet']
+python_names=['fastapi','starlette','uvicorn','SQLAlchemy','python-multipart','rapidocr-onnxruntime','onnxruntime','pypdf','pypdfium2','Pillow','httpx','httpx2','pytest','reportlab','numpy','opencv-python','pyclipper','shapely','PyYAML','pydantic','anyio','greenlet']
 # Record the actual Windows dependency closure, excluding unrequested extras.
 pending=list(python_names)
 discovered={}
