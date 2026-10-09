@@ -51,7 +51,7 @@
 
 | 检查 | 本地实际结果 |
 |---|---|
-| 完整 pytest | **137 passed**，99.84 秒；包含 22 个新增图片/PDF/隐私/动态关系与维护状态用例 |
+| 完整 pytest | **137 passed**；包含 22 个新增图片/PDF/隐私/动态关系与维护状态用例，另在不存在 frontend/dist 的环境完整重跑通过（70.66 秒） |
 | 完整 Edge / Playwright | **42 passed**，0 跳过、0 重试；[逐项 JSON](release-ui-results.json)，新增 8 个手机档案用例 |
 | 生产 LAN | 普通 `start.ps1 -NoBrowser`，使用真实非回环 LAN IP；分享 JSON、高清打印机 PNG、授权 PDF/下载 200，撤销后 PDF 404，原管理接口 GET/POST 403，真实 PNG QR 解码通过 |
 | 原工程运行服务 | 重启原 `D:\wusheng` 服务后，已有打印机 Token 保持有效；LAN 分享 JSON 与高清 PNG 200、Content-Type 正确、初始标题中文、管理 API 403；旧码 PDF 权限仍关闭，没有轮换用户 Token |
@@ -64,6 +64,8 @@
 | Linux / Windows CI | [本轮 main 对应 GitHub Actions](https://github.com/3331083641-prog/wusheng/actions/workflows/ci.yml)，以此提交的运行结果为准 |
 
 首轮浏览器为 40/42：模拟 Touch 未给必填 identifier，以及旧用例未显式指定无网络状态，与新增 LAN 测试环境假设冲突。补齐 Touch 参数并保留独立的无网络 UI 场景后，完整重跑 42/42。没有删除断言或用假 Toast 绕过功能。后端额外确认历史维护计划被新记录取代时，不误标为当前逾期任务。
+
+首次 CI 在前端 build 之前执行 pytest，新增静态图片测试错误依赖本地已存在的 ignored `frontend/dist`，出现 10 个静态图片 404。图片单测改为显式使用 Vite 原样复制的 `frontend/public` 静态根目录，不跳过 HTTP/类型/PNG 校验；生产 `start.ps1` 的真实构建后 LAN 图片测试仍独立保留。
 
 本地原服务更新时使用原 `data`，不重置数据库；测试仅在 `tmp` 下创建隔离资料。旧截图等回归生成物不替换原正式桌面截图；新手机图均来自合成 Demo。
 

@@ -38,7 +38,10 @@ def image(client, item):
 
 
 @pytest.mark.parametrize('item', list(sharing.ITEM_ASSETS))
-def test_formal_demo_images_resolve_and_are_available(lan, item):
+def test_formal_demo_images_resolve_and_are_available(lan, item, monkeypatch):
+    # CI runs pytest before Vite build. Serve the exact source assets Vite copies,
+    # rather than relying on a developer's ignored frontend/dist directory.
+    monkeypatch.setenv('WUSHENG_FRONTEND_DIST', str(database.ROOT / 'frontend/public'))
     link = share(lan, item)
     data = lan.get('/share-data/' + link['token']).json()
     assert data['item']['coverImage'] == sharing.ITEM_ASSETS[item]['src']
