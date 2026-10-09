@@ -1,6 +1,6 @@
 # Demo 素材升级验收记录
 
-状态：实现、本机数据迁移和完整本地回归已完成；冷克隆与本次提交的 GitHub CI 结果在发布时核对。
+状态：实现、本机迁移、完整本地回归与冷克隆首次安装／启动已完成。GitHub Linux／Windows CI 以本次发布提交关联的 Actions 结果为准。
 
 ## 已实施
 
@@ -17,7 +17,9 @@ pytest：151 passed。lint 与 TypeScript/Vite 构建通过。Playwright 完整�
 
 本地 SQLite 完整性检查通过；逐字段核对原有 187 条记录，无记录丢失。仅修改允许的 Demo 身份、来源说明及耗材名称／单位；购买日期、价格、保修和已有历史记录保留。新增 40 条资料图片与 5 条匹配 PDF，5 份厂商 PDF 的 SHA256 与用户输入原件完全一致。既有分享配置未增加权限。
 
-截图全部来自隔离合成测试数据：[首页 1440](demo-assets-home-1440.png)、[详情与资料 1440](demo-assets-detail-1440.png)、[详情 390](demo-assets-detail-390.png)、[耗材](demo-assets-consumables-1440.png)、[手机 375](demo-assets-mobile-375.png)、[手机 390](demo-assets-mobile-390.png)。截图为浏览器自动化，不代表用户手机实测。
+正式运行后，原有 `sync_item` 将对应耗材补给提醒标题同步到新耗材名称；提醒 ID、日期、延后／完成状态和数量保持。冷克隆在项目 tmp 内完成：全新 venv、`npm ci`、CMD 首次安装、生产 `/health`／`/generate`／SPA 与 LAN-ready 检查通过，生成 10 件新版物品、40 份资料、6 类耗材及 1 份明确合成的护理 PDF，不含用户的 5 份厂商全文。没有在项目外建立副本。
+
+截图来自本机或隔离的合成 Demo 档案：[首页 1440](demo-assets-home-1440.png)、[详情与资料 1440](demo-assets-detail-1440.png)、[详情 390](demo-assets-detail-390.png)、[耗材](demo-assets-consumables-1440.png)、[手机 375](demo-assets-mobile-375.png)、[手机 390](demo-assets-mobile-390.png)。截图为浏览器自动化，不代表用户手机实测。正式服务的 5 份厂商 PDF 读取响应均为 application/pdf，响应 SHA256 与导入原件一致。
 
 ## 未完成／需要用户补充
 
@@ -25,5 +27,6 @@ pytest：151 passed。lint 与 TypeScript/Vite 构建通过。Playwright 完整�
 - 海尔 EG100MATE8S、武圣 WSKFR-26GW/BP3、EC680.S、HX3671/13、TR-2001 匹配 PDF 缺失。
 - 部分 AI 耗材图缺乏 SKU／尺寸或标签料号有误，适配性仍待实物核对，UI 明示。
 - 手机实机扫码、微信 PDF 阅读与下载仍需用户亲自验证。
+- 测试临时目录清理未完成：自动审批拒绝递归清理。冷克隆与依赖缓存暂留项目 tmp，均被 Git 排除，不作为正式运行依赖。
 
 详细身份、裁剪与耗材依据见 [素材审核](asset_audit.md)，PDF 页数及范围见 [来源登记](manual_sources.md)。
