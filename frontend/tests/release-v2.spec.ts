@@ -243,6 +243,42 @@ test("普通 start.ps1、生产 SPA、LAN QR 解码与远程管理隔离", async
     await request.delete(base + "/items/headphones/share");
     await page.reload();
     await expect(page.getByRole("alert")).toContainText("已过期或已撤销");
+    // Exercise the actual LAN URL using an isolated production database, not mocked HTTP.
+    const pdfUpload = await request.post(base + "/items/printer/documents/manual", { multipart: {
+      file: { name: "LAN合成说明书.pdf", mimeType: "application/pdf", buffer: await readFile(path.join(root, "frontend/tests/fixtures/scanned-care-guide.pdf")) },
+    } });
+    expect(pdfUpload.status()).toBe(201);
+    const document = await pdfUpload.json();
+    const printerLink = await (await request.post(base + "/items/printer/share?regenerate=true", { data: {
+      options: { showManualFiles: true, showManualDownloads: true, manualDocumentIds: [document.id] },
+    } })).json();
+    const lanBase = new URL(printerLink.url).origin;
+    expect(lanBase).not.toContain("127.0.0.1");
+    const printerDataResponse = await request.get(printerLink.url.replace("/share/", "/api/share-data/"));
+    expect(printerDataResponse.status()).toBe(200);
+    const printerData = await printerDataResponse.json();
+    const cover = await request.get(lanBase + printerData.item.coverImage);
+    expect(cover.status()).toBe(200);
+    expect(cover.headers()["content-type"]).toBe("image/png");
+    expect(printerData.item.coverImage).toBe("/assets/items/hp-printer.png");
+    const pdfUrl = lanBase + printerData.manuals[0].viewUrl;
+    const pdfResponse = await request.get(pdfUrl);
+    expect(pdfResponse.status()).toBe(200);
+    expect(pdfResponse.headers()["content-type"]).toBe("application/pdf");
+    expect(pdfResponse.headers()["cache-control"]).toBe("no-store");
+    expect((await pdfResponse.body()).subarray(0, 4).toString()).toBe("%PDF");
+    expect((await request.get(pdfUrl + "?download=true")).headers()["content-disposition"]).toContain("attachment;");
+    expect((await request.get(lanBase + "/api/documents/" + document.id + "/file")).status()).toBe(403);
+    const html = await request.get(printerLink.url, { headers: { Accept: "text/html" } });
+    expect((await html.text()).match(/<title>(.*?)<\/title>/)?.[1]).not.toContain("Wusheng");
+    await page.setViewportSize({ width: 390, height: 844 });
+    await page.goto(printerLink.url);
+    await expect(page.locator(".share-photo")).toHaveAttribute("data-image-state", "loaded");
+    await expect(page.getByRole("link", { name: "在线查看" })).toBeVisible();
+    await request.delete(base + "/items/printer/share");
+    expect((await request.get(pdfUrl)).status()).toBe(404);
+    await page.reload();
+    await expect(page.getByRole("alert")).toContainText("已过期或已撤销");
   } finally {
     const serverPid = output.match(/WUSHENG_SERVER_PID=(\d+)/)?.[1];
     if (serverPid) process.kill(Number(serverPid));

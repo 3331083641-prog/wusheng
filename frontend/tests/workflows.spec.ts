@@ -114,6 +114,10 @@ test("档案编辑、PDF/JSON 导出、说明书与维护真实保存", async ({
     await page.getByLabel("商品名称").fill("UI 已编辑档案");
     await page.getByRole("button", { name: "保存修改" }).click();
     await expect(page.locator(".detail-title h1")).toHaveText("UI 已编辑档案");
+    // Explicitly retain the unavailable-network UI case; the suite now also exercises LAN-ready.
+    await page.route("**/api/network/share-info", route => route.fulfill({ json: {
+      mode: "local", reachable: false, recommendedBaseUrl: "http://127.0.0.1:8002", lanAddresses: [], port: 8002,
+    } }));
     await page.getByRole("button", { name: "生成二维码" }).click();
     await expect(page.getByText("当前未检测到可用分享网络，请连接 Wi-Fi 后重新检测。")).toBeVisible();
     await expect(page.getByRole("img", { name: "物品档案二维码" })).toHaveCount(0);

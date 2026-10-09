@@ -15,6 +15,14 @@ const optionLabels = {
   showLifecycle: "生命周期（事件类别与日期）",
   showConsumables: "耗材状态",
   showManualNames: "说明书文件名（请确认文件名无隐私）",
+  showPurchasePrice: "购买价格（敏感信息）",
+  showPurchaseChannel: "购买渠道（敏感信息）",
+  showLocation: "存放位置（敏感信息）",
+  showMaintenance: "维护记录（日期、类别、下次日期）",
+  showRepairs: "维修记录（日期与状态）",
+  showRecordDetails: "维护/维修费用与详细备注（可能含私人信息）",
+  showConsumableStock: "耗材当前库存",
+  showManualFiles: "允许查看所选说明书 PDF",
 };
 export default function ShareQR({ detail }: { detail: Detail }) {
   const itemId = detail.item.id;
@@ -32,7 +40,19 @@ export default function ShareQR({ detail }: { detail: Detail }) {
     showLifecycle: true,
     showConsumables: true,
     showManualNames: false,
+    showPurchasePrice: false,
+    showPurchaseChannel: false,
+    showLocation: false,
+    showMaintenance: false,
+    showRepairs: false,
+    showRecordDetails: false,
+    showConsumableStock: false,
+    showManualFiles: false,
+    showManualDownloads: false,
+    shareFutureManuals: false,
   });
+  const [manualDocumentIds, setManualDocumentIds] = useState<string[]>([]);
+  const documents = detail.documents.filter(d => d.type === "manual" && d.mimeType === "application/pdf");
   const create = async (regenerate = true) => {
     setBusy(true);
     setError("");
@@ -41,7 +61,7 @@ export default function ShareQR({ detail }: { detail: Detail }) {
         `/items/${itemId}/share?regenerate=${regenerate}&address=${encodeURIComponent(address)}`,
         {
           method: "POST",
-          body: JSON.stringify({ lifetime, options }),
+          body: JSON.stringify({ lifetime, options: { ...options, manualDocumentIds } }),
         },
       );
       setUrl(link.url);
@@ -79,6 +99,7 @@ export default function ShareQR({ detail }: { detail: Detail }) {
         {network?.reachable ? "● 局域网分享已就绪" : network ? "局域网分享尚未就绪" : "正在检测分享网络…"}
       </p>
       {network?.reachable && <p>http://{address}:{network.port}</p>}
+      <p className="muted" style={{ fontSize: 12 }}>手机和电脑需连接同一 Wi-Fi 或可互通局域网，电脑保持物生运行，扫码后可查看只读档案。</p>
       <button className="button secondary" disabled={busy} onClick={() => void detectNetwork()}>
         重新检测网络
       </button>
@@ -109,13 +130,13 @@ export default function ShareQR({ detail }: { detail: Detail }) {
               <input
                 type="checkbox"
                 checked={options[key as keyof typeof options]}
-                onChange={(e) => setOptions({ ...options, [key]: e.target.checked })}
+                onChange={(e) => setOptions({ ...options, [key]: e.target.checked, ...(key === "showManualFiles" && !e.target.checked ? { showManualDownloads: false, shareFutureManuals: false } : {}) })}
               />{" "}
               {label}
             </label>
           ))}
           <small>
-            隐藏序列号、价格、渠道、票据、发票、维修备注和说明书全文。生命周期只分享事件类别与日期。
+            完整序列号、票据和发票始终隐藏；价格、渠道、位置、备注及 PDF 仅在明确勾选后共享。生命周期只分享事件类别与日期。
           </small>
           {options.showWarranty && <p>保修截止：{detail.item.warrantyEndDate || "未记录"}</p>}
           <p>下一次维护：{detail.item.nextMaintenance || "未记录"}</p>
@@ -132,6 +153,19 @@ export default function ShareQR({ detail }: { detail: Detail }) {
               {detail.documents.map((d) => d.originalFilename || d.filename).join("、") || "暂无"}
             </p>
           )}
+          {options.showPurchasePrice && <p>购买价格：¥{detail.item.purchasePrice}</p>}
+          {options.showPurchaseChannel && <p>购买渠道：{detail.item.purchaseChannel || "未记录"}</p>}
+          {options.showLocation && <p>存放位置：{detail.item.location || "未记录"}</p>}
+          {options.showManualFiles && <div className="manual-share-selection">
+            <p>开启后，持有有效二维码的设备可以查看所授权的说明书。请确保 PDF 不包含私人信息。</p>
+            <small>允许在线阅读意味着文件内容可被接收者保存；下载开关仅控制下载入口。</small>
+            <p>选择具体说明书（未选文件仍保持私有）：</p>
+            {!documents.length && <small>当前没有说明书，可单独授权未来新增文件。</small>}
+            {documents.map(d => <label key={d.id} style={{ display: "block", overflowWrap: "anywhere" }}><input type="checkbox" checked={manualDocumentIds.includes(d.id)} onChange={e => setManualDocumentIds(ids => e.target.checked ? [...ids, d.id] : ids.filter(id => id !== d.id))} /> {d.originalFilename || d.filename}</label>)}
+            <label style={{ display: "block" }}><input type="checkbox" checked={options.showManualDownloads} onChange={e => setOptions({ ...options, showManualDownloads: e.target.checked })} />允许下载已授权说明书 PDF</label>
+            <label style={{ display: "block" }}><input type="checkbox" checked={options.shareFutureManuals} onChange={e => setOptions({ ...options, shareFutureManuals: e.target.checked })} />持续授权：以后新增或替换上传的说明书也自动共享</label>
+            <small>持续授权不会公开当前未勾选的文件；未开启时，新上传或替换文件必须重新选择并生成二维码。</small>
+          </div>}
         </fieldset>
       </>
       {network && !network.reachable ? (
@@ -224,7 +258,7 @@ export default function ShareQR({ detail }: { detail: Detail }) {
             </>
           )}
           <small>
-            仅可查看。同一 Wi-Fi、主机服务开启时可访问；IP
+            仅可查看。同一可互通局域网、主机服务开启时可访问；IP
             改变后需要重新下载二维码。如手机无法访问，请确认 Windows 防火墙允许 Python
             在“私人网络”通信，并检查访客网络隔离。
           </small>

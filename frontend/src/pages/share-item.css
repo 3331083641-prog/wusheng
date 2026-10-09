@@ -1,0 +1,68 @@
+.share-page { max-width:640px; padding:16px 18px 28px; margin:0 auto; background:#fff; min-height:100vh; color:var(--text); }
+.share-brand { display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:18px; }
+.share-brand>div { display:flex; align-items:center; gap:10px; font-size:20px; font-weight:650; }
+.share-brand small { font-size:12px; color:#567161; }
+.share-cover-card { overflow:hidden; border-radius:16px; background:#f3f9f5; box-shadow:0 5px 20px rgba(27,78,49,.045); }
+.share-gallery { position:relative; touch-action:pan-y; }
+.share-photo { height:220px; position:relative; background:#fff; }
+.share-photo>img { height:100%; width:100%; object-fit:contain; padding:12px; display:block; }
+.share-image-skeleton { position:absolute; inset:12px; background:#eef5f0; border-radius:10px; }
+.share-no-photo,.share-image-error { min-height:155px; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:20px; text-align:center; gap:8px; color:#526a5c; }
+.share-image-error { height:100%; }
+.share-image-error p,.share-no-photo p { margin:0; }
+.share-image-error small { font-size:12px; }
+.share-gallery-controls { display:flex; gap:14px; align-items:center; justify-content:center; padding:4px 12px 10px; font-size:12px; color:#526a5c; background:#fff; }
+.share-page button { min-height:44px; min-width:44px; border:1px solid var(--line); border-radius:10px; padding:8px 12px; background:white; color:var(--green); cursor:pointer; }
+.share-gallery-controls button { display:grid; place-items:center; }
+.share-identity { padding:17px 18px 18px; }
+.share-page h1 { font-size:25px; line-height:1.35; letter-spacing:-.02em; margin:0 0 7px; overflow-wrap:anywhere; }
+.share-identity>p { font-size:14px; color:#4e6658; margin:0 0 12px; overflow-wrap:anywhere; }
+.share-chips { display:flex; flex-wrap:wrap; gap:8px; }
+.share-chip { display:inline-flex; align-items:center; font-size:12px; font-weight:550; color:#087e47; background:#e1f2e8; border-radius:20px; padding:5px 9px; white-space:nowrap; }
+.share-chip-warning { background:#fff0df; color:#915014; }
+.share-section { padding:24px 0 0; }
+.share-page h2 { font-size:18px; line-height:1.4; font-weight:650; margin:0 0 12px; display:flex; align-items:center; gap:8px; }
+.share-page h3 { font-size:14px; margin:16px 0 8px; }
+.share-facts { margin:0; display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:0 18px; }
+.share-facts>div { min-width:0; padding:11px 0; border-bottom:1px solid #e8eeea; }
+.share-facts dt { font-size:12px; color:#5d7064; margin-bottom:5px; }
+.share-facts dd { margin:0; font-size:14px; color:var(--text); overflow-wrap:anywhere; line-height:1.5; font-variant-numeric:tabular-nums; }
+.share-care { background:#f5faf7; padding:16px; border-radius:14px; margin-top:24px; }
+.share-reminder { font-size:13px; color:#905014; margin:10px 0 0; }
+.share-timeline { padding:2px 0 0 8px; list-style:none; margin:0; }
+.share-timeline li { position:relative; display:flex; gap:16px; padding-bottom:20px; }
+.share-timeline li:not(:last-child)::before { content:""; position:absolute; width:1px; background:#dfe8e2; left:5px; top:12px; bottom:0; }
+.share-timeline li:last-child { padding-bottom:0; }
+.share-stage-dot { width:11px; height:11px; border-radius:50%; background:#e2e8e4; flex-shrink:0; margin-top:5px; z-index:1; }
+.share-stage-completed .share-stage-dot { background:#118b50; }
+.share-stage-current .share-stage-dot { background:#118b50; outline:3px solid #e0f1e7; outline-offset:2px; }
+.share-timeline strong { font-size:14px; }
+.share-timeline p { margin:6px 0 0; font-size:12px; color:#5e7165; line-height:1.6; }
+.share-current { font-size:11px; color:#087e47; margin-left:10px; }
+.share-record { padding:12px 0; border-bottom:1px solid var(--line); }
+.share-record>div,.share-consumable>div:first-child { display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:8px; font-size:14px; }
+.share-record p { margin:8px 0 0; font-size:13px; line-height:1.6; color:#53695c; overflow-wrap:anywhere; }
+.share-record span { font-size:12px; }
+.share-consumable { background:#f5faf7; border-radius:14px; padding:15px; margin-top:10px; }
+.share-consumable>small { display:block; font-size:11px; color:#55705f; margin-top:7px; }
+.share-prediction { font-size:11px; color:#5d7165; line-height:1.6; margin:12px 0 0; }
+.share-manual { padding:14px 0; border-bottom:1px solid var(--line); }
+.share-manual-name { display:flex; align-items:flex-start; gap:10px; font-size:14px; line-height:1.6; }
+.share-manual-name svg { color:var(--green); flex-shrink:0; margin-top:1px; }
+.share-manual-name strong { overflow-wrap:anywhere; min-width:0; }
+.share-manual p { font-size:12px; color:#586e60; margin:8px 0; }
+.share-manual small { color:#586e60; font-size:11px; }
+.share-manual-actions { display:flex; flex-wrap:wrap; gap:10px; margin-top:12px; }
+.share-manual-actions a { display:inline-flex; min-height:44px; align-items:center; justify-content:center; padding:8px 16px; border-radius:10px; color:var(--green); background:#ecf8f1; font-size:13px; text-decoration:none; }
+.share-manual-actions a:first-child { background:var(--green); color:white; }
+.share-pdf-help,.share-empty { font-size:13px; color:#5d7165; line-height:1.7; margin:10px 0 0; }
+.share-footer { padding-top:24px; margin-top:24px; border-top:1px solid var(--line); font-size:12px; color:#5d7165; line-height:1.8; }
+.share-footer strong { font-size:12px; font-weight:600; color:#456d54; }
+.share-footer p { margin:6px 0 0; }
+.share-loading { background:#f5faf7; min-height:335px; border-radius:16px; padding:18px; font-size:13px; color:#55705f; }
+.share-loading>div { height:210px; background:#eaf2ec; border-radius:12px; }
+.share-state { padding:20px 0; font-size:14px; line-height:1.7; }
+.share-state h1 { font-size:22px; }
+.share-page :focus-visible { outline:2px solid var(--green); outline-offset:3px; }
+@media(min-width:600px) { .share-page { padding:24px 32px 36px; } .share-photo { height:280px; } }
+@media(prefers-reduced-motion:no-preference) { .share-identity { animation:share-reveal .25s ease-out; } @keyframes share-reveal { from { transform:translateY(3px); } to { transform:translateY(0); } } }

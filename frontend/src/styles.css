@@ -3479,29 +3479,6 @@ dd {
   }
 }
 
-.share-page {
-  max-width: 700px;
-  margin: 0 auto;
-  padding: 24px;
-  background: white;
-  min-height: 100vh;
-}
-.share-page header {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-.share-page header small {
-  margin-left: auto;
-  color: #718576;
-}
-.share-cover {
-  width: 100%;
-  aspect-ratio: 4/3;
-  object-fit: contain;
-  margin-top: 24px;
-  border-radius: 18px;
-}
 .qr-view button {
   margin: 8px;
 }
