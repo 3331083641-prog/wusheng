@@ -34,12 +34,16 @@ export default function DocumentCard({
         </span>
         <div>
           <b>{name}</b>
+          {document.assetMetadata && <p>{document.assetMetadata.scope} {document.assetMetadata.language} {document.assetMetadata.modelReview}</p>}
+          {document.assetMetadata?.sourceUrl && <a href={document.assetMetadata.sourceUrl} target="_blank" rel="noreferrer">厂商来源</a>}
           <p>
             {document.pageCount ?? "未知"} 页 · {(document.fileSize / 1024 / 1024).toFixed(2)} MB ·{" "}
             {document.uploadedAt.slice(0, 10)} 上传
           </p>
           <p>
-            {document.textStatus === "ocr_processing"
+            {document.assetMetadata?.excludedFromAI
+              ? "型号待复核，不用于 AI 引用"
+              : document.textStatus === "ocr_processing"
               ? "正在本地识别…"
               : document.extractedText
                 ? "已提取文字，可供 AI 引用"

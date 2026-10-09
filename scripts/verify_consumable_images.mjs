@@ -265,8 +265,8 @@ try {
         .evaluateAll((nodes) => nodes.map((img) => new URL(img.currentSrc).pathname));
       check(
         productSources.length === 10 &&
-          productSources.every((src) => src.startsWith("/assets/items/")),
-        "Ten HD device images unchanged",
+          productSources.every((src) => src.startsWith("/assets/items/") || src === "/assets/no-photo.svg"),
+        "Ten device slots retain reviewed photos or explicit pending placeholders",
       );
     }
   }
@@ -307,7 +307,7 @@ try {
   broken.on("console", (message) => {
     if (message.type() === "warning") warnings.push(message.text());
   });
-  await broken.route("**/assets/consumables/air-purifier-filter-cylinder.png", (route) =>
+  await broken.route("**/assets/consumables/air-purifier-filter-v3.png", (route) =>
     route.fulfill({ status: 404, body: "missing" }),
   );
   await broken.goto(base + "/consumables");
@@ -320,7 +320,7 @@ try {
   check(
     warnings.some(
       (message) =>
-        message.includes("空气净化器滤芯") && message.includes("air-purifier-filter-cylinder.png"),
+        message.includes("空气净化器滤芯") && message.includes("air-purifier-filter-v3.png"),
     ),
     "Warning identifies failing consumable and URL",
   );
@@ -347,7 +347,7 @@ try {
   });
   await custom.route("**/uploads/custom-consumable.png", (route) =>
     route.fulfill({
-      path: path.join(root, "frontend/public/assets/consumables/air-purifier-filter-cylinder.png"),
+      path: path.join(root, "frontend/public/assets/consumables/air-purifier-filter-v3.png"),
       contentType: "image/png",
     }),
   );

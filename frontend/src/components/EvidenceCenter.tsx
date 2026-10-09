@@ -85,13 +85,30 @@ export default function EvidenceCenter({
         />
       </div>
       {error && <p role="alert">{error}</p>}
+      {images.some((image) => image.type === "product") && <details>
+        <summary>管理本体照片</summary>
+        <div className="evidence-grid">{images.filter((image) => image.type === "product").map((image) => <article className="panel product-photo-management" key={image.id}>
+          <a href={image.filePath} target="_blank" rel="noreferrer"><img src={image.filePath} alt={image.originalFilename || "物品照片"} width="160" height="120" style={{ objectFit: "contain", maxWidth: "100%" }} /></a>
+          <p>{image.originalFilename || "物品照片"}</p>
+          <select aria-label={`资料 ${image.id} 类型`} value={image.type} disabled={busy} onChange={(e) => void act(() => api(`/images/${image.id}`, json("PATCH", { type: e.target.value })))}>
+            {Object.entries(attachmentTypes).map(([k,v]) => <option key={k} value={k}>{v}</option>)}
+          </select>
+          <button className="button secondary" disabled={busy} onClick={() => { if (window.confirm("删除这张照片及本地文件？")) void act(() => api(`/images/${image.id}`, { method:"DELETE" })); }}>删除资料</button>
+        </article>)}</div>
+      </details>}
       <div className="evidence-grid">
-        {images.map((image) => (
+        {images.filter((image) => image.type !== "product").map((image) => (
           <article className="panel evidence-card" key={image.id}>
             <a href={image.filePath} target="_blank" rel="noreferrer">
               <img src={image.filePath} alt={image.originalFilename || "资料图片"} />
             </a>
             <p>{image.originalFilename || "资料图片"}</p>
+            {image.assetMetadata?.isSynthetic && <>
+              <p className="demo-label">合成演示资料 · 非真实购物凭证</p>
+              <p>{image.assetMetadata.brand} · {image.assetMetadata.model}</p>
+              <p>{image.assetMetadata.modelVerified ? "图内型号一致" : "型号／规格待核实"} · {image.assetMetadata.reviewNote}</p>
+            </>}
+            <a className="button secondary" href={image.filePath} target="_blank" rel="noreferrer">查看大图</a>
             <select
               aria-label={`资料 ${image.id} 类型`}
               value={image.type}

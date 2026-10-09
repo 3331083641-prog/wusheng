@@ -57,3 +57,9 @@ Windows CI 沿用已有 checkout v4、setup-python v5、setup-node v4（MIT）�
 ## 上游贡献
 
 当前实现由项目自行集成和验证，尚未向上述参考项目提交或被合并代码贡献；不会把“使用开源依赖”表述为向上游贡献。
+
+## 2026-10-09 Demo 素材升级
+
+用户提供 10 张 AI 合成平铺资料，裁剪为 40 份独立 PNG，原图及 SHA256 单独登记。5 张新耗材图仅标准化边缘背景；3 张可用的新物品主图替换映射；其他旧图片文件保持。均不是实际商品拍摄证明或真实购买凭证。武圣空调、TR-2001 型号未核实，不宣称官方在售产品；商标及品牌名称不暗示合作。
+
+厂商完整 PDF 不提交公开仓库。仅在用户本机核对并保存 Apple A2681（安全监管）、Sony XM6（法文）、小米 S10、Air4 和 HP2700系列资料；其权利仍属于厂商，不适用项目 MIT。型号不匹配的 Midea、Philips4500/5100、RIMOWA 文件未绑定。详见 [审核](docs/competition/asset_audit.md) 与 [说明书来源](docs/competition/manual_sources.md)。没有新增运行依赖；裁剪使用已锁定的 Pillow/OpenCV。

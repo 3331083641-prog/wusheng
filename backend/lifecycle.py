@@ -36,12 +36,13 @@ def event(db, item_id, kind, day, title, related_id, description='', source='eng
 
 def consumable_data(db, consumable, as_of=None):
     from .serializers import row
+    from .demo_assets import consumable_note
     as_of = as_of or today()
     records = [row(r) for r in db.scalars(select(m.ConsumptionRecord).where(m.ConsumptionRecord.consumableId==consumable.id).order_by(m.ConsumptionRecord.date))]
     prediction = consumption_prediction(consumable.currentStock, records, as_of, consumable.leadDays)
     left = prediction['estimatedDaysLeft']
     status = '即将耗尽' if consumable.currentStock<=0 or (left is not None and left<=7) else '建议补货' if consumable.currentStock<=consumable.warningStock or (left is not None and left<=consumable.leadDays+7) else '数据不足' if left is None else '正常'
-    return {**row(consumable),**prediction,'status':status,'records':records,'restocks':[row(r) for r in db.scalars(select(m.RestockRecord).where(m.RestockRecord.consumableId==consumable.id).order_by(m.RestockRecord.date))]}
+    return {**row(consumable),**prediction,'compatibilityNote':consumable_note(db,consumable),'status':status,'records':records,'restocks':[row(r) for r in db.scalars(select(m.RestockRecord).where(m.RestockRecord.consumableId==consumable.id).order_by(m.RestockRecord.date))]}
 
 
 def sync_item(db, item, as_of=None):

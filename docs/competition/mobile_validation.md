@@ -1,5 +1,7 @@
 # 手机实机最终验证
 
+Demo 素材升级后请同时核对新型号：EC680.S、HX3671/13、TR-2001、武圣 WSKFR-26GW/BP3。未匹配的空调／牙刷／行李箱主图显示待补占位，不能算图片加载失败；其余 7 件有正式示意图。合成资料不是真实购买证明。厂商 PDF 仅本机导入，冷克隆不自带全文，缺失清单见 [说明书来源](manual_sources.md)。
+
 V2.2 状态：**Awaiting physical-device verification**。用户提供的旧版实机截图确认基础 LAN 扫码可打开档案；新增图片链路、移动布局和 PDF 功能仍需重新实测。Codex 的 LAN HTTP、二维码 PNG 解码及浏览器只读测试不等于真实手机测试。本表只允许用户实测后填写结果。不公开用户提供的原始手机截图。
 
 1. 电脑运行 `powershell -ExecutionPolicy Bypass -File .\scripts\start.ps1`（已默认支持安全 LAN 分享，无需另开模式）。

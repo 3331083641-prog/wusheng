@@ -45,24 +45,27 @@ def public_path(url):
 
 
 def cover_path(item, images):
-    # Preserve uploaded product photos. Never read invoices/manual photos as covers.
-    for image in images:
-        if image.type == 'product' and not image.filePath.startswith('/assets/'):
-            path = local_path(image.filePath)
-            if path.is_file():
-                return path
-    url = item.coverImage or '/assets/no-photo.svg'
-    if not url.startswith('/assets/'):
-        return None
-    # Reuse the formal HD asset inventory without mutating legacy database covers.
-    if url in (f'/assets/{item.id}.jpg', '/assets/no-photo.svg', '/assets/headphones-detail.jpg'):
-        inventory = ROOT / 'docs/references/hd-image-assets.json'
-        if inventory.is_file():
-            asset = next((a for a in json.loads(inventory.read_text(encoding='utf-8')) if a['itemId'] == item.id), None)
-            if asset:
-                url = asset['assetPath']
-    path = public_path(url)
-    return path if path and path.suffix.lower() in ('.jpg', '.jpeg', '.png', '.webp') else None
+    # Match the detail/share cover priority, scoped to this item's product photos.
+    products = [image for image in images if image.type == 'product']
+    cover = item.coverImage or ''
+    chosen = next((image for image in products if cover in
+                   (image.filePath, f'/api/images/{image.id}')), None)
+    candidates = ([chosen.filePath] if chosen else
+                  [cover] if cover.startswith('/assets/') and cover != '/assets/no-photo.svg' else [])
+    candidates += [image.filePath for image in products if image is not chosen]
+    if item.isDemo:
+        inventory = ROOT / 'frontend/src/assets/itemAssets.json'
+        assets = json.loads(inventory.read_text(encoding='utf-8'))
+        asset = assets.get(item.id)
+        if asset:
+            legacy = (f'/assets/{item.id}.jpg', '/assets/headphones-detail.jpg')
+            candidates = [asset['src'] if url in legacy else url for url in candidates]
+            candidates.append(asset['src'])
+    for url in candidates:
+        path = public_path(url) if url.startswith('/assets/') else local_path(url)
+        if path and path.is_file() and path.suffix.lower() in ('.jpg', '.jpeg', '.png', '.webp'):
+            return path
+    return None
 
 
 def fitted_image(path, max_width, max_height):
@@ -122,6 +125,8 @@ def archive_pdf(db, item):
               p('生成时间：' + datetime.now(timezone.utc).astimezone().strftime('%Y-%m-%d %H:%M %z'), note)]
     if item.isDemo:
         story.append(p('合成 Demo 档案，不代表真实购买或官方说明。', note))
+        from .demo_assets import identity_note
+        story.append(p(identity_note(item),note))
     section('一、基本信息')
     fields = [('名称', item.name), ('品牌', item.brand), ('型号', item.model), ('分类', item.category),
               ('购买日期', item.purchaseDate), ('购买价格', f'¥{info["purchasePrice"]:.2f}'),
@@ -163,11 +168,11 @@ def archive_pdf(db, item):
     quality = {'low': '低', 'medium': '中', 'high': '高'}
     table(['耗材名称', '当前库存', '预计可用', '建议补货', '数据质量'],
           [[c['name'], f"{c['currentStock']:g} {c['unit']}", f"{c['estimatedDaysLeft']} 天" if c['estimatedDaysLeft'] is not None else '数据不足',
-            c['suggestedPurchaseDate'], quality.get(c.get('dataQuality'), '未知') + '；' + c.get('qualityExplanation', '')] for c in consumables], [.23, .16, .16, .19, .26])
+            c['suggestedPurchaseDate'], quality.get(c.get('dataQuality'), '未知') + '；' + c.get('qualityExplanation', '') + '；' + c.get('compatibilityNote','')] for c in consumables], [.23, .16, .16, .19, .26])
     section('七、资料附件')
     types = {'product': '物品照片', 'receipt': '小票', 'invoice': '发票', 'label': '铭牌',
              'package': '包装盒', 'warranty_card': '保修卡', 'manual_image': '说明书照片', 'manual': '说明书 PDF', 'other': '其他资料'}
-    files = [[original_name(i.originalFilename, '物品展示图'), types.get(i.type, '其他资料'), i.createdAt[:10]] for i in images]
+    files = [[original_name(i.originalFilename, '物品展示图'), types.get(i.type, '其他资料') + (' · 合成演示资料，非真实购物凭证' if (i.assetMetadata or {}).get('isSynthetic') else ''), i.createdAt[:10]] for i in images]
     files += [[original_name(d.originalFilename or d.filename, '说明书.pdf'), types.get(d.type, '资料 PDF'), (d.uploadedAt or d.updatedAt or '')[:10]] for d in documents]
     table(['文件名', '类型', '上传日期'], files, [.55, .25, .2])
     story.append(p('本档案仅列出附件信息，不自动嵌入票据或说明书全文。', note))

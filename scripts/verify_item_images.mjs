@@ -45,11 +45,11 @@ for (const asset of manifest) {
     createHash("sha256").update(bytes).digest("hex").toUpperCase() === asset.sha256,
     asset.itemId + ": original PNG hash",
   );
-  assert.equal(bytes.readUInt32BE(16), 1448);
-  assert.equal(bytes.readUInt32BE(20), 1086);
+  if (!asset.pending) assert.equal(bytes.readUInt32BE(16), 1448);
+  if (!asset.pending) assert.equal(bytes.readUInt32BE(20), 1086);
   const response = await fetch(base + asset.assetPath);
   check(
-    response.ok && response.headers.get("content-type")?.includes("image/png"),
+    response.ok && response.headers.get("content-type")?.includes(asset.pending ? "image/svg+xml" : "image/png"),
     asset.itemId + ": served PNG",
   );
   check(
@@ -63,8 +63,8 @@ for (const asset of manifest) {
     itemId: asset.itemId,
     itemName: asset.itemName,
     src: asset.assetPath,
-    width: 1448,
-    height: 1086,
+    width: asset.width,
+    height: asset.height,
   });
 }
 const browser = await chromium.launch({
@@ -171,7 +171,7 @@ try {
     for (const asset of manifest) {
       const img = page.locator(`.item-card a[href="/items/${asset.itemId}"] .item-picture img`);
       assert.equal(new URL(await img.getAttribute("src"), base).pathname, asset.assetPath);
-      assert.equal(await img.evaluate((img) => img.naturalWidth), 1448);
+      assert.equal(await img.evaluate((img) => img.naturalWidth), asset.width);
       assert.equal(await img.evaluate((img) => getComputedStyle(img).objectFit), "cover");
     }
     for (let i = 0; i < 10; i++)
@@ -220,7 +220,7 @@ try {
     const sharpCards = await hiDpi
       .locator(".item-picture img")
       .evaluateAll((nodes) =>
-        nodes.every((img) => img.naturalWidth >= img.clientWidth * devicePixelRatio),
+        nodes.every((img) => img.currentSrc.endsWith(".svg") || img.naturalWidth >= img.clientWidth * devicePixelRatio),
       );
     check(
       sharpCards,
@@ -232,7 +232,7 @@ try {
     check(
       await hiDpi
         .locator(".main-image img")
-        .evaluate((img) => img.naturalWidth >= img.clientWidth * devicePixelRatio),
+        .evaluate((img) => img.currentSrc.endsWith(".svg") || img.naturalWidth >= img.clientWidth * devicePixelRatio),
       `${config.viewport.width}/DPR ${config.deviceScaleFactor}: full-resolution detail image`,
     );
     report.layout.push({ ...config, identical: "Extra resolution check (no baseline)" });
@@ -244,7 +244,7 @@ try {
     await settle(page);
     const main = page.locator(".main-image img");
     assert.equal(new URL(await main.getAttribute("src"), base).pathname, asset.assetPath);
-    assert.equal(await main.evaluate((img) => img.naturalWidth), 1448);
+    assert.equal(await main.evaluate((img) => img.naturalWidth), asset.width);
     assert.equal(await main.evaluate((img) => getComputedStyle(img).objectFit), "contain");
     await audit(page, "/items/" + asset.itemId);
     if (asset.itemId === "headphones")

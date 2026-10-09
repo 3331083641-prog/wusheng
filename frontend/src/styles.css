@@ -2008,6 +2008,13 @@ dd {
   margin-left: auto;
   max-width: 120px;
 }
+.consumable-card .compatibility-note {
+  display: block;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  color: #718078;
+  line-height: 1.6;
+}
 .consumable-card p b {
   margin-left: auto;
   font-size: 11px;

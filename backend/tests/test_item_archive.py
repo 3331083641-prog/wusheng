@@ -7,6 +7,21 @@ from sqlalchemy.orm import Session
 from backend import main, models as m
 
 
+def test_archive_uses_selected_cover_and_only_product_fallback(tmp_path, monkeypatch):
+    from types import SimpleNamespace
+    from backend import item_archive
+    monkeypatch.setattr(item_archive, 'local_path', lambda relative: tmp_path / relative)
+    images = [SimpleNamespace(id=ident, type=kind, filePath=ident + '.png')
+              for ident, kind in [('invoice', 'invoice'), ('first', 'product'), ('selected', 'product')]]
+    for image in images:
+        (tmp_path / image.filePath).write_bytes(b'image fixture')
+    item = SimpleNamespace(id='user', isDemo=False, coverImage='/api/images/selected')
+    assert item_archive.cover_path(item, images) == tmp_path / 'selected.png'
+    item.coverImage = '/assets/no-photo.svg'
+    assert item_archive.cover_path(item, images) == tmp_path / 'first.png'
+    assert item_archive.cover_path(item, images[:1]) is None
+
+
 def test_pdf_archive_is_readable_and_item_scoped(client):
     response = client.get('/api/items/laptop/export/pdf')
     assert response.status_code == 200

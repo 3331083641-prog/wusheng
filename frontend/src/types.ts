@@ -1,4 +1,5 @@
 export interface Item {
+  identityNote?: string;
   id: string;
   name: string;
   brand: string;
@@ -55,6 +56,7 @@ export interface Repair {
   progress: { status: string; date: string }[];
 }
 export interface Document {
+  assetMetadata?: { sourceUrl?: string; language?: string; scope?: string; modelReview?: string; excludedFromAI?: boolean } | null;
   textStatus?: string;
   textSource?: string;
   ocrPageCount?: number;
@@ -75,6 +77,7 @@ export interface Document {
   updatedAt: string;
 }
 export interface ItemImage {
+  assetMetadata?: { isSynthetic?: boolean; originalImage?: string; brand?: string; model?: string; modelVerified?: boolean; reviewNote?: string } | null;
   id: string;
   itemId: string;
   filePath: string;
@@ -113,6 +116,7 @@ export interface Restock {
   cost: number;
 }
 export interface Consumable {
+  compatibilityNote?: string;
   dataQuality?: string;
   estimateRange?: { minDays: number; maxDays: number; label: string } | null;
   qualityExplanation?: string;

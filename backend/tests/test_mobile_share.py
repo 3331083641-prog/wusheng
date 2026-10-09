@@ -45,6 +45,10 @@ def test_formal_demo_images_resolve_and_are_available(lan, item, monkeypatch):
     link = share(lan, item)
     data = lan.get('/share-data/' + link['token']).json()
     assert data['item']['coverImage'] == sharing.ITEM_ASSETS[item]['src']
+    if sharing.ITEM_ASSETS[item]['src']=='/assets/no-photo.svg':
+        assert data['images']==[]
+        assert '待补' in data['item']['identityNote']
+        return
     assert data['images'][0]['src'] == data['item']['coverImage']
     with TestClient(main.app, client=('192.168.1.9', 3210)) as remote:
         response = remote.get(data['images'][0]['src'])

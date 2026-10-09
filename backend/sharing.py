@@ -206,14 +206,15 @@ def shared_images(db, item, token):
         products.remove(chosen)
         products.insert(0, chosen)
     elif cover.startswith('/assets/') and cover != '/assets/no-photo.svg':
-        images.append({'src': LEGACY_ASSETS.get(cover, cover)})
+        src = LEGACY_ASSETS.get(cover, cover)
+        if src != '/assets/no-photo.svg':images.append({'src':src})
     for p in products:
         if p.filePath.startswith('/assets/'):
             src = LEGACY_ASSETS.get(p.filePath, p.filePath)
         else:
             src = f'/api/share-data/{token}/images/{p.id}'
         if src not in [i['src'] for i in images]: images.append({'src': src})
-    if not images and item.isDemo and item.id in ITEM_ASSETS:
+    if not images and item.isDemo and item.id in ITEM_ASSETS and ITEM_ASSETS[item.id]['src'] != '/assets/no-photo.svg':
         images.append({'src': ITEM_ASSETS[item.id]['src']})
     return images
 
@@ -225,7 +226,7 @@ def public_item(token: str, db: Session = Depends(get_db)):
     sync_item(db, item)
     full = item_data(db, item)
     options = link_options(link)
-    allowed = ['name', 'brand', 'model', 'category', 'status', 'nextMaintenance']
+    allowed = ['name', 'brand', 'model', 'category', 'status', 'nextMaintenance', 'identityNote']
     for flag, fields in [(options.showPurchaseDate, ['purchaseDate']),
                          (options.showWarranty, ['warrantyEndDate', 'warrantyDaysLeft', 'warrantyMonths']),
                          (options.showPurchasePrice, ['purchasePrice']),
@@ -253,6 +254,7 @@ def public_item(token: str, db: Session = Depends(get_db)):
             full_c = consumable_data(db, c)
             safe = {key: full_c[key] for key in ('name', 'status', 'estimatedDaysLeft', 'suggestedPurchaseDate', 'dataQuality', 'qualityExplanation')}
             safe['relatedItemName'] = item.name
+            safe['compatibilityNote'] = full_c.get('compatibilityNote','')
             if options.showConsumableStock: safe.update(currentStock=c.currentStock, unit=c.unit)
             consumables.append(safe)
     maintenance, repairs, reminders = [], [], []

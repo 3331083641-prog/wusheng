@@ -23,8 +23,9 @@ def row(entity):
 
 
 def item_data(db,item):
+    from .demo_assets import identity_note
     maintenance=db.scalar(select(m.MaintenanceRecord).where(m.MaintenanceRecord.itemId==item.id).order_by(m.MaintenanceRecord.date.desc()))
-    return {**row(item),'warrantyDaysLeft':(date.fromisoformat(item.warrantyEndDate)-today()).days if item.warrantyEndDate else None,'nextMaintenance':maintenance.nextDueDate if maintenance else None}
+    return {**row(item),'identityNote':identity_note(item),'warrantyDaysLeft':(date.fromisoformat(item.warrantyEndDate)-today()).days if item.warrantyEndDate else None,'nextMaintenance':maintenance.nextDueDate if maintenance else None}
 
 
 def reminder_data(record):

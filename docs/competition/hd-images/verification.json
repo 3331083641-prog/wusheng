@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-10-09T04:15:26.061Z",
+  "checkedAt": "2026-10-09T11:39:10.090Z",
   "assets": [
     {
       "itemId": "laptop",
@@ -18,49 +18,49 @@
     {
       "itemId": "washer",
       "itemName": "海尔滚筒洗衣机",
-      "src": "/assets/items/haier-washer.png",
+      "src": "/assets/items/haier-washer-v3.png",
       "width": 1448,
       "height": 1086
     },
     {
       "itemId": "ac",
-      "itemName": "美的空调",
-      "src": "/assets/items/midea-air-conditioner.png",
-      "width": 1448,
-      "height": 1086
+      "itemName": "武圣壁挂式空调",
+      "src": "/assets/no-photo.svg",
+      "width": 640,
+      "height": 360
     },
     {
       "itemId": "robot",
-      "itemName": "小米扫地机器人",
+      "itemName": "小米扫地机器人 S10",
       "src": "/assets/items/xiaomi-robot-vacuum.png",
       "width": 1448,
       "height": 1086
     },
     {
       "itemId": "coffee",
-      "itemName": "德龙咖啡机",
-      "src": "/assets/items/delonghi-coffee-machine.png",
+      "itemName": "德龙半自动意式咖啡机",
+      "src": "/assets/items/delonghi-ec680-illustration.png",
       "width": 1448,
       "height": 1086
     },
     {
       "itemId": "toothbrush",
-      "itemName": "飞利浦电动牙刷",
-      "src": "/assets/items/philips-electric-toothbrush.png",
-      "width": 1448,
-      "height": 1086
+      "itemName": "飞利浦 HX3671/13 电动牙刷",
+      "src": "/assets/no-photo.svg",
+      "width": 640,
+      "height": 360
     },
     {
       "itemId": "suitcase",
-      "itemName": "行李箱",
-      "src": "/assets/items/rimowa-suitcase.png",
-      "width": 1448,
-      "height": 1086
+      "itemName": "20英寸旅行行李箱",
+      "src": "/assets/no-photo.svg",
+      "width": 640,
+      "height": 360
     },
     {
       "itemId": "purifier",
-      "itemName": "空气净化器",
-      "src": "/assets/items/xiaomi-air-purifier.png",
+      "itemName": "小米空气净化器4",
+      "src": "/assets/items/xiaomi-air-purifier-4-v3.png",
       "width": 1448,
       "height": 1086
     },
@@ -139,15 +139,15 @@
           "fit": "cover"
         },
         {
-          "src": "/assets/items/haier-washer.png",
+          "src": "/assets/items/haier-washer-v3.png",
           "width": 1448,
           "height": 1086,
           "fit": "cover"
         },
         {
-          "src": "/assets/items/midea-air-conditioner.png",
-          "width": 1448,
-          "height": 1086,
+          "src": "/assets/no-photo.svg",
+          "width": 640,
+          "height": 360,
           "fit": "cover"
         },
         {
@@ -157,25 +157,25 @@
           "fit": "cover"
         },
         {
-          "src": "/assets/items/delonghi-coffee-machine.png",
+          "src": "/assets/items/delonghi-ec680-illustration.png",
           "width": 1448,
           "height": 1086,
           "fit": "cover"
         },
         {
-          "src": "/assets/items/philips-electric-toothbrush.png",
-          "width": 1448,
-          "height": 1086,
+          "src": "/assets/no-photo.svg",
+          "width": 640,
+          "height": 360,
           "fit": "cover"
         },
         {
-          "src": "/assets/items/rimowa-suitcase.png",
-          "width": 1448,
-          "height": 1086,
+          "src": "/assets/no-photo.svg",
+          "width": 640,
+          "height": 360,
           "fit": "cover"
         },
         {
-          "src": "/assets/items/xiaomi-air-purifier.png",
+          "src": "/assets/items/xiaomi-air-purifier-4-v3.png",
           "width": 1448,
           "height": 1086,
           "fit": "cover"
@@ -226,13 +226,13 @@
       "route": "/items/washer",
       "images": [
         {
-          "src": "/assets/items/haier-washer.png",
+          "src": "/assets/items/haier-washer-v3.png",
           "width": 1448,
           "height": 1086,
           "fit": "cover"
         },
         {
-          "src": "/assets/items/haier-washer.png",
+          "src": "/assets/items/haier-washer-v3.png",
           "width": 1448,
           "height": 1086,
           "fit": "contain"
@@ -243,15 +243,15 @@
       "route": "/items/ac",
       "images": [
         {
-          "src": "/assets/items/midea-air-conditioner.png",
-          "width": 1448,
-          "height": 1086,
+          "src": "/assets/no-photo.svg",
+          "width": 640,
+          "height": 360,
           "fit": "cover"
         },
         {
-          "src": "/assets/items/midea-air-conditioner.png",
-          "width": 1448,
-          "height": 1086,
+          "src": "/assets/no-photo.svg",
+          "width": 640,
+          "height": 360,
           "fit": "contain"
         }
       ]
@@ -277,13 +277,13 @@
       "route": "/items/coffee",
       "images": [
         {
-          "src": "/assets/items/delonghi-coffee-machine.png",
+          "src": "/assets/items/delonghi-ec680-illustration.png",
           "width": 1448,
           "height": 1086,
           "fit": "cover"
         },
         {
-          "src": "/assets/items/delonghi-coffee-machine.png",
+          "src": "/assets/items/delonghi-ec680-illustration.png",
           "width": 1448,
           "height": 1086,
           "fit": "contain"
@@ -294,15 +294,15 @@
       "route": "/items/toothbrush",
       "images": [
         {
-          "src": "/assets/items/philips-electric-toothbrush.png",
-          "width": 1448,
-          "height": 1086,
+          "src": "/assets/no-photo.svg",
+          "width": 640,
+          "height": 360,
           "fit": "cover"
         },
         {
-          "src": "/assets/items/philips-electric-toothbrush.png",
-          "width": 1448,
-          "height": 1086,
+          "src": "/assets/no-photo.svg",
+          "width": 640,
+          "height": 360,
           "fit": "contain"
         }
       ]
@@ -311,15 +311,15 @@
       "route": "/items/suitcase",
       "images": [
         {
-          "src": "/assets/items/rimowa-suitcase.png",
-          "width": 1448,
-          "height": 1086,
+          "src": "/assets/no-photo.svg",
+          "width": 640,
+          "height": 360,
           "fit": "cover"
         },
         {
-          "src": "/assets/items/rimowa-suitcase.png",
-          "width": 1448,
-          "height": 1086,
+          "src": "/assets/no-photo.svg",
+          "width": 640,
+          "height": 360,
           "fit": "contain"
         }
       ]
@@ -328,13 +328,13 @@
       "route": "/items/purifier",
       "images": [
         {
-          "src": "/assets/items/xiaomi-air-purifier.png",
+          "src": "/assets/items/xiaomi-air-purifier-4-v3.png",
           "width": 1448,
           "height": 1086,
           "fit": "cover"
         },
         {
-          "src": "/assets/items/xiaomi-air-purifier.png",
+          "src": "/assets/items/xiaomi-air-purifier-4-v3.png",
           "width": 1448,
           "height": 1086,
           "fit": "contain"
@@ -362,19 +362,19 @@
       "route": "/",
       "images": [
         {
-          "src": "/assets/items/midea-air-conditioner.png",
-          "width": 1448,
-          "height": 1086,
+          "src": "/assets/no-photo.svg",
+          "width": 640,
+          "height": 360,
           "fit": "contain"
         },
         {
-          "src": "/assets/items/midea-air-conditioner.png",
-          "width": 1448,
-          "height": 1086,
+          "src": "/assets/no-photo.svg",
+          "width": 640,
+          "height": 360,
           "fit": "contain"
         },
         {
-          "src": "/assets/items/delonghi-coffee-machine.png",
+          "src": "/assets/items/delonghi-ec680-illustration.png",
           "width": 1448,
           "height": 1086,
           "fit": "contain"
@@ -386,7 +386,7 @@
           "fit": "contain"
         },
         {
-          "src": "/assets/items/haier-washer.png",
+          "src": "/assets/items/haier-washer-v3.png",
           "width": 1448,
           "height": 1086,
           "fit": "cover"
@@ -398,9 +398,9 @@
           "fit": "cover"
         },
         {
-          "src": "/assets/items/philips-electric-toothbrush.png",
-          "width": 1448,
-          "height": 1086,
+          "src": "/assets/no-photo.svg",
+          "width": 640,
+          "height": 360,
           "fit": "cover"
         }
       ]
@@ -409,15 +409,15 @@
       "route": "/reminders",
       "images": [
         {
-          "src": "/assets/items/haier-washer.png",
+          "src": "/assets/items/haier-washer-v3.png",
           "width": 1448,
           "height": 1086,
           "fit": "cover"
         },
         {
-          "src": "/assets/items/midea-air-conditioner.png",
-          "width": 1448,
-          "height": 1086,
+          "src": "/assets/no-photo.svg",
+          "width": 640,
+          "height": 360,
           "fit": "cover"
         },
         {
@@ -427,19 +427,19 @@
           "fit": "cover"
         },
         {
-          "src": "/assets/items/delonghi-coffee-machine.png",
+          "src": "/assets/items/delonghi-ec680-illustration.png",
           "width": 1448,
           "height": 1086,
           "fit": "cover"
         },
         {
-          "src": "/assets/items/xiaomi-air-purifier.png",
+          "src": "/assets/items/xiaomi-air-purifier-4-v3.png",
           "width": 1448,
           "height": 1086,
           "fit": "cover"
         },
         {
-          "src": "/assets/items/haier-washer.png",
+          "src": "/assets/items/haier-washer-v3.png",
           "width": 1448,
           "height": 1086,
           "fit": "cover"
@@ -451,15 +451,15 @@
           "fit": "cover"
         },
         {
-          "src": "/assets/items/delonghi-coffee-machine.png",
+          "src": "/assets/items/delonghi-ec680-illustration.png",
           "width": 1448,
           "height": 1086,
           "fit": "cover"
         },
         {
-          "src": "/assets/items/philips-electric-toothbrush.png",
-          "width": 1448,
-          "height": 1086,
+          "src": "/assets/no-photo.svg",
+          "width": 640,
+          "height": 360,
           "fit": "cover"
         },
         {
@@ -469,7 +469,7 @@
           "fit": "cover"
         },
         {
-          "src": "/assets/items/delonghi-coffee-machine.png",
+          "src": "/assets/items/delonghi-ec680-illustration.png",
           "width": 1448,
           "height": 1086,
           "fit": "cover"
@@ -493,9 +493,9 @@
           "fit": "cover"
         },
         {
-          "src": "/assets/items/philips-electric-toothbrush.png",
-          "width": 1448,
-          "height": 1086,
+          "src": "/assets/no-photo.svg",
+          "width": 640,
+          "height": 360,
           "fit": "cover"
         },
         {
@@ -505,15 +505,15 @@
           "fit": "cover"
         },
         {
-          "src": "/assets/items/rimowa-suitcase.png",
-          "width": 1448,
-          "height": 1086,
+          "src": "/assets/no-photo.svg",
+          "width": 640,
+          "height": 360,
           "fit": "cover"
         },
         {
-          "src": "/assets/items/midea-air-conditioner.png",
-          "width": 1448,
-          "height": 1086,
+          "src": "/assets/no-photo.svg",
+          "width": 640,
+          "height": 360,
           "fit": "cover"
         },
         {
@@ -528,13 +528,13 @@
       "route": "/repairs",
       "images": [
         {
-          "src": "/assets/items/haier-washer.png",
+          "src": "/assets/items/haier-washer-v3.png",
           "width": 1448,
           "height": 1086,
           "fit": "cover"
         },
         {
-          "src": "/assets/items/delonghi-coffee-machine.png",
+          "src": "/assets/items/delonghi-ec680-illustration.png",
           "width": 1448,
           "height": 1086,
           "fit": "cover"
@@ -551,13 +551,13 @@
       "route": "/repairs drawer",
       "images": [
         {
-          "src": "/assets/items/haier-washer.png",
+          "src": "/assets/items/haier-washer-v3.png",
           "width": 1448,
           "height": 1086,
           "fit": "cover"
         },
         {
-          "src": "/assets/items/delonghi-coffee-machine.png",
+          "src": "/assets/items/delonghi-ec680-illustration.png",
           "width": 1448,
           "height": 1086,
           "fit": "cover"
@@ -569,7 +569,7 @@
           "fit": "cover"
         },
         {
-          "src": "/assets/items/haier-washer.png",
+          "src": "/assets/items/haier-washer-v3.png",
           "width": 1448,
           "height": 1086,
           "fit": "cover"
@@ -591,31 +591,31 @@
       "route": "/consumables",
       "images": [
         {
-          "src": "/assets/consumables/air-purifier-filter-cylinder.png",
+          "src": "/assets/consumables/air-purifier-filter-v3.png",
           "width": 1448,
           "height": 1086,
           "fit": "contain"
         },
         {
-          "src": "/assets/consumables/laundry-detergent-blue.png",
+          "src": "/assets/consumables/blue-moon-detergent-v3.png",
           "width": 1448,
           "height": 1086,
           "fit": "contain"
         },
         {
-          "src": "/assets/consumables/printer-ink-cartridges-cmy.png",
+          "src": "/assets/consumables/hp805-illustration-v3.png",
           "width": 1448,
           "height": 1086,
           "fit": "contain"
         },
         {
-          "src": "/assets/consumables/coffee-capsules-metallic.png",
+          "src": "/assets/consumables/ese-pods-v3.png",
           "width": 1448,
           "height": 1086,
           "fit": "contain"
         },
         {
-          "src": "/assets/consumables/toothbrush-heads-dual.png",
+          "src": "/assets/consumables/click-on-brushheads-v3.png",
           "width": 1448,
           "height": 1086,
           "fit": "contain"
@@ -652,15 +652,15 @@
           "fit": "cover"
         },
         {
-          "src": "/assets/items/haier-washer.png",
+          "src": "/assets/items/haier-washer-v3.png",
           "width": 1448,
           "height": 1086,
           "fit": "cover"
         },
         {
-          "src": "/assets/items/midea-air-conditioner.png",
-          "width": 1448,
-          "height": 1086,
+          "src": "/assets/no-photo.svg",
+          "width": 640,
+          "height": 360,
           "fit": "cover"
         },
         {
@@ -670,25 +670,25 @@
           "fit": "cover"
         },
         {
-          "src": "/assets/items/delonghi-coffee-machine.png",
+          "src": "/assets/items/delonghi-ec680-illustration.png",
           "width": 1448,
           "height": 1086,
           "fit": "cover"
         },
         {
-          "src": "/assets/items/philips-electric-toothbrush.png",
-          "width": 1448,
-          "height": 1086,
+          "src": "/assets/no-photo.svg",
+          "width": 640,
+          "height": 360,
           "fit": "cover"
         },
         {
-          "src": "/assets/items/rimowa-suitcase.png",
-          "width": 1448,
-          "height": 1086,
+          "src": "/assets/no-photo.svg",
+          "width": 640,
+          "height": 360,
           "fit": "cover"
         },
         {
-          "src": "/assets/items/xiaomi-air-purifier.png",
+          "src": "/assets/items/xiaomi-air-purifier-4-v3.png",
           "width": 1448,
           "height": 1086,
           "fit": "cover"
@@ -723,15 +723,15 @@
           "fit": "cover"
         },
         {
-          "src": "/assets/items/haier-washer.png",
+          "src": "/assets/items/haier-washer-v3.png",
           "width": 1448,
           "height": 1086,
           "fit": "cover"
         },
         {
-          "src": "/assets/items/midea-air-conditioner.png",
-          "width": 1448,
-          "height": 1086,
+          "src": "/assets/no-photo.svg",
+          "width": 640,
+          "height": 360,
           "fit": "cover"
         },
         {
@@ -741,25 +741,25 @@
           "fit": "cover"
         },
         {
-          "src": "/assets/items/delonghi-coffee-machine.png",
+          "src": "/assets/items/delonghi-ec680-illustration.png",
           "width": 1448,
           "height": 1086,
           "fit": "cover"
         },
         {
-          "src": "/assets/items/philips-electric-toothbrush.png",
-          "width": 1448,
-          "height": 1086,
+          "src": "/assets/no-photo.svg",
+          "width": 640,
+          "height": 360,
           "fit": "cover"
         },
         {
-          "src": "/assets/items/rimowa-suitcase.png",
-          "width": 1448,
-          "height": 1086,
+          "src": "/assets/no-photo.svg",
+          "width": 640,
+          "height": 360,
           "fit": "cover"
         },
         {
-          "src": "/assets/items/xiaomi-air-purifier.png",
+          "src": "/assets/items/xiaomi-air-purifier-4-v3.png",
           "width": 1448,
           "height": 1086,
           "fit": "cover"

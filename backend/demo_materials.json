@@ -1,0 +1,1322 @@
+[
+  {
+    "itemId": "laptop",
+    "type": "manual_image",
+    "path": "/assets/demo-evidence/laptop-manual_image.png",
+    "sha256": "0e415b426f329d1f481070858187988e7c2e22e3c4ca63c3810973b908b0fb48",
+    "width": 547,
+    "height": 634,
+    "isSynthetic": true,
+    "originalImage": "docs/references/demo-materials/originals/laptop.png",
+    "originalSha256": "1117d207bda248ca31151ad5947bbee2d147f074cc535de8a8200c00c3f54f2b",
+    "corners": [
+      [
+        108,
+        25
+      ],
+      [
+        625,
+        29
+      ],
+      [
+        625,
+        653
+      ],
+      [
+        82,
+        653
+      ]
+    ],
+    "brand": "Apple",
+    "model": "A2681 · M2 · 13.6 英寸 256GB",
+    "modelVerified": true,
+    "reviewNote": "仅完成图内型号一致性审核；非真实购物凭证；不证明官方参数、保修或购买事实"
+  },
+  {
+    "itemId": "laptop",
+    "type": "invoice",
+    "path": "/assets/demo-evidence/laptop-invoice.png",
+    "sha256": "95cbd2b8783097ce3784c74ff69686bebbb068e9a2b0cacca74c018ac12b3d34",
+    "width": 805,
+    "height": 588,
+    "isSynthetic": true,
+    "originalImage": "docs/references/demo-materials/originals/laptop.png",
+    "originalSha256": "1117d207bda248ca31151ad5947bbee2d147f074cc535de8a8200c00c3f54f2b",
+    "corners": [
+      [
+        646,
+        57
+      ],
+      [
+        1382,
+        60
+      ],
+      [
+        1438,
+        641
+      ],
+      [
+        639,
+        638
+      ]
+    ],
+    "brand": "Apple",
+    "model": "A2681 · M2 · 13.6 英寸 256GB",
+    "modelVerified": true,
+    "reviewNote": "仅完成图内型号一致性审核；非真实购物凭证；不证明官方参数、保修或购买事实"
+  },
+  {
+    "itemId": "laptop",
+    "type": "warranty_card",
+    "path": "/assets/demo-evidence/laptop-warranty_card.png",
+    "sha256": "d412492e99a085afd2a154a7931f2f1da45f4eec155722d54ceb421283d7dbe9",
+    "width": 662,
+    "height": 401,
+    "isSynthetic": true,
+    "originalImage": "docs/references/demo-materials/originals/laptop.png",
+    "originalSha256": "1117d207bda248ca31151ad5947bbee2d147f074cc535de8a8200c00c3f54f2b",
+    "corners": [
+      [
+        80,
+        671
+      ],
+      [
+        717,
+        671
+      ],
+      [
+        725,
+        1068
+      ],
+      [
+        68,
+        1069
+      ]
+    ],
+    "brand": "Apple",
+    "model": "A2681 · M2 · 13.6 英寸 256GB",
+    "modelVerified": true,
+    "reviewNote": "仅完成图内型号一致性审核；非真实购物凭证；不证明官方参数、保修或购买事实"
+  },
+  {
+    "itemId": "laptop",
+    "type": "label",
+    "path": "/assets/demo-evidence/laptop-label.png",
+    "sha256": "02dd87cd4128ebda77b374b00aec412ad52375e2d4be176a3bf45f79acb07209",
+    "width": 649,
+    "height": 397,
+    "isSynthetic": true,
+    "originalImage": "docs/references/demo-materials/originals/laptop.png",
+    "originalSha256": "1117d207bda248ca31151ad5947bbee2d147f074cc535de8a8200c00c3f54f2b",
+    "corners": [
+      [
+        759,
+        668
+      ],
+      [
+        1382,
+        669
+      ],
+      [
+        1400,
+        1062
+      ],
+      [
+        756,
+        1061
+      ]
+    ],
+    "brand": "Apple",
+    "model": "A2681 · M2 · 13.6 英寸 256GB",
+    "modelVerified": true,
+    "reviewNote": "仅完成图内型号一致性审核；非真实购物凭证；不证明官方参数、保修或购买事实"
+  },
+  {
+    "itemId": "headphones",
+    "type": "manual_image",
+    "path": "/assets/demo-evidence/headphones-manual_image.png",
+    "sha256": "7cf0654f5df4dbf666f5de386513dc9104f8fe24b955f73d66d3dd930d96327d",
+    "width": 569,
+    "height": 638,
+    "isSynthetic": true,
+    "originalImage": "docs/references/demo-materials/originals/headphones.png",
+    "originalSha256": "cf0da5f91c7737f6b2ab2316eee715530222a214783600da2ba28297a27436f3",
+    "corners": [
+      [
+        62,
+        27
+      ],
+      [
+        612,
+        28
+      ],
+      [
+        612,
+        659
+      ],
+      [
+        48,
+        660
+      ]
+    ],
+    "brand": "Sony",
+    "model": "WH-1000XM6",
+    "modelVerified": true,
+    "reviewNote": "仅完成图内型号一致性审核；非真实购物凭证；不证明官方参数、保修或购买事实"
+  },
+  {
+    "itemId": "headphones",
+    "type": "invoice",
+    "path": "/assets/demo-evidence/headphones-invoice.png",
+    "sha256": "dcd1098bd9ef714725e0e5a3b82d2030342bf047ae07c6f1fdf3c5804c2a042d",
+    "width": 808,
+    "height": 576,
+    "isSynthetic": true,
+    "originalImage": "docs/references/demo-materials/originals/headphones.png",
+    "originalSha256": "cf0da5f91c7737f6b2ab2316eee715530222a214783600da2ba28297a27436f3",
+    "corners": [
+      [
+        638,
+        65
+      ],
+      [
+        1425,
+        66
+      ],
+      [
+        1439,
+        637
+      ],
+      [
+        637,
+        636
+      ]
+    ],
+    "brand": "Sony",
+    "model": "WH-1000XM6",
+    "modelVerified": true,
+    "reviewNote": "仅完成图内型号一致性审核；非真实购物凭证；不证明官方参数、保修或购买事实"
+  },
+  {
+    "itemId": "headphones",
+    "type": "warranty_card",
+    "path": "/assets/demo-evidence/headphones-warranty_card.png",
+    "sha256": "0e150f697f138e5ae3c1a8cc84569d8641a263b95fedd8ad779b1a76c8e4bd07",
+    "width": 723,
+    "height": 376,
+    "isSynthetic": true,
+    "originalImage": "docs/references/demo-materials/originals/headphones.png",
+    "originalSha256": "cf0da5f91c7737f6b2ab2316eee715530222a214783600da2ba28297a27436f3",
+    "corners": [
+      [
+        87,
+        676
+      ],
+      [
+        791,
+        675
+      ],
+      [
+        796,
+        1048
+      ],
+      [
+        79,
+        1048
+      ]
+    ],
+    "brand": "Sony",
+    "model": "WH-1000XM6",
+    "modelVerified": true,
+    "reviewNote": "仅完成图内型号一致性审核；非真实购物凭证；不证明官方参数、保修或购买事实"
+  },
+  {
+    "itemId": "headphones",
+    "type": "label",
+    "path": "/assets/demo-evidence/headphones-label.png",
+    "sha256": "4444d8e67bc80afb8efbb5a2f697c6bc562e8d970df9c48de33b9fc9133a6357",
+    "width": 591,
+    "height": 361,
+    "isSynthetic": true,
+    "originalImage": "docs/references/demo-materials/originals/headphones.png",
+    "originalSha256": "cf0da5f91c7737f6b2ab2316eee715530222a214783600da2ba28297a27436f3",
+    "corners": [
+      [
+        831,
+        672
+      ],
+      [
+        1407,
+        670
+      ],
+      [
+        1418,
+        1028
+      ],
+      [
+        832,
+        1028
+      ]
+    ],
+    "brand": "Sony",
+    "model": "WH-1000XM6",
+    "modelVerified": true,
+    "reviewNote": "仅完成图内型号一致性审核；非真实购物凭证；不证明官方参数、保修或购买事实"
+  },
+  {
+    "itemId": "washer",
+    "type": "manual_image",
+    "path": "/assets/demo-evidence/washer-manual_image.png",
+    "sha256": "8aaea4ee04d9ebd100967672b565532406ab18ac436f60e90ffdbb12ff5d28bf",
+    "width": 656,
+    "height": 961,
+    "isSynthetic": true,
+    "originalImage": "docs/references/demo-materials/originals/washer.png",
+    "originalSha256": "3caab7b3f6fe5a51ee1d3d4a2663eb5ad54c370a5f8ac5e68065ce74d966a29a",
+    "corners": [
+      [
+        47,
+        79
+      ],
+      [
+        664,
+        71
+      ],
+      [
+        669,
+        1024
+      ],
+      [
+        18,
+        1028
+      ]
+    ],
+    "brand": "Haier",
+    "model": "EG100MATE8S",
+    "modelVerified": true,
+    "reviewNote": "仅完成图内型号一致性审核；非真实购物凭证；不证明官方参数、保修或购买事实"
+  },
+  {
+    "itemId": "washer",
+    "type": "invoice",
+    "path": "/assets/demo-evidence/washer-invoice.png",
+    "sha256": "aeed807cbd9b3963c3d122c695e841c603968c37ea383b6267961d5e969eacc9",
+    "width": 743,
+    "height": 455,
+    "isSynthetic": true,
+    "originalImage": "docs/references/demo-materials/originals/washer.png",
+    "originalSha256": "3caab7b3f6fe5a51ee1d3d4a2663eb5ad54c370a5f8ac5e68065ce74d966a29a",
+    "corners": [
+      [
+        695,
+        26
+      ],
+      [
+        1414,
+        19
+      ],
+      [
+        1429,
+        470
+      ],
+      [
+        692,
+        471
+      ]
+    ],
+    "brand": "Haier",
+    "model": "EG100MATE8S",
+    "modelVerified": true,
+    "reviewNote": "仅完成图内型号一致性审核；非真实购物凭证；不证明官方参数、保修或购买事实"
+  },
+  {
+    "itemId": "washer",
+    "type": "warranty_card",
+    "path": "/assets/demo-evidence/washer-warranty_card.png",
+    "sha256": "03c2754dbc48ee34d6ef080b2bba1ad5465c7f0bd62d57338cd1b5b0a0db6970",
+    "width": 714,
+    "height": 324,
+    "isSynthetic": true,
+    "originalImage": "docs/references/demo-materials/originals/washer.png",
+    "originalSha256": "3caab7b3f6fe5a51ee1d3d4a2663eb5ad54c370a5f8ac5e68065ce74d966a29a",
+    "corners": [
+      [
+        706,
+        486
+      ],
+      [
+        1401,
+        489
+      ],
+      [
+        1412,
+        806
+      ],
+      [
+        704,
+        807
+      ]
+    ],
+    "brand": "Haier",
+    "model": "EG100MATE8S",
+    "modelVerified": true,
+    "reviewNote": "仅完成图内型号一致性审核；非真实购物凭证；不证明官方参数、保修或购买事实"
+  },
+  {
+    "itemId": "washer",
+    "type": "label",
+    "path": "/assets/demo-evidence/washer-label.png",
+    "sha256": "82ea6c66a7f9052edaaaf95c80efd22a2efe18ff9103cb37e4ef98e2eaacf1f2",
+    "width": 640,
+    "height": 234,
+    "isSynthetic": true,
+    "originalImage": "docs/references/demo-materials/originals/washer.png",
+    "originalSha256": "3caab7b3f6fe5a51ee1d3d4a2663eb5ad54c370a5f8ac5e68065ce74d966a29a",
+    "corners": [
+      [
+        741,
+        828
+      ],
+      [
+        1367,
+        828
+      ],
+      [
+        1374,
+        1059
+      ],
+      [
+        739,
+        1060
+      ]
+    ],
+    "brand": "Haier",
+    "model": "EG100MATE8S",
+    "modelVerified": true,
+    "reviewNote": "仅完成图内型号一致性审核；非真实购物凭证；不证明官方参数、保修或购买事实"
+  },
+  {
+    "itemId": "printer",
+    "type": "manual_image",
+    "path": "/assets/demo-evidence/printer-manual_image.png",
+    "sha256": "7b2be1d58f924511e570d26869c32adffcf2d22a49862c2ffad61bd1b2578245",
+    "width": 657,
+    "height": 976,
+    "isSynthetic": true,
+    "originalImage": "docs/references/demo-materials/originals/printer.png",
+    "originalSha256": "698f26e6a96af74169cccfba2d3eae09ee42b7b1b03763f5594674c6245d4cc3",
+    "corners": [
+      [
+        44,
+        77
+      ],
+      [
+        680,
+        70
+      ],
+      [
+        679,
+        1038
+      ],
+      [
+        27,
+        1043
+      ]
+    ],
+    "brand": "HP",
+    "model": "DeskJet 2720",
+    "modelVerified": true,
+    "reviewNote": "仅完成图内型号一致性审核；非真实购物凭证；不证明官方参数、保修或购买事实"
+  },
+  {
+    "itemId": "printer",
+    "type": "invoice",
+    "path": "/assets/demo-evidence/printer-invoice.png",
+    "sha256": "6e55626d02bcf62fc1b7758b74c5a57d760a5021dffe9f8fe678402fcb710b15",
+    "width": 721,
+    "height": 423,
+    "isSynthetic": true,
+    "originalImage": "docs/references/demo-materials/originals/printer.png",
+    "originalSha256": "698f26e6a96af74169cccfba2d3eae09ee42b7b1b03763f5594674c6245d4cc3",
+    "corners": [
+      [
+        703,
+        83
+      ],
+      [
+        1407,
+        77
+      ],
+      [
+        1417,
+        497
+      ],
+      [
+        702,
+        497
+      ]
+    ],
+    "brand": "HP",
+    "model": "DeskJet 2720",
+    "modelVerified": true,
+    "reviewNote": "仅完成图内型号一致性审核；非真实购物凭证；不证明官方参数、保修或购买事实"
+  },
+  {
+    "itemId": "printer",
+    "type": "warranty_card",
+    "path": "/assets/demo-evidence/printer-warranty_card.png",
+    "sha256": "e3d56d68e81d5c8e9eba75de9855554a37f7ce9913aff17395449d7a49862d1b",
+    "width": 366,
+    "height": 519,
+    "isSynthetic": true,
+    "originalImage": "docs/references/demo-materials/originals/printer.png",
+    "originalSha256": "698f26e6a96af74169cccfba2d3eae09ee42b7b1b03763f5594674c6245d4cc3",
+    "corners": [
+      [
+        700,
+        525
+      ],
+      [
+        1057,
+        524
+      ],
+      [
+        1060,
+        1039
+      ],
+      [
+        697,
+        1039
+      ]
+    ],
+    "brand": "HP",
+    "model": "DeskJet 2720",
+    "modelVerified": true,
+    "reviewNote": "仅完成图内型号一致性审核；非真实购物凭证；不证明官方参数、保修或购买事实"
+  },
+  {
+    "itemId": "printer",
+    "type": "other",
+    "path": "/assets/demo-evidence/printer-other.png",
+    "sha256": "3eb78209c99bf0cc434e103ec4b48f2ca4b110b884c0e18d82b9d02980a76ddf",
+    "width": 357,
+    "height": 517,
+    "isSynthetic": true,
+    "originalImage": "docs/references/demo-materials/originals/printer.png",
+    "originalSha256": "698f26e6a96af74169cccfba2d3eae09ee42b7b1b03763f5594674c6245d4cc3",
+    "corners": [
+      [
+        1069,
+        526
+      ],
+      [
+        1419,
+        524
+      ],
+      [
+        1425,
+        1037
+      ],
+      [
+        1071,
+        1038
+      ]
+    ],
+    "brand": "HP",
+    "model": "DeskJet 2720",
+    "modelVerified": false,
+    "reviewNote": "参数或耗材规格存在冲突／待核实；只作合成示意"
+  },
+  {
+    "itemId": "coffee",
+    "type": "manual_image",
+    "path": "/assets/demo-evidence/coffee-manual_image.png",
+    "sha256": "9a347ae9d8458a254816153f3dca82ebe4d0fc3bbc1612356fe6a7e3c814d5c5",
+    "width": 614,
+    "height": 700,
+    "isSynthetic": true,
+    "originalImage": "docs/references/demo-materials/originals/coffee.png",
+    "originalSha256": "f7b002abc6eb96e8da94b7d97000d2faddfde9f336f16de86fd985729a4888d0",
+    "corners": [
+      [
+        78,
+        17
+      ],
+      [
+        665,
+        24
+      ],
+      [
+        663,
+        710
+      ],
+      [
+        54,
+        711
+      ]
+    ],
+    "brand": "DeLonghi",
+    "model": "EC680.S",
+    "modelVerified": true,
+    "reviewNote": "仅完成图内型号一致性审核；非真实购物凭证；不证明官方参数、保修或购买事实"
+  },
+  {
+    "itemId": "coffee",
+    "type": "invoice",
+    "path": "/assets/demo-evidence/coffee-invoice.png",
+    "sha256": "b95df9c2cdf53156631db323b8b025595197f969aa35995260c453ecb2931df9",
+    "width": 737,
+    "height": 582,
+    "isSynthetic": true,
+    "originalImage": "docs/references/demo-materials/originals/coffee.png",
+    "originalSha256": "f7b002abc6eb96e8da94b7d97000d2faddfde9f336f16de86fd985729a4888d0",
+    "corners": [
+      [
+        699,
+        85
+      ],
+      [
+        1403,
+        82
+      ],
+      [
+        1426,
+        659
+      ],
+      [
+        695,
+        659
+      ]
+    ],
+    "brand": "DeLonghi",
+    "model": "EC680.S",
+    "modelVerified": true,
+    "reviewNote": "仅完成图内型号一致性审核；非真实购物凭证；不证明官方参数、保修或购买事实"
+  },
+  {
+    "itemId": "coffee",
+    "type": "warranty_card",
+    "path": "/assets/demo-evidence/coffee-warranty_card.png",
+    "sha256": "c71373dfb259eafa6ff7cfd47fb3063b6e6fd31dae2100c6a91e7f9fc36a023e",
+    "width": 689,
+    "height": 329,
+    "isSynthetic": true,
+    "originalImage": "docs/references/demo-materials/originals/coffee.png",
+    "originalSha256": "f7b002abc6eb96e8da94b7d97000d2faddfde9f336f16de86fd985729a4888d0",
+    "corners": [
+      [
+        103,
+        733
+      ],
+      [
+        773,
+        730
+      ],
+      [
+        777,
+        1056
+      ],
+      [
+        93,
+        1059
+      ]
+    ],
+    "brand": "DeLonghi",
+    "model": "EC680.S",
+    "modelVerified": true,
+    "reviewNote": "仅完成图内型号一致性审核；非真实购物凭证；不证明官方参数、保修或购买事实"
+  },
+  {
+    "itemId": "coffee",
+    "type": "label",
+    "path": "/assets/demo-evidence/coffee-label.png",
+    "sha256": "ee3d6fadd9afb939c8f7b9d01b01d7d9b8830806edf3896e4a71a322b49e08b8",
+    "width": 600,
+    "height": 313,
+    "isSynthetic": true,
+    "originalImage": "docs/references/demo-materials/originals/coffee.png",
+    "originalSha256": "f7b002abc6eb96e8da94b7d97000d2faddfde9f336f16de86fd985729a4888d0",
+    "corners": [
+      [
+        801,
+        705
+      ],
+      [
+        1376,
+        709
+      ],
+      [
+        1394,
+        1018
+      ],
+      [
+        799,
+        1016
+      ]
+    ],
+    "brand": "DeLonghi",
+    "model": "EC680.S",
+    "modelVerified": true,
+    "reviewNote": "仅完成图内型号一致性审核；非真实购物凭证；不证明官方参数、保修或购买事实"
+  },
+  {
+    "itemId": "toothbrush",
+    "type": "manual_image",
+    "path": "/assets/demo-evidence/toothbrush-manual_image.png",
+    "sha256": "2cc7eabcf8720b540ff181fb66ec952642dac5197a6433b1d9ecd883e6c72b5d",
+    "width": 522,
+    "height": 644,
+    "isSynthetic": true,
+    "originalImage": "docs/references/demo-materials/originals/toothbrush.png",
+    "originalSha256": "4b6ce0fca5bdc3022e97841c666e933f3e5d419d8eadff6cb7f8e5f29674f34f",
+    "corners": [
+      [
+        132,
+        34
+      ],
+      [
+        618,
+        27
+      ],
+      [
+        623,
+        666
+      ],
+      [
+        105,
+        667
+      ]
+    ],
+    "brand": "Philips",
+    "model": "HX3671/13",
+    "modelVerified": true,
+    "reviewNote": "仅完成图内型号一致性审核；非真实购物凭证；不证明官方参数、保修或购买事实"
+  },
+  {
+    "itemId": "toothbrush",
+    "type": "invoice",
+    "path": "/assets/demo-evidence/toothbrush-invoice.png",
+    "sha256": "7af58e5556810250471063a8f83b45e9cfef56511131e48136fa7000ce2de913",
+    "width": 753,
+    "height": 532,
+    "isSynthetic": true,
+    "originalImage": "docs/references/demo-materials/originals/toothbrush.png",
+    "originalSha256": "4b6ce0fca5bdc3022e97841c666e933f3e5d419d8eadff6cb7f8e5f29674f34f",
+    "corners": [
+      [
+        665,
+        72
+      ],
+      [
+        1377,
+        67
+      ],
+      [
+        1411,
+        594
+      ],
+      [
+        664,
+        594
+      ]
+    ],
+    "brand": "Philips",
+    "model": "HX3671/13",
+    "modelVerified": true,
+    "reviewNote": "仅完成图内型号一致性审核；非真实购物凭证；不证明官方参数、保修或购买事实"
+  },
+  {
+    "itemId": "toothbrush",
+    "type": "warranty_card",
+    "path": "/assets/demo-evidence/toothbrush-warranty_card.png",
+    "sha256": "e737944258a623920652d1453514622a0c62d78048f8f0d38e9835fd01d9bd72",
+    "width": 724,
+    "height": 363,
+    "isSynthetic": true,
+    "originalImage": "docs/references/demo-materials/originals/toothbrush.png",
+    "originalSha256": "4b6ce0fca5bdc3022e97841c666e933f3e5d419d8eadff6cb7f8e5f29674f34f",
+    "corners": [
+      [
+        92,
+        695
+      ],
+      [
+        792,
+        693
+      ],
+      [
+        797,
+        1053
+      ],
+      [
+        79,
+        1054
+      ]
+    ],
+    "brand": "Philips",
+    "model": "HX3671/13",
+    "modelVerified": true,
+    "reviewNote": "仅完成图内型号一致性审核；非真实购物凭证；不证明官方参数、保修或购买事实"
+  },
+  {
+    "itemId": "toothbrush",
+    "type": "package",
+    "path": "/assets/demo-evidence/toothbrush-package.png",
+    "sha256": "195d92158565460472624140687132ceea0a8df2d5978ec5d9604988bd6cc5a3",
+    "width": 585,
+    "height": 395,
+    "isSynthetic": true,
+    "originalImage": "docs/references/demo-materials/originals/toothbrush.png",
+    "originalSha256": "4b6ce0fca5bdc3022e97841c666e933f3e5d419d8eadff6cb7f8e5f29674f34f",
+    "corners": [
+      [
+        843,
+        613
+      ],
+      [
+        1405,
+        610
+      ],
+      [
+        1423,
+        1001
+      ],
+      [
+        843,
+        998
+      ]
+    ],
+    "brand": "Philips",
+    "model": "HX3671/13",
+    "modelVerified": true,
+    "reviewNote": "仅完成图内型号一致性审核；非真实购物凭证；不证明官方参数、保修或购买事实"
+  },
+  {
+    "itemId": "robot",
+    "type": "manual_image",
+    "path": "/assets/demo-evidence/robot-manual_image.png",
+    "sha256": "8fc2821ef55f3f2de80629af0b20c4c5c1ba25b064920ea03375f49462ef0f48",
+    "width": 569,
+    "height": 629,
+    "isSynthetic": true,
+    "originalImage": "docs/references/demo-materials/originals/robot.png",
+    "originalSha256": "1adefec9994212fa4b37341fe41a46429d688619f9d93f1b971379f9dc08b087",
+    "corners": [
+      [
+        117,
+        21
+      ],
+      [
+        646,
+        29
+      ],
+      [
+        647,
+        642
+      ],
+      [
+        83,
+        644
+      ]
+    ],
+    "brand": "Xiaomi",
+    "model": "S10 · B106GL",
+    "modelVerified": true,
+    "reviewNote": "仅完成图内型号一致性审核；非真实购物凭证；不证明官方参数、保修或购买事实"
+  },
+  {
+    "itemId": "robot",
+    "type": "invoice",
+    "path": "/assets/demo-evidence/robot-invoice.png",
+    "sha256": "3bd90099cdff06e5afea7191e78551a2d09064a47e500d821e8c8bc2cb677231",
+    "width": 769,
+    "height": 615,
+    "isSynthetic": true,
+    "originalImage": "docs/references/demo-materials/originals/robot.png",
+    "originalSha256": "1adefec9994212fa4b37341fe41a46429d688619f9d93f1b971379f9dc08b087",
+    "corners": [
+      [
+        661,
+        33
+      ],
+      [
+        1387,
+        36
+      ],
+      [
+        1423,
+        641
+      ],
+      [
+        660,
+        643
+      ]
+    ],
+    "brand": "Xiaomi",
+    "model": "S10 · B106GL",
+    "modelVerified": true,
+    "reviewNote": "仅完成图内型号一致性审核；非真实购物凭证；不证明官方参数、保修或购买事实"
+  },
+  {
+    "itemId": "robot",
+    "type": "warranty_card",
+    "path": "/assets/demo-evidence/robot-warranty_card.png",
+    "sha256": "b3e9464baac39507c434ce51ad1b2467fb3da36b9cef4aae4fa9791e83ed4c62",
+    "width": 527,
+    "height": 407,
+    "isSynthetic": true,
+    "originalImage": "docs/references/demo-materials/originals/robot.png",
+    "originalSha256": "1adefec9994212fa4b37341fe41a46429d688619f9d93f1b971379f9dc08b087",
+    "corners": [
+      [
+        145,
+        673
+      ],
+      [
+        654,
+        667
+      ],
+      [
+        650,
+        1071
+      ],
+      [
+        127,
+        1071
+      ]
+    ],
+    "brand": "Xiaomi",
+    "model": "S10 · B106GL",
+    "modelVerified": true,
+    "reviewNote": "仅完成图内型号一致性审核；非真实购物凭证；不证明官方参数、保修或购买事实"
+  },
+  {
+    "itemId": "robot",
+    "type": "label",
+    "path": "/assets/demo-evidence/robot-label.png",
+    "sha256": "09943b8649b1a24d5595b1be1dc96da693f0b55ee34bfac7d0941f788f541b9b",
+    "width": 614,
+    "height": 409,
+    "isSynthetic": true,
+    "originalImage": "docs/references/demo-materials/originals/robot.png",
+    "originalSha256": "1adefec9994212fa4b37341fe41a46429d688619f9d93f1b971379f9dc08b087",
+    "corners": [
+      [
+        694,
+        664
+      ],
+      [
+        1296,
+        655
+      ],
+      [
+        1302,
+        1061
+      ],
+      [
+        693,
+        1064
+      ]
+    ],
+    "brand": "Xiaomi",
+    "model": "S10 · B106GL",
+    "modelVerified": false,
+    "reviewNote": "参数或耗材规格存在冲突／待核实；只作合成示意"
+  },
+  {
+    "itemId": "purifier",
+    "type": "manual_image",
+    "path": "/assets/demo-evidence/purifier-manual_image.png",
+    "sha256": "00a879d4f4f3e684d238c14f04c861fb902bde2531005d47f8dac6715c9c8a4f",
+    "width": 589,
+    "height": 576,
+    "isSynthetic": true,
+    "originalImage": "docs/references/demo-materials/originals/purifier.png",
+    "originalSha256": "8686a11e858de666fe9d282264d6df71f0ee593b315b048bc3629725efd99b40",
+    "corners": [
+      [
+        106,
+        30
+      ],
+      [
+        676,
+        31
+      ],
+      [
+        678,
+        601
+      ],
+      [
+        94,
+        601
+      ]
+    ],
+    "brand": "Xiaomi",
+    "model": "Air 4 · AC-M16-SC",
+    "modelVerified": true,
+    "reviewNote": "仅完成图内型号一致性审核；非真实购物凭证；不证明官方参数、保修或购买事实"
+  },
+  {
+    "itemId": "purifier",
+    "type": "invoice",
+    "path": "/assets/demo-evidence/purifier-invoice.png",
+    "sha256": "26b7ed2e9d9e10803d41afdf862f5eb1ab4416f6c46590fc2cd09c87d1b50a97",
+    "width": 687,
+    "height": 544,
+    "isSynthetic": true,
+    "originalImage": "docs/references/demo-materials/originals/purifier.png",
+    "originalSha256": "8686a11e858de666fe9d282264d6df71f0ee593b315b048bc3629725efd99b40",
+    "corners": [
+      [
+        713,
+        50
+      ],
+      [
+        1379,
+        51
+      ],
+      [
+        1394,
+        590
+      ],
+      [
+        712,
+        590
+      ]
+    ],
+    "brand": "Xiaomi",
+    "model": "Air 4 · AC-M16-SC",
+    "modelVerified": true,
+    "reviewNote": "仅完成图内型号一致性审核；非真实购物凭证；不证明官方参数、保修或购买事实"
+  },
+  {
+    "itemId": "purifier",
+    "type": "warranty_card",
+    "path": "/assets/demo-evidence/purifier-warranty_card.png",
+    "sha256": "f74acbaf812868da40a451cdc87f9aa992f1d9fa3cc15c9dabf73042c48472c9",
+    "width": 583,
+    "height": 417,
+    "isSynthetic": true,
+    "originalImage": "docs/references/demo-materials/originals/purifier.png",
+    "originalSha256": "8686a11e858de666fe9d282264d6df71f0ee593b315b048bc3629725efd99b40",
+    "corners": [
+      [
+        109,
+        627
+      ],
+      [
+        674,
+        624
+      ],
+      [
+        675,
+        1032
+      ],
+      [
+        97,
+        1041
+      ]
+    ],
+    "brand": "Xiaomi",
+    "model": "Air 4 · AC-M16-SC",
+    "modelVerified": true,
+    "reviewNote": "仅完成图内型号一致性审核；非真实购物凭证；不证明官方参数、保修或购买事实"
+  },
+  {
+    "itemId": "purifier",
+    "type": "other",
+    "path": "/assets/demo-evidence/purifier-other.png",
+    "sha256": "dbbe92198fb0d38e0b49534296933a17e69abd8e4a4eb88e62578a0cd973c4ea",
+    "width": 664,
+    "height": 433,
+    "isSynthetic": true,
+    "originalImage": "docs/references/demo-materials/originals/purifier.png",
+    "originalSha256": "8686a11e858de666fe9d282264d6df71f0ee593b315b048bc3629725efd99b40",
+    "corners": [
+      [
+        717,
+        617
+      ],
+      [
+        1358,
+        616
+      ],
+      [
+        1370,
+        1045
+      ],
+      [
+        711,
+        1045
+      ]
+    ],
+    "brand": "Xiaomi",
+    "model": "Air 4 · AC-M16-SC",
+    "modelVerified": false,
+    "reviewNote": "参数或耗材规格存在冲突／待核实；只作合成示意"
+  },
+  {
+    "itemId": "ac",
+    "type": "manual_image",
+    "path": "/assets/demo-evidence/ac-manual_image.png",
+    "sha256": "8d38944ad1c5b3d1710b4d21d3b718c1535182e068b1fb637a742247203b8e89",
+    "width": 508,
+    "height": 656,
+    "isSynthetic": true,
+    "originalImage": "docs/references/demo-materials/originals/ac.png",
+    "originalSha256": "5a1b08d074e37dae70ea0b274a4c510133df8eab29c99910d44b066ff469f1f1",
+    "corners": [
+      [
+        87,
+        23
+      ],
+      [
+        569,
+        24
+      ],
+      [
+        568,
+        673
+      ],
+      [
+        64,
+        673
+      ]
+    ],
+    "brand": "武圣 WUSHENG",
+    "model": "WSKFR-26GW/BP3",
+    "modelVerified": false,
+    "reviewNote": "仅完成图内型号一致性审核；非真实购物凭证；不证明官方参数、保修或购买事实"
+  },
+  {
+    "itemId": "ac",
+    "type": "invoice",
+    "path": "/assets/demo-evidence/ac-invoice.png",
+    "sha256": "20e42b93807a63d2a96293f1a021e98b1060c93282dfe7bb0fa6c8b062ad92e1",
+    "width": 841,
+    "height": 533,
+    "isSynthetic": true,
+    "originalImage": "docs/references/demo-materials/originals/ac.png",
+    "originalSha256": "5a1b08d074e37dae70ea0b274a4c510133df8eab29c99910d44b066ff469f1f1",
+    "corners": [
+      [
+        594,
+        50
+      ],
+      [
+        1403,
+        43
+      ],
+      [
+        1424,
+        571
+      ],
+      [
+        590,
+        570
+      ]
+    ],
+    "brand": "武圣 WUSHENG",
+    "model": "WSKFR-26GW/BP3",
+    "modelVerified": false,
+    "reviewNote": "仅完成图内型号一致性审核；非真实购物凭证；不证明官方参数、保修或购买事实"
+  },
+  {
+    "itemId": "ac",
+    "type": "warranty_card",
+    "path": "/assets/demo-evidence/ac-warranty_card.png",
+    "sha256": "6c61dc9ce1444241a5cbf50af3e385f3c80b620e96a6424d794709873ee67fa1",
+    "width": 697,
+    "height": 375,
+    "isSynthetic": true,
+    "originalImage": "docs/references/demo-materials/originals/ac.png",
+    "originalSha256": "5a1b08d074e37dae70ea0b274a4c510133df8eab29c99910d44b066ff469f1f1",
+    "corners": [
+      [
+        162,
+        690
+      ],
+      [
+        832,
+        690
+      ],
+      [
+        840,
+        1062
+      ],
+      [
+        149,
+        1062
+      ]
+    ],
+    "brand": "武圣 WUSHENG",
+    "model": "WSKFR-26GW/BP3",
+    "modelVerified": false,
+    "reviewNote": "仅完成图内型号一致性审核；非真实购物凭证；不证明官方参数、保修或购买事实"
+  },
+  {
+    "itemId": "ac",
+    "type": "label",
+    "path": "/assets/demo-evidence/ac-label.png",
+    "sha256": "6c2949ba67f58e0a29373e2daa064d615144f7d76dba78bc04b69b2b5d45b4d1",
+    "width": 337,
+    "height": 481,
+    "isSynthetic": true,
+    "originalImage": "docs/references/demo-materials/originals/ac.png",
+    "originalSha256": "5a1b08d074e37dae70ea0b274a4c510133df8eab29c99910d44b066ff469f1f1",
+    "corners": [
+      [
+        870,
+        586
+      ],
+      [
+        1197,
+        586
+      ],
+      [
+        1201,
+        1062
+      ],
+      [
+        867,
+        1063
+      ]
+    ],
+    "brand": "武圣 WUSHENG",
+    "model": "WSKFR-26GW/BP3",
+    "modelVerified": false,
+    "reviewNote": "仅完成图内型号一致性审核；非真实购物凭证；不证明官方参数、保修或购买事实"
+  },
+  {
+    "itemId": "suitcase",
+    "type": "manual_image",
+    "path": "/assets/demo-evidence/suitcase-manual_image.png",
+    "sha256": "d27990e6857cd00300f6affc7b0b52a4b6f2d3d0f571393e51bec38ab944f289",
+    "width": 371,
+    "height": 568,
+    "isSynthetic": true,
+    "originalImage": "docs/references/demo-materials/originals/suitcase.png",
+    "originalSha256": "ba040ab53469a470da3a9036bbc880ebd517edf99049d6b7bc3daebd47d6df52",
+    "corners": [
+      [
+        450,
+        60
+      ],
+      [
+        801,
+        58
+      ],
+      [
+        806,
+        621
+      ],
+      [
+        438,
+        623
+      ]
+    ],
+    "brand": "通用演示品牌",
+    "model": "TR-2001",
+    "modelVerified": false,
+    "reviewNote": "仅完成图内型号一致性审核；非真实购物凭证；不证明官方参数、保修或购买事实"
+  },
+  {
+    "itemId": "suitcase",
+    "type": "invoice",
+    "path": "/assets/demo-evidence/suitcase-invoice.png",
+    "sha256": "f415ea29bc14e037024760e3456792f426cafc8374ef134c424e9a05e7874605",
+    "width": 605,
+    "height": 559,
+    "isSynthetic": true,
+    "originalImage": "docs/references/demo-materials/originals/suitcase.png",
+    "originalSha256": "ba040ab53469a470da3a9036bbc880ebd517edf99049d6b7bc3daebd47d6df52",
+    "corners": [
+      [
+        835,
+        73
+      ],
+      [
+        1415,
+        74
+      ],
+      [
+        1434,
+        628
+      ],
+      [
+        834,
+        628
+      ]
+    ],
+    "brand": "通用演示品牌",
+    "model": "TR-2001",
+    "modelVerified": false,
+    "reviewNote": "仅完成图内型号一致性审核；非真实购物凭证；不证明官方参数、保修或购买事实"
+  },
+  {
+    "itemId": "suitcase",
+    "type": "warranty_card",
+    "path": "/assets/demo-evidence/suitcase-warranty_card.png",
+    "sha256": "7d9f9076c569ed2094983326635e40aa6cb435112d69ada8b5725ba01a9b32d4",
+    "width": 545,
+    "height": 392,
+    "isSynthetic": true,
+    "originalImage": "docs/references/demo-materials/originals/suitcase.png",
+    "originalSha256": "ba040ab53469a470da3a9036bbc880ebd517edf99049d6b7bc3daebd47d6df52",
+    "corners": [
+      [
+        90,
+        650
+      ],
+      [
+        607,
+        649
+      ],
+      [
+        609,
+        1038
+      ],
+      [
+        68,
+        1038
+      ]
+    ],
+    "brand": "通用演示品牌",
+    "model": "TR-2001",
+    "modelVerified": false,
+    "reviewNote": "仅完成图内型号一致性审核；非真实购物凭证；不证明官方参数、保修或购买事实"
+  },
+  {
+    "itemId": "suitcase",
+    "type": "label",
+    "path": "/assets/demo-evidence/suitcase-label.png",
+    "sha256": "949053b39e2119c227af3a45a9f88de277d50b838c9f284445c77ec1599f054a",
+    "width": 581,
+    "height": 394,
+    "isSynthetic": true,
+    "originalImage": "docs/references/demo-materials/originals/suitcase.png",
+    "originalSha256": "ba040ab53469a470da3a9036bbc880ebd517edf99049d6b7bc3daebd47d6df52",
+    "corners": [
+      [
+        835,
+        652
+      ],
+      [
+        1401,
+        652
+      ],
+      [
+        1408,
+        1043
+      ],
+      [
+        832,
+        1043
+      ]
+    ],
+    "brand": "通用演示品牌",
+    "model": "TR-2001",
+    "modelVerified": false,
+    "reviewNote": "仅完成图内型号一致性审核；非真实购物凭证；不证明官方参数、保修或购买事实"
+  }
+]

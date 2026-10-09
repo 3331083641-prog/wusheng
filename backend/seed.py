@@ -5,19 +5,23 @@ from . import models as m
 from .clock import today
 from .database import uid,UPLOADS
 from .lifecycle import add_months,sync_all,event,next_maintenance
+from .demo_assets import CATALOG, CONSUMABLES, OLD_DESCRIPTION, add_materials
 
 
 def seed(db):
     if db.scalar(select(m.Item.id).limit(1)):
         return False
     now=today()
-    records=[('laptop','MacBook Air M2','Apple','13.6 英寸 256GB','数码',8999,12,-6,'书房'),('headphones','Sony WH-1000XM6','Sony','WH-1000XM6','数码',2999,24,-9,'客厅'),('washer','海尔滚筒洗衣机','Haier','EG100MATE8S','家电',3299,12,-18,'阳台'),('ac','美的空调','Midea','KFR-35GW','家电',2899,36,-24,'客厅'),('robot','小米扫地机器人','Xiaomi','S10','家电',1699,12,-4,'客厅'),('coffee','德龙咖啡机','DeLonghi','EC685','家电',1599,12,-11,'厨房'),('toothbrush','飞利浦电动牙刷','Philips','HX6850','数码',399,12,-5,'浴室'),('suitcase','行李箱','RIMOWA','Original Cabin','家居',1200,24,-14,'储物间'),('purifier','空气净化器','Xiaomi','Air 4','家电',999,12,-14,'卧室'),('printer','惠普打印机','HP','DeskJet 2720','数码',599,12,-10,'书房')]
-    for ident,name,brand,model,category,price,months,offset,location in records:
+    records=[('laptop','数码',8999,12,-6,'书房'),('headphones','数码',2999,24,-9,'客厅'),('washer','家电',3299,12,-18,'阳台'),('ac','家电',2899,36,-24,'客厅'),('robot','家电',1699,12,-4,'客厅'),('coffee','家电',1599,12,-11,'厨房'),('toothbrush','数码',399,12,-5,'浴室'),('suitcase','家居',1200,24,-14,'储物间'),('purifier','家电',999,12,-14,'卧室'),('printer','数码',599,12,-10,'书房')]
+    for ident,category,price,months,offset,location in records:
         img=ident
-        item=m.Item(id=ident,name=name,brand=brand,model=model,category=category,purchasePrice=price*100,purchaseDate=add_months(now,offset).isoformat(),purchaseChannel='合成演示购买渠道',serialNumber=f'WS-DEMO-{ident.upper()}',warrantyMonths=months,returnWindowDays=7,location=location,coverImage=f'/assets/{img}.jpg',isDemo=True,description='合成 Demo 档案 · 用于展示真实数据流，不代表真实购买。')
+        item=m.Item(id=ident,**CATALOG[ident]['new'],category=category,purchasePrice=price*100,purchaseDate=add_months(now,offset).isoformat(),purchaseChannel='合成演示购买渠道',serialNumber=f'WS-DEMO-{ident.upper()}',warrantyMonths=months,returnWindowDays=7,location=location,coverImage=f'/assets/{img}.jpg',isDemo=True,description=OLD_DESCRIPTION)
+        item.description=OLD_DESCRIPTION+'\n'+CATALOG[ident]['identityNote']+'\n素材版本：demo-assets-v3'
         if ident == 'printer': item.coverImage = '/assets/no-photo.svg'  # Explicit photo empty state.
         db.add(item)
     db.flush()
+    for item in db.scalars(select(m.Item)):
+        add_materials(db,item)
     db.add(m.ItemImage(itemId='headphones',filePath='/assets/headphones-detail.jpg',type='product',source='user-design-reference'))
     for ident,interval,last in [('headphones',60,30),('washer',90,92),('ac',120,118),('robot',30,25),('coffee',45,40)]:
         day=now-timedelta(days=last)
@@ -33,6 +37,8 @@ def seed(db):
     for ident,item,name,unit,stock,warning,lead,window,used in settings:
         img={'purifier-filter':'filter','ink-cartridge':'ink','robot-filter':'filter'}.get(ident,ident)
         c=m.Consumable(id=ident,itemId=item,name=name,unit=unit,currentStock=stock,warningStock=warning,leadDays=lead,coverImage=f'/assets/{img}.jpg')
+        c.name=CONSUMABLES[ident][2]
+        if ident=='capsules':c.unit='包'
         db.add(c)
         db.flush()
         db.add(m.ConsumptionRecord(consumableId=ident,date=(now-timedelta(days=window)).isoformat(),quantityUsed=0))

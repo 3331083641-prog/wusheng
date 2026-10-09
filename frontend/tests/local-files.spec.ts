@@ -177,12 +177,12 @@ test("PDF 原生选择、上传、查看下载、刷新、AI 引用及确认删�
 
 test("六种耗材字段明确、关联链接和 Item 耗材 Tab 同源", async ({ page }) => {
   const pairs = [
-    ["空气净化器滤芯", "空气净化器", "purifier"],
-    ["洗衣液", "海尔滚筒洗衣机", "washer"],
+    ["空气净化器滤芯", "小米空气净化器4", "purifier"],
+    ["蓝月亮洗衣液", "海尔滚筒洗衣机", "washer"],
     ["打印机墨盒", "惠普打印机", "printer"],
-    ["咖啡胶囊", "德龙咖啡机", "coffee"],
-    ["电动牙刷刷头", "飞利浦电动牙刷", "toothbrush"],
-    ["扫地机器人滤网", "小米扫地机器人", "robot"],
+    ["E.S.E. 咖啡易理包", "德龙半自动意式咖啡机", "coffee"],
+    ["电动牙刷刷头", "飞利浦 HX3671/13 电动牙刷", "toothbrush"],
+    ["扫地机器人滤网", "小米扫地机器人 S10", "robot"],
   ];
   for (const [name, item, id] of pairs) {
     await page.goto("/consumables");

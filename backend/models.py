@@ -39,6 +39,7 @@ class ItemImage(Base):
     mimeType = Column(String, default='')
     fileSize = Column(Integer, default=0)
     sha256 = Column(String, default='')
+    assetMetadata = Column(JSON, nullable=True)
     createdAt = Column(String, default=timestamp)
 
 
@@ -56,6 +57,7 @@ class Document(Base):
     mimeType = Column(String, default='application/pdf')
     fileSize = Column(Integer, default=0)
     sha256 = Column(String, default='')
+    assetMetadata = Column(JSON, nullable=True)
     pageCount = Column(Integer, nullable=True)
     updatedAt = Column(String, default=timestamp)
     textStatus = Column(String, default='needs_ocr')

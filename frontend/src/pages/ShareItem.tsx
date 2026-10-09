@@ -4,7 +4,7 @@ import { api } from "../api";
 import "./share-item.css";
 
 export type Shared = {
-  item: { name: string; brand: string; model: string; category: string; status: string; coverImage: string; nextMaintenance?: string | null;
+  item: { name: string; brand: string; model: string; category: string; status: string; coverImage: string; identityNote?: string; nextMaintenance?: string | null;
     purchaseDate?: string; purchasePrice?: number; purchaseChannel?: string; location?: string;
     warrantyEndDate?: string | null; warrantyDaysLeft?: number | null; warrantyMonths?: number };
   images: { src: string }[];
@@ -12,7 +12,7 @@ export type Shared = {
   maintenance: { date: string; type: string; nextDueDate: string; needsMaintenance: boolean; cost?: number; description?: string }[];
   repairs: { reportDate: string; status: string; completionDate: string | null; cost?: number; issue?: string; description?: string }[];
   reminders: { type: string; dueDate: string }[];
-  consumables: { name: string; relatedItemName: string; status: string; currentStock?: number; unit?: string;
+  consumables: { name: string; relatedItemName: string; status: string; compatibilityNote?: string; currentStock?: number; unit?: string;
     estimatedDaysLeft: number | null; suggestedPurchaseDate: string | null; dataQuality: string; qualityExplanation: string }[];
   manuals: { name: string; readable: boolean; pageCount?: number | null; fileSize?: number; uploadedAt?: string; viewUrl?: string; downloadUrl?: string | null }[];
   options: { showWarranty: boolean; showLifecycle: boolean; showConsumables: boolean; showMaintenance: boolean; showRepairs: boolean;
@@ -86,6 +86,7 @@ export default function ShareItem() {
     <header className="share-brand"><div><img src="/assets/branding/wusheng-eco-ring-logo.png" alt="物生 Logo" width="32" height="32" /><span>物生</span></div><small>只读物品档案</small></header>
     {error ? <section className="share-state" role="alert"><h1>档案暂不可用</h1><p>{error}</p><button onClick={() => void load()}>重新读取档案</button></section> : !data ? <div className="share-loading" role="status" aria-label="正在读取档案"><div /><p>正在读取档案…</p></div> : <>
       <Cover data={data} />
+      {data.item.identityNote && <p className="share-footer">{data.item.identityNote}</p>}
       <section className="share-section"><h2>基本信息</h2><Facts fields={fields} /></section>
       <section className="share-section share-care"><h2><ShieldCheck size={19} aria-hidden="true" />保修与提醒</h2><Facts fields={[
         ...(data.options.showWarranty ? [["保修状态", !data.item.warrantyEndDate ? "未记录" : (data.item.warrantyDaysLeft ?? 0) < 0 ? "已过保" : "保修中"], ["截止日期", data.item.warrantyEndDate], ["剩余保修", data.item.warrantyDaysLeft === null || data.item.warrantyDaysLeft === undefined ? "未记录" : data.item.warrantyDaysLeft < 0 ? "已过保" : `${data.item.warrantyDaysLeft} 天`]] as [string, unknown][] : []), ["下次维护", data.item.nextMaintenance]]} />
@@ -97,7 +98,7 @@ export default function ShareItem() {
         {data.options.showRepairs && <><h3>维修记录</h3>{!data.repairs.length && <p className="share-empty">暂无维修记录</p>}{data.repairs.map((r, i) => <article className="share-record" key={i}><div><strong>{r.status}</strong><span>报修 {r.reportDate}</span></div>{r.completionDate && <p>完成日期 {r.completionDate}</p>}{r.issue && <p>{r.issue}</p>}{r.cost !== undefined && <p>费用 {money(r.cost)}</p>}{r.description && <p>{r.description}</p>}</article>)}</>}
       </section>}
       {data.options.showConsumables && <section className="share-section"><h2>耗材状态</h2>{!data.consumables.length && <p className="share-empty">暂无关联耗材</p>}{data.consumables.map((c, i) => <article className="share-consumable" key={i}><div><strong>{c.name}</strong><span className={`share-chip ${["建议补货", "即将耗尽"].includes(c.status) ? "share-chip-warning" : ""}`}>{c.status}</span></div><small>关联物品：{c.relatedItemName}</small><Facts fields={[
-        ...(c.currentStock !== undefined ? [["当前库存", `${c.currentStock} ${c.unit}`]] as [string, unknown][] : []), ["预计可用", c.estimatedDaysLeft === null ? "数据不足" : `${c.estimatedDaysLeft} 天`], ["建议补货", c.suggestedPurchaseDate]]} /><p className="share-prediction">{({ high: "较充分", medium: "一般", low: "有限" } as Record<string, string>)[c.dataQuality] || "未记录"}数据 · {c.qualityExplanation}</p></article>)}</section>}
+        ...(c.currentStock !== undefined ? [["当前库存", `${c.currentStock} ${c.unit}`]] as [string, unknown][] : []), ["预计可用", c.estimatedDaysLeft === null ? "数据不足" : `${c.estimatedDaysLeft} 天`], ["建议补货", c.suggestedPurchaseDate]]} /><p className="share-prediction">{({ high: "较充分", medium: "一般", low: "有限" } as Record<string, string>)[c.dataQuality] || "未记录"}数据 · {c.qualityExplanation}</p>{c.compatibilityNote && <p className="share-prediction">{c.compatibilityNote}</p>}</article>)}</section>}
       {(data.options.showManualNames || data.options.showManualFiles) && <section className="share-section"><h2>产品说明书</h2>{!data.manuals.length && <p className="share-empty">暂无已共享说明书</p>}{data.manuals.map((m, i) => <article className="share-manual" key={m.viewUrl || i}><div className="share-manual-name"><FileText size={22} aria-hidden="true" /><strong>{m.name}</strong></div>{m.readable ? <><p>PDF{m.pageCount ? ` · ${m.pageCount} 页` : ""} · {size(m.fileSize)}</p><small>{m.uploadedAt?.slice(0, 10)} 上传</small><div className="share-manual-actions"><a href={m.viewUrl} target="_blank" rel="noreferrer">在线查看</a>{m.downloadUrl && <a href={m.downloadUrl} download={m.name}>下载 PDF</a>}</div></> : <p className="share-empty">仅共享文件名，未授权读取文件</p>}</article>)}{data.manuals.some(m => m.readable) && <p className="share-pdf-help">若当前浏览器不支持直接阅读（如部分微信内置浏览器），请使用系统浏览器打开{data.manuals.some(m => m.downloadUrl) ? "或下载 PDF 后用系统阅读器查看" : ""}。</p>}</section>}
     </>}
     <footer className="share-footer"><strong>物生 · 只读档案</strong><p>手机和电脑需处于可互通的同一局域网，电脑保持物生运行。分享过期或撤销后，档案与说明书均不可访问。</p></footer>

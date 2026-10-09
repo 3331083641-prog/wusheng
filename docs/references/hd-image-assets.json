@@ -8,7 +8,8 @@
     "height": 1086,
     "bytes": 1476755,
     "sha256": "0E040B7803022A71F0D381F61066272F2B6246952067325C3074A18CD940120F",
-    "provenance": "User-supplied HD PNG, copied byte-for-byte without processing"
+    "provenance": "User-supplied HD PNG, copied byte-for-byte without processing",
+    "pending": false
   },
   {
     "itemId": "headphones",
@@ -19,84 +20,92 @@
     "height": 1086,
     "bytes": 1520921,
     "sha256": "F00645348DE92A633096476F144B98E126B05E3A13A14EB892C1CB62FF6C0161",
-    "provenance": "User-supplied HD PNG, copied byte-for-byte without processing"
+    "provenance": "User-supplied HD PNG, copied byte-for-byte without processing",
+    "pending": false
   },
   {
     "itemId": "washer",
     "itemName": "海尔滚筒洗衣机",
-    "sourceFilename": "ChatGPT 图像 2026年10月1日 18_42_54-3.png",
-    "assetPath": "/assets/items/haier-washer.png",
+    "sourceFilename": "ChatGPT 图像 2026年10月9日 15_24_57-3.png",
+    "assetPath": "/assets/items/haier-washer-v3.png",
     "width": 1448,
     "height": 1086,
-    "bytes": 1835401,
-    "sha256": "BF3862A07FA642EE0A43780D27F7829E01A895BBCE25A9F1B92EB0E8D458293D",
-    "provenance": "User-supplied HD PNG, copied byte-for-byte without processing"
+    "bytes": 2080204,
+    "sha256": "95484ACE8466C120D17DB6C8D933562D7EA7743A411846A2238A3D98AEB691ED",
+    "provenance": "User-supplied HD PNG, copied byte-for-byte without processing",
+    "pending": false
   },
   {
     "itemId": "ac",
-    "itemName": "美的空调",
-    "sourceFilename": "ChatGPT 图像 2026年10月1日 18_42_57-4.png",
-    "assetPath": "/assets/items/midea-air-conditioner.png",
-    "width": 1448,
-    "height": 1086,
-    "bytes": 1529288,
-    "sha256": "47FBA6DE0C55461C96E9E2614C28C1E01661D8AC6EF28001CF00A913EB025DD6",
-    "provenance": "User-supplied HD PNG, copied byte-for-byte without processing"
+    "itemName": "武圣壁挂式空调",
+    "sourceFilename": "匹配主图待补；旧图片保留文件但不作新版型号图片",
+    "assetPath": "/assets/no-photo.svg",
+    "width": 640,
+    "height": 360,
+    "bytes": 566,
+    "sha256": "03C7DD65F94D36DF0D3E452B57D45F523E7DBF6362A5B06E05D0F0F7592660E6",
+    "provenance": "No reviewed matching replacement; original old-brand files retained, not bound to new Demo",
+    "pending": true
   },
   {
     "itemId": "robot",
-    "itemName": "小米扫地机器人",
+    "itemName": "小米扫地机器人 S10",
     "sourceFilename": "ChatGPT 图像 2026年10月1日 18_43_00-5.png",
     "assetPath": "/assets/items/xiaomi-robot-vacuum.png",
     "width": 1448,
     "height": 1086,
     "bytes": 1431480,
     "sha256": "5406E6702223D3EDF0EECD11114A4CF3F35EF355494631A83911AD1C12C0F6E6",
-    "provenance": "User-supplied HD PNG, copied byte-for-byte without processing"
+    "provenance": "User-supplied HD PNG, copied byte-for-byte without processing",
+    "pending": false
   },
   {
     "itemId": "coffee",
-    "itemName": "德龙咖啡机",
-    "sourceFilename": "ChatGPT 图像 2026年10月1日 18_43_03-6.png",
-    "assetPath": "/assets/items/delonghi-coffee-machine.png",
+    "itemName": "德龙半自动意式咖啡机",
+    "sourceFilename": "阳光下的德龙意式咖啡机-1.png",
+    "assetPath": "/assets/items/delonghi-ec680-illustration.png",
     "width": 1448,
     "height": 1086,
-    "bytes": 1707299,
-    "sha256": "D78DEF129DC8A87ABEFDA662FEE7FF223779CDF945CFBB957BAA9A29A2F224BE",
-    "provenance": "User-supplied HD PNG, copied byte-for-byte without processing"
+    "bytes": 2098446,
+    "sha256": "E58778BF4962F0D4D00A300243FA2579540DEC3F15F43031B1C88ED4F2F38BFC",
+    "provenance": "User-supplied HD PNG, copied byte-for-byte without processing",
+    "pending": false
   },
   {
     "itemId": "toothbrush",
-    "itemName": "飞利浦电动牙刷",
-    "sourceFilename": "ChatGPT 图像 2026年10月1日 18_43_06-7.png",
-    "assetPath": "/assets/items/philips-electric-toothbrush.png",
-    "width": 1448,
-    "height": 1086,
-    "bytes": 1442405,
-    "sha256": "530172774D43D5EC1F07BBD982DA83492A8C3DB6EC7697A24D9866C4847A858C",
-    "provenance": "User-supplied HD PNG, copied byte-for-byte without processing"
+    "itemName": "飞利浦 HX3671/13 电动牙刷",
+    "sourceFilename": "匹配主图待补；旧图片保留文件但不作新版型号图片",
+    "assetPath": "/assets/no-photo.svg",
+    "width": 640,
+    "height": 360,
+    "bytes": 566,
+    "sha256": "03C7DD65F94D36DF0D3E452B57D45F523E7DBF6362A5B06E05D0F0F7592660E6",
+    "provenance": "No reviewed matching replacement; original old-brand files retained, not bound to new Demo",
+    "pending": true
   },
   {
     "itemId": "suitcase",
-    "itemName": "行李箱",
-    "sourceFilename": "ChatGPT 图像 2026年10月1日 18_43_10-8.png",
-    "assetPath": "/assets/items/rimowa-suitcase.png",
-    "width": 1448,
-    "height": 1086,
-    "bytes": 1484164,
-    "sha256": "881BE4AB71C03D761A3FF1E9A475EB09083BCDAC4168D98B20403E6DF1974EA4",
-    "provenance": "User-supplied HD PNG, copied byte-for-byte without processing"
+    "itemName": "20英寸旅行行李箱",
+    "sourceFilename": "匹配主图待补；旧图片保留文件但不作新版型号图片",
+    "assetPath": "/assets/no-photo.svg",
+    "width": 640,
+    "height": 360,
+    "bytes": 566,
+    "sha256": "03C7DD65F94D36DF0D3E452B57D45F523E7DBF6362A5B06E05D0F0F7592660E6",
+    "provenance": "No reviewed matching replacement; original old-brand files retained, not bound to new Demo",
+    "pending": true
   },
   {
     "itemId": "purifier",
-    "itemName": "空气净化器",
-    "sourceFilename": "ChatGPT 图像 2026年10月1日 18_43_12-9.png",
-    "assetPath": "/assets/items/xiaomi-air-purifier.png",
+    "itemName": "小米空气净化器4",
+    "sourceFilename": "温馨客厅中的极简空气净化器-3.png",
+    "assetPath": "/assets/items/xiaomi-air-purifier-4-v3.png",
     "width": 1448,
     "height": 1086,
-    "bytes": 2054733,
-    "sha256": "BDF05FF43A9FC39DFD82306C63B6BAA4E653E6D61223E0CD05D9590366F42937",
-    "provenance": "User-supplied HD PNG, copied byte-for-byte without processing"
+    "bytes": 2343245,
+    "sha256": "4C6E1DBB4D7C0356C10B5B8D609956189355DA4F71C426F36D5AB8F73944F515",
+    "provenance": "User-supplied HD PNG, copied byte-for-byte without processing",
+    "pending": false
   },
   {
     "itemId": "printer",
@@ -107,6 +116,7 @@
     "height": 1086,
     "bytes": 1433387,
     "sha256": "827F6E8D715DC61F308DAF62BC788C7E6619226D61A0D7CD69EBD120DA7569BF",
-    "provenance": "User-supplied HD PNG, copied byte-for-byte without processing"
+    "provenance": "User-supplied HD PNG, copied byte-for-byte without processing",
+    "pending": false
   }
 ]

@@ -22,11 +22,11 @@ export type ProductItem = Pick<Item, "id" | "name" | "coverImage">;
 /** Resolve presentation only: no database/seed updates and no replacement of uploaded photos. */
 export function resolveProductAsset(item?: ProductItem, source?: string): ProductAsset {
   const src = source ?? item?.coverImage ?? "";
-  const asset = legacyAssets.get(src) ?? currentAssets.get(src);
-  if (asset) return asset;
   if (item && (!src || src === "/assets/no-photo.svg") && ITEM_ASSETS[item.id]) {
     return ITEM_ASSETS[item.id];
   }
+  const asset = legacyAssets.get(src) ?? currentAssets.get(src);
+  if (asset) return asset;
   // Historical UI-only fixture uses "ink" as the printer ID. Ink consumables remain ink photos.
   if (item?.id === "ink" && src === "/assets/ink.jpg") return ITEM_ASSETS.printer;
   return { src: src || "/assets/no-photo.svg", objectPosition: "50% 50%" };

@@ -91,6 +91,9 @@ def validate_sqlite(path,members):
                     if field not in columns:
                         db.execute(f'ALTER TABLE share_links ADD COLUMN "{field}" {kind}')
                         columns.add(field)
+            if name in ('item_images','documents') and 'assetMetadata' not in columns:
+                db.execute(f'ALTER TABLE {name} ADD COLUMN assetMetadata JSON')
+                columns.add('assetMetadata')
             if not {column.name for column in table.columns}.issubset(columns):raise ValueError('schema columns')
         for table in ('item_images','documents'):
             for (relative,) in db.execute(f'SELECT filePath FROM {table}'):

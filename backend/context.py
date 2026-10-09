@@ -20,6 +20,8 @@ def lifecycle_suggestions(context):
     days=item['warrantyDaysLeft']
     if days is not None and days>=0:
         output.append(f'仍在保修期内（剩余 {days} 天）。如有异常，请保留故障记录和购买凭证，并优先联系官方售后。')
+    if item.get('isDemo'):
+        output.insert(0,'合成演示档案；日期和保修仅用于演示，不证明实际购买或保修资格。'+item.get('identityNote',''))
     if context['repairs']:
         output.append(f"已记录 {len(context['repairs'])} 次报修；最近的问题为“{context['repairs'][0]['issue']}”。")
     for c in context['consumables']:

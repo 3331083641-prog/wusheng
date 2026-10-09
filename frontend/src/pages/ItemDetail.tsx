@@ -50,7 +50,9 @@ export default function ItemDetail() {
       setImage(
         resolveProductAsset(
           d.item,
-          d.images.find((i) => i.type === "product")?.filePath || d.item.coverImage,
+          d.item.coverImage && d.item.coverImage !== "/assets/no-photo.svg"
+            ? d.item.coverImage
+            : d.images.find((i) => i.type === "product")?.filePath || d.item.coverImage,
         ).src,
       );
     } catch (e) {
@@ -188,7 +190,7 @@ export default function ItemDetail() {
       <div className="detail-hero">
         <div className="gallery">
           <div className="thumbnails">
-            {[item.coverImage, ...detail.images.map((i) => i.filePath)]
+            {[item.coverImage, ...detail.images.filter((i) => i.type === "product").map((i) => i.filePath)]
               .map((src) => resolveProductAsset(item, src).src)
               .filter((v, i, a) => v && a.indexOf(v) === i)
               .map((src) => (

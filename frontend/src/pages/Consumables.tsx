@@ -32,6 +32,7 @@ export function ConsumableCard({
           <h3>{consumable.name}</h3>
           <StatusBadge>{consumable.status}</StatusBadge>
         </header>
+        {consumable.compatibilityNote && <p className="compatibility-note">{consumable.compatibilityNote}</p>}
         <p>
           <Box size={14} />
           关联设备 <span>{item?.name}</span>

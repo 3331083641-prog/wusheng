@@ -10,11 +10,11 @@ const hd = (filename: string): ProductAsset => ({
 
 /** User-supplied white-background PNG originals. Rendering never mutates business records. */
 export const CONSUMABLE_ASSETS = {
-  airPurifierFilter: hd("air-purifier-filter-cylinder.png"),
-  laundryDetergent: hd("laundry-detergent-blue.png"),
-  printerInk: hd("printer-ink-cartridges-cmy.png"),
-  coffeeCapsules: hd("coffee-capsules-metallic.png"),
-  toothbrushHeads: hd("toothbrush-heads-dual.png"),
+  airPurifierFilter: hd("air-purifier-filter-v3.png"),
+  laundryDetergent: hd("blue-moon-detergent-v3.png"),
+  printerInk: hd("hp805-illustration-v3.png"),
+  coffeeCapsules: hd("ese-pods-v3.png"),
+  toothbrushHeads: hd("click-on-brushheads-v3.png"),
   robotVacuumFilter: hd("robot-vacuum-filter-rect.png"),
 } as const;
 
@@ -32,7 +32,7 @@ const bindings: { id: string; itemId: string; name: string; legacy: string; key:
   {
     id: "detergent",
     itemId: "washer",
-    name: "洗衣液",
+    name: "蓝月亮洗衣液",
     legacy: "/assets/detergent.jpg",
     key: "laundryDetergent",
   },
@@ -46,7 +46,7 @@ const bindings: { id: string; itemId: string; name: string; legacy: string; key:
   {
     id: "capsules",
     itemId: "coffee",
-    name: "咖啡胶囊",
+    name: "E.S.E. 咖啡易理包",
     legacy: "/assets/capsules.jpg",
     key: "coffeeCapsules",
   },

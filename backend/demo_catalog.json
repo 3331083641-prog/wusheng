@@ -1,0 +1,12 @@
+{
+  "laptop": {"old": {"name":"MacBook Air M2","brand":"Apple","model":"13.6 英寸 256GB"},"new":{"name":"MacBook Air M2","brand":"Apple","model":"A2681 · M2 · 13.6 英寸 256GB"},"identityNote":"真实产品型号；照片及配套票据为 AI 合成演示","flatlay":"ChatGPT 图像 2026年10月9日 15_33_47-1.png"},
+  "headphones": {"old":{"name":"Sony WH-1000XM6","brand":"Sony","model":"WH-1000XM6"},"new":{"name":"Sony WH-1000XM6","brand":"Sony","model":"WH-1000XM6"},"identityNote":"真实产品型号；照片及配套票据为 AI 合成演示","flatlay":"ChatGPT 图像 2026年10月9日 15_33_50-2.png"},
+  "washer": {"old":{"name":"海尔滚筒洗衣机","brand":"Haier","model":"EG100MATE8S"},"new":{"name":"海尔滚筒洗衣机","brand":"Haier","model":"EG100MATE8S"},"identityNote":"品牌型号按配套图记录；主图为 AI 生成示意，外观不构成精确型号鉴定","flatlay":"ChatGPT 图像 2026年10月9日 15_33_52-3.png"},
+  "ac": {"old":{"name":"美的空调","brand":"Midea","model":"KFR-35GW"},"new":{"name":"武圣壁挂式空调","brand":"武圣 WUSHENG","model":"WSKFR-26GW/BP3"},"identityNote":"合成演示品牌／型号 · 未核实真实在售产品；匹配主图待补","flatlay":"ChatGPT 图像 2026年10月9日 15_34_07-9.png"},
+  "robot": {"old":{"name":"小米扫地机器人","brand":"Xiaomi","model":"S10"},"new":{"name":"小米扫地机器人 S10","brand":"Xiaomi","model":"S10 · B106GL"},"identityNote":"S10/B106GL 已核实；合成铭牌电池、电压、功率与厂商规格冲突，不作真实参数依据","flatlay":"ChatGPT 图像 2026年10月9日 15_34_01-7.png"},
+  "coffee": {"old":{"name":"德龙咖啡机","brand":"DeLonghi","model":"EC685"},"new":{"name":"德龙半自动意式咖啡机","brand":"DeLonghi","model":"EC680.S"},"identityNote":"真实产品系列；主图为 AI 生成示意，不能据此鉴定具体型号","flatlay":"ChatGPT 图像 2026年10月9日 15_33_56-5.png"},
+  "toothbrush": {"old":{"name":"飞利浦电动牙刷","brand":"Philips","model":"HX6850"},"new":{"name":"飞利浦 HX3671/13 电动牙刷","brand":"Philips","model":"HX3671/13"},"identityNote":"Sonicare Series 3100；提供的多模式牙刷图不匹配，匹配主图待补","flatlay":"ChatGPT 图像 2026年10月9日 15_33_58-6.png"},
+  "suitcase": {"old":{"name":"行李箱","brand":"RIMOWA","model":"Original Cabin"},"new":{"name":"20英寸旅行行李箱","brand":"通用演示品牌","model":"TR-2001"},"identityNote":"合成演示型号 · 未核实真实在售产品；原 RIMOWA 主图保留文件但不再绑定，匹配主图待补","flatlay":"行李箱配件与说明文件平铺图.png"},
+  "purifier": {"old":{"name":"空气净化器","brand":"Xiaomi","model":"Air 4"},"new":{"name":"小米空气净化器4","brand":"Xiaomi","model":"Air 4 · AC-M16-SC"},"identityNote":"真实产品型号；主图及配套资料为 AI 生成示意","flatlay":"ChatGPT 图像 2026年10月9日 15_34_05-8.png"},
+  "printer": {"old":{"name":"惠普打印机","brand":"HP","model":"DeskJet 2720"},"new":{"name":"惠普打印机","brand":"HP","model":"DeskJet 2720"},"identityNote":"真实产品系列；墨盒必须按销售地区确认；照片及配套资料为 AI 合成演示","flatlay":"ChatGPT 图像 2026年10月9日 15_33_54-4.png"}
+}

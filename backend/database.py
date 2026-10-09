@@ -41,12 +41,15 @@ def migrate_schema(target_engine):
     """Additive migration: preserve existing archives and all business values."""
     from sqlalchemy import inspect, text
     additions = {
+        # Optional provenance only; existing business records remain unchanged.
         'item_images': {'originalFilename': "TEXT DEFAULT ''", 'storedFilename': "TEXT DEFAULT ''", 'mimeType': "TEXT DEFAULT ''", 'fileSize': 'INTEGER DEFAULT 0', 'sha256': "TEXT DEFAULT ''", 'createdAt': "TEXT DEFAULT ''"},
         'documents': {'originalFilename': "TEXT DEFAULT ''", 'storedFilename': "TEXT DEFAULT ''", 'mimeType': "TEXT DEFAULT 'application/pdf'", 'fileSize': 'INTEGER DEFAULT 0', 'sha256': "TEXT DEFAULT ''", 'pageCount': 'INTEGER', 'updatedAt': "TEXT DEFAULT ''", 'textStatus': "TEXT DEFAULT 'needs_ocr'", 'textSource': "TEXT DEFAULT 'none'", 'ocrPageCount': 'INTEGER DEFAULT 0', 'ocrError': "TEXT DEFAULT ''"},
         'consumables': {'createdAt': "TEXT DEFAULT ''", 'updatedAt': "TEXT DEFAULT ''"},
         'recognition_sessions': {'draftId': 'TEXT'},
         'share_links': {'expiresAt': 'TEXT', 'options': 'JSON'},
     }
+    for table in ('item_images', 'documents'):
+        additions[table]['assetMetadata'] = 'JSON'
     with target_engine.begin() as connection:
         for table, fields in additions.items():
             if not inspect(connection).has_table(table):

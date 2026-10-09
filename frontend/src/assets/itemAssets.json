@@ -1,12 +1,62 @@
 {
-  "laptop": { "src": "/assets/items/macbook-air-m2.png", "width": 1448, "height": 1086, "objectPosition": "50% 50%" },
-  "headphones": { "src": "/assets/items/sony-wh1000xm6.png", "width": 1448, "height": 1086, "objectPosition": "50% 32%" },
-  "washer": { "src": "/assets/items/haier-washer.png", "width": 1448, "height": 1086, "objectPosition": "50% 36%" },
-  "ac": { "src": "/assets/items/midea-air-conditioner.png", "width": 1448, "height": 1086, "objectPosition": "50% 50%" },
-  "robot": { "src": "/assets/items/xiaomi-robot-vacuum.png", "width": 1448, "height": 1086, "objectPosition": "50% 60%" },
-  "coffee": { "src": "/assets/items/delonghi-coffee-machine.png", "width": 1448, "height": 1086, "objectPosition": "50% 38%" },
-  "toothbrush": { "src": "/assets/items/philips-electric-toothbrush.png", "width": 1448, "height": 1086, "objectPosition": "50% 30%" },
-  "suitcase": { "src": "/assets/items/rimowa-suitcase.png", "width": 1448, "height": 1086, "objectPosition": "50% 36%" },
-  "purifier": { "src": "/assets/items/xiaomi-air-purifier.png", "width": 1448, "height": 1086, "objectPosition": "50% 55%" },
-  "printer": { "src": "/assets/items/hp-printer.png", "width": 1448, "height": 1086, "objectPosition": "50% 60%" }
+  "laptop": {
+    "src": "/assets/items/macbook-air-m2.png",
+    "width": 1448,
+    "height": 1086,
+    "objectPosition": "50% 50%"
+  },
+  "headphones": {
+    "src": "/assets/items/sony-wh1000xm6.png",
+    "width": 1448,
+    "height": 1086,
+    "objectPosition": "50% 32%"
+  },
+  "washer": {
+    "src": "/assets/items/haier-washer-v3.png",
+    "width": 1448,
+    "height": 1086,
+    "objectPosition": "50% 36%"
+  },
+  "ac": {
+    "src": "/assets/no-photo.svg",
+    "width": 1448,
+    "height": 1086,
+    "objectPosition": "50% 50%"
+  },
+  "robot": {
+    "src": "/assets/items/xiaomi-robot-vacuum.png",
+    "width": 1448,
+    "height": 1086,
+    "objectPosition": "50% 60%"
+  },
+  "coffee": {
+    "src": "/assets/items/delonghi-ec680-illustration.png",
+    "width": 1448,
+    "height": 1086,
+    "objectPosition": "50% 38%"
+  },
+  "toothbrush": {
+    "src": "/assets/no-photo.svg",
+    "width": 1448,
+    "height": 1086,
+    "objectPosition": "50% 50%"
+  },
+  "suitcase": {
+    "src": "/assets/no-photo.svg",
+    "width": 1448,
+    "height": 1086,
+    "objectPosition": "50% 50%"
+  },
+  "purifier": {
+    "src": "/assets/items/xiaomi-air-purifier-4-v3.png",
+    "width": 1448,
+    "height": 1086,
+    "objectPosition": "50% 55%"
+  },
+  "printer": {
+    "src": "/assets/items/hp-printer.png",
+    "width": 1448,
+    "height": 1086,
+    "objectPosition": "50% 60%"
+  }
 }

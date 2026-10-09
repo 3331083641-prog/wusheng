@@ -51,7 +51,9 @@ def validate_pdf(file):
         raise HTTPException(415, '请上传 .pdf 格式的有效 PDF 文件')
     try:
         reader = PdfReader(BytesIO(contents))
-        if reader.is_encrypted:
+        # Some public manufacturer PDFs restrict editing but permit reading with
+        # an empty user password. Preserve their original encrypted bytes.
+        if reader.is_encrypted and not reader.decrypt(''):
             raise ValueError('encrypted')
         count = len(reader.pages)
         if count == 0:

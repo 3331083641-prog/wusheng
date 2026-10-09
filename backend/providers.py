@@ -41,7 +41,7 @@ class EvidenceProvider:
             answer='没有找到这件设备关联的耗材记录。' if not cs else '\n'.join(f"{c['name']}：库存 {c['currentStock']:g} {c['unit']}。"+(f"按历史日均消耗 {c['dailyRate']:g}，预计可用 {c['estimatedDaysLeft']} 天，建议 {c['suggestedPurchaseDate']} 补给。" if c['dailyRate'] else '历史不足，无法估算耗尽时间。') for c in cs)
             sources=[{'type':'历史预测','title':f"{c['name']} · {c['method']}"} for c in cs]
         elif any(w in question for w in ['清洁','清洗','维护','保养','电池','说明书','手册']):
-            manuals=context['manuals']
+            manuals=[d for d in context['manuals'] if not (d.get('assetMetadata') or {}).get('excludedFromAI')]
             groups=[(['电池','battery'],['电池','battery']),(['清洁','清洗','clean'],['清洁','清洗','clean']),(['保养','维护','maintenance'],['保养','维护','maintenance','care']),(['滤网','滤芯','filter'],['滤网','滤芯','filter']),(['更换','刷头','replace'],['更换','刷头','replace'])]
             keywords=next((terms for triggers,terms in groups if any(w in question.lower() for w in triggers)),[])
             if not keywords and any(w in question for w in ['查看说明书','查看手册']):keywords=['']
@@ -66,6 +66,8 @@ class EvidenceProvider:
         elif any(w in question for w in ['型号','序列号','购买','品牌','名称','类别']):
             answer=f"{item['name']}；品牌 {item.get('brand') or '未记录'}；类别 {item.get('category') or '未记录'}；型号 {item['model'] or '未记录'}；购买日期 {item['purchaseDate']}；购买渠道 {item.get('purchaseChannel') or '未记录'}；购买价格 ¥{item.get('purchasePrice',0):.2f}；序列号 {item['serialNumber'] or '未记录'}。"
             sources=[{'type':'数据库','title':'当前物品档案'}]
+        if item.get('isDemo'):
+            answer='合成演示档案，非真实购买凭证或官方售后结论。'+item.get('identityNote','')+'\n'+answer
         return {'answer':answer,'sources':sources,'mode':'基础规则回答（本地）'}
 
 
