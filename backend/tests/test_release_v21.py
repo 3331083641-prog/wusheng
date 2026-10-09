@@ -50,7 +50,7 @@ def test_privacy_flags_and_event_title_redaction(lan):
     assert not {'purchaseDate','purchasePrice','purchaseChannel','serialNumber'} & shared['item'].keys()
     assert shared['manuals']==[] and 'PRIVATE' not in json.dumps(shared)
     assert not any(e['type']=='purchase' for e in shared['events'])
-    opts={k:False for k in sharing.ShareOptions.model_fields}
+    opts={k:False if isinstance(v, bool) else v for k,v in sharing.ShareOptions().model_dump().items()}
     private=lan.post('/items/headphones/share?regenerate=true',json={'options':opts}).json()
     data=lan.get('/share-data/'+private['token']).json()
     assert data['events']==data['consumables']==data['manuals']==[]
