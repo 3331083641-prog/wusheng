@@ -1,11 +1,11 @@
 {
-  "checkedAt": "2026-10-07T15:56:56.541719+00:00",
+  "checkedAt": "2026-10-09T04:16:47.314089+00:00",
   "data": "isolated synthetic SQLite and generated fixtures",
   "browser": "Microsoft Edge (Playwright)",
   "stats": {
-    "startTime": "2026-10-07T15:52:58.676Z",
-    "duration": 147504.536,
-    "expected": 34,
+    "startTime": "2026-10-09T04:12:16.879Z",
+    "duration": 188789.06699999998,
+    "expected": 42,
     "skipped": 0,
     "unexpected": 0,
     "flaky": 0
@@ -17,7 +17,7 @@
       "attempts": [
         {
           "status": "passed",
-          "durationMs": 2336
+          "durationMs": 2228
         }
       ]
     },
@@ -27,7 +27,7 @@
       "attempts": [
         {
           "status": "passed",
-          "durationMs": 8007
+          "durationMs": 8544
         }
       ]
     },
@@ -37,7 +37,7 @@
       "attempts": [
         {
           "status": "passed",
-          "durationMs": 4064
+          "durationMs": 4443
         }
       ]
     },
@@ -47,7 +47,7 @@
       "attempts": [
         {
           "status": "passed",
-          "durationMs": 9567
+          "durationMs": 11203
         }
       ]
     },
@@ -57,7 +57,7 @@
       "attempts": [
         {
           "status": "passed",
-          "durationMs": 1515
+          "durationMs": 1914
         }
       ]
     },
@@ -67,7 +67,87 @@
       "attempts": [
         {
           "status": "passed",
-          "durationMs": 1211
+          "durationMs": 1476
+        }
+      ]
+    },
+    {
+      "title": "手机档案 375px：打印机图片、中文品牌、无横向溢出",
+      "status": "expected",
+      "attempts": [
+        {
+          "status": "passed",
+          "durationMs": 1871
+        }
+      ]
+    },
+    {
+      "title": "手机档案 390px：打印机图片、中文品牌、无横向溢出",
+      "status": "expected",
+      "attempts": [
+        {
+          "status": "passed",
+          "durationMs": 1830
+        }
+      ]
+    },
+    {
+      "title": "手机档案 430px：打印机图片、中文品牌、无横向溢出",
+      "status": "expected",
+      "attempts": [
+        {
+          "status": "passed",
+          "durationMs": 1940
+        }
+      ]
+    },
+    {
+      "title": "全部正式 Demo 图片均能显示；未授权字段不进入手机 DOM",
+      "status": "expected",
+      "attempts": [
+        {
+          "status": "passed",
+          "durationMs": 14332
+        }
+      ]
+    },
+    {
+      "title": "用户本体照片：封面优先、相册切换、删除兜底及真实无图",
+      "status": "expected",
+      "attempts": [
+        {
+          "status": "passed",
+          "durationMs": 2579
+        }
+      ]
+    },
+    {
+      "title": "图片请求失败显示读取错误，不伪装成没有照片",
+      "status": "expected",
+      "attempts": [
+        {
+          "status": "passed",
+          "durationMs": 1827
+        }
+      ]
+    },
+    {
+      "title": "PDF 手机入口、原名下载、未来授权、删除和撤销实时失效",
+      "status": "expected",
+      "attempts": [
+        {
+          "status": "passed",
+          "durationMs": 4152
+        }
+      ]
+    },
+    {
+      "title": "所有者明确选择具体 PDF；新权限及持续授权默认关闭",
+      "status": "expected",
+      "attempts": [
+        {
+          "status": "passed",
+          "durationMs": 5244
         }
       ]
     },
@@ -77,7 +157,7 @@
       "attempts": [
         {
           "status": "passed",
-          "durationMs": 3345
+          "durationMs": 6465
         }
       ]
     },
@@ -87,7 +167,7 @@
       "attempts": [
         {
           "status": "passed",
-          "durationMs": 3246
+          "durationMs": 6128
         }
       ]
     },
@@ -97,7 +177,7 @@
       "attempts": [
         {
           "status": "passed",
-          "durationMs": 3278
+          "durationMs": 5512
         }
       ]
     },
@@ -107,7 +187,7 @@
       "attempts": [
         {
           "status": "passed",
-          "durationMs": 2959
+          "durationMs": 3986
         }
       ]
     },
@@ -117,7 +197,7 @@
       "attempts": [
         {
           "status": "passed",
-          "durationMs": 22129
+          "durationMs": 24711
         }
       ]
     },
@@ -127,7 +207,7 @@
       "attempts": [
         {
           "status": "passed",
-          "durationMs": 2714
+          "durationMs": 2765
         }
       ]
     },
@@ -137,7 +217,7 @@
       "attempts": [
         {
           "status": "passed",
-          "durationMs": 1328
+          "durationMs": 1776
         }
       ]
     },
@@ -147,7 +227,7 @@
       "attempts": [
         {
           "status": "passed",
-          "durationMs": 1272
+          "durationMs": 1317
         }
       ]
     },
@@ -157,7 +237,7 @@
       "attempts": [
         {
           "status": "passed",
-          "durationMs": 1395
+          "durationMs": 1308
         }
       ]
     },
@@ -167,7 +247,7 @@
       "attempts": [
         {
           "status": "passed",
-          "durationMs": 2729
+          "durationMs": 2594
         }
       ]
     },
@@ -177,7 +257,7 @@
       "attempts": [
         {
           "status": "passed",
-          "durationMs": 2423
+          "durationMs": 2396
         }
       ]
     },
@@ -187,7 +267,7 @@
       "attempts": [
         {
           "status": "passed",
-          "durationMs": 1397
+          "durationMs": 1271
         }
       ]
     },
@@ -197,7 +277,7 @@
       "attempts": [
         {
           "status": "passed",
-          "durationMs": 1712
+          "durationMs": 1576
         }
       ]
     },
@@ -207,7 +287,7 @@
       "attempts": [
         {
           "status": "passed",
-          "durationMs": 3631
+          "durationMs": 2976
         }
       ]
     },
@@ -217,7 +297,7 @@
       "attempts": [
         {
           "status": "passed",
-          "durationMs": 935
+          "durationMs": 906
         }
       ]
     },
@@ -227,7 +307,7 @@
       "attempts": [
         {
           "status": "passed",
-          "durationMs": 981
+          "durationMs": 961
         }
       ]
     },
@@ -237,7 +317,7 @@
       "attempts": [
         {
           "status": "passed",
-          "durationMs": 1056
+          "durationMs": 1037
         }
       ]
     },
@@ -247,7 +327,7 @@
       "attempts": [
         {
           "status": "passed",
-          "durationMs": 1078
+          "durationMs": 1110
         }
       ]
     },
@@ -257,7 +337,7 @@
       "attempts": [
         {
           "status": "passed",
-          "durationMs": 5133
+          "durationMs": 4452
         }
       ]
     },
@@ -267,7 +347,7 @@
       "attempts": [
         {
           "status": "passed",
-          "durationMs": 1451
+          "durationMs": 1563
         }
       ]
     },
@@ -277,7 +357,7 @@
       "attempts": [
         {
           "status": "passed",
-          "durationMs": 11057
+          "durationMs": 10240
         }
       ]
     },
@@ -287,7 +367,7 @@
       "attempts": [
         {
           "status": "passed",
-          "durationMs": 5231
+          "durationMs": 4491
         }
       ]
     },
@@ -297,7 +377,7 @@
       "attempts": [
         {
           "status": "passed",
-          "durationMs": 4850
+          "durationMs": 4328
         }
       ]
     },
@@ -307,7 +387,7 @@
       "attempts": [
         {
           "status": "passed",
-          "durationMs": 2212
+          "durationMs": 2175
         }
       ]
     },
@@ -317,7 +397,7 @@
       "attempts": [
         {
           "status": "passed",
-          "durationMs": 3075
+          "durationMs": 3020
         }
       ]
     },
@@ -327,7 +407,7 @@
       "attempts": [
         {
           "status": "passed",
-          "durationMs": 3915
+          "durationMs": 3432
         }
       ]
     },
@@ -337,7 +417,7 @@
       "attempts": [
         {
           "status": "passed",
-          "durationMs": 1544
+          "durationMs": 1474
         }
       ]
     },
@@ -347,7 +427,7 @@
       "attempts": [
         {
           "status": "passed",
-          "durationMs": 21131
+          "durationMs": 17899
         }
       ]
     }
