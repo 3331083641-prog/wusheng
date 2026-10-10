@@ -85,4 +85,4 @@ Optional Local LLM 架构保持；本地服务不可用或调用失败回退。�
 
 ### GitHub
 
-代码正常提交与推送到 main；不 force push。最终 SHA 与真实 Linux / Windows CI 链接在发布完成时记录。
+工程提交 d8ac5a7b713f78ad41dcb36048e2b38429fc6e72 已正常推送 main。[GitHub Actions #38043766019](https://github.com/3331083641-prog/wusheng/actions/runs/38043766019) 的 Linux validate 和 Windows windows-smoke 均实际通过，包含冷克隆依赖安装、pytest、lint、正式构建、文档链接检查，以及 Windows 启动测试。后续提交仅补记验收文档；最新文档版本可用 git rev-parse HEAD 查看，CI 见 [main 工作流](https://github.com/3331083641-prog/wusheng/actions/workflows/ci.yml)。没有 force push。

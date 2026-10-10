@@ -457,5 +457,14 @@
     "unreferencedAssetsRemoved": 6,
     "recursiveTempCleanup": "Automatic approval rejected: blocked by policy; temporary directories retained"
   },
-  "ci": "See GitHub Actions for the exact final commit; status recorded after push"
+  "ci": {
+    "codeCommit": "d8ac5a7b713f78ad41dcb36048e2b38429fc6e72",
+    "runId": 38043766019,
+    "url": "https://github.com/3331083641-prog/wusheng/actions/runs/38043766019",
+    "conclusion": "success",
+    "jobs": [
+      "validate (Linux): success",
+      "windows-smoke: success"
+    ]
+  }
 }

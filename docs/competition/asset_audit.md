@@ -6,15 +6,15 @@
 
 | ID | 本轮之前型号 | 当前演示身份 | 统一图片映射 |
 |---|---|---|---|
-| laptop | 13.6 英寸 256GB | MacBook Air M2 · Apple · A2681 · M2 · 13.6 英寸 256GB | `/assets/items/macbook-air-m2.png` |
+| laptop | A2681 · M2 · 13.6 英寸 256GB | MacBook Air M2 · Apple · A2681 · M2 · 13.6 英寸 256GB | `/assets/items/macbook-air-m2.png` |
 | headphones | WH-1000XM6 | Sony WH-1000XM6 · Sony · WH-1000XM6 | `/assets/items/sony-wh1000xm6.png` |
 | washer | EG100MATE8S | 海尔滚筒洗衣机 · Haier · EG100MATE8S | `/assets/items/haier-washer-v3.png` |
 | ac | WSKFR-26GW/BP3 | 美的空调 · Midea · KFR-35GW/N8KS1-1U | `/assets/items/midea-ac-final.png` |
-| robot | S10 | 小米扫地机器人 S10 · Xiaomi · S10 · B106GL | `/assets/items/xiaomi-robot-vacuum.png` |
-| coffee | EC685 | 德龙半自动意式咖啡机 · DeLonghi · EC680.S | `/assets/items/delonghi-ec680-illustration.png` |
+| robot | S10 · B106GL | 小米扫地机器人 S10 · Xiaomi · S10 · B106GL | `/assets/items/xiaomi-robot-vacuum.png` |
+| coffee | EC680.S | 德龙半自动意式咖啡机 · DeLonghi · EC680.S | `/assets/items/delonghi-ec680-illustration.png` |
 | toothbrush | HX3671/13 | 飞利浦电动牙刷 · Philips · HX6850 | `/assets/items/philips-toothbrush-final.png` |
 | suitcase | TR-2001 | 20英寸旅行行李箱 · 通用演示品牌 · TR-2001 | `/assets/items/silver-suitcase-final.png` |
-| purifier | Air 4 | 小米空气净化器4 · Xiaomi · Air 4 · AC-M16-SC | `/assets/items/xiaomi-air-purifier-4-v3.png` |
+| purifier | Air 4 · AC-M16-SC | 小米空气净化器4 · Xiaomi · Air 4 · AC-M16-SC | `/assets/items/xiaomi-air-purifier-4-v3.png` |
 | printer | DeskJet 2720 | 惠普打印机 · HP · DeskJet 2720 | `/assets/items/hp-printer.png` |
 
 平台名称仍为物生 Wusheng。空调 Demo 已由武圣改为美的，牙刷由 HX3671/13 改为 HX6850；通用 TR-2001 行李箱使用用户最新银色主图。三组 PDF 的绑定由用户最终确认，不根据 PDF 中的其他标识修改物品身份。
