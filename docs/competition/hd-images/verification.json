@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-10-09T11:39:10.090Z",
+  "checkedAt": "2026-10-10T07:59:30.504Z",
   "assets": [
     {
       "itemId": "laptop",
@@ -24,10 +24,10 @@
     },
     {
       "itemId": "ac",
-      "itemName": "武圣壁挂式空调",
-      "src": "/assets/no-photo.svg",
-      "width": 640,
-      "height": 360
+      "itemName": "美的空调",
+      "src": "/assets/items/midea-ac-final.png",
+      "width": 1448,
+      "height": 1086
     },
     {
       "itemId": "robot",
@@ -45,17 +45,17 @@
     },
     {
       "itemId": "toothbrush",
-      "itemName": "飞利浦 HX3671/13 电动牙刷",
-      "src": "/assets/no-photo.svg",
-      "width": 640,
-      "height": 360
+      "itemName": "飞利浦电动牙刷",
+      "src": "/assets/items/philips-toothbrush-final.png",
+      "width": 1448,
+      "height": 1086
     },
     {
       "itemId": "suitcase",
       "itemName": "20英寸旅行行李箱",
-      "src": "/assets/no-photo.svg",
-      "width": 640,
-      "height": 360
+      "src": "/assets/items/silver-suitcase-final.png",
+      "width": 1448,
+      "height": 1086
     },
     {
       "itemId": "purifier",
@@ -145,9 +145,9 @@
           "fit": "cover"
         },
         {
-          "src": "/assets/no-photo.svg",
-          "width": 640,
-          "height": 360,
+          "src": "/assets/items/midea-ac-final.png",
+          "width": 1448,
+          "height": 1086,
           "fit": "cover"
         },
         {
@@ -163,15 +163,15 @@
           "fit": "cover"
         },
         {
-          "src": "/assets/no-photo.svg",
-          "width": 640,
-          "height": 360,
+          "src": "/assets/items/philips-toothbrush-final.png",
+          "width": 1448,
+          "height": 1086,
           "fit": "cover"
         },
         {
-          "src": "/assets/no-photo.svg",
-          "width": 640,
-          "height": 360,
+          "src": "/assets/items/silver-suitcase-final.png",
+          "width": 1448,
+          "height": 1086,
           "fit": "cover"
         },
         {
@@ -243,15 +243,15 @@
       "route": "/items/ac",
       "images": [
         {
-          "src": "/assets/no-photo.svg",
-          "width": 640,
-          "height": 360,
+          "src": "/assets/items/midea-ac-final.png",
+          "width": 1448,
+          "height": 1086,
           "fit": "cover"
         },
         {
-          "src": "/assets/no-photo.svg",
-          "width": 640,
-          "height": 360,
+          "src": "/assets/items/midea-ac-final.png",
+          "width": 1448,
+          "height": 1086,
           "fit": "contain"
         }
       ]
@@ -294,15 +294,15 @@
       "route": "/items/toothbrush",
       "images": [
         {
-          "src": "/assets/no-photo.svg",
-          "width": 640,
-          "height": 360,
+          "src": "/assets/items/philips-toothbrush-final.png",
+          "width": 1448,
+          "height": 1086,
           "fit": "cover"
         },
         {
-          "src": "/assets/no-photo.svg",
-          "width": 640,
-          "height": 360,
+          "src": "/assets/items/philips-toothbrush-final.png",
+          "width": 1448,
+          "height": 1086,
           "fit": "contain"
         }
       ]
@@ -311,15 +311,15 @@
       "route": "/items/suitcase",
       "images": [
         {
-          "src": "/assets/no-photo.svg",
-          "width": 640,
-          "height": 360,
+          "src": "/assets/items/silver-suitcase-final.png",
+          "width": 1448,
+          "height": 1086,
           "fit": "cover"
         },
         {
-          "src": "/assets/no-photo.svg",
-          "width": 640,
-          "height": 360,
+          "src": "/assets/items/silver-suitcase-final.png",
+          "width": 1448,
+          "height": 1086,
           "fit": "contain"
         }
       ]
@@ -362,15 +362,15 @@
       "route": "/",
       "images": [
         {
-          "src": "/assets/no-photo.svg",
-          "width": 640,
-          "height": 360,
+          "src": "/assets/items/midea-ac-final.png",
+          "width": 1448,
+          "height": 1086,
           "fit": "contain"
         },
         {
-          "src": "/assets/no-photo.svg",
-          "width": 640,
-          "height": 360,
+          "src": "/assets/items/midea-ac-final.png",
+          "width": 1448,
+          "height": 1086,
           "fit": "contain"
         },
         {
@@ -398,9 +398,9 @@
           "fit": "cover"
         },
         {
-          "src": "/assets/no-photo.svg",
-          "width": 640,
-          "height": 360,
+          "src": "/assets/items/philips-toothbrush-final.png",
+          "width": 1448,
+          "height": 1086,
           "fit": "cover"
         }
       ]
@@ -415,9 +415,9 @@
           "fit": "cover"
         },
         {
-          "src": "/assets/no-photo.svg",
-          "width": 640,
-          "height": 360,
+          "src": "/assets/items/midea-ac-final.png",
+          "width": 1448,
+          "height": 1086,
           "fit": "cover"
         },
         {
@@ -457,9 +457,9 @@
           "fit": "cover"
         },
         {
-          "src": "/assets/no-photo.svg",
-          "width": 640,
-          "height": 360,
+          "src": "/assets/items/philips-toothbrush-final.png",
+          "width": 1448,
+          "height": 1086,
           "fit": "cover"
         },
         {
@@ -493,9 +493,9 @@
           "fit": "cover"
         },
         {
-          "src": "/assets/no-photo.svg",
-          "width": 640,
-          "height": 360,
+          "src": "/assets/items/philips-toothbrush-final.png",
+          "width": 1448,
+          "height": 1086,
           "fit": "cover"
         },
         {
@@ -505,15 +505,15 @@
           "fit": "cover"
         },
         {
-          "src": "/assets/no-photo.svg",
-          "width": 640,
-          "height": 360,
+          "src": "/assets/items/silver-suitcase-final.png",
+          "width": 1448,
+          "height": 1086,
           "fit": "cover"
         },
         {
-          "src": "/assets/no-photo.svg",
-          "width": 640,
-          "height": 360,
+          "src": "/assets/items/midea-ac-final.png",
+          "width": 1448,
+          "height": 1086,
           "fit": "cover"
         },
         {
@@ -615,13 +615,19 @@
           "fit": "contain"
         },
         {
-          "src": "/assets/consumables/click-on-brushheads-v3.png",
+          "src": "/assets/consumables/click-on-brushhead-final.png",
           "width": 1448,
           "height": 1086,
           "fit": "contain"
         },
         {
           "src": "/assets/consumables/robot-vacuum-filter-rect.png",
+          "width": 1448,
+          "height": 1086,
+          "fit": "contain"
+        },
+        {
+          "src": "/assets/consumables/ac-dust-filter-final.png",
           "width": 1448,
           "height": 1086,
           "fit": "contain"
@@ -658,9 +664,9 @@
           "fit": "cover"
         },
         {
-          "src": "/assets/no-photo.svg",
-          "width": 640,
-          "height": 360,
+          "src": "/assets/items/midea-ac-final.png",
+          "width": 1448,
+          "height": 1086,
           "fit": "cover"
         },
         {
@@ -676,15 +682,15 @@
           "fit": "cover"
         },
         {
-          "src": "/assets/no-photo.svg",
-          "width": 640,
-          "height": 360,
+          "src": "/assets/items/philips-toothbrush-final.png",
+          "width": 1448,
+          "height": 1086,
           "fit": "cover"
         },
         {
-          "src": "/assets/no-photo.svg",
-          "width": 640,
-          "height": 360,
+          "src": "/assets/items/silver-suitcase-final.png",
+          "width": 1448,
+          "height": 1086,
           "fit": "cover"
         },
         {
@@ -729,9 +735,9 @@
           "fit": "cover"
         },
         {
-          "src": "/assets/no-photo.svg",
-          "width": 640,
-          "height": 360,
+          "src": "/assets/items/midea-ac-final.png",
+          "width": 1448,
+          "height": 1086,
           "fit": "cover"
         },
         {
@@ -747,15 +753,15 @@
           "fit": "cover"
         },
         {
-          "src": "/assets/no-photo.svg",
-          "width": 640,
-          "height": 360,
+          "src": "/assets/items/philips-toothbrush-final.png",
+          "width": 1448,
+          "height": 1086,
           "fit": "cover"
         },
         {
-          "src": "/assets/no-photo.svg",
-          "width": 640,
-          "height": 360,
+          "src": "/assets/items/silver-suitcase-final.png",
+          "width": 1448,
+          "height": 1086,
           "fit": "cover"
         },
         {

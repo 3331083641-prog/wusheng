@@ -21,7 +21,7 @@ def plan(db):
     for ident,entry in CATALOG.items():
         item=db.get(m.Item,ident)
         if not item or not item.isDemo:continue
-        if '素材版本：demo-assets-v3' in (item.description or ''):continue
+        if any(v in (item.description or '') for v in ('素材版本：demo-assets-v3','素材版本：final-materials-v4')):continue
         try:
             # SQLAlchemy evaluates initial timestamp defaults a few microseconds
             # apart; do not accept a later API edit merely within the same second.
@@ -41,7 +41,8 @@ def migrate(db,apply=False,fail_hook=None):
     for ident in eligible:
         item=db.get(m.Item,ident);entry=CATALOG[ident]
         for field,value in entry['new'].items():setattr(item,field,value)
-        item.description=OLD_DESCRIPTION+'\n'+entry['identityNote']+'\n素材版本：demo-assets-v3'
+        version='final-materials-v4' if ident in ('ac','toothbrush','suitcase') else 'demo-assets-v3'
+        item.description=OLD_DESCRIPTION+'\n'+entry['identityNote']+'\n素材版本：'+version
         report['addedImages']+=add_materials(db,item)
         for cid,(parent,old,new,_) in CONSUMABLES.items():
             c=db.get(m.Consumable,cid)

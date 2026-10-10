@@ -48,18 +48,6 @@
     "provenance": "User-supplied AI illustration; edge-connected neutral background whitened; product text and proportions preserved"
   },
   {
-    "consumableId": "brushhead",
-    "name": "电动牙刷刷头",
-    "itemId": "toothbrush",
-    "sourceFilename": "用户提供的 2026-10-09 素材；边缘背景标准化，详见 consumable-assets-v3.json",
-    "assetPath": "/assets/consumables/click-on-brushheads-v3.png",
-    "width": 1448,
-    "height": 1086,
-    "bytes": 377109,
-    "sha256": "0E2D77EC18F053D119BEE8A48244A315C7D50A1B249F45D830BB51ACEEC343E3",
-    "provenance": "User-supplied AI illustration; edge-connected neutral background whitened; product text and proportions preserved"
-  },
-  {
     "consumableId": "robot-filter",
     "name": "扫地机器人滤网",
     "itemId": "robot",
@@ -70,5 +58,29 @@
     "bytes": 1023064,
     "sha256": "728355FD47E6F39052747B2BAFAB3BCCD7B03E945B34FE56EE1FD79965D9C0CB",
     "provenance": "User-supplied PNG copied byte-for-byte; no compression, cropping, recoloring or redraw"
+  },
+  {
+    "consumableId": "brushhead",
+    "itemId": "toothbrush",
+    "name": "电动牙刷刷头",
+    "sourceFilename": "飞利浦声波牙刷替换刷头 product-3.png",
+    "assetPath": "/assets/consumables/click-on-brushhead-final.png",
+    "width": 1448,
+    "height": 1086,
+    "bytes": 1491083,
+    "sha256": "E27BEE86DBF670DB517A68FC1B7221BA42F28368DBF9A84B54F31DF003DF65B9",
+    "provenance": "Owner-confirmed final AI demonstration PNG; original bytes preserved"
+  },
+  {
+    "consumableId": "ac-filter",
+    "itemId": "ac",
+    "name": "空调滤尘网",
+    "sourceFilename": "白色弧形空调滤网面板.png",
+    "assetPath": "/assets/consumables/ac-dust-filter-final.png",
+    "width": 1448,
+    "height": 1086,
+    "bytes": 1992344,
+    "sha256": "19F9B4FE66E0BAD08BA9FF2BAB7784C7236172D3F97173BC0B30D2BD4D1A9B6B",
+    "provenance": "Owner-confirmed final AI demonstration PNG; original bytes preserved"
   }
 ]

@@ -200,8 +200,8 @@ def test_item_delete_cascades_attachments_and_business_records(client):
         assert not db.scalar(select(m.ConsumptionRecord.id).where(m.ConsumptionRecord.consumableId == c['id']))
 
 
-def test_all_six_consumable_relationships(client):
-    pairs={'purifier-filter':'purifier','detergent':'washer','ink-cartridge':'printer','capsules':'coffee','brushhead':'toothbrush','robot-filter':'robot'}
+def test_all_core_consumable_and_ac_accessory_relationships(client):
+    pairs={'purifier-filter':'purifier','detergent':'washer','ink-cartridge':'printer','capsules':'coffee','brushhead':'toothbrush','robot-filter':'robot','ac-filter':'ac'}
     cs=client.get('/snapshot').json()['consumables']
     for c in cs:
         assert c['itemId'] == pairs[c['id']]

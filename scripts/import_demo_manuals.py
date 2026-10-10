@@ -23,12 +23,17 @@ MANUALS=[
  ('purifier','小米空气净化器说明书.pdf',['AC-M16-SC'],'英文／繁体中文等','Smart Air Purifier 4 使用说明书','https://www.mi.com/global/product/xiaomi-smart-air-purifier-4/'),
  ('printer','打印机说明书.pdf',['HP DeskJet 2700'],'英文','DeskJet 2700 系列使用指南；地区墨盒另行核实','https://support.hp.com/us-en/product/setup-user-guides/hp-deskjet-2700e-all-in-one-series/29378157')]
 
-def run(source,apply=False):
+OWNER_CONFIRMED=[
+ ('ac','空调说明书.pdf',[],'中文','用户确认的空调说明书',''),
+ ('toothbrush','牙刷说明书.pdf',[],'多语言','用户确认的电动牙刷说明书',''),
+ ('suitcase','行李箱说明书.pdf',[],'英文','用户确认的行李箱资料','')]
+
+def run(source,apply=False,owner_confirmed=False):
     report=[]
     with Session(database.engine) as db:
         # All files validate before any database/file changes.
         candidates=[]
-        for ident,name,terms,language,scope,url in MANUALS:
+        for ident,name,terms,language,scope,url in OWNER_CONFIRMED if owner_confirmed else MANUALS:
             item=db.get(m.Item,ident)
             if not item or not matches(item):
                 report.append({'itemId':ident,'status':'跳过：当前档案身份不匹配'});continue
@@ -36,9 +41,14 @@ def run(source,apply=False):
                 body,metadata=validate_pdf(UploadFile(stream,filename=name,headers=Headers({'content-type':'application/pdf'})))
             if not all(t.lower() in metadata['extractedText'].lower() for t in terms):
                 raise ValueError(f'PDF content model mismatch: {name}')
-            if db.scalar(select(m.Document.id).where(m.Document.itemId==ident,m.Document.sha256==sha256(body).hexdigest())):
+            existing=db.scalar(select(m.Document).where(m.Document.itemId==ident,m.Document.sha256==sha256(body).hexdigest()))
+            if existing:
+                if apply and owner_confirmed:
+                    existing.type='manual'
+                    existing.assetMetadata={**(existing.assetMetadata or {}),'bindingSource':'owner-confirmed','modelReview':'用户已确认绑定关系；原始内容保持不变','excludedFromAI':False}
                 report.append({'itemId':ident,'status':'已存在相同 SHA256，保留'});continue
-            candidates.append((ident,name,body,metadata,{'language':language,'scope':scope,'sourceUrl':url,'modelReview':'文件内容型号已核对；未执行电子签名或厂商原件鉴证','excludedFromAI':False}))
+            candidates.append((ident,name,body,metadata,{'language':language,'scope':scope,'sourceUrl':url,'bindingSource':'owner-confirmed' if owner_confirmed else 'reviewed-local',
+                'modelReview':'用户已确认绑定关系；仅检查文件可读性，原始内容保持不变' if owner_confirmed else '文件内容型号已核对；未执行电子签名或厂商原件鉴证','excludedFromAI':False}))
             report.append({'itemId':ident,'filename':name,'pages':metadata['pageCount'],'scope':scope,'status':'导入' if apply else '计划导入'})
         if apply:
             with file_transaction(db) as files:
@@ -49,5 +59,6 @@ def run(source,apply=False):
     return report
 if __name__=='__main__':
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('--source-dir',type=Path,required=True)
+    p.add_argument('--owner-confirmed',action='store_true',help='Import the three final owner-confirmed files with technical validation only')
     g=p.add_mutually_exclusive_group();g.add_argument('--dry-run',action='store_true');g.add_argument('--apply',action='store_true')
-    a=p.parse_args();print(json.dumps(run(a.source_dir,a.apply),ensure_ascii=False,indent=2))
+    a=p.parse_args();print(json.dumps(run(a.source_dir,a.apply,a.owner_confirmed),ensure_ascii=False,indent=2))

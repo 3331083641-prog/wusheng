@@ -222,13 +222,13 @@ try {
       }
       await page.getByRole("textbox", { name: "搜索耗材" }).fill("滤");
       check(
-        (await page.locator(".consumable-card").count()) === 2,
-        "Search still distinguishes both filter consumables",
+        (await page.locator(".consumable-card").count()) === 3,
+        "Search distinguishes purifier, robot and air-conditioner filters",
       );
       await page.getByRole("textbox", { name: "搜索耗材" }).fill("");
       await page.getByRole("combobox", { name: "耗材排序" }).selectOption("name");
       check(
-        (await page.locator(".consumable-card").count()) === 6,
+        (await page.locator(".consumable-card").count()) === manifest.length,
         "Sorting retains all consumables",
       );
     }

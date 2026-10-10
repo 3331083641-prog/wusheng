@@ -5,7 +5,7 @@ import ProviderStatus from "./ProviderStatus";
 import type { ProviderHealth } from "../types";
 interface Answer {
   answer: string;
-  sources: { type: string; title: string; quote?: string }[];
+  sources: { type: string; title: string; quote?: string; page?: number | null }[];
   mode: string;
   modelInvoked: boolean;
 }
@@ -29,11 +29,16 @@ export default function AIChat({ itemId, suggested }: { itemId: string; suggeste
   }, [checkHealth]);
   const bottom = useRef<HTMLDivElement>(null);
   const active = useRef(itemId);
+  const pending = useRef<AbortController | null>(null);
   useEffect(() => {
     active.current = itemId;
     setMessages([]);
     setError("");
     setInput("");
+    pending.current?.abort();
+    pending.current=null;
+    setBusy(false);
+    return ()=>pending.current?.abort();
   }, [itemId]);
   useEffect(() => {
     if (suggested) setInput(suggested);
@@ -55,8 +60,11 @@ export default function AIChat({ itemId, suggested }: { itemId: string; suggeste
     setInput("");
     setBusy(true);
     setError("");
+    const controller=new AbortController();
+    pending.current=controller;
+    const timeout=window.setTimeout(()=>controller.abort(),30000);
     try {
-      const answer = await api<Answer>("/generate", json("POST", { itemId: selected, question }));
+      const answer = await api<Answer>("/generate", {...json("POST", { itemId: selected, question }),signal:controller.signal});
       void checkHealth();
       if (active.current === selected)
         setMessages((m) => [
@@ -64,9 +72,10 @@ export default function AIChat({ itemId, suggested }: { itemId: string; suggeste
           { role: "assistant", text: answer.answer, sources: answer.sources, modelInvoked: answer.modelInvoked },
         ]);
     } catch (e) {
-      if (active.current === selected) setError((e as Error).message);
+      if (active.current === selected && pending.current===controller) setError(controller.signal.aborted ? "查询超时，请重试。可在 Provider 状态中检查当前服务。" : (e as Error).message);
     } finally {
-      setBusy(false);
+      window.clearTimeout(timeout);
+      if(pending.current===controller){pending.current=null;setBusy(false);}
     }
   };
   return (
@@ -97,7 +106,7 @@ export default function AIChat({ itemId, suggested }: { itemId: string; suggeste
                   {m.sources.map((s, n) => (
                     <details key={n}>
                       <summary>
-                        {s.type} · {s.title}
+                        {s.type} · {s.title}{s.page ? ` · 第 ${s.page} 页` : ""}
                       </summary>
                       {s.quote && <blockquote>{s.quote}</blockquote>}
                     </details>

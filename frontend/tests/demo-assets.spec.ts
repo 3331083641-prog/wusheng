@@ -22,14 +22,17 @@ test("新版 Demo 的相册只包含本体，合成票据分类展示且不当�
     await expect(page.locator(".document-card")).toHaveCount(data.documents.length);
   }
 });
-test("迁移后的型号和耗材说明同源；未匹配主图不借用旧型号",async({page,request})=>{
-  for(const [id,model] of [["ac","WSKFR-26GW/BP3"],["coffee","EC680.S"],["toothbrush","HX3671/13"],["suitcase","TR-2001"]]){
+test("最终 Demo 的型号、高清主图和耗材关联同源",async({page,request})=>{
+  const images:Record<string,string>={ac:"midea-ac-final.png",coffee:"delonghi-ec680-illustration.png",toothbrush:"philips-toothbrush-final.png",suitcase:"silver-suitcase-final.png"};
+  for(const [id,model] of [["ac","KFR-35GW/N8KS1-1U"],["coffee","EC680.S"],["toothbrush","HX6850"],["suitcase","TR-2001"]]){
     const d=await (await request.get(backend+"/items/"+id)).json();expect(d.item.model).toBe(model);
     await page.goto("/items/"+id);await expect(page.locator(".detail-info")).toContainText(model);
-    if(id!=="coffee")await expect(page.locator(".main-image img")).toHaveAttribute("src","/assets/no-photo.svg");
+    await expect(page.locator(".main-image img")).toHaveAttribute("src","/assets/items/"+images[id]);
+    await expect.poll(()=>page.locator(".main-image img").evaluate((img:HTMLImageElement)=>img.naturalWidth)).toBe(1448);
   }
   await page.goto("/consumables");
-  await expect(page.locator(".consumable-card")).toHaveCount(6);
+  await expect(page.locator(".consumable-card")).toHaveCount(7);
+  await expect(page.locator(".consumable-card").filter({hasText:"空调滤尘网"})).toContainText("美的空调");
   await expect(page.locator(".consumable-card").filter({hasText:"打印机墨盒"})).toContainText("适配性待核实");
   await expect(page.locator(".consumable-card").filter({hasText:"E.S.E."})).toContainText("44mm");
 });

@@ -75,7 +75,8 @@ def test_current_seed_and_shared_provenance(client):
         assert len([a for a in detail['images'] if a['source']=='synthetic-demo-v3'])==4
         assert detail['item']['identityNote']
     reply=client.post('/generate',json={'itemId':'ac','question':'这个品牌有官方保修吗？'}).json()
-    assert '合成演示' in reply['answer'] and '未核实' in reply['answer']
+    assert '合成演示' in reply['answer'] and '不证明真实购买或保修资格' in reply['answer']
+    assert '美的空调' in reply['answer'] and '武圣' not in reply['answer']
     cs=client.get('/items/coffee').json()['consumables']
     assert cs[0]['name']=='E.S.E. 咖啡易理包' and '胶囊' in cs[0]['compatibilityNote']
 

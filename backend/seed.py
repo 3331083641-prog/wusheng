@@ -16,7 +16,8 @@ def seed(db):
     for ident,category,price,months,offset,location in records:
         img=ident
         item=m.Item(id=ident,**CATALOG[ident]['new'],category=category,purchasePrice=price*100,purchaseDate=add_months(now,offset).isoformat(),purchaseChannel='合成演示购买渠道',serialNumber=f'WS-DEMO-{ident.upper()}',warrantyMonths=months,returnWindowDays=7,location=location,coverImage=f'/assets/{img}.jpg',isDemo=True,description=OLD_DESCRIPTION)
-        item.description=OLD_DESCRIPTION+'\n'+CATALOG[ident]['identityNote']+'\n素材版本：demo-assets-v3'
+        version='final-materials-v4' if ident in ('ac','toothbrush','suitcase') else 'demo-assets-v3'
+        item.description=OLD_DESCRIPTION+'\n'+CATALOG[ident]['identityNote']+'\n素材版本：'+version
         if ident == 'printer': item.coverImage = '/assets/no-photo.svg'  # Explicit photo empty state.
         db.add(item)
     db.flush()
@@ -45,6 +46,8 @@ def seed(db):
         for i in range(1,6):
             db.add(m.ConsumptionRecord(consumableId=ident,date=(now-timedelta(days=window-int(window*i/5))).isoformat(),quantityUsed=used/5))
         db.add(m.RestockRecord(consumableId=ident,date=(now-timedelta(days=20)).isoformat(),quantity=stock+used,cost=18000 if ident=='purifier-filter' else 6000))
+    # Owner-supplied washable accessory: no invented purchase/consumption history.
+    db.add(m.Consumable(id='ac-filter',itemId='ac',name='空调滤尘网',unit='个',currentStock=0,warningStock=0,leadDays=7,coverImage='/assets/consumables/ac-dust-filter-final.png'))
     # Generated demonstration manual, not an official Sony manual.
     from reportlab.pdfgen import canvas
     path=UPLOADS/'demo-care-guide.pdf'

@@ -12,7 +12,8 @@ CATALOG=json.loads((HERE/'demo_catalog.json').read_text(encoding='utf-8'))
 MATERIALS=json.loads((HERE/'demo_materials.json').read_text(encoding='utf-8'))
 OLD_DESCRIPTION='合成 Demo 档案 · 用于展示真实数据流，不代表真实购买。'
 CONSUMABLES={
- 'brushhead':('toothbrush','电动牙刷刷头','电动牙刷刷头','卡入式接口已核实；本图无具体刷头 SKU，适配性待核实'),
+ 'brushhead':('toothbrush','电动牙刷刷头','电动牙刷刷头','用户确认的飞利浦卡入式替换刷头演示图；更换周期以绑定说明书及实际使用记录为依据'),
+ 'ac-filter':('ac','空调滤尘网','空调滤尘网','可清洗滤尘网；用户提供的配件示意图，不是空气净化器或扫地机器人滤芯'),
  'purifier-filter':('purifier','空气净化器滤芯','空气净化器滤芯','Air 4 官方滤芯 M16R-FLP-GL，直径 210mm、高 293mm；合成图无尺寸，适配性待核实'),
  'capsules':('coffee','咖啡胶囊','E.S.E. 咖啡易理包','EC680 系列支持 44mm E.S.E. 易理包，需使用对应滤篮；不是胶囊'),
  'ink-cartridge':('printer','打印机墨盒','打印机墨盒','HP 67／805／305 依销售地区不同；合成图标签料号有误，适配性待核实'),

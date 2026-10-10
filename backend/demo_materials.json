@@ -660,138 +660,6 @@
     "reviewNote": "仅完成图内型号一致性审核；非真实购物凭证；不证明官方参数、保修或购买事实"
   },
   {
-    "itemId": "toothbrush",
-    "type": "manual_image",
-    "path": "/assets/demo-evidence/toothbrush-manual_image.png",
-    "sha256": "2cc7eabcf8720b540ff181fb66ec952642dac5197a6433b1d9ecd883e6c72b5d",
-    "width": 522,
-    "height": 644,
-    "isSynthetic": true,
-    "originalImage": "docs/references/demo-materials/originals/toothbrush.png",
-    "originalSha256": "4b6ce0fca5bdc3022e97841c666e933f3e5d419d8eadff6cb7f8e5f29674f34f",
-    "corners": [
-      [
-        132,
-        34
-      ],
-      [
-        618,
-        27
-      ],
-      [
-        623,
-        666
-      ],
-      [
-        105,
-        667
-      ]
-    ],
-    "brand": "Philips",
-    "model": "HX3671/13",
-    "modelVerified": true,
-    "reviewNote": "仅完成图内型号一致性审核；非真实购物凭证；不证明官方参数、保修或购买事实"
-  },
-  {
-    "itemId": "toothbrush",
-    "type": "invoice",
-    "path": "/assets/demo-evidence/toothbrush-invoice.png",
-    "sha256": "7af58e5556810250471063a8f83b45e9cfef56511131e48136fa7000ce2de913",
-    "width": 753,
-    "height": 532,
-    "isSynthetic": true,
-    "originalImage": "docs/references/demo-materials/originals/toothbrush.png",
-    "originalSha256": "4b6ce0fca5bdc3022e97841c666e933f3e5d419d8eadff6cb7f8e5f29674f34f",
-    "corners": [
-      [
-        665,
-        72
-      ],
-      [
-        1377,
-        67
-      ],
-      [
-        1411,
-        594
-      ],
-      [
-        664,
-        594
-      ]
-    ],
-    "brand": "Philips",
-    "model": "HX3671/13",
-    "modelVerified": true,
-    "reviewNote": "仅完成图内型号一致性审核；非真实购物凭证；不证明官方参数、保修或购买事实"
-  },
-  {
-    "itemId": "toothbrush",
-    "type": "warranty_card",
-    "path": "/assets/demo-evidence/toothbrush-warranty_card.png",
-    "sha256": "e737944258a623920652d1453514622a0c62d78048f8f0d38e9835fd01d9bd72",
-    "width": 724,
-    "height": 363,
-    "isSynthetic": true,
-    "originalImage": "docs/references/demo-materials/originals/toothbrush.png",
-    "originalSha256": "4b6ce0fca5bdc3022e97841c666e933f3e5d419d8eadff6cb7f8e5f29674f34f",
-    "corners": [
-      [
-        92,
-        695
-      ],
-      [
-        792,
-        693
-      ],
-      [
-        797,
-        1053
-      ],
-      [
-        79,
-        1054
-      ]
-    ],
-    "brand": "Philips",
-    "model": "HX3671/13",
-    "modelVerified": true,
-    "reviewNote": "仅完成图内型号一致性审核；非真实购物凭证；不证明官方参数、保修或购买事实"
-  },
-  {
-    "itemId": "toothbrush",
-    "type": "package",
-    "path": "/assets/demo-evidence/toothbrush-package.png",
-    "sha256": "195d92158565460472624140687132ceea0a8df2d5978ec5d9604988bd6cc5a3",
-    "width": 585,
-    "height": 395,
-    "isSynthetic": true,
-    "originalImage": "docs/references/demo-materials/originals/toothbrush.png",
-    "originalSha256": "4b6ce0fca5bdc3022e97841c666e933f3e5d419d8eadff6cb7f8e5f29674f34f",
-    "corners": [
-      [
-        843,
-        613
-      ],
-      [
-        1405,
-        610
-      ],
-      [
-        1423,
-        1001
-      ],
-      [
-        843,
-        998
-      ]
-    ],
-    "brand": "Philips",
-    "model": "HX3671/13",
-    "modelVerified": true,
-    "reviewNote": "仅完成图内型号一致性审核；非真实购物凭证；不证明官方参数、保修或购买事实"
-  },
-  {
     "itemId": "robot",
     "type": "manual_image",
     "path": "/assets/demo-evidence/robot-manual_image.png",
@@ -1056,249 +924,392 @@
     "reviewNote": "参数或耗材规格存在冲突／待核实；只作合成示意"
   },
   {
-    "itemId": "ac",
+    "itemId": "toothbrush",
     "type": "manual_image",
-    "path": "/assets/demo-evidence/ac-manual_image.png",
-    "sha256": "8d38944ad1c5b3d1710b4d21d3b718c1535182e068b1fb637a742247203b8e89",
-    "width": 508,
-    "height": 656,
+    "path": "/assets/demo-evidence/toothbrush-manual_image.png",
+    "sha256": "aefeeeb30faadc5ec6447168081f47eebe35a1baec8ee0be35ca6cdb3920c007",
+    "width": 539,
+    "height": 627,
     "isSynthetic": true,
-    "originalImage": "docs/references/demo-materials/originals/ac.png",
-    "originalSha256": "5a1b08d074e37dae70ea0b274a4c510133df8eab29c99910d44b066ff469f1f1",
+    "originalImage": "docs/references/demo-materials/originals/toothbrush.png",
+    "originalSha256": "7b8e7da757928827cc688fc584dbc8d86b0d40e779009b2ab0e7648e2cf0d820",
     "corners": [
       [
-        87,
-        23
-      ],
-      [
-        569,
+        135,
         24
       ],
       [
-        568,
-        673
+        640,
+        21
       ],
       [
-        64,
-        673
+        643,
+        643
+      ],
+      [
+        108,
+        645
       ]
     ],
-    "brand": "武圣 WUSHENG",
-    "model": "WSKFR-26GW/BP3",
-    "modelVerified": false,
-    "reviewNote": "仅完成图内型号一致性审核；非真实购物凭证；不证明官方参数、保修或购买事实"
+    "brand": "Philips",
+    "model": "HX6850",
+    "modelVerified": true,
+    "bindingSource": "owner-confirmed",
+    "reviewNote": "用户确认的最终合成演示资料 · 非真实购物凭证"
+  },
+  {
+    "itemId": "toothbrush",
+    "type": "receipt",
+    "path": "/assets/demo-evidence/toothbrush-receipt.png",
+    "sha256": "bc21243d08901f040b1ed7c56a1e15a7cc05800a32f3690dff5fcb334a9e3f22",
+    "width": 736,
+    "height": 503,
+    "isSynthetic": true,
+    "originalImage": "docs/references/demo-materials/originals/toothbrush.png",
+    "originalSha256": "7b8e7da757928827cc688fc584dbc8d86b0d40e779009b2ab0e7648e2cf0d820",
+    "corners": [
+      [
+        681,
+        71
+      ],
+      [
+        1384,
+        71
+      ],
+      [
+        1410,
+        569
+      ],
+      [
+        680,
+        568
+      ]
+    ],
+    "brand": "Philips",
+    "model": "HX6850",
+    "modelVerified": true,
+    "bindingSource": "owner-confirmed",
+    "reviewNote": "用户确认的最终合成演示资料 · 非真实购物凭证"
+  },
+  {
+    "itemId": "toothbrush",
+    "type": "warranty_card",
+    "path": "/assets/demo-evidence/toothbrush-warranty_card.png",
+    "sha256": "ba94ea21a93db0dbe2e76d2629324d8a64fb5aa82389e592728571e6194ddeff",
+    "width": 716,
+    "height": 357,
+    "isSynthetic": true,
+    "originalImage": "docs/references/demo-materials/originals/toothbrush.png",
+    "originalSha256": "7b8e7da757928827cc688fc584dbc8d86b0d40e779009b2ab0e7648e2cf0d820",
+    "corners": [
+      [
+        93,
+        679
+      ],
+      [
+        782,
+        679
+      ],
+      [
+        788,
+        1033
+      ],
+      [
+        78,
+        1031
+      ]
+    ],
+    "brand": "Philips",
+    "model": "HX6850",
+    "modelVerified": true,
+    "bindingSource": "owner-confirmed",
+    "reviewNote": "用户确认的最终合成演示资料 · 非真实购物凭证"
+  },
+  {
+    "itemId": "toothbrush",
+    "type": "package",
+    "path": "/assets/demo-evidence/toothbrush-package.png",
+    "sha256": "ee22464c084f9d54f82b4f8900ef93b26531d19c422cda066ced4304c629d549",
+    "width": 608,
+    "height": 446,
+    "isSynthetic": true,
+    "originalImage": "docs/references/demo-materials/originals/toothbrush.png",
+    "originalSha256": "7b8e7da757928827cc688fc584dbc8d86b0d40e779009b2ab0e7648e2cf0d820",
+    "corners": [
+      [
+        823,
+        588
+      ],
+      [
+        1401,
+        587
+      ],
+      [
+        1426,
+        1029
+      ],
+      [
+        823,
+        1029
+      ]
+    ],
+    "brand": "Philips",
+    "model": "HX6850",
+    "modelVerified": true,
+    "bindingSource": "owner-confirmed",
+    "reviewNote": "用户确认的最终合成演示资料 · 非真实购物凭证"
   },
   {
     "itemId": "ac",
-    "type": "invoice",
-    "path": "/assets/demo-evidence/ac-invoice.png",
-    "sha256": "20e42b93807a63d2a96293f1a021e98b1060c93282dfe7bb0fa6c8b062ad92e1",
-    "width": 841,
-    "height": 533,
+    "type": "manual_image",
+    "path": "/assets/demo-evidence/ac-manual_image.png",
+    "sha256": "ac237805d63302a09274eafcfbe8e3fad6bca30e0032f04af32d8b68a92245b8",
+    "width": 547,
+    "height": 574,
     "isSynthetic": true,
     "originalImage": "docs/references/demo-materials/originals/ac.png",
-    "originalSha256": "5a1b08d074e37dae70ea0b274a4c510133df8eab29c99910d44b066ff469f1f1",
+    "originalSha256": "adedafd0bcd1e50079e477e29e5ad32fbd1348bfbc35d5ff1b895d2ceee68050",
     "corners": [
       [
-        594,
-        50
+        101,
+        15
       ],
       [
-        1403,
-        43
+        621,
+        17
       ],
       [
-        1424,
-        571
+        620,
+        584
       ],
       [
-        590,
-        570
+        77,
+        584
       ]
     ],
-    "brand": "武圣 WUSHENG",
-    "model": "WSKFR-26GW/BP3",
-    "modelVerified": false,
-    "reviewNote": "仅完成图内型号一致性审核；非真实购物凭证；不证明官方参数、保修或购买事实"
+    "brand": "Midea",
+    "model": "KFR-35GW/N8KS1-1U",
+    "modelVerified": true,
+    "bindingSource": "owner-confirmed",
+    "reviewNote": "用户确认的最终合成演示资料 · 非真实购物凭证"
+  },
+  {
+    "itemId": "ac",
+    "type": "receipt",
+    "path": "/assets/demo-evidence/ac-receipt.png",
+    "sha256": "8d3f17dafe6ba33c566ca2eeda09e8300df042a36c7ed2b7e20394296d9a9a0a",
+    "width": 783,
+    "height": 486,
+    "isSynthetic": true,
+    "originalImage": "docs/references/demo-materials/originals/ac.png",
+    "originalSha256": "adedafd0bcd1e50079e477e29e5ad32fbd1348bfbc35d5ff1b895d2ceee68050",
+    "corners": [
+      [
+        650,
+        46
+      ],
+      [
+        1408,
+        41
+      ],
+      [
+        1422,
+        523
+      ],
+      [
+        645,
+        522
+      ]
+    ],
+    "brand": "Midea",
+    "model": "KFR-35GW/N8KS1-1U",
+    "modelVerified": true,
+    "bindingSource": "owner-confirmed",
+    "reviewNote": "用户确认的最终合成演示资料 · 非真实购物凭证"
   },
   {
     "itemId": "ac",
     "type": "warranty_card",
     "path": "/assets/demo-evidence/ac-warranty_card.png",
-    "sha256": "6c61dc9ce1444241a5cbf50af3e385f3c80b620e96a6424d794709873ee67fa1",
-    "width": 697,
-    "height": 375,
+    "sha256": "950928f050c75b8715502a0c86b8eb68fea954f875040be7ea5cb64e5ef8c9a7",
+    "width": 830,
+    "height": 453,
     "isSynthetic": true,
     "originalImage": "docs/references/demo-materials/originals/ac.png",
-    "originalSha256": "5a1b08d074e37dae70ea0b274a4c510133df8eab29c99910d44b066ff469f1f1",
+    "originalSha256": "adedafd0bcd1e50079e477e29e5ad32fbd1348bfbc35d5ff1b895d2ceee68050",
     "corners": [
       [
-        162,
-        690
+        104,
+        598
       ],
       [
-        832,
-        690
+        903,
+        598
       ],
       [
-        840,
-        1062
+        916,
+        1047
       ],
       [
-        149,
-        1062
+        93,
+        1047
       ]
     ],
-    "brand": "武圣 WUSHENG",
-    "model": "WSKFR-26GW/BP3",
-    "modelVerified": false,
-    "reviewNote": "仅完成图内型号一致性审核；非真实购物凭证；不证明官方参数、保修或购买事实"
+    "brand": "Midea",
+    "model": "KFR-35GW/N8KS1-1U",
+    "modelVerified": true,
+    "bindingSource": "owner-confirmed",
+    "reviewNote": "用户确认的最终合成演示资料 · 非真实购物凭证"
   },
   {
     "itemId": "ac",
     "type": "label",
     "path": "/assets/demo-evidence/ac-label.png",
-    "sha256": "6c2949ba67f58e0a29373e2daa064d615144f7d76dba78bc04b69b2b5d45b4d1",
-    "width": 337,
-    "height": 481,
+    "sha256": "ed779d147df78b42c9c3875b256e21544ac617a6ab4b211325bf66b89a69767c",
+    "width": 467,
+    "height": 501,
     "isSynthetic": true,
     "originalImage": "docs/references/demo-materials/originals/ac.png",
-    "originalSha256": "5a1b08d074e37dae70ea0b274a4c510133df8eab29c99910d44b066ff469f1f1",
+    "originalSha256": "adedafd0bcd1e50079e477e29e5ad32fbd1348bfbc35d5ff1b895d2ceee68050",
     "corners": [
       [
-        870,
-        586
+        926,
+        546
       ],
       [
-        1197,
-        586
+        1375,
+        547
       ],
       [
-        1201,
-        1062
+        1391,
+        1043
       ],
       [
-        867,
-        1063
+        928,
+        1043
       ]
     ],
-    "brand": "武圣 WUSHENG",
-    "model": "WSKFR-26GW/BP3",
-    "modelVerified": false,
-    "reviewNote": "仅完成图内型号一致性审核；非真实购物凭证；不证明官方参数、保修或购买事实"
+    "brand": "Midea",
+    "model": "KFR-35GW/N8KS1-1U",
+    "modelVerified": true,
+    "bindingSource": "owner-confirmed",
+    "reviewNote": "用户确认的最终合成演示资料 · 非真实购物凭证"
   },
   {
     "itemId": "suitcase",
     "type": "manual_image",
     "path": "/assets/demo-evidence/suitcase-manual_image.png",
-    "sha256": "d27990e6857cd00300f6affc7b0b52a4b6f2d3d0f571393e51bec38ab944f289",
-    "width": 371,
-    "height": 568,
+    "sha256": "1ee7423999dfe212e0012e9172142bba1cf53e7b9da824815e5877a30e76c4f4",
+    "width": 369,
+    "height": 560,
     "isSynthetic": true,
     "originalImage": "docs/references/demo-materials/originals/suitcase.png",
-    "originalSha256": "ba040ab53469a470da3a9036bbc880ebd517edf99049d6b7bc3daebd47d6df52",
+    "originalSha256": "d8706bda6dd0dd9ec47a4f4470074e6f25cdf53c90692f9df68a19f0ecdcd45e",
     "corners": [
       [
-        450,
-        60
+        443,
+        70
       ],
       [
-        801,
-        58
+        795,
+        70
       ],
       [
-        806,
-        621
+        799,
+        625
       ],
       [
-        438,
-        623
+        433,
+        625
       ]
     ],
     "brand": "通用演示品牌",
     "model": "TR-2001",
-    "modelVerified": false,
-    "reviewNote": "仅完成图内型号一致性审核；非真实购物凭证；不证明官方参数、保修或购买事实"
+    "modelVerified": true,
+    "bindingSource": "owner-confirmed",
+    "reviewNote": "用户确认的最终合成演示资料 · 非真实购物凭证"
   },
   {
     "itemId": "suitcase",
     "type": "invoice",
     "path": "/assets/demo-evidence/suitcase-invoice.png",
-    "sha256": "f415ea29bc14e037024760e3456792f426cafc8374ef134c424e9a05e7874605",
+    "sha256": "33305c91125ea31b38a41737c9eef2b41aaa030bdfbe8e1201bd544d8b9ff665",
     "width": 605,
-    "height": 559,
+    "height": 556,
     "isSynthetic": true,
     "originalImage": "docs/references/demo-materials/originals/suitcase.png",
-    "originalSha256": "ba040ab53469a470da3a9036bbc880ebd517edf99049d6b7bc3daebd47d6df52",
+    "originalSha256": "d8706bda6dd0dd9ec47a4f4470074e6f25cdf53c90692f9df68a19f0ecdcd45e",
     "corners": [
       [
-        835,
-        73
+        826,
+        76
       ],
       [
-        1415,
-        74
+        1409,
+        77
       ],
       [
-        1434,
+        1424,
         628
       ],
       [
-        834,
+        824,
         628
       ]
     ],
     "brand": "通用演示品牌",
     "model": "TR-2001",
-    "modelVerified": false,
-    "reviewNote": "仅完成图内型号一致性审核；非真实购物凭证；不证明官方参数、保修或购买事实"
+    "modelVerified": true,
+    "bindingSource": "owner-confirmed",
+    "reviewNote": "用户确认的最终合成演示资料 · 非真实购物凭证"
   },
   {
     "itemId": "suitcase",
     "type": "warranty_card",
     "path": "/assets/demo-evidence/suitcase-warranty_card.png",
-    "sha256": "7d9f9076c569ed2094983326635e40aa6cb435112d69ada8b5725ba01a9b32d4",
-    "width": 545,
-    "height": 392,
+    "sha256": "d27cf76d52a47f33581350eb4ef3fb4095f91c80ec1e118cc44620557371d89b",
+    "width": 538,
+    "height": 387,
     "isSynthetic": true,
     "originalImage": "docs/references/demo-materials/originals/suitcase.png",
-    "originalSha256": "ba040ab53469a470da3a9036bbc880ebd517edf99049d6b7bc3daebd47d6df52",
+    "originalSha256": "d8706bda6dd0dd9ec47a4f4470074e6f25cdf53c90692f9df68a19f0ecdcd45e",
     "corners": [
       [
-        90,
-        650
+        88,
+        653
       ],
       [
-        607,
-        649
+        604,
+        652
       ],
       [
-        609,
-        1038
+        603,
+        1036
       ],
       [
-        68,
-        1038
+        69,
+        1035
       ]
     ],
     "brand": "通用演示品牌",
     "model": "TR-2001",
-    "modelVerified": false,
-    "reviewNote": "仅完成图内型号一致性审核；非真实购物凭证；不证明官方参数、保修或购买事实"
+    "modelVerified": true,
+    "bindingSource": "owner-confirmed",
+    "reviewNote": "用户确认的最终合成演示资料 · 非真实购物凭证"
   },
   {
     "itemId": "suitcase",
     "type": "label",
     "path": "/assets/demo-evidence/suitcase-label.png",
-    "sha256": "949053b39e2119c227af3a45a9f88de277d50b838c9f284445c77ec1599f054a",
-    "width": 581,
-    "height": 394,
+    "sha256": "4610ba128d48541d658db19f7b721839f1f335ee77a1693635cbd5fa77d8ec87",
+    "width": 591,
+    "height": 390,
     "isSynthetic": true,
     "originalImage": "docs/references/demo-materials/originals/suitcase.png",
-    "originalSha256": "ba040ab53469a470da3a9036bbc880ebd517edf99049d6b7bc3daebd47d6df52",
+    "originalSha256": "d8706bda6dd0dd9ec47a4f4470074e6f25cdf53c90692f9df68a19f0ecdcd45e",
     "corners": [
       [
-        835,
+        827,
         652
       ],
       [
@@ -1306,17 +1317,18 @@
         652
       ],
       [
-        1408,
-        1043
+        1410,
+        1039
       ],
       [
-        832,
-        1043
+        824,
+        1037
       ]
     ],
     "brand": "通用演示品牌",
     "model": "TR-2001",
-    "modelVerified": false,
-    "reviewNote": "仅完成图内型号一致性审核；非真实购物凭证；不证明官方参数、保修或购买事实"
+    "modelVerified": true,
+    "bindingSource": "owner-confirmed",
+    "reviewNote": "用户确认的最终合成演示资料 · 非真实购物凭证"
   }
 ]

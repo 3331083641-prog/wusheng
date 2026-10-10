@@ -106,7 +106,7 @@ export default function EvidenceCenter({
             {image.assetMetadata?.isSynthetic && <>
               <p className="demo-label">合成演示资料 · 非真实购物凭证</p>
               <p>{image.assetMetadata.brand} · {image.assetMetadata.model}</p>
-              <p>{image.assetMetadata.modelVerified ? "图内型号一致" : "型号／规格待核实"} · {image.assetMetadata.reviewNote}</p>
+              <p>{image.assetMetadata.bindingSource === "owner-confirmed" ? "用户确认资料" : image.assetMetadata.modelVerified ? "图内型号一致" : "型号／规格待核实"} · {image.assetMetadata.reviewNote}</p>
             </>}
             <a className="button secondary" href={image.filePath} target="_blank" rel="noreferrer">查看大图</a>
             <select

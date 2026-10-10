@@ -15,6 +15,54 @@ class AIProvider(Protocol):
     def generate(self,question:str,context:dict) -> dict: ...
 
 
+def manual_excerpts(question,manuals):
+    """Rank page-local windows, keeping original text and explicit page references.
+
+    No instructions from PDFs are executed. Multi-intent questions retrieve both
+    cleaning and replacement evidence; numeric claims need literal support.
+    """
+    groups=[(['电池','battery'],['电池','battery']),
+            (['清洁','清洗','clean'],['清洁','清洗','clean']),
+            (['保养','维护','maintenance'],['保养','维护','maintenance','care','cleaning']),
+            (['滤网','滤芯','滤尘网','filter'],['滤尘网','滤网','滤芯','filter']),
+            (['更换','刷头','replace'],['更换','刷头','replace','replacement','months']),
+            (['密码','锁','lock'],['combination','set your','密码','锁','push the button']),
+            (['使用','操作','use'],['使用','操作','brushing','using','operation'])]
+    intents=[words for triggers,words in groups if any(t in question.lower() for t in triggers)]
+    # General care and explicit cleaning share one section; replacement remains
+    # a separate intent so a mixed question cannot lose its maintenance evidence.
+    if any(t in question for t in ['保养','维护']) and not any(t in question for t in ['清洁','清洗']):
+        intents=[words for words in intents if 'maintenance' not in words]+[['清洁','清洗','clean','cleaning','维护保养']]
+    specifics=[t for t in ['循环','次数','上限','成分','浓度','电压','功率','尺寸','防水','频率','容量'] if t in question]
+    selected=[];seen=set()
+    for keywords in intents:
+        candidates=[]
+        for manual in manuals:
+            parts=re.split(r'\[第 (\d+) 页\]',manual.get('extractedText') or '')
+            pages=[(None,parts[0])]+[(parts[i],parts[i+1]) for i in range(1,len(parts)-1,2)]
+            for page,text in pages:
+                lines=text.splitlines()
+                for i,line in enumerate(lines):
+                    lower=line.strip().lower()
+                    if not any(w in lower for w in keywords):continue
+                    window='\n'.join(lines[max(0,i-8):i+24]).strip()
+                    quote=text.strip() if len(text)<1800 else window
+                    if not all(t in quote for t in specifics):continue
+                    score=sum(3 for w in keywords if w in window.lower())
+                    if lower in ('cleaning','maintenance','maintenance and cleaning','维护保养','滤尘网的清洁：','replacement','brush head replacement reminder'):score+=20
+                    if any(w in window.lower() for w in ['清洗干净','清洁前','rinse the','set your own combination']):score+=8
+                    if 'months' in keywords and re.search(r'(replace|更换).{0,80}(every|months|月)',window,re.I):score+=15
+                    candidates.append((score,manual['filename'],page,quote[:1800]))
+        candidates.sort(key=lambda c:-c[0])
+        for _,name,page,quote in candidates[:1]:
+            key=(name,page)
+            if key in seen:break
+            seen.add(key);selected.append({'type':'说明书','title':name,'page':int(page) if page else None,'quote':quote})
+            break
+        if len(selected)>=3:break
+    return selected
+
+
 class EvidenceProvider:
     def generate(self,question,context):
         item=context['item']
@@ -25,6 +73,8 @@ class EvidenceProvider:
             return {'answer':'涉及危险维修，建议停止自行操作并联系专业人员。当前记录无法提供安全的操作步骤。','sources':[],'mode':'基础规则回答（本地）'}
         if any(w in question for w in ['另一件物品','其他物品','别的物品','其他设备','所有物品']):
             return {'answer':'当前只读取这一件物品的档案，未找到其他物品的依据。请先切换物品。','sources':[],'mode':'基础规则回答（本地）'}
+        maintenance_question=any(w in question for w in ['维护','保养','清洁','清洗','如何更换','怎么更换','密码','锁']) or '刷头' in question and any(w in question for w in ['更换','换一次','多久换'])
+        manuals=[d for d in context['manuals'] if d.get('type','manual')=='manual' and not (d.get('assetMetadata') or {}).get('excludedFromAI')]
         if any(w in question for w in ['保修','在保']) and not manual_question:
             days=item['warrantyDaysLeft']
             answer=f"{item['name']}"+('尚未记录保修期限。' if days is None else f"仍在保修期内，截止 {item['warrantyEndDate']}，剩余 {days} 天。" if days>=0 else f"保修已于 {item['warrantyEndDate']} 结束，已过保 {-days} 天。")
@@ -36,27 +86,25 @@ class EvidenceProvider:
             repairs=context['repairs']
             answer='没有找到这件物品的维修记录。' if not repairs else '当前物品的维修记录：\n'+'\n'.join(f"{r['reportDate']}：{r['issue']}，{r['status']}，费用 ¥{r['cost']:.2f}。{r['description']}" for r in repairs)
             sources=[{'type':'数据库','title':f"维修记录 {r['id']}"} for r in repairs]
-        elif any(w in question for w in ['耗材','滤芯','补货','补给','刷头']) and not manual_question:
+        elif (any(w in question for w in ['下次','下一次']) or re.search(r'什么时候.{0,8}(维护|保养|清洁|清洗)',question)) and any(w in question for w in ['维护','保养','清洁','清洗']) and not manual_question:
+            records=context['maintenance']
+            answer='尚未保存维护周期，不能推算下一次维护日期。' if not records else '\n'.join(f"{r['type']}：上次 {r['date']}，已记录周期 {r['intervalDays']} 天，下次 {r['nextDueDate']}。" for r in records)
+            sources=[{'type':'维护规则','title':f"维护记录 {r['id']}"} for r in records]
+        elif manual_question and not maintenance_question and (question.strip() in ('说明书','手册') or any(w in question for w in ['哪些说明书','哪些手册','说明书资料','说明书文件','查看说明书','查看手册'])):
+            answer='当前没有已上传的说明书资料。' if not manuals else '当前物品的说明书资料：\n'+'\n'.join(f"《{d['filename']}》；{(d.get('assetMetadata') or {}).get('scope','本地上传资料')}；{'可提取文本' if d.get('extractedText','').strip() else '未提取到文本，可直接打开原 PDF'}。" for d in manuals)
+            sources=[{'type':'说明书','title':d['filename']} for d in manuals]
+        elif any(w in question for w in ['耗材','滤芯','补货','补给','补充','刷头']) and not manual_question and not maintenance_question:
             cs=context['consumables']
             answer='没有找到这件设备关联的耗材记录。' if not cs else '\n'.join(f"{c['name']}：库存 {c['currentStock']:g} {c['unit']}。"+(f"按历史日均消耗 {c['dailyRate']:g}，预计可用 {c['estimatedDaysLeft']} 天，建议 {c['suggestedPurchaseDate']} 补给。" if c['dailyRate'] else '历史不足，无法估算耗尽时间。') for c in cs)
             sources=[{'type':'历史预测','title':f"{c['name']} · {c['method']}"} for c in cs]
-        elif any(w in question for w in ['清洁','清洗','维护','保养','电池','说明书','手册']):
-            manuals=[d for d in context['manuals'] if not (d.get('assetMetadata') or {}).get('excludedFromAI')]
-            groups=[(['电池','battery'],['电池','battery']),(['清洁','清洗','clean'],['清洁','清洗','clean']),(['保养','维护','maintenance'],['保养','维护','maintenance','care']),(['滤网','滤芯','filter'],['滤网','滤芯','filter']),(['更换','刷头','replace'],['更换','刷头','replace'])]
-            keywords=next((terms for triggers,terms in groups if any(w in question.lower() for w in triggers)),[])
-            if not keywords and any(w in question for w in ['查看说明书','查看手册']):keywords=['']
-            # A related paragraph is not evidence for an unrecorded numeric limit
-            # or material specification. Require explicit requested details.
-            specifics=[term for term in ['循环','次数','上限','成分','浓度','电压','功率','尺寸','防水','频率','容量'] if term in question]
-            excerpts=[]
-            for manual in manuals:
-                lines=[line.strip() for line in re.split(r'[\n。]',manual['extractedText']) if line.strip()]
-                relevant=[line for line in lines if any(w in line.lower() for w in keywords) and all(term in line for term in specifics)]
-                if relevant:
-                    quote='\n'.join(relevant[:5])[:1200]
-                    excerpts.append(f"依据已上传说明书《{manual['filename']}》：\n{quote}")
-                    sources.append({'type':'说明书','title':manual['filename'],'quote':quote})
-            if excerpts:answer='\n\n'.join(excerpts)
+        elif maintenance_question or any(w in question for w in ['电池','说明书','手册','使用','操作']):
+            sources=manual_excerpts(question,manuals)
+            excerpts=[f"依据已上传说明书《{s['title']}》"+(f" · 第 {s['page']} 页" if s.get('page') else '')+f"原文：\n{s['quote']}" for s in sources]
+            if excerpts:
+                answer='\n\n'.join(excerpts)
+                if any(w in question for w in ['密码','锁']):answer+='\nPDF 包含不同锁结构的图示，请打开原 PDF 对照相应图示；档案未记录具体锁结构，不据文字猜测。'
+                if '刷头' in question and context['consumables']:
+                    answer+='\n当前刷头库存：'+'；'.join(f"{c['name']} {c['currentStock']:g} {c['unit']}" for c in context['consumables'])+'。更换依据以上 PDF 实际说明；库存预测使用消耗记录，不能推定厂家更换周期。'
             elif not manual_question and any(w in question for w in ['清洁','清洗','维护']) and context['maintenance']:
                 record=context['maintenance'][0]
                 answer=f"未找到说明书中的相关文字。已保存维护规则为每 {record['intervalDays']} 天进行“{record['type']}”；上次 {record['date']}，下次 {record['nextDueDate']}。这个周期由用户录入，并非厂家结论。"

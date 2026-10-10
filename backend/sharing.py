@@ -86,7 +86,43 @@ class RuntimeTransactionGate:
             await self.app(scope, receive, send)
 
 
+def physical_interfaces(records):
+    """Only active physical adapters with a gateway, never VM/VPN/APIPA addresses."""
+    result=[]
+    for record in records:
+        if not record.get('physical') or not record.get('gateway'):continue
+        if re.search(r'virtual|vmware|hyper-v|vpn|tunnel|tap|tun\b|loopback|docker|wsl|tailscale|zerotier',str(record.get('name',''))+' '+str(record.get('description','')),re.I):continue
+        for value in record.get('addresses') or []:
+            try:ip=ipaddress.IPv4Address(value)
+            except ipaddress.AddressValueError:continue
+            if not any(ip in ipaddress.ip_network(net) for net in ('10.0.0.0/8','172.16.0.0/12','192.168.0.0/16')):continue
+            result.append({'address':str(ip),'name':record.get('name',''),'metric':record.get('metric') or 999})
+    return sorted(result,key=lambda a:(a['metric'],a['name'],a['address']))
+
+
+_interfaces=[]
+_network_error=''
+
 def lan_addresses():
+    global _interfaces,_network_error
+    _interfaces=[];_network_error=''
+    if os.name == 'nt':
+        try:
+            # CIM avoids the slow Get-NetIPConfiguration path. UTF-8 is explicit
+            # for Chinese adapter names; no VPN default route can win this filter.
+            command="""[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;
+$adapters=@(Get-CimInstance Win32_NetworkAdapter | Where-Object {$_.NetConnectionStatus -eq 2});
+$records=@(Get-CimInstance Win32_NetworkAdapterConfiguration -Filter 'IPEnabled=True' | ForEach-Object {
+ $config=$_; $adapter=$adapters | Where-Object {$_.Index -eq $config.Index} | Select-Object -First 1;
+ if($adapter){[pscustomobject]@{physical=[bool]$adapter.PhysicalAdapter;name=$adapter.NetConnectionID;description=$adapter.Name;addresses=@($config.IPAddress);gateway=@($config.DefaultIPGateway);metric=$config.IPConnectionMetric}}
+}); ConvertTo-Json -InputObject $records -Compress -Depth 4"""
+            raw=subprocess.check_output(['powershell.exe','-NoProfile','-Command',command],timeout=8,creationflags=subprocess.CREATE_NO_WINDOW)
+            records=json.loads(raw.decode('utf-8-sig'))
+            _interfaces=physical_interfaces(records if isinstance(records,list) else [records])
+            return list(dict.fromkeys(a['address'] for a in _interfaces))
+        except Exception:
+            _network_error='网络接口检测失败；请连接 Wi-Fi 或有线网络后重新检测。'
+            return []  # Do not fall back to an ambiguous virtual adapter on Windows.
     try:
         addresses = {r[4][0] for r in socket.getaddrinfo(socket.gethostname(), None, socket.AF_INET)}
     except OSError:
@@ -95,16 +131,6 @@ def lan_addresses():
         ip = ipaddress.ip_address(value)
         return any(ip in ipaddress.ip_network(net) for net in ('10.0.0.0/8', '172.16.0.0/12', '192.168.0.0/16'))
     candidates = sorted(a for a in addresses if private_lan(a))
-    if os.name == 'nt':
-        # Prefer the active default-route adapter over virtual VM adapters.
-        try:
-            command = "$r=Get-NetRoute -AddressFamily IPv4 -DestinationPrefix '0.0.0.0/0' | Sort-Object RouteMetric | Select-Object -First 1; @(Get-NetIPAddress -AddressFamily IPv4 -InterfaceIndex $r.InterfaceIndex | Select-Object -ExpandProperty IPAddress) | ConvertTo-Json -Compress"
-            raw = subprocess.check_output(['powershell.exe','-NoProfile','-Command',command],timeout=4,creationflags=subprocess.CREATE_NO_WINDOW)
-            preferred = json.loads(raw.decode('utf-8-sig'))
-            if isinstance(preferred,str):preferred=[preferred]
-            candidates = [a for a in preferred if a in candidates] + [a for a in candidates if a not in preferred]
-        except Exception:
-            pass
     return candidates
 
 
@@ -114,6 +140,8 @@ def share_info():
     candidates = lan_addresses() if mode == 'lan-ready' else []
     host = candidates[0] if candidates else '127.0.0.1'
     return {'mode': mode, 'host': host, 'port': port, 'lanAddresses': candidates,
+            'interfaces':[a for a in _interfaces if a['address'] in candidates],
+            'detectionError':_network_error,
             'recommendedBaseUrl': f'http://{host}:{port}', 'reachable': mode == 'lan-ready' and bool(candidates)}
 
 

@@ -1,0 +1,461 @@
+{
+  "date": "2026-10-10",
+  "python": "3.12",
+  "node": "22.23.3",
+  "pytest": {
+    "passed": 161
+  },
+  "playwright": {
+    "passed": 47
+  },
+  "lint": true,
+  "typescript": true,
+  "viteBuild": true,
+  "itemImageChecks": 309,
+  "consumableImageChecks": 121,
+  "sqlite": "integrity_check ok; foreign_key_check empty",
+  "preservation": {
+    "items": {
+      "before": 10,
+      "after": 10,
+      "originalIdsPreserved": true,
+      "unchangedOutsideAllowedFields": true
+    },
+    "item_images": {
+      "before": 41,
+      "after": 41,
+      "originalIdsPreserved": true,
+      "unchangedOutsideAllowedFields": true
+    },
+    "documents": {
+      "before": 5,
+      "after": 8,
+      "originalIdsPreserved": true,
+      "unchangedOutsideAllowedFields": true
+    },
+    "maintenance_records": {
+      "before": 5,
+      "after": 5,
+      "originalIdsPreserved": true,
+      "unchangedOutsideAllowedFields": true
+    },
+    "repair_records": {
+      "before": 3,
+      "after": 3,
+      "originalIdsPreserved": true,
+      "unchangedOutsideAllowedFields": true
+    },
+    "consumables": {
+      "before": 6,
+      "after": 7,
+      "originalIdsPreserved": true,
+      "unchangedOutsideAllowedFields": true
+    },
+    "consumption_records": {
+      "before": 36,
+      "after": 36,
+      "originalIdsPreserved": true,
+      "unchangedOutsideAllowedFields": true
+    },
+    "restock_records": {
+      "before": 6,
+      "after": 6,
+      "originalIdsPreserved": true,
+      "unchangedOutsideAllowedFields": true
+    },
+    "share_links": {
+      "before": 12,
+      "after": 12,
+      "originalIdsPreserved": true,
+      "unchangedOutsideAllowedFields": true
+    }
+  },
+  "migration": {
+    "eligibleItems": 3,
+    "replacedImages": 12,
+    "newConsumableAccessories": 1,
+    "secondRunChanges": 0
+  },
+  "PDF": [
+    {
+      "itemId": "ac",
+      "filename": "空调说明书.pdf",
+      "pages": 36,
+      "viewAndDownloadOriginalBytes": true
+    },
+    {
+      "itemId": "toothbrush",
+      "filename": "牙刷说明书.pdf",
+      "pages": 72,
+      "viewAndDownloadOriginalBytes": true
+    },
+    {
+      "itemId": "suitcase",
+      "filename": "行李箱说明书.pdf",
+      "pages": 1,
+      "viewAndDownloadOriginalBytes": true
+    }
+  ],
+  "AI": {
+    "questionsPassed": 27,
+    "activeProvider": "evidence",
+    "modelInvoked": false,
+    "cases": [
+      {
+        "itemId": "ac",
+        "question": "当前物品是什么品牌和型号？",
+        "passed": true,
+        "activeProvider": "evidence",
+        "modelInvoked": false,
+        "sources": [
+          {
+            "type": "数据库",
+            "title": "当前物品档案"
+          }
+        ]
+      },
+      {
+        "itemId": "ac",
+        "question": "当前物品有哪些说明书资料？",
+        "passed": true,
+        "activeProvider": "evidence",
+        "modelInvoked": false,
+        "sources": [
+          {
+            "type": "说明书",
+            "title": "空调说明书.pdf"
+          }
+        ]
+      },
+      {
+        "itemId": "ac",
+        "question": "我的空调滤尘网应该怎样清洁？",
+        "passed": true,
+        "activeProvider": "evidence",
+        "modelInvoked": false,
+        "sources": [
+          {
+            "type": "说明书",
+            "title": "空调说明书.pdf",
+            "page": 18
+          }
+        ]
+      },
+      {
+        "itemId": "ac",
+        "question": "什么时候需要进行下一次维护？",
+        "passed": true,
+        "activeProvider": "evidence",
+        "modelInvoked": false,
+        "sources": [
+          {
+            "type": "维护规则",
+            "title": "维护记录 2d43a4d7-c43d-464d-b28d-8b70a875253a"
+          }
+        ]
+      },
+      {
+        "itemId": "ac",
+        "question": "我的保修是否还有效？",
+        "passed": true,
+        "activeProvider": "evidence",
+        "modelInvoked": false,
+        "sources": [
+          {
+            "type": "数据库",
+            "title": "当前物品购买日期与保修期限"
+          }
+        ]
+      },
+      {
+        "itemId": "ac",
+        "question": "目前有哪些关联耗材？",
+        "passed": true,
+        "activeProvider": "evidence",
+        "modelInvoked": false,
+        "sources": [
+          {
+            "type": "历史预测",
+            "title": "空调滤尘网 · 观察窗口移动平均（无历史）"
+          }
+        ]
+      },
+      {
+        "itemId": "ac",
+        "question": "某个耗材预计什么时候需要补充？",
+        "passed": true,
+        "activeProvider": "evidence",
+        "modelInvoked": false,
+        "sources": [
+          {
+            "type": "历史预测",
+            "title": "空调滤尘网 · 观察窗口移动平均（无历史）"
+          }
+        ]
+      },
+      {
+        "itemId": "ac",
+        "question": "当前物品有什么维修记录？",
+        "passed": true,
+        "activeProvider": "evidence",
+        "modelInvoked": false,
+        "sources": []
+      },
+      {
+        "itemId": "ac",
+        "question": "火星上的未知面积是多少？",
+        "passed": true,
+        "activeProvider": "evidence",
+        "modelInvoked": false,
+        "sources": []
+      },
+      {
+        "itemId": "toothbrush",
+        "question": "当前物品是什么品牌和型号？",
+        "passed": true,
+        "activeProvider": "evidence",
+        "modelInvoked": false,
+        "sources": [
+          {
+            "type": "数据库",
+            "title": "当前物品档案"
+          }
+        ]
+      },
+      {
+        "itemId": "toothbrush",
+        "question": "当前物品有哪些说明书资料？",
+        "passed": true,
+        "activeProvider": "evidence",
+        "modelInvoked": false,
+        "sources": [
+          {
+            "type": "说明书",
+            "title": "牙刷说明书.pdf"
+          }
+        ]
+      },
+      {
+        "itemId": "toothbrush",
+        "question": "电动牙刷如何维护？刷头什么时候需要更换？",
+        "passed": true,
+        "activeProvider": "evidence",
+        "modelInvoked": false,
+        "sources": [
+          {
+            "type": "说明书",
+            "title": "牙刷说明书.pdf",
+            "page": 14
+          },
+          {
+            "type": "说明书",
+            "title": "牙刷说明书.pdf",
+            "page": 19
+          }
+        ]
+      },
+      {
+        "itemId": "toothbrush",
+        "question": "什么时候需要进行下一次维护？",
+        "passed": true,
+        "activeProvider": "evidence",
+        "modelInvoked": false,
+        "sources": []
+      },
+      {
+        "itemId": "toothbrush",
+        "question": "我的保修是否还有效？",
+        "passed": true,
+        "activeProvider": "evidence",
+        "modelInvoked": false,
+        "sources": [
+          {
+            "type": "数据库",
+            "title": "当前物品购买日期与保修期限"
+          }
+        ]
+      },
+      {
+        "itemId": "toothbrush",
+        "question": "目前有哪些关联耗材？",
+        "passed": true,
+        "activeProvider": "evidence",
+        "modelInvoked": false,
+        "sources": [
+          {
+            "type": "历史预测",
+            "title": "电动牙刷刷头 · 观察窗口移动平均：69 天 / 4 单位"
+          }
+        ]
+      },
+      {
+        "itemId": "toothbrush",
+        "question": "某个耗材预计什么时候需要补充？",
+        "passed": true,
+        "activeProvider": "evidence",
+        "modelInvoked": false,
+        "sources": [
+          {
+            "type": "历史预测",
+            "title": "电动牙刷刷头 · 观察窗口移动平均：69 天 / 4 单位"
+          }
+        ]
+      },
+      {
+        "itemId": "toothbrush",
+        "question": "当前物品有什么维修记录？",
+        "passed": true,
+        "activeProvider": "evidence",
+        "modelInvoked": false,
+        "sources": []
+      },
+      {
+        "itemId": "toothbrush",
+        "question": "火星上的未知面积是多少？",
+        "passed": true,
+        "activeProvider": "evidence",
+        "modelInvoked": false,
+        "sources": []
+      },
+      {
+        "itemId": "suitcase",
+        "question": "当前物品是什么品牌和型号？",
+        "passed": true,
+        "activeProvider": "evidence",
+        "modelInvoked": false,
+        "sources": [
+          {
+            "type": "数据库",
+            "title": "当前物品档案"
+          }
+        ]
+      },
+      {
+        "itemId": "suitcase",
+        "question": "当前物品有哪些说明书资料？",
+        "passed": true,
+        "activeProvider": "evidence",
+        "modelInvoked": false,
+        "sources": [
+          {
+            "type": "说明书",
+            "title": "行李箱说明书.pdf"
+          }
+        ]
+      },
+      {
+        "itemId": "suitcase",
+        "question": "这件行李箱的密码锁如何设置？",
+        "passed": true,
+        "activeProvider": "evidence",
+        "modelInvoked": false,
+        "sources": [
+          {
+            "type": "说明书",
+            "title": "行李箱说明书.pdf",
+            "page": 1
+          }
+        ]
+      },
+      {
+        "itemId": "suitcase",
+        "question": "什么时候需要进行下一次维护？",
+        "passed": true,
+        "activeProvider": "evidence",
+        "modelInvoked": false,
+        "sources": []
+      },
+      {
+        "itemId": "suitcase",
+        "question": "我的保修是否还有效？",
+        "passed": true,
+        "activeProvider": "evidence",
+        "modelInvoked": false,
+        "sources": [
+          {
+            "type": "数据库",
+            "title": "当前物品购买日期与保修期限"
+          }
+        ]
+      },
+      {
+        "itemId": "suitcase",
+        "question": "目前有哪些关联耗材？",
+        "passed": true,
+        "activeProvider": "evidence",
+        "modelInvoked": false,
+        "sources": []
+      },
+      {
+        "itemId": "suitcase",
+        "question": "某个耗材预计什么时候需要补充？",
+        "passed": true,
+        "activeProvider": "evidence",
+        "modelInvoked": false,
+        "sources": []
+      },
+      {
+        "itemId": "suitcase",
+        "question": "当前物品有什么维修记录？",
+        "passed": true,
+        "activeProvider": "evidence",
+        "modelInvoked": false,
+        "sources": []
+      },
+      {
+        "itemId": "suitcase",
+        "question": "火星上的未知面积是多少？",
+        "passed": true,
+        "activeProvider": "evidence",
+        "modelInvoked": false,
+        "sources": []
+      }
+    ]
+  },
+  "windowsStartup": true,
+  "restartPersistence": true,
+  "LAN": {
+    "cases": [
+      {
+        "itemId": "ac",
+        "shareSPA": 200,
+        "json": 200,
+        "image": 200,
+        "PDFviewAndDownload": 200,
+        "originalPDFbytes": true,
+        "remoteAdministration": 403,
+        "revokedAndExpired": 404
+      },
+      {
+        "itemId": "toothbrush",
+        "shareSPA": 200,
+        "json": 200,
+        "image": 200,
+        "PDFviewAndDownload": 200,
+        "originalPDFbytes": true,
+        "remoteAdministration": 403,
+        "revokedAndExpired": 404
+      },
+      {
+        "itemId": "suitcase",
+        "shareSPA": 200,
+        "json": 200,
+        "image": 200,
+        "PDFviewAndDownload": 200,
+        "originalPDFbytes": true,
+        "remoteAdministration": 403,
+        "revokedAndExpired": 404
+      }
+    ],
+    "realLANHTTP": true,
+    "realPhone": false,
+    "productionShareGrantsUnchanged": true,
+    "physicalInterfaces": 1
+  },
+  "realPhoneTested": false,
+  "cleanup": {
+    "unreferencedAssetsRemoved": 6,
+    "recursiveTempCleanup": "Automatic approval rejected: blocked by policy; temporary directories retained"
+  },
+  "ci": "See GitHub Actions for the exact final commit; status recorded after push"
+}

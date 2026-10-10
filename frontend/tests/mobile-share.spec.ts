@@ -43,17 +43,13 @@ for (const width of [375, 390, 430]) {
   });
 }
 
-test("已核实 Demo 图片显示、缺失匹配主图明确占位；未授权字段不进入手机 DOM", async ({ page, request }) => {
+test("十件 Demo 高清图片显示；未授权字段不进入手机 DOM", async ({ page, request }) => {
   const items = await (await request.get(backend + "/items")).json();
   for (const item of items.filter((i: { isDemo: boolean }) => i.isDemo)) {
     const token = await share(request, item.id);
     await page.goto("/share/" + token);
-    if (["ac", "toothbrush", "suitcase"].includes(item.id)) {
-      await expect(page.locator(".share-no-photo")).toBeVisible();
-      await expect(page.locator(".share-page")).toContainText("待补");
-    } else {
-      await expect(page.locator(".share-photo")).toHaveAttribute("data-image-state", "loaded");
-    }
+    await expect(page.locator(".share-photo")).toHaveAttribute("data-image-state", "loaded");
+    await expect.poll(()=>page.locator(".share-photo img").evaluate((img:HTMLImageElement)=>img.naturalWidth)).toBe(1448);
     await expect(page.locator(".share-identity h1")).toHaveText(item.name);
     await expect(page.locator(".share-page")).not.toContainText("Wusheng");
     const labels = await page.locator(".share-facts dt").allTextContents();

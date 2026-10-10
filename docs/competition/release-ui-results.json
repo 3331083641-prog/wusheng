@@ -1,11 +1,11 @@
 {
-  "checkedAt": "2026-10-09T11:40:40.863153+00:00",
+  "checkedAt": "2026-10-10T08:01:06.695023+00:00",
   "data": "isolated synthetic SQLite and generated fixtures",
   "browser": "Microsoft Edge (Playwright)",
   "stats": {
-    "startTime": "2026-10-09T11:35:57.839Z",
-    "duration": 191858.544,
-    "expected": 44,
+    "startTime": "2026-10-10T07:55:34.259Z",
+    "duration": 235553.81100000002,
+    "expected": 47,
     "skipped": 0,
     "unexpected": 0,
     "flaky": 0
@@ -17,17 +17,47 @@
       "attempts": [
         {
           "status": "passed",
-          "durationMs": 2551
+          "durationMs": 2895
         }
       ]
     },
     {
-      "title": "迁移后的型号和耗材说明同源；未匹配主图不借用旧型号",
+      "title": "最终 Demo 的型号、高清主图和耗材关联同源",
       "status": "expected",
       "attempts": [
         {
           "status": "passed",
-          "durationMs": 3256
+          "durationMs": 3274
+        }
+      ]
+    },
+    {
+      "title": "三组最终凭证和主相册分离，高清资料可打开",
+      "status": "expected",
+      "attempts": [
+        {
+          "status": "passed",
+          "durationMs": 4303
+        }
+      ]
+    },
+    {
+      "title": "二维码重新检测保留有效地址，IP 改变清除旧码并要求重新生成",
+      "status": "expected",
+      "attempts": [
+        {
+          "status": "passed",
+          "durationMs": 1982
+        }
+      ]
+    },
+    {
+      "title": "AI 前端真实请求九类档案问题，Provider 与无证据状态可见",
+      "status": "expected",
+      "attempts": [
+        {
+          "status": "passed",
+          "durationMs": 2254
         }
       ]
     },
@@ -37,7 +67,7 @@
       "attempts": [
         {
           "status": "passed",
-          "durationMs": 2847
+          "durationMs": 3140
         }
       ]
     },
@@ -47,7 +77,7 @@
       "attempts": [
         {
           "status": "passed",
-          "durationMs": 7972
+          "durationMs": 8000
         }
       ]
     },
@@ -57,17 +87,17 @@
       "attempts": [
         {
           "status": "passed",
-          "durationMs": 4094
+          "durationMs": 4190
         }
       ]
     },
     {
-      "title": "六种耗材字段明确、关联链接和 Item 耗材 Tab 同源",
+      "title": "六种核心耗材及空调配件字段明确、关联链接和 Item 耗材 Tab 同源",
       "status": "expected",
       "attempts": [
         {
           "status": "passed",
-          "durationMs": 10896
+          "durationMs": 12474
         }
       ]
     },
@@ -77,7 +107,7 @@
       "attempts": [
         {
           "status": "passed",
-          "durationMs": 1531
+          "durationMs": 1727
         }
       ]
     },
@@ -87,7 +117,7 @@
       "attempts": [
         {
           "status": "passed",
-          "durationMs": 1162
+          "durationMs": 1463
         }
       ]
     },
@@ -97,7 +127,7 @@
       "attempts": [
         {
           "status": "passed",
-          "durationMs": 2048
+          "durationMs": 2906
         }
       ]
     },
@@ -107,7 +137,7 @@
       "attempts": [
         {
           "status": "passed",
-          "durationMs": 1903
+          "durationMs": 2699
         }
       ]
     },
@@ -117,17 +147,17 @@
       "attempts": [
         {
           "status": "passed",
-          "durationMs": 1697
+          "durationMs": 2543
         }
       ]
     },
     {
-      "title": "已核实 Demo 图片显示、缺失匹配主图明确占位；未授权字段不进入手机 DOM",
+      "title": "十件 Demo 高清图片显示；未授权字段不进入手机 DOM",
       "status": "expected",
       "attempts": [
         {
           "status": "passed",
-          "durationMs": 12098
+          "durationMs": 22261
         }
       ]
     },
@@ -137,7 +167,7 @@
       "attempts": [
         {
           "status": "passed",
-          "durationMs": 2311
+          "durationMs": 3289
         }
       ]
     },
@@ -147,7 +177,7 @@
       "attempts": [
         {
           "status": "passed",
-          "durationMs": 1644
+          "durationMs": 2469
         }
       ]
     },
@@ -157,7 +187,7 @@
       "attempts": [
         {
           "status": "passed",
-          "durationMs": 4066
+          "durationMs": 5585
         }
       ]
     },
@@ -167,7 +197,7 @@
       "attempts": [
         {
           "status": "passed",
-          "durationMs": 5026
+          "durationMs": 6898
         }
       ]
     },
@@ -177,7 +207,7 @@
       "attempts": [
         {
           "status": "passed",
-          "durationMs": 6170
+          "durationMs": 5881
         }
       ]
     },
@@ -187,7 +217,7 @@
       "attempts": [
         {
           "status": "passed",
-          "durationMs": 4675
+          "durationMs": 5419
         }
       ]
     },
@@ -197,7 +227,7 @@
       "attempts": [
         {
           "status": "passed",
-          "durationMs": 4893
+          "durationMs": 4965
         }
       ]
     },
@@ -207,7 +237,7 @@
       "attempts": [
         {
           "status": "passed",
-          "durationMs": 3574
+          "durationMs": 3634
         }
       ]
     },
@@ -217,7 +247,7 @@
       "attempts": [
         {
           "status": "passed",
-          "durationMs": 25826
+          "durationMs": 34541
         }
       ]
     },
@@ -227,7 +257,7 @@
       "attempts": [
         {
           "status": "passed",
-          "durationMs": 2752
+          "durationMs": 2745
         }
       ]
     },
@@ -237,7 +267,7 @@
       "attempts": [
         {
           "status": "passed",
-          "durationMs": 1722
+          "durationMs": 2509
         }
       ]
     },
@@ -247,7 +277,7 @@
       "attempts": [
         {
           "status": "passed",
-          "durationMs": 1356
+          "durationMs": 1275
         }
       ]
     },
@@ -257,7 +287,7 @@
       "attempts": [
         {
           "status": "passed",
-          "durationMs": 1363
+          "durationMs": 1415
         }
       ]
     },
@@ -267,7 +297,7 @@
       "attempts": [
         {
           "status": "passed",
-          "durationMs": 2653
+          "durationMs": 2782
         }
       ]
     },
@@ -277,7 +307,7 @@
       "attempts": [
         {
           "status": "passed",
-          "durationMs": 2439
+          "durationMs": 2427
         }
       ]
     },
@@ -287,7 +317,7 @@
       "attempts": [
         {
           "status": "passed",
-          "durationMs": 1332
+          "durationMs": 1493
         }
       ]
     },
@@ -297,7 +327,7 @@
       "attempts": [
         {
           "status": "passed",
-          "durationMs": 1522
+          "durationMs": 1735
         }
       ]
     },
@@ -307,7 +337,7 @@
       "attempts": [
         {
           "status": "passed",
-          "durationMs": 2735
+          "durationMs": 3067
         }
       ]
     },
@@ -317,7 +347,7 @@
       "attempts": [
         {
           "status": "passed",
-          "durationMs": 969
+          "durationMs": 952
         }
       ]
     },
@@ -327,7 +357,7 @@
       "attempts": [
         {
           "status": "passed",
-          "durationMs": 938
+          "durationMs": 962
         }
       ]
     },
@@ -337,7 +367,7 @@
       "attempts": [
         {
           "status": "passed",
-          "durationMs": 981
+          "durationMs": 1010
         }
       ]
     },
@@ -347,7 +377,7 @@
       "attempts": [
         {
           "status": "passed",
-          "durationMs": 1067
+          "durationMs": 1089
         }
       ]
     },
@@ -357,7 +387,7 @@
       "attempts": [
         {
           "status": "passed",
-          "durationMs": 4415
+          "durationMs": 4521
         }
       ]
     },
@@ -367,7 +397,7 @@
       "attempts": [
         {
           "status": "passed",
-          "durationMs": 1464
+          "durationMs": 1643
         }
       ]
     },
@@ -377,7 +407,7 @@
       "attempts": [
         {
           "status": "passed",
-          "durationMs": 9807
+          "durationMs": 10556
         }
       ]
     },
@@ -387,7 +417,7 @@
       "attempts": [
         {
           "status": "passed",
-          "durationMs": 5140
+          "durationMs": 5136
         }
       ]
     },
@@ -397,7 +427,7 @@
       "attempts": [
         {
           "status": "passed",
-          "durationMs": 4354
+          "durationMs": 4409
         }
       ]
     },
@@ -407,7 +437,7 @@
       "attempts": [
         {
           "status": "passed",
-          "durationMs": 2113
+          "durationMs": 2154
         }
       ]
     },
@@ -417,7 +447,7 @@
       "attempts": [
         {
           "status": "passed",
-          "durationMs": 3006
+          "durationMs": 3099
         }
       ]
     },
@@ -427,7 +457,7 @@
       "attempts": [
         {
           "status": "passed",
-          "durationMs": 3675
+          "durationMs": 3561
         }
       ]
     },
@@ -437,7 +467,7 @@
       "attempts": [
         {
           "status": "passed",
-          "durationMs": 1432
+          "durationMs": 1494
         }
       ]
     },
@@ -447,7 +477,7 @@
       "attempts": [
         {
           "status": "passed",
-          "durationMs": 20083
+          "durationMs": 21582
         }
       ]
     }

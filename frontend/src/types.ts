@@ -77,7 +77,7 @@ export interface Document {
   updatedAt: string;
 }
 export interface ItemImage {
-  assetMetadata?: { isSynthetic?: boolean; originalImage?: string; brand?: string; model?: string; modelVerified?: boolean; reviewNote?: string } | null;
+  assetMetadata?: { isSynthetic?: boolean; originalImage?: string; brand?: string; model?: string; modelVerified?: boolean; reviewNote?: string; bindingSource?: string } | null;
   id: string;
   itemId: string;
   filePath: string;

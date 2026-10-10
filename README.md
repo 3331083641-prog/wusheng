@@ -49,6 +49,8 @@ powershell -ExecutionPolicy Bypass -File .\scripts\start.ps1
 
 第三方 OCR、模型、框架能力不是本项目原创。Warden/HomeInventory 仅作为产品与交互思路参考，未直接复制源码。详见 [创新说明](docs/competition/innovation.md)、[开源融合](OPEN_SOURCE_USAGE.md)和[第三方清单](THIRD_PARTY.md)。
 
+本轮三组最终素材、PDF 本地绑定、AI 与局域网分享的实际验收、截图及手机步骤见 [最终整合报告](docs/competition/final_integration_release.md)。
+
 ## 页面截图
 
 | 首页 | 我的物品 |
@@ -127,7 +129,7 @@ powershell -ExecutionPolicy Bypass -File .\scripts\start.ps1
 
 说明书名称与 PDF 文件是独立权限，默认关闭。所有者可选择具体说明书，另行允许下载；**未来新增或替换上传的 PDF 只有开启单独的持续授权才自动公开**，当前未选择文件仍私有。在线阅读本身意味着接收者可保存文件，下载开关仅控制下载入口。文件实时读取当前数据库；删除、撤销、过期或轮换后旧链接不可再访问，已下载的副本无法远程收回。原有二维码不会因升级自动获得新权限。
 
-用户提供的旧版实机截图已确认基础 LAN 扫码访问；**V2.2 图片/PDF/撤销的手机实机验证仍待用户完成**，按 [手机实测与排查步骤](docs/competition/mobile_validation.md)执行。自动化与安全边界见 [V2.2 手机分享验收](docs/competition/mobile_share_v22.md)。
+用户提供的旧版实机截图已确认基础 LAN 扫码访问；**本次最终版的图片/PDF/撤销手机实机验证仍待用户完成**，按 [手机实测与排查步骤](docs/competition/mobile_validation.md)执行。自动化与安全边界见 [V2.2 手机分享验收](docs/competition/mobile_share_v22.md)。
 
 ## Benchmark 与测试
 
@@ -167,11 +169,13 @@ powershell -ExecutionPolicy Bypass -File .\scripts\test_ui.ps1
 
 ## 新版演示数据与配套资料
 
-10 件内置 Demo 的身份、主图、40 张裁剪资料和六类耗材已统一登记，见 [逐项审核与修改前后对照](docs/competition/asset_audit.md)。武圣 WUSHENG 空调和通用 TR-2001 行李箱是合成演示品牌／型号，不宣称为真实在售产品。配套图均标注“合成演示资料 · 非真实购物凭证”，不能证明保修资格。未提供替换的图片文件保留；空调、牙刷、行李箱的匹配主图仍待补，不借用错误型号图。
+本轮直接采用用户确认的美的空调（KFR-35GW/N8KS1-1U）、飞利浦牙刷（HX6850）和银色旅行行李箱（TR-2001）最终主图及配套资料。三张主图、12 张独立裁剪资料和刷头/空调滤尘网图片已接入统一映射，其他七件保持原样。见 [当前素材登记](docs/competition/asset_audit.md)。配套资料明确标注“合成演示资料 · 非真实购物凭证”，不证明实际购买或保修资格。
 
-旧 Demo 不会启动时静默覆盖。升级前备份后运行 `python scripts/migrate_demo_assets.py --dry-run`，核对报告，再运行 `--apply`；仅处理可确认未被人工编辑的原始 Demo，不修改用户物品、购买金额／日期、保修或历史记录。新数据库直接采用新版种子。每件配套资料独立分类，顶部相册仅显示物品本体。
+已有上一版未编辑 Demo 会在 Windows 启动时安全迁移；也可先执行 `python scripts/migrate_final_materials.py --dry-run` 查看。事务、单份备份、已编辑档案保护和重复执行去重均保留，不修改真实用户档案、金额日期或历史记录。新数据库直接使用当前种子。
 
-本机已核对导入 5 份用户提供的厂商 PDF，详见 [说明书匹配、语言及缺失清单](docs/competition/manual_sources.md)。**厂商全文不随公开仓库分发**；冷克隆仍有明确标注的合成护理 PDF，可自行在详情上传合法匹配文件。Apple 文件仅为安全监管资料；不将美的、旧飞利浦、RIMOWA PDF 绑定新版不同设备。手机读取 PDF 需所有者单独授权，默认不公开。
+本机八份用户提供的 PDF 均可阅读和按当前物品引用，其中这三份由用户最终确认绑定。**厂商全文不随公开仓库分发**；评委可在“物品详情 → 说明书 → 上传说明书 PDF”导入自己的合法文件。冷克隆仍有明确合成的耳机护理 PDF，可以体验读取链路。阅读、下载及手机授权方法见 [本地说明书登记](docs/competition/manual_sources.md)。
+
+AI 默认本地档案规则，显示实际 Provider。维护日期、保修、维修、库存使用数据库；使用/清洁/密码锁问题检索当前 PDF 原文并给出页码。网络检测排除 Windows VPN/虚拟网卡；IP 改变会要求重新生成二维码。完整回归及手机实测步骤见 [最终整合验收](docs/competition/final_integration_release.md)。
 
 ## Known Limitations 与比赛冻结
 

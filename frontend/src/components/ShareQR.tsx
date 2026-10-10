@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import QRCode from "qrcode";
 import { api } from "../api";
 import type { Detail } from "../types";
@@ -8,6 +8,8 @@ type Network = {
   recommendedBaseUrl: string;
   lanAddresses: string[];
   port: number;
+  interfaces?: { address: string; name: string }[];
+  detectionError?: string;
 };
 const optionLabels = {
   showPurchaseDate: "购买日期",
@@ -29,6 +31,11 @@ export default function ShareQR({ detail }: { detail: Detail }) {
   const [network, setNetwork] = useState<Network>();
   const [address, setAddress] = useState("");
   const [url, setUrl] = useState("");
+  const currentLink = useRef("");
+  const selectedAddress = useRef("");
+  const detecting = useRef(false);
+  const creating = useRef(false);
+  const [networkNotice,setNetworkNotice]=useState("");
   const [qr, setQR] = useState("");
   const [error, setError] = useState("");
   const [busy, setBusy] = useState(false);
@@ -54,6 +61,7 @@ export default function ShareQR({ detail }: { detail: Detail }) {
   const [manualDocumentIds, setManualDocumentIds] = useState<string[]>([]);
   const documents = detail.documents.filter(d => d.type === "manual" && d.mimeType === "application/pdf");
   const create = async (regenerate = true) => {
+    creating.current=true;
     setBusy(true);
     setError("");
     try {
@@ -65,41 +73,60 @@ export default function ShareQR({ detail }: { detail: Detail }) {
         },
       );
       setUrl(link.url);
+      setNetworkNotice("");
+      currentLink.current=link.url;
       setExpiresAt(link.expiresAt);
       setQR(await QRCode.toDataURL(link.url, { width: 360, margin: 2 }));
     } catch (e) {
       setError((e as Error).message);
     } finally {
       setBusy(false);
+      creating.current=false;
     }
   };
   const detectNetwork = useCallback(async () => {
+    if(detecting.current || creating.current)return;
+    detecting.current=true;
     setBusy(true);
     setError("");
     try {
       const info = await api<Network>("/network/share-info");
       setNetwork(info);
-      setQR("");
-      setUrl("");
-      setExpiresAt(null);
-      setAddress((current) => info.lanAddresses.includes(current) ? current : info.lanAddresses[0] || "");
+      const previous=currentLink.current;
+      const host=previous ? new URL(previous).hostname : "";
+      const next=info.lanAddresses.includes(selectedAddress.current) ? selectedAddress.current : info.lanAddresses[0] || "";
+      selectedAddress.current=next;setAddress(next);
+      if(previous && (!info.reachable || !info.lanAddresses.includes(host) || new URL(previous).port !== String(info.port))){
+        setQR("");setUrl("");setExpiresAt(null);currentLink.current="";
+        setNetworkNotice("局域网 IP 或端口已改变，旧二维码地址已失效。请重新生成并下载二维码。");
+      } else if(info.detectionError)setError(info.detectionError);
     } catch (e) {
       setNetwork(undefined);
       setQR("");
       setUrl("");
+      currentLink.current="";
       setError((e as Error).message);
     } finally {
       setBusy(false);
+      detecting.current=false;
     }
   }, []);
-  useEffect(() => { void detectNetwork(); }, [detectNetwork]);
+  useEffect(() => {
+    void detectNetwork();
+    const timer=window.setInterval(()=>{if(!document.hidden)void detectNetwork();},30000);
+    window.addEventListener("focus",detectNetwork);
+    return ()=>{window.clearInterval(timer);window.removeEventListener("focus",detectNetwork);};
+  }, [detectNetwork]);
   return (
     <div className="qr-view">
       <p className={network?.reachable ? "share-ready" : undefined} role="status">
         {network?.reachable ? "● 局域网分享已就绪" : network ? "局域网分享尚未就绪" : "正在检测分享网络…"}
       </p>
-      {network?.reachable && <p>http://{address}:{network.port}</p>}
+      {network?.reachable && <p>{network.interfaces?.find(i=>i.address===address)?.name} · http://{address}:{network.port}</p>}
+      {networkNotice && <p role="alert">{networkNotice}</p>}
+      {network && !network.reachable && <p>未检测到可分享的物理网卡地址。请连接 Wi-Fi 或有线网络，再重新检测。</p>}
       <p className="muted" style={{ fontSize: 12 }}>手机和电脑需连接同一 Wi-Fi 或可互通局域网，电脑保持物生运行，扫码后可查看只读档案。</p>
+      <small>已检测到地址不代表手机已连通；请用手机扫码验证。</small>
       <button className="button secondary" disabled={busy} onClick={() => void detectNetwork()}>
         重新检测网络
       </button>
@@ -184,6 +211,8 @@ export default function ShareQR({ detail }: { detail: Detail }) {
                 value={address || network.lanAddresses[0]}
                 onChange={(e) => {
                   setAddress(e.target.value);
+                  selectedAddress.current=e.target.value;
+                  currentLink.current="";
                   setQR("");
                   setUrl("");
                 }}
@@ -247,6 +276,7 @@ export default function ShareQR({ detail }: { detail: Detail }) {
                     await api(`/items/${itemId}/share`, { method: "DELETE" });
                     setQR("");
                     setUrl("");
+                    currentLink.current="";
                     setError("二维码已撤销");
                   } catch (e) {
                     setError((e as Error).message);

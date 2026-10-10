@@ -1,34 +1,28 @@
-# 本地说明书来源与适用范围
+# 本地说明书登记（2026-10-10）
 
-2026-10-09：对用户提供的 8 份 PDF 逐页提取文本并核对型号。5 份可绑定新版 Demo，3 份不匹配。不通过改文件名伪装适配；未执行厂商数字签名／原件鉴证。厂商完整 PDF 仅存本机 data/documents/manuals，不上传公开 GitHub。
+本轮三份 PDF 由用户最终确认对应关系，直接绑定，只检查文件可读性、页数、文本提取和 SHA256，不重新审查产品内容或改动原件。此前五份本地资料保持不变。厂商全文只存本机 data/documents/manuals，不能据此公开重新分发到 GitHub；文件保留原名、原始字节和版权信息。
 
-| Item | 本地提供文件 | 页数 | 处理与适用范围 |
+| Item | 本地文件 | 页数 | 范围与绑定来源 |
 |---|---|---|---|
-| laptop | Apple MacBook Air M2说明书.pdf | 2 | A2681 安全、操作及监管资料，不是完整操作手册；中文 |
-| headphones | 耳机说明书.pdf | 149 | WH-1000XM6 / YY2984；法文帮助指南；保留可空密码阅读的原始受限 PDF 字节 |
-| washer | 未提供 | — | 尚未上传精确匹配 EG100MATE8S 说明书 |
-| ac | 空调说明书.pdf | 36 | Midea KFR-35GW/N8KS1-1U 等，不绑定武圣 WSKFR-26GW/BP3；匹配说明书缺失 |
-| robot | 小米扫地机器人说明书.pdf | 459 | S10 / B106GL，多语言，绑定；图内合成铭牌不能替代此参数来源 |
-| coffee | 未提供 | — | 尚未上传已核实匹配 EC680.S 说明书；不借用 EC685 PDF |
-| toothbrush | 牙刷说明书.pdf | 72 | ProtectiveClean 4500/5100，不绑定 HX3671/13；匹配说明书缺失 |
-| suitcase | 行李箱说明书.pdf | 1 | RIMOWA 锁具资料，不绑定通用 TR-2001；匹配说明书缺失 |
-| purifier | 小米空气净化器说明书.pdf | 32 | Smart Air Purifier 4 / AC-M16-SC；英文、繁体中文等；绑定 |
-| printer | 打印机说明书.pdf | 126 | HP DeskJet2700系列英文指南；适用2720系列操作，地区墨盒需单独确认 |
+| laptop | Apple MacBook Air M2说明书.pdf | 2 | A2681 安全监管资料，中文；此前登记 |
+| headphones | 耳机说明书.pdf | 149 | WH-1000XM6，法文；此前登记 |
+| washer | 未提供 | — | 用户可自行上传；不自动补造 |
+| ac | 空调说明书.pdf | 36 | 用户确认绑定美的空调；中文；owner-confirmed |
+| robot | 小米扫地机器人说明书.pdf | 459 | S10 / B106GL，多语言；此前登记 |
+| coffee | 未提供 | — | 用户可自行上传；不自动补造 |
+| toothbrush | 牙刷说明书.pdf | 72 | 用户确认绑定飞利浦 HX6850；多语言；owner-confirmed |
+| suitcase | 行李箱说明书.pdf | 1 | 用户确认绑定银色 TR-2001 行李箱；英文锁具资料；owner-confirmed |
+| purifier | 小米空气净化器说明书.pdf | 32 | Air 4 / AC-M16-SC；此前登记 |
+| printer | 打印机说明书.pdf | 126 | DeskJet2700系列；英文；此前登记 |
 
-不匹配的 3 份原件保留在用户输入位置，未写入物品说明书表、未公开。当地已有旧 PDF 如因型号迁移需复核，保留物理文件与记录，标记 reference_pending，禁止 AI／扫码当作已匹配说明书。原有“Demo 耳机护理说明（非官方）”为项目生成测试资料，独立保留，不能冒充真实厂商 PDF。
+本地共八份用户提供的 PDF，另保留项目的“Demo 耳机护理说明（非官方）”。合成护理资料不冒充厂商文件。PDF 内的品牌、保修条款等原文保持不变；档案品牌和保修资格依据当前物品数据库，不从其他品牌说明或合成票据推定。
 
-## 复现与后续上传
+## 本地导入与阅读
 
-冷克隆只包含项目合成护理 PDF，不包含这 5 份受厂商权利约束的全文。用户自行提供合法原件后，在物品详情“说明书”上传，或先执行 `python scripts/import_demo_manuals.py --source-dir <输入目录> --dry-run` 再 `--apply`；导入器逐次核对当前 Demo 身份、文件文本及 SHA256，使用正式 PDF 验证／文件事务，不重复导入、不自动增加 QR 权限。原名、原字节、页数、大小、语言、适用范围与来源登记在本地 Document 中。
+评委冷克隆不包含八份厂商全文，可在物品详情“说明书”选择合法本地 PDF 上传。支持原文件阅读/下载、删除、刷新/重启持久化、文本提取与用户触发扫描件 OCR；没有 PDF 的物品使用现有普通空状态，不额外显示醒目缺失警告。
 
-正常支持阅读、下载、删除、重启持久化、文本提取和按当前物品引用。真正需要密码的 PDF 仍拒绝；仅允许无需密码即可阅读的受限原件，保留其限制，不解除或改写文件。分享具体 PDF、下载与未来新增文件授权各自独立，默认关闭；撤销／过期／删除后 Token 文件入口失效。
+用户的三份最终文件也可通过 `python scripts/import_demo_manuals.py --source-dir <目录> --owner-confirmed --dry-run` 预览，再 `--apply`。SHA256 去重、正式文件事务、相同文件再次导入不增加记录；已确认文件可恢复为当前说明书类型。其他五份沿用不带 --owner-confirmed 的原导入方式。
 
-## 厂商检索入口
+AI 只检索当前物品未排除的说明书，引用原文和页码；没有可读文字或对应段落时明确说明信息不足。页面资料照片与正式 PDF 分开。扫码阅读、具体文件、下载与未来新增文件授权仍独立，默认不公开；本次升级不会扩大既有分享权限。
 
-- [Apple MacBook Air M2 文档](https://support.apple.com/en-gb/docs/mac/300872)
-- [Sony WH-1000XM6 法文帮助指南](https://helpguide.sony.net/mdr/2984/v1/fr/index.html)
-- [小米 S10](https://www.mi.com/global/product/xiaomi-robot-vacuum-s10/)
-- [小米 Air 4](https://www.mi.com/global/product/xiaomi-smart-air-purifier-4/)
-- [HP DeskJet2700系列指南](https://support.hp.com/us-en/product/setup-user-guides/hp-deskjet-2700e-all-in-one-series/29378157)
-
-这里只登记检索来源，不宣称本地每份文件经过厂商签名鉴证。身份及耗材冲突见 [素材审核](asset_audit.md)。
+技术检查只确认能读取，并不等于电子签名、厂商原件或真实购物鉴证。保护限制允许无需密码阅读的原件按原字节保存；真正需要密码的文件仍拒绝。

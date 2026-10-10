@@ -14,7 +14,8 @@ export const CONSUMABLE_ASSETS = {
   laundryDetergent: hd("blue-moon-detergent-v3.png"),
   printerInk: hd("hp805-illustration-v3.png"),
   coffeeCapsules: hd("ese-pods-v3.png"),
-  toothbrushHeads: hd("click-on-brushheads-v3.png"),
+  toothbrushHeads: hd("click-on-brushhead-final.png"),
+  airConditionerFilter: hd("ac-dust-filter-final.png"),
   robotVacuumFilter: hd("robot-vacuum-filter-rect.png"),
 } as const;
 
@@ -22,6 +23,7 @@ type AssetKey = keyof typeof CONSUMABLE_ASSETS;
 export type ConsumablePhoto = Pick<Consumable, "id" | "itemId" | "name" | "coverImage">;
 
 const bindings: { id: string; itemId: string; name: string; legacy: string; key: AssetKey }[] = [
+  { id: "ac-filter", itemId: "ac", name: "空调滤尘网", legacy: "/assets/filter.jpg", key: "airConditionerFilter" },
   {
     id: "purifier-filter",
     itemId: "purifier",

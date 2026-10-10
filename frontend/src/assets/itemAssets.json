@@ -18,7 +18,7 @@
     "objectPosition": "50% 36%"
   },
   "ac": {
-    "src": "/assets/no-photo.svg",
+    "src": "/assets/items/midea-ac-final.png",
     "width": 1448,
     "height": 1086,
     "objectPosition": "50% 50%"
@@ -36,13 +36,13 @@
     "objectPosition": "50% 38%"
   },
   "toothbrush": {
-    "src": "/assets/no-photo.svg",
+    "src": "/assets/items/philips-toothbrush-final.png",
     "width": 1448,
     "height": 1086,
     "objectPosition": "50% 50%"
   },
   "suitcase": {
-    "src": "/assets/no-photo.svg",
+    "src": "/assets/items/silver-suitcase-final.png",
     "width": 1448,
     "height": 1086,
     "objectPosition": "50% 50%"

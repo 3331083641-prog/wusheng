@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-10-09T11:40:01.896Z",
+  "checkedAt": "2026-10-10T08:00:23.969Z",
   "checks": [
     "Backend /health",
     "Backend /generate",
@@ -20,14 +20,18 @@
     "capsules: PNG dimensions",
     "capsules: PNG served",
     "capsules: HTTP original bytes",
-    "brushhead: unchanged original hash",
-    "brushhead: PNG dimensions",
-    "brushhead: PNG served",
-    "brushhead: HTTP original bytes",
     "robot-filter: unchanged original hash",
     "robot-filter: PNG dimensions",
     "robot-filter: PNG served",
     "robot-filter: HTTP original bytes",
+    "brushhead: unchanged original hash",
+    "brushhead: PNG dimensions",
+    "brushhead: PNG served",
+    "brushhead: HTTP original bytes",
+    "ac-filter: unchanged original hash",
+    "ac-filter: PNG dimensions",
+    "ac-filter: PNG served",
+    "ac-filter: HTTP original bytes",
     "purifier-filter: correct card asset",
     "purifier-filter: white frame",
     "detergent: correct card asset",
@@ -36,10 +40,12 @@
     "ink-cartridge: white frame",
     "capsules: correct card asset",
     "capsules: white frame",
-    "brushhead: correct card asset",
-    "brushhead: white frame",
     "robot-filter: correct card asset",
     "robot-filter: white frame",
+    "brushhead: correct card asset",
+    "brushhead: white frame",
+    "ac-filter: correct card asset",
+    "ac-filter: white frame",
     "/consumables 1920: HD consumables contain, no legacy images",
     "Consumable image hover scale 1.02",
     "purifier-filter: drawer uses same original",
@@ -50,11 +56,13 @@
     "/consumables drawer ink-cartridge: HD consumables contain, no legacy images",
     "capsules: drawer uses same original",
     "/consumables drawer capsules: HD consumables contain, no legacy images",
-    "brushhead: drawer uses same original",
-    "/consumables drawer brushhead: HD consumables contain, no legacy images",
     "robot-filter: drawer uses same original",
     "/consumables drawer robot-filter: HD consumables contain, no legacy images",
-    "Search still distinguishes both filter consumables",
+    "brushhead: drawer uses same original",
+    "/consumables drawer brushhead: HD consumables contain, no legacy images",
+    "ac-filter: drawer uses same original",
+    "/consumables drawer ac-filter: HD consumables contain, no legacy images",
+    "Search distinguishes purifier, robot and air-conditioner filters",
     "Sorting retains all consumables",
     "purifier-filter: correct card asset",
     "purifier-filter: white frame",
@@ -64,10 +72,12 @@
     "ink-cartridge: white frame",
     "capsules: correct card asset",
     "capsules: white frame",
-    "brushhead: correct card asset",
-    "brushhead: white frame",
     "robot-filter: correct card asset",
     "robot-filter: white frame",
+    "brushhead: correct card asset",
+    "brushhead: white frame",
+    "ac-filter: correct card asset",
+    "ac-filter: white frame",
     "/consumables 1366: HD consumables contain, no legacy images",
     "purifier-filter: correct card asset",
     "purifier-filter: white frame",
@@ -77,10 +87,12 @@
     "ink-cartridge: white frame",
     "capsules: correct card asset",
     "capsules: white frame",
-    "brushhead: correct card asset",
-    "brushhead: white frame",
     "robot-filter: correct card asset",
     "robot-filter: white frame",
+    "brushhead: correct card asset",
+    "brushhead: white frame",
+    "ac-filter: correct card asset",
+    "ac-filter: white frame",
     "/consumables 390: HD consumables contain, no legacy images",
     "purifier-filter: item detail tab uses same original",
     "/items/purifier consumables tab: HD consumables contain, no legacy images",
@@ -90,10 +102,12 @@
     "/items/printer consumables tab: HD consumables contain, no legacy images",
     "capsules: item detail tab uses same original",
     "/items/coffee consumables tab: HD consumables contain, no legacy images",
-    "brushhead: item detail tab uses same original",
-    "/items/toothbrush consumables tab: HD consumables contain, no legacy images",
     "robot-filter: item detail tab uses same original",
     "/items/robot consumables tab: HD consumables contain, no legacy images",
+    "brushhead: item detail tab uses same original",
+    "/items/toothbrush consumables tab: HD consumables contain, no legacy images",
+    "ac-filter: item detail tab uses same original",
+    "/items/ac consumables tab: HD consumables contain, no legacy images",
     "/: HD consumables contain, no legacy images",
     "/reminders: HD consumables contain, no legacy images",
     "/assistant?item=purifier: HD consumables contain, no legacy images",
@@ -159,18 +173,6 @@
       "provenance": "User-supplied AI illustration; edge-connected neutral background whitened; product text and proportions preserved"
     },
     {
-      "consumableId": "brushhead",
-      "name": "电动牙刷刷头",
-      "itemId": "toothbrush",
-      "sourceFilename": "用户提供的 2026-10-09 素材；边缘背景标准化，详见 consumable-assets-v3.json",
-      "assetPath": "/assets/consumables/click-on-brushheads-v3.png",
-      "width": 1448,
-      "height": 1086,
-      "bytes": 377109,
-      "sha256": "0E2D77EC18F053D119BEE8A48244A315C7D50A1B249F45D830BB51ACEEC343E3",
-      "provenance": "User-supplied AI illustration; edge-connected neutral background whitened; product text and proportions preserved"
-    },
-    {
       "consumableId": "robot-filter",
       "name": "扫地机器人滤网",
       "itemId": "robot",
@@ -181,6 +183,30 @@
       "bytes": 1023064,
       "sha256": "728355FD47E6F39052747B2BAFAB3BCCD7B03E945B34FE56EE1FD79965D9C0CB",
       "provenance": "User-supplied PNG copied byte-for-byte; no compression, cropping, recoloring or redraw"
+    },
+    {
+      "consumableId": "brushhead",
+      "itemId": "toothbrush",
+      "name": "电动牙刷刷头",
+      "sourceFilename": "飞利浦声波牙刷替换刷头 product-3.png",
+      "assetPath": "/assets/consumables/click-on-brushhead-final.png",
+      "width": 1448,
+      "height": 1086,
+      "bytes": 1491083,
+      "sha256": "E27BEE86DBF670DB517A68FC1B7221BA42F28368DBF9A84B54F31DF003DF65B9",
+      "provenance": "Owner-confirmed final AI demonstration PNG; original bytes preserved"
+    },
+    {
+      "consumableId": "ac-filter",
+      "itemId": "ac",
+      "name": "空调滤尘网",
+      "sourceFilename": "白色弧形空调滤网面板.png",
+      "assetPath": "/assets/consumables/ac-dust-filter-final.png",
+      "width": 1448,
+      "height": 1086,
+      "bytes": 1992344,
+      "sha256": "19F9B4FE66E0BAD08BA9FF2BAB7784C7236172D3F97173BC0B30D2BD4D1A9B6B",
+      "provenance": "Owner-confirmed final AI demonstration PNG; original bytes preserved"
     }
   ],
   "layouts": [
@@ -235,13 +261,19 @@
           "fit": "contain"
         },
         {
-          "src": "/assets/consumables/click-on-brushheads-v3.png",
+          "src": "/assets/consumables/click-on-brushhead-final.png",
           "width": 1448,
           "height": 1086,
           "fit": "contain"
         },
         {
           "src": "/assets/consumables/robot-vacuum-filter-rect.png",
+          "width": 1448,
+          "height": 1086,
+          "fit": "contain"
+        },
+        {
+          "src": "/assets/consumables/ac-dust-filter-final.png",
           "width": 1448,
           "height": 1086,
           "fit": "contain"
@@ -276,13 +308,19 @@
           "fit": "contain"
         },
         {
-          "src": "/assets/consumables/click-on-brushheads-v3.png",
+          "src": "/assets/consumables/click-on-brushhead-final.png",
           "width": 1448,
           "height": 1086,
           "fit": "contain"
         },
         {
           "src": "/assets/consumables/robot-vacuum-filter-rect.png",
+          "width": 1448,
+          "height": 1086,
+          "fit": "contain"
+        },
+        {
+          "src": "/assets/consumables/ac-dust-filter-final.png",
           "width": 1448,
           "height": 1086,
           "fit": "contain"
@@ -323,13 +361,19 @@
           "fit": "contain"
         },
         {
-          "src": "/assets/consumables/click-on-brushheads-v3.png",
+          "src": "/assets/consumables/click-on-brushhead-final.png",
           "width": 1448,
           "height": 1086,
           "fit": "contain"
         },
         {
           "src": "/assets/consumables/robot-vacuum-filter-rect.png",
+          "width": 1448,
+          "height": 1086,
+          "fit": "contain"
+        },
+        {
+          "src": "/assets/consumables/ac-dust-filter-final.png",
           "width": 1448,
           "height": 1086,
           "fit": "contain"
@@ -370,13 +414,19 @@
           "fit": "contain"
         },
         {
-          "src": "/assets/consumables/click-on-brushheads-v3.png",
+          "src": "/assets/consumables/click-on-brushhead-final.png",
           "width": 1448,
           "height": 1086,
           "fit": "contain"
         },
         {
           "src": "/assets/consumables/robot-vacuum-filter-rect.png",
+          "width": 1448,
+          "height": 1086,
+          "fit": "contain"
+        },
+        {
+          "src": "/assets/consumables/ac-dust-filter-final.png",
           "width": 1448,
           "height": 1086,
           "fit": "contain"
@@ -417,7 +467,7 @@
           "fit": "contain"
         },
         {
-          "src": "/assets/consumables/click-on-brushheads-v3.png",
+          "src": "/assets/consumables/click-on-brushhead-final.png",
           "width": 1448,
           "height": 1086,
           "fit": "contain"
@@ -429,54 +479,13 @@
           "fit": "contain"
         },
         {
-          "src": "/assets/consumables/ese-pods-v3.png",
-          "width": 1448,
-          "height": 1086,
-          "fit": "contain"
-        }
-      ]
-    },
-    {
-      "route": "/consumables drawer brushhead",
-      "images": [
-        {
-          "src": "/assets/consumables/air-purifier-filter-v3.png",
-          "width": 1448,
-          "height": 1086,
-          "fit": "contain"
-        },
-        {
-          "src": "/assets/consumables/blue-moon-detergent-v3.png",
-          "width": 1448,
-          "height": 1086,
-          "fit": "contain"
-        },
-        {
-          "src": "/assets/consumables/hp805-illustration-v3.png",
+          "src": "/assets/consumables/ac-dust-filter-final.png",
           "width": 1448,
           "height": 1086,
           "fit": "contain"
         },
         {
           "src": "/assets/consumables/ese-pods-v3.png",
-          "width": 1448,
-          "height": 1086,
-          "fit": "contain"
-        },
-        {
-          "src": "/assets/consumables/click-on-brushheads-v3.png",
-          "width": 1448,
-          "height": 1086,
-          "fit": "contain"
-        },
-        {
-          "src": "/assets/consumables/robot-vacuum-filter-rect.png",
-          "width": 1448,
-          "height": 1086,
-          "fit": "contain"
-        },
-        {
-          "src": "/assets/consumables/click-on-brushheads-v3.png",
           "width": 1448,
           "height": 1086,
           "fit": "contain"
@@ -511,7 +520,7 @@
           "fit": "contain"
         },
         {
-          "src": "/assets/consumables/click-on-brushheads-v3.png",
+          "src": "/assets/consumables/click-on-brushhead-final.png",
           "width": 1448,
           "height": 1086,
           "fit": "contain"
@@ -523,7 +532,119 @@
           "fit": "contain"
         },
         {
+          "src": "/assets/consumables/ac-dust-filter-final.png",
+          "width": 1448,
+          "height": 1086,
+          "fit": "contain"
+        },
+        {
           "src": "/assets/consumables/robot-vacuum-filter-rect.png",
+          "width": 1448,
+          "height": 1086,
+          "fit": "contain"
+        }
+      ]
+    },
+    {
+      "route": "/consumables drawer brushhead",
+      "images": [
+        {
+          "src": "/assets/consumables/air-purifier-filter-v3.png",
+          "width": 1448,
+          "height": 1086,
+          "fit": "contain"
+        },
+        {
+          "src": "/assets/consumables/blue-moon-detergent-v3.png",
+          "width": 1448,
+          "height": 1086,
+          "fit": "contain"
+        },
+        {
+          "src": "/assets/consumables/hp805-illustration-v3.png",
+          "width": 1448,
+          "height": 1086,
+          "fit": "contain"
+        },
+        {
+          "src": "/assets/consumables/ese-pods-v3.png",
+          "width": 1448,
+          "height": 1086,
+          "fit": "contain"
+        },
+        {
+          "src": "/assets/consumables/click-on-brushhead-final.png",
+          "width": 1448,
+          "height": 1086,
+          "fit": "contain"
+        },
+        {
+          "src": "/assets/consumables/robot-vacuum-filter-rect.png",
+          "width": 1448,
+          "height": 1086,
+          "fit": "contain"
+        },
+        {
+          "src": "/assets/consumables/ac-dust-filter-final.png",
+          "width": 1448,
+          "height": 1086,
+          "fit": "contain"
+        },
+        {
+          "src": "/assets/consumables/click-on-brushhead-final.png",
+          "width": 1448,
+          "height": 1086,
+          "fit": "contain"
+        }
+      ]
+    },
+    {
+      "route": "/consumables drawer ac-filter",
+      "images": [
+        {
+          "src": "/assets/consumables/air-purifier-filter-v3.png",
+          "width": 1448,
+          "height": 1086,
+          "fit": "contain"
+        },
+        {
+          "src": "/assets/consumables/blue-moon-detergent-v3.png",
+          "width": 1448,
+          "height": 1086,
+          "fit": "contain"
+        },
+        {
+          "src": "/assets/consumables/hp805-illustration-v3.png",
+          "width": 1448,
+          "height": 1086,
+          "fit": "contain"
+        },
+        {
+          "src": "/assets/consumables/ese-pods-v3.png",
+          "width": 1448,
+          "height": 1086,
+          "fit": "contain"
+        },
+        {
+          "src": "/assets/consumables/click-on-brushhead-final.png",
+          "width": 1448,
+          "height": 1086,
+          "fit": "contain"
+        },
+        {
+          "src": "/assets/consumables/robot-vacuum-filter-rect.png",
+          "width": 1448,
+          "height": 1086,
+          "fit": "contain"
+        },
+        {
+          "src": "/assets/consumables/ac-dust-filter-final.png",
+          "width": 1448,
+          "height": 1086,
+          "fit": "contain"
+        },
+        {
+          "src": "/assets/consumables/ac-dust-filter-final.png",
           "width": 1448,
           "height": 1086,
           "fit": "contain"
@@ -558,13 +679,19 @@
           "fit": "contain"
         },
         {
-          "src": "/assets/consumables/click-on-brushheads-v3.png",
+          "src": "/assets/consumables/click-on-brushhead-final.png",
           "width": 1448,
           "height": 1086,
           "fit": "contain"
         },
         {
           "src": "/assets/consumables/robot-vacuum-filter-rect.png",
+          "width": 1448,
+          "height": 1086,
+          "fit": "contain"
+        },
+        {
+          "src": "/assets/consumables/ac-dust-filter-final.png",
           "width": 1448,
           "height": 1086,
           "fit": "contain"
@@ -599,13 +726,19 @@
           "fit": "contain"
         },
         {
-          "src": "/assets/consumables/click-on-brushheads-v3.png",
+          "src": "/assets/consumables/click-on-brushhead-final.png",
           "width": 1448,
           "height": 1086,
           "fit": "contain"
         },
         {
           "src": "/assets/consumables/robot-vacuum-filter-rect.png",
+          "width": 1448,
+          "height": 1086,
+          "fit": "contain"
+        },
+        {
+          "src": "/assets/consumables/ac-dust-filter-final.png",
           "width": 1448,
           "height": 1086,
           "fit": "contain"
@@ -657,10 +790,10 @@
       ]
     },
     {
-      "route": "/items/toothbrush consumables tab",
+      "route": "/items/robot consumables tab",
       "images": [
         {
-          "src": "/assets/consumables/click-on-brushheads-v3.png",
+          "src": "/assets/consumables/robot-vacuum-filter-rect.png",
           "width": 1448,
           "height": 1086,
           "fit": "contain"
@@ -668,10 +801,21 @@
       ]
     },
     {
-      "route": "/items/robot consumables tab",
+      "route": "/items/toothbrush consumables tab",
       "images": [
         {
-          "src": "/assets/consumables/robot-vacuum-filter-rect.png",
+          "src": "/assets/consumables/click-on-brushhead-final.png",
+          "width": 1448,
+          "height": 1086,
+          "fit": "contain"
+        }
+      ]
+    },
+    {
+      "route": "/items/ac consumables tab",
+      "images": [
+        {
+          "src": "/assets/consumables/ac-dust-filter-final.png",
           "width": 1448,
           "height": 1086,
           "fit": "contain"

@@ -13,6 +13,9 @@ if (-not (Test-Path -LiteralPath (Join-Path $FrontendRoot 'node_modules\.bin\vit
 if (@(Get-NetTCPConnection -LocalPort $Port -State Listen -ErrorAction SilentlyContinue).Count) { throw "端口 $Port 已占用，请关闭旧物生服务或指定 -Port。本次没有停止其他进程。" }
 & $Python -c 'import fastapi, sqlalchemy, reportlab'
 if ($LASTEXITCODE -ne 0) { throw 'Python 依赖不完整，请运行 scripts/setup.ps1。' }
+# Only known, untouched Demo records qualify; preserve users and ambiguous edits.
+& $Python (Join-Path $ProjectRoot 'scripts\migrate_final_materials.py') --apply
+if ($LASTEXITCODE -ne 0) { throw 'Demo 素材迁移失败；原数据库事务已回滚。' }
 Push-Location $FrontendRoot
 try { & npm.cmd run build; if ($LASTEXITCODE -ne 0) { throw '前端构建失败。' } } finally { Pop-Location }
 $env:WUSHENG_SHARE_MODE = 'lan-ready'; $env:WUSHENG_PORT = "$Port"; $env:PYTHONUTF8 = '1'
@@ -47,6 +50,7 @@ try {
     Write-Host '物生已启动'
     Write-Host "电脑管理地址：$BaseUrl"
     foreach ($Address in $Info.lanAddresses) { Write-Host "手机只读分享网络：$Address"; Write-Host "局域网地址：http://${Address}:$Port" }
+    Write-Host '仅列出活动物理网卡，排除 VPN 与虚拟网卡；换 Wi-Fi 或 IP 改变后请重新生成二维码。'
     if (-not $Info.reachable) { Write-Warning '当前未检测到可用局域网地址，一物一码只能在本机管理，稍后连接 Wi-Fi 后可重新检测。' }
     Write-Host '手机和电脑必须连接同一 Wi-Fi。请确认 Windows 防火墙允许 Python 在“私人网络”通信，并检查访客网络隔离。'
     Write-Host '手机通过二维码查看只读档案；管理操作限电脑本机。'
