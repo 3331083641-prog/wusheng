@@ -51,6 +51,12 @@ powershell -ExecutionPolicy Bypass -File .\scripts\start.ps1
 
 本轮三组最终素材、PDF 本地绑定、AI 与局域网分享的实际验收、截图及手机步骤见 [最终整合报告](docs/competition/final_integration_release.md)。
 
+## 比赛演示视频
+
+4 分 50 秒视频通过 Playwright 录制最新真实界面，以 Remotion 完成中文旁白、字幕与剪辑，覆盖剃须刀 OCR 建档、PDF、耗材、生命周期、EvidenceProvider、本机 Qwen 和局域网分享。视频文件保存在本地 `video-production/output/wusheng-aic-2026.mp4`；[制作与验收记录](docs/competition/video_production.md)和[可编辑工程](video-production/README.md)随仓库提供。原录屏、订单图片、厂商 PDF、模型和视频大文件不进入 Git。
+
+手机基础扫码已由团队实测确认；本片手机画面明确标为移动端浏览器演示，尚需真机录屏替换。当前没有公开视频托管地址。
+
 ## 页面截图
 
 | 首页 | 我的物品 |

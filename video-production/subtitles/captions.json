@@ -1,0 +1,378 @@
+[
+  {
+    "text": "购买记录散落，说明书难找，保修和维护常常被遗忘。",
+    "startMs": 700,
+    "endMs": 6696,
+    "timestampMs": 3698,
+    "confidence": null,
+    "pageBreakAfter": true
+  },
+  {
+    "text": "物生，把一件物品进入生活之后的信息，连接成完整、可追溯的数字档案。",
+    "startMs": 6701,
+    "endMs": 14350,
+    "timestampMs": 10526,
+    "confidence": null,
+    "pageBreakAfter": true
+  },
+  {
+    "text": "在 Windows 双击启动物生，浏览器即可进入正式页面。",
+    "startMs": 15700,
+    "endMs": 21536,
+    "timestampMs": 18618,
+    "confidence": null,
+    "pageBreakAfter": true
+  },
+  {
+    "text": "自然绿色的界面里，首页自动展示数据库中的物品。",
+    "startMs": 21541,
+    "endMs": 27117,
+    "timestampMs": 24329,
+    "confidence": null,
+    "pageBreakAfter": true
+  },
+  {
+    "text": "侧栏连接物品、提醒、耗材、维修、智能助手与统计。",
+    "startMs": 27117,
+    "endMs": 33563,
+    "timestampMs": 30340,
+    "confidence": null,
+    "pageBreakAfter": true
+  },
+  {
+    "text": "新建的档案也会自动加入轮播，让家庭物品管理始终跟随真实数据。",
+    "startMs": 33563,
+    "endMs": 41134,
+    "timestampMs": 37348,
+    "confidence": null,
+    "pageBreakAfter": true
+  },
+  {
+    "text": "现在，用这组电动剃须刀素材，真实走完建档流程。",
+    "startMs": 42700,
+    "endMs": 48433,
+    "timestampMs": 45567,
+    "confidence": null,
+    "pageBreakAfter": true
+  },
+  {
+    "text": "进入添加物品，上传白底主图、包装标签、购物订单和说明书照片。",
+    "startMs": 48438,
+    "endMs": 56116,
+    "timestampMs": 52277,
+    "confidence": null,
+    "pageBreakAfter": true
+  },
+  {
+    "text": "不同图片承担不同角色：主体照片用于展示，标签和订单提供文字依据。",
+    "startMs": 56116,
+    "endMs": 64399,
+    "timestampMs": 60258,
+    "confidence": null,
+    "pageBreakAfter": true
+  },
+  {
+    "text": "点击辅助识别，本地 RapidOCR 开始提取文字，并整理字段候选。",
+    "startMs": 64399,
+    "endMs": 71968,
+    "timestampMs": 68184,
+    "confidence": null,
+    "pageBreakAfter": true
+  },
+  {
+    "text": "型号、购买日期和金额，都可以查看来自哪一张图片、哪一段原文。",
+    "startMs": 71968,
+    "endMs": 79262,
+    "timestampMs": 75615,
+    "confidence": null,
+    "pageBreakAfter": true
+  },
+  {
+    "text": "候选有差异时，保留来源，由使用者逐项确认或补全。",
+    "startMs": 79262,
+    "endMs": 85320,
+    "timestampMs": 82291,
+    "confidence": null,
+    "pageBreakAfter": true
+  },
+  {
+    "text": "最后保存档案，再回到物品列表，新设备已真实进入数据库。",
+    "startMs": 85320,
+    "endMs": 91790,
+    "timestampMs": 88555,
+    "confidence": null,
+    "pageBreakAfter": true
+  },
+  {
+    "text": "演示订单只作为录入素材，不代表平台验证了真实交易。",
+    "startMs": 91790,
+    "endMs": 97943,
+    "timestampMs": 94866,
+    "confidence": null,
+    "pageBreakAfter": true
+  },
+  {
+    "text": "打开剃须刀档案，主图和浴室场景组成物品相册。",
+    "startMs": 99700,
+    "endMs": 105302,
+    "timestampMs": 102501,
+    "confidence": null,
+    "pageBreakAfter": true
+  },
+  {
+    "text": "购买与保修资料集中归档，与主体照片清楚分开。",
+    "startMs": 105307,
+    "endMs": 110809,
+    "timestampMs": 108058,
+    "confidence": null,
+    "pageBreakAfter": true
+  },
+  {
+    "text": "再上传原始 PDF，在线阅读、下载，并提取可用文字。",
+    "startMs": 110809,
+    "endMs": 117467,
+    "timestampMs": 114138,
+    "confidence": null,
+    "pageBreakAfter": true
+  },
+  {
+    "text": "刷新后资料依然存在，生命周期记录持续关联。",
+    "startMs": 117467,
+    "endMs": 122956,
+    "timestampMs": 120212,
+    "confidence": null,
+    "pageBreakAfter": true
+  },
+  {
+    "text": "中文档案还可以导出为 PDF，便于保存和分享。",
+    "startMs": 122956,
+    "endMs": 128336,
+    "timestampMs": 125646,
+    "confidence": null,
+    "pageBreakAfter": true
+  },
+  {
+    "text": "耗材图片已在演示环境预置，创建清洁液和刀头，关联剃须刀。",
+    "startMs": 129700,
+    "endMs": 136483,
+    "timestampMs": 133092,
+    "confidence": null,
+    "pageBreakAfter": true
+  },
+  {
+    "text": "录入库存，再记录一次实际消耗，数量随记录更新。",
+    "startMs": 136488,
+    "endMs": 141807,
+    "timestampMs": 139147,
+    "confidence": null,
+    "pageBreakAfter": true
+  },
+  {
+    "text": "补货、消耗和维护各自留痕，能够追溯和纠正。",
+    "startMs": 141807,
+    "endMs": 147233,
+    "timestampMs": 144520,
+    "confidence": null,
+    "pageBreakAfter": true
+  },
+  {
+    "text": "新耗材历史不足时，系统不会凭空给出剩余天数。",
+    "startMs": 147233,
+    "endMs": 152698,
+    "timestampMs": 149966,
+    "confidence": null,
+    "pageBreakAfter": true
+  },
+  {
+    "text": "切换已有完整记录的滤芯，查看趋势与提前采购提示。",
+    "startMs": 152698,
+    "endMs": 158496,
+    "timestampMs": 155597,
+    "confidence": null,
+    "pageBreakAfter": true
+  },
+  {
+    "text": "维护提醒把下一步要做的事，带回日常生活。",
+    "startMs": 158496,
+    "endMs": 163337,
+    "timestampMs": 160916,
+    "confidence": null,
+    "pageBreakAfter": true
+  },
+  {
+    "text": "物生的智能助手，采用双层架构。",
+    "startMs": 164700,
+    "endMs": 168621,
+    "timestampMs": 166660,
+    "confidence": null,
+    "pageBreakAfter": true
+  },
+  {
+    "text": "第一层是 EvidenceProvider。",
+    "startMs": 168626,
+    "endMs": 171766,
+    "timestampMs": 170196,
+    "confidence": null,
+    "pageBreakAfter": true
+  },
+  {
+    "text": "本地档案规则，不依赖大模型或在线密钥。",
+    "startMs": 171766,
+    "endMs": 176926,
+    "timestampMs": 174346,
+    "confidence": null,
+    "pageBreakAfter": true
+  },
+  {
+    "text": "询问耗材或维护记录，答案来自当前物品数据库，并展示依据。",
+    "startMs": 176926,
+    "endMs": 184178,
+    "timestampMs": 180552,
+    "confidence": null,
+    "pageBreakAfter": true
+  },
+  {
+    "text": "证据不足时，助手明确说明，不编造答案。",
+    "startMs": 184178,
+    "endMs": 189164,
+    "timestampMs": 186671,
+    "confidence": null,
+    "pageBreakAfter": true
+  },
+  {
+    "text": "第二层接入本机已有的千问模型，增强理解与表达。",
+    "startMs": 189164,
+    "endMs": 194833,
+    "timestampMs": 191998,
+    "confidence": null,
+    "pageBreakAfter": true
+  },
+  {
+    "text": "这里真实发出请求，结合说明书、维护和耗材，生成日常维护建议。",
+    "startMs": 194833,
+    "endMs": 202652,
+    "timestampMs": 198742,
+    "confidence": null,
+    "pageBreakAfter": true
+  },
+  {
+    "text": "界面展示实际 Provider、模型名称与来源，两种模式清楚区分。",
+    "startMs": 202652,
+    "endMs": 209891,
+    "timestampMs": 206272,
+    "confidence": null,
+    "pageBreakAfter": true
+  },
+  {
+    "text": "资料按当前物品检索，限制上下文，避免其他档案混入。",
+    "startMs": 209891,
+    "endMs": 216272,
+    "timestampMs": 213082,
+    "confidence": null,
+    "pageBreakAfter": true
+  },
+  {
+    "text": "模型不可用时自动回退，基础问答仍可使用。",
+    "startMs": 216272,
+    "endMs": 221708,
+    "timestampMs": 218990,
+    "confidence": null,
+    "pageBreakAfter": true
+  },
+  {
+    "text": "开源模型增强表达，物生连接证据与业务。",
+    "startMs": 221708,
+    "endMs": 226867,
+    "timestampMs": 224288,
+    "confidence": null,
+    "pageBreakAfter": true
+  },
+  {
+    "text": "进入一物一码，设置内容和有效期，生成局域网二维码。",
+    "startMs": 228700,
+    "endMs": 234453,
+    "timestampMs": 231576,
+    "confidence": null,
+    "pageBreakAfter": true
+  },
+  {
+    "text": "手机端是只读档案。",
+    "startMs": 234458,
+    "endMs": 236984,
+    "timestampMs": 235721,
+    "confidence": null,
+    "pageBreakAfter": true
+  },
+  {
+    "text": "团队已用真实手机验证基础扫码。",
+    "startMs": 236984,
+    "endMs": 240720,
+    "timestampMs": 238852,
+    "confidence": null,
+    "pageBreakAfter": true
+  },
+  {
+    "text": "这里以移动端浏览器演示查看流程。",
+    "startMs": 240720,
+    "endMs": 244750,
+    "timestampMs": 242735,
+    "confidence": null,
+    "pageBreakAfter": true
+  },
+  {
+    "text": "手机与电脑需在互通局域网，电脑保持运行；链接支持到期和撤销。",
+    "startMs": 244750,
+    "endMs": 252329,
+    "timestampMs": 248540,
+    "confidence": null,
+    "pageBreakAfter": true
+  },
+  {
+    "text": "维修进度、费用和统计，来自同一份数据。",
+    "startMs": 253700,
+    "endMs": 257806,
+    "timestampMs": 255753,
+    "confidence": null,
+    "pageBreakAfter": true
+  },
+  {
+    "text": "图片与 PDF 通过本地识别和溯源，进入 SQLite 档案。",
+    "startMs": 257811,
+    "endMs": 263454,
+    "timestampMs": 260632,
+    "confidence": null,
+    "pageBreakAfter": true
+  },
+  {
+    "text": "生命周期、耗材预测和物品上下文，驱动提醒、问答、导出和分享。",
+    "startMs": 263454,
+    "endMs": 270420,
+    "timestampMs": 266937,
+    "confidence": null,
+    "pageBreakAfter": true
+  },
+  {
+    "text": "代码公开，采用开源技术，支持 Windows 一键复现。",
+    "startMs": 270420,
+    "endMs": 275348,
+    "timestampMs": 272884,
+    "confidence": null,
+    "pageBreakAfter": true
+  },
+  {
+    "text": "从购买到维护，从维修到延续使用，让管理融入日常生活。",
+    "startMs": 276700,
+    "endMs": 283190,
+    "timestampMs": 279945,
+    "confidence": null,
+    "pageBreakAfter": true
+  },
+  {
+    "text": "物生，用可追溯的档案，让每一件物品，都被好好对待。",
+    "startMs": 283195,
+    "endMs": 289301,
+    "timestampMs": 286248,
+    "confidence": null,
+    "pageBreakAfter": true
+  }
+]
