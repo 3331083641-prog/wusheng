@@ -7,7 +7,7 @@
 3. HomeAsset 展示了 FastAPI + SQLite 无账号本地应用的可行性。因缺少当前完整 LICENSE，不复用代码。
 4. 真正复用的软件：React/Vite、Framer Motion、Recharts、Zustand、Lucide、qrcode、FastAPI、SQLAlchemy、RapidOCR/ONNX Runtime、pypdf、pypdfium2/PDFium、Pillow、ReportLab。详见第三方清单与锁文件。
 
-自研边界：Item Lifecycle Engine，Event Graph，多图字段融合，consumptionPrediction，ContextBuilder，EvidenceProvider，统一 API 与全部 UI。基础规则建议如实标注；本机 Qwen3-VL 文本证据问答已实跑 58 个合成用例，指标与限制见 [Benchmark 汇总](docs/competition/benchmark_summary.md)。不将第三方模型能力表述为自主训练成果。
+自研边界：Item Lifecycle Engine，Event Graph，多图字段融合，consumptionPrediction，ContextBuilder，EvidenceProvider，统一 API 与全部 UI。基础规则建议如实标注；本机 Qwen3-VL 文本证据问答已实跑 58 个合成用例，指标与限制见 [Benchmark 汇总](docs/benchmark/README.md)。不将第三方模型能力表述为自主训练成果。
 
 源码 MIT；依赖、模型和用户照片遵循各自许可。无需付费 API、会员、账号或密钥。
 

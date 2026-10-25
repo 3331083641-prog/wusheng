@@ -35,7 +35,7 @@ with tempfile.TemporaryDirectory(prefix='local-model-check-',dir=ROOT/'tmp') as 
                     assert answer['activeProvider']=='ollama' and answer['sources'],answer.get('fallbackReason')
                     checks.append({'question':question,'elapsedSeconds':round(time.monotonic()-started,2),'answer':answer['answer'],'sources':answer['sources'],'mode':answer['mode']})
                 report={'passed':True,'model':model,'provider':'ollama','data':'synthetic seed only','checks':checks,'scope':'Interface and evidence-source smoke test; not a model accuracy benchmark.'}
-                target=ROOT/'docs/competition/local_model_validation.json'
+                target=ROOT/'docs/verification/local_model_validation.json'
                 target.write_text(json.dumps(report,ensure_ascii=False,indent=2),encoding='utf-8')
                 print(json.dumps({'passed':True,'model':model,'checks':len(checks)},ensure_ascii=False))
         finally:

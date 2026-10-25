@@ -9,7 +9,7 @@ import assert from "node:assert/strict";
 const root = fileURLToPath(new URL("../", import.meta.url));
 const base = process.env.WUSHENG_TEST_BASE_URL || "http://127.0.0.1:5173";
 const backend = process.env.WUSHENG_TEST_API_URL || "http://127.0.0.1:8000";
-const output = path.join(root, "docs/competition/consumable-images");
+const output = path.join(root, "docs/verification/consumable-images");
 await mkdir(output, { recursive: true });
 const manifest = JSON.parse(
   await readFile(path.join(root, "docs/references/consumable-image-assets.json"), "utf8"),

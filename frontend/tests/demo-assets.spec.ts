@@ -17,7 +17,7 @@ test("新版 Demo 的相册只包含本体，合成票据分类展示且不当�
       await a.scrollIntoViewIfNeeded();
       await expect.poll(()=>a.evaluate((img:HTMLImageElement)=>img.naturalWidth)).toBeGreaterThan(300);
     }
-    await page.screenshot({path:path.resolve(`../docs/competition/demo-assets-detail-${width}.png`),fullPage:true});
+    await page.screenshot({path:path.resolve(`../docs/verification/demo-assets-detail-${width}.png`),fullPage:true});
     await page.getByRole("button",{name:"说明书",exact:true}).click();
     await expect(page.locator(".document-card")).toHaveCount(data.documents.length);
   }

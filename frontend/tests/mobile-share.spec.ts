@@ -37,7 +37,7 @@ for (const width of [375, 390, 430]) {
     const image = await page.locator(".share-photo img").evaluate((img: HTMLImageElement) => ({ width: img.naturalWidth, fit: getComputedStyle(img).objectFit }));
     expect(image.width).toBeGreaterThan(1000);
     expect(image.fit).toBe("contain");
-    await page.screenshot({ path: path.join(root, `docs/competition/mobile-v22-${width}.png`), fullPage: true });
+    await page.screenshot({ path: path.join(root, `docs/verification/mobile-v22-${width}.png`), fullPage: true });
     expect(errors).toEqual([]);
     await request.delete(backend + "/items/printer/share");
   });

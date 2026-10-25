@@ -31,7 +31,7 @@ def run():
     report={'dataset':'3 synthetic English-label fixtures; not representative of real receipts','metrics':{'exactMatchAccuracy':recall,'precision':precision,'recall':recall,'f1':f1},'elapsedSeconds':round(time.perf_counter()-started,2),'results':results}
     (ROOT/'docs/benchmark/results.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
     table='\n'.join(f'| {r["case"]} | {r["exactMatches"]}/{r["fields"]} |' for r in results)
-    (ROOT/'docs/competition/ocr_benchmark.md').write_text(f'# OCR 可复现基准\n\n运行：`python scripts/benchmark_ocr.py`。使用本仓库脚本生成的 3 张合成英文标签图片，共 15 个字段，不含真实用户凭证。RapidOCR + 当前字段解析规则实际结果：\n\n| 样本 | Exact Match |\n|---|---|\n{table}\n\nExact Match Accuracy / Recall: {recall:.4f}；Precision: {precision:.4f}；F1: {f1:.4f}。错误值同时计 FP 与 FN，缺失值计 FN。原始结果见 `docs/benchmark/results.json`。\n\n这是小规模确定性冒烟基准，不能推断真实收据、中文扫描件、低清照片或任意产品照片的准确率。产品照片无文字时仍需手动填写。第三方 OCR 能力不属于本项目原创。\n',encoding='utf-8')
+    (ROOT/'docs/benchmark/ocr.md').write_text(f'# OCR 可复现基准\n\n运行：`python scripts/benchmark_ocr.py`。使用本仓库脚本生成的 3 张合成英文标签图片，共 15 个字段，不含真实用户凭证。RapidOCR + 当前字段解析规则实际结果：\n\n| 样本 | Exact Match |\n|---|---|\n{table}\n\nExact Match Accuracy / Recall: {recall:.4f}；Precision: {precision:.4f}；F1: {f1:.4f}。错误值同时计 FP 与 FN，缺失值计 FN。原始结果见 `docs/benchmark/results.json`。\n\n这是小规模确定性冒烟基准，不能推断真实收据、中文扫描件、低清照片或任意产品照片的准确率。产品照片无文字时仍需手动填写。第三方 OCR 能力不属于本项目原创。\n',encoding='utf-8')
     print(json.dumps(report['metrics']));print('Benchmark complete: 3 synthetic fixtures, 15 labeled fields')
 
 if __name__=='__main__':run()

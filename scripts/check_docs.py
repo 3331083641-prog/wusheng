@@ -9,6 +9,9 @@ ROOT=Path(__file__).resolve().parents[1]
 
 def check(root=ROOT):
     documents=[p for p in root.glob('*.md') if p.is_file()]+list((root/'docs').rglob('*.md'))
+    # Local-only reports and media are outside the public documentation graph.
+    private=[root/'docs/competition',root/'video-production']
+    documents=[p for p in documents if not any(p.is_relative_to(d) for d in private) and p!=root/'docs/RELEASE_CLEANUP.md']
     broken=[];checked=0
     for doc in documents:
         text=re.sub(r'```.*?```','',doc.read_text(encoding='utf-8-sig'),flags=re.S)

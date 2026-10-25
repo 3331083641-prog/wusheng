@@ -10,7 +10,7 @@ import { tmpdir } from "node:os";
 import { createHash } from "node:crypto";
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const stateFile = process.env.WUSHENG_RESTART_STATE_FILE || path.join(tmpdir(), "wusheng-local-file-restart.json");
-const reportDir = path.join(root, "docs/competition/local-files");
+const reportDir = path.join(root, "docs/verification/local-files");
 const base = process.env.WUSHENG_TEST_BASE_URL || "http://127.0.0.1:5173";
 const backend = process.env.WUSHENG_TEST_API_URL || "http://127.0.0.1:8000";
 const testDataRoot = process.env.WUSHENG_TEST_DATA_DIR || process.env.WUSHENG_DATA_DIR || path.join(root, "data");

@@ -20,5 +20,5 @@ for suite in report['suites']:visit(suite)
 output={'checkedAt':datetime.now(timezone.utc).isoformat(),'data':'isolated synthetic SQLite and generated fixtures',
         'browser':'Microsoft Edge (Playwright)','stats':report['stats'],'tests':tests,
         'limitations':'Native filechooser events and LAN HTTP/QR decode verified; no physical phone test.'}
-(root/'docs/competition/release-ui-results.json').write_text(json.dumps(output,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+(root/'docs/verification/release-ui-results.json').write_text(json.dumps(output,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
 print('Published',len(tests),'synthetic UI results without machine paths')

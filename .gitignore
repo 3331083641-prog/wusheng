@@ -63,3 +63,10 @@ backups/
 ollama/
 .ollama/
 model-cache/
+
+# Local documents and media are kept on disk, never published with the software.
+/docs/competition/
+/video-production/
+/docs/RELEASE_CLEANUP.md
+# Regenerable browser/tool verification outputs
+/docs/verification/

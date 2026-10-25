@@ -7,7 +7,7 @@ import path from "node:path";
 import assert from "node:assert/strict";
 
 const root = fileURLToPath(new URL("../", import.meta.url));
-const output = path.join(root, "docs/competition/hd-images");
+const output = path.join(root, "docs/verification/hd-images");
 await mkdir(output, { recursive: true });
 const manifest = JSON.parse(
   await readFile(path.join(root, "docs/references/hd-image-assets.json"), "utf8"),
